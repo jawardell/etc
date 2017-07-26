@@ -14,7 +14,7 @@ public class Driver {
  	number of 3's and 4's, every 3 has a number after it that is not a 3, and a
  	3 appears in the array before any 4.
 	*/
-	public static int[] fix34(int[] nums) {
+	public int[] fix34(int[] nums) {
 		int index = 0;
 		for(int i = 0; i < nums.length-1; i++) {
 			if(nums[i] == 3) {
@@ -44,7 +44,7 @@ public class Driver {
  	5's, and every 4 has a number after it that is not a 4. In this version, 	
 	5's may appear anywhere in the original array.
 	*/
-	public static int[] fix45(int[] nums) {
+	public int[] fix45(int[] nums) {
 		for(int i = 0; i < nums.length-1; i++) {
 			if(nums[i] == 4) {
 				if(nums[i+1] == 5) {
@@ -76,7 +76,7 @@ public class Driver {
  	array so that the sum of the numbers on one side is equal to the sum of the
  	numbers on the other side.
 	*/
-	public static boolean canBalance(int[] nums) {
+	public boolean canBalance(int[] nums) {
 		int sum1 = 0, sum2 = 0, pos = 0;
 		for(int i = 0; i <= nums.length-2; i++) {
 			for(int j = 0; j <= i; j++) {
@@ -119,7 +119,7 @@ public class Driver {
  	solution makes only a single "linear" pass of both arrays, taking advantage
  	of the fact that both arrays are already in sorted order.	 
 	*/
-	public static boolean linearIn(int[] outer, int[] inner) {
+	public boolean linearIn(int[] outer, int[] inner) {
 		int pos = 0;
 		for(int i = 0; i < outer.length; i++) {
 			if(pos == inner.length) {
