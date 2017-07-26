@@ -1,4 +1,7 @@
 import java.util.*;
+//"...RANDU is widely considered to be one of the most ill-conceived 
+//random number generators ever designed, and was described
+//as 'truly horrible' by Knuth."
 public class Randu {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
