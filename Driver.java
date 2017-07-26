@@ -94,8 +94,24 @@ public class Driver {
 		}
 		return false;
 	}
+	  //0:0 to 1:len-1             ---- the sums, are the equal?
+          //0:1 to 2:len-1             ---- the sums, are the equal?
+          //0:2 to 3:len-1             ---- the sums, are the equal?
+          //0:3 to 4:len-1             ---- the sums, are the equal?
+          //0:4 to 5:len-1             ---- the sums, are the equal?
+          //      ....              ....                ....
+          //0:len-2 to len-1:len-1     ---- the sums, are the equal?
+  
+  	//dual-list manager loop
+    		//list one accumulator
+    		//list two accumulator
+    		//equality check, only return if true
+  	//wrap up, return false.
 
 
+	
+	
+	
 
 	/*
 	Given two arrays of ints sorted in increasing order, outer and inner,
