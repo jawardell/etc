@@ -78,12 +78,12 @@ public class Driver {
 	*/
 	public static boolean canBalance(int[] nums) {
 		int sum1 = 0, sum2 = 0, pos = 0;
-		for(int i = 0; i < nums.length-2; i++) {
-			for(int j = 0; j < i; j++) {
+		for(int i = 0; i <= nums.length-2; i++) {
+			for(int j = 0; j <= i; j++) {
 				sum1 += nums[j];
 				pos = j+1;
 			}
-			for(int j = pos; j < nums.length-1; j++) {
+			for(int j = pos; j <= nums.length-1; j++) {
 				sum2 += nums[j];
 			}
 			if(sum1 == sum2) {
