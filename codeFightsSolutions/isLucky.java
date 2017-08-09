@@ -1,4 +1,4 @@
-public class isLucky {
+class isLucky {
 	boolean isLucky(int n) {
 		String string = Integer.toString(n);
 		int sum1 = 0, sum2 = 0, pos = string.length()-1;

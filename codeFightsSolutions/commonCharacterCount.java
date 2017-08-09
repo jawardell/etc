@@ -1,4 +1,4 @@
-public class commonCharacterCount {
+class commonCharacterCount {
 	int commonCharacterCount(String s1, String s2) {
 		ArrayList<Integer> found = new ArrayList()<>;
 		int count = 0;

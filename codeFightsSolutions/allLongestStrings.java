@@ -1,4 +1,4 @@
-public class allLongestStrings {
+class allLongestStrings {
 	String[] allLongestStrings(String[] inputArray) {
 		int maxlen = Integer.MIN_VALUE;
 		int count = 0;

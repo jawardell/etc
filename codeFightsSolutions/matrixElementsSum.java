@@ -1,4 +1,4 @@
-public class matrixElementsSum {
+class matrixElementsSum {
 	int matrixElementsSum(int[][] matrix) {
 		int sum = 0;
 		for(int col = 0; col < matrix[0].length; col++) {
