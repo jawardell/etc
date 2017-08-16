@@ -39,4 +39,8 @@ vi is a text editor from the early days of UNIX
 vim, or, vi improved, is an improved verison of vi
  :D
 
+~~~~~~~~~~
 
+"Why do I have to prefix the program with ./ when I run it on Linux and the Mac?"
+
+On Unix-style operating systems, programs are run only if you specify the directory where they live or if their directory is listed in the PATH environment variable.
