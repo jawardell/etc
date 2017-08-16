@@ -1,0 +1,9 @@
+I can compile the cards.c file like so -- 
+gcc cards.c
+
+I can send compile the cards.c file into an executable like so -- 
+gcc cards.c -o cards
+
+I can compile into an exectuable then execute like so --
+gcc cards.c -o cards && ./cards
+	.. which executes only if the cards.c file compiles successfully
