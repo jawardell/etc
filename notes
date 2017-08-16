@@ -7,3 +7,36 @@ gcc cards.c -o cards
 I can compile into an exectuable then execute like so --
 gcc cards.c -o cards && ./cards
 	.. which executes only if the cards.c file compiles successfully
+
+
+~~~
+
+don't forget, to turn on line numbers in vi, try the following: 
+
+turn on -- 
+:set nu or :set number
+turn off -- 
+:set nonu or :set nonumber
+also can try :set nu!
+	(if you are angry)!
+~~~~~~~
+
+to change color scheme, do the following: 
+
+make a .vimrc file
+add these lines
+
+syntax on
+colorscheme desert
+:wq
+
+that's it. 
+put in home directory. (i guess)
+
+btw -- 
+
+vi is a text editor from the early days of UNIX
+vim, or, vi improved, is an improved verison of vi
+ :D
+
+
