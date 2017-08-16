@@ -1,5 +1,5 @@
 #include <stdio.h>
-#inlude <stdlib.h>
+#include <stdlib.h>
 int main()
 {
 	char card_name[3];
@@ -10,9 +10,9 @@ int main()
 		val = 10;
 	} else if (card_name[0] == 'Q') {
 		val = 10;
-	} else if (card_name == 'J') {
+	} else if (card_name[0] == 'J') {
 		val = 10;
-	} else if (card_name == 'A') {
+	} else if (card_name[0] == 'A') {
 		val = 11;
 	} else {
 		val = atoi(card_name);
