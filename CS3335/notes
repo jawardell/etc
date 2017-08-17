@@ -302,4 +302,70 @@ all floating point numbers are signed.
 in C we do not have 
 
 
+in C there is no concept of a class in c.. 
+so how we represent the concept of a string..with out the String class.. 
+so we use the LIBRARY string.h to access string methods which operate on "strings"
+the funcitons are built to process char arrays as strings. 
+
+make sure that you include string.h or else the code won't compile 
+
+strlen() // the number of characters in a string
+
+but if you take the size of the array, there will be a sentinel value at the end, ASCII zero which is '\0'
+
+loose and tight arrays. 
+
+will you have room in your array, space, or will you make an arry of exact size for your string 
+
+
+
+
+
+
+
+
+
+ASSIGNMENT, which is due in a week 
+
+... 
+
+
+
+thouroughly test the program. try to break it. IS the program robust enough. 
+
+
+create a tarball which contains only two files: 
+	source code file 
+	pdf of screenshots of code runs	
+
+
+
+
+tar cvf compressed.tar  file1.c file.pdf
+
+***** this is how we compress files into a tarball 
+
+
+
+make array of size 100, then incriment the value of each number occurence, make a tally sheet. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
