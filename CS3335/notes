@@ -233,11 +233,73 @@ when we are ready to make, all we have to do is say make filename     NOTICE -- 
 
 
 
+in Java these are datatypes
+
+JAVA integer types: byte (1)  ,   short(2)  ,  int(4)   ,  long(8)  
+JAVA floating point types: float(4)   ,      double(8)    ,   char(2)  ,     boolean(1)
+
+this is a universal description
+Java is using the Java virtual machine, meaning that it is platform independent
+The JVM abstracts everythign away from the machine that you are using 
+
+
+....BUT the same is not true about C!! It is platform depnedent. C is a LOW LEVEL language. It uses the computer hardware. 
+
+C -- the data types require different amounts of space dependending on what mahine you are using, 
+
+	a 32 bit machine uses different space for data types as opposed to a 64 bit machine which has different storage amounts 
+		for data types
+
+
+also, check out iTerm2
 
 
 
 
 
+
+let's take a look at rocks.c
+
+
+
+take a look at the basic data types of the language(s)... these are the basics!!
+
+
+
+
+integers can be signed or unsigned 
+	can they be pos/neg or only positve(signed)
+
+
+TYPES IN C can be signed or unsigned
+booleans in C are numbers. 
+	FALSE is 0, 0.0, '\0', NULL
+
+when you want to use math programming, use the math library 
+	anything that uses the math fucntions, you need to do 
+gcc -lm       #<math.h> (somehthing like that anyway....)
+
+
+
+
+
+
+to see the MAX_VALUE or MIN_VALUE, you have to #inlude<limits.h>
+
+
+make sure to include the right header files for what you are doing 
+
+
+the max and min values VARY DEPENING ON THE MACHINE
+why -- because C is machine dependent 
+and it uses the computer hardware 
+
+
+
+
+
+all floating point numbers are signed. 
+in C we do not have 
 
 
 
