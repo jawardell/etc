@@ -149,6 +149,85 @@ if(!value is zero)
 
 
 
+~~~~~~~~~~~~~~~~~~~
+
+last class, we learned how to check the contents of a tarball using tar -tvf filename.tar
+we also learned how to decompress the contents of a tarball using tar -xvf filename.tar
+also you can alias your ll 
+we also compiled one of our example code files, rocks.c
+we did it like so:     gcc rocks.c -o rocks
+this compiles the file into an executable 
+
+
+
+
+
+what is a system headerfile   ---- things that you import to use like        #include <stdio.h>    or      #include<limits.h>
+we will be including our ouwn header files
+
+C IS SMALL
+
+
+we don't use methods in C, we use functions, (C is a procedural language)
+
+there is formatting in C, like printf etc...
+
+
+
+when you compile the file without specifying the naem of the executable then it compiles to a default a.out file which is what you run
+
+
+my terminal doesn't know how to execute compiled files because 
+
+memory manipulation and how compilers work 
+
+
+
+so how does the c compiler work? 
+
+
+some languages are interpreted like Ruby, php, python, perl, etc.. 
+.... but C is compiled. 
+
+
+gcc send the file to the compiler and there are three steps
+	PRE-PROCESSING -- the compiler looks at the whole source code file
+		looks at whole source code file one line at time, then executes after that
+		sees headerfiles, locates them, and puts them into the source code!
+	INTERMEDIATE FILE
+	COMPILING -- takes the output from intermediate file and chekcs for syntax errors
+		if everything is OK ~ generate object file .o file
+	LINKER FILE -- this is what takes the object file to the final executable file
+	EXECUTABLE FILE -- the file which contains machine code which you run
+
+	so there are three phases: 
+	Pre-Processing
+	Compiling
+	Sending to Outfile
+
+
+
+so let's say we want to skip the last linking step, there are garbage files like .o and a.out
+well, we can skip the last step by doing    gcc -c rocks.c
+this will give us the rocks.o object file which is the file that would be sent to the linker file, but was not because we did   -c
+
+
+
+
+for every file that we have in the system that we are doing, we will need to compile and process each file, each headder file. 
+we manage the build of each file that we have in the project
+we manage the build -- we have to keep track of the dependency relationship of the files, depend., compile, etc
+
+
+.....BUT make will help us do this. 
+all we have to do is make a make file which will build and process our project files for us. 
+...so its basically a script that compiles our files for us.. we will talk about this later. 
+
+
+
+
+
+
 
 
 
