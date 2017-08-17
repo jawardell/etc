@@ -18,6 +18,13 @@ int main()
 		val = atoi(card_name);
 	}
 	printf("The card value is: %i\n", val);
+
+	if(val >= 3 &&  val <= 6)
+		puts("The count went up!");
+	else if(atoi(card_name) == 10)
+		puts("The count did something, bectheuse it's the ten.");
+	else
+		puts("The count went down.");
 	return 0;
 	
 }

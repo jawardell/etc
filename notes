@@ -44,3 +44,118 @@ vim, or, vi improved, is an improved verison of vi
 "Why do I have to prefix the program with ./ when I run it on Linux and the Mac?"
 
 On Unix-style operating systems, programs are run only if you specify the directory where they live or if their directory is listed in the PATH environment variable.
+
+
+~~~~~~~~~~
+
+C doesn't see strings out of the box. 
+
+It has to read in the characters into an array for processing. 
+
+So, an array of charcters is a String, right? 
+
+Yes. 
+
+Another useful vim command: 
+
+move to end of page and start typing: G$a
+move to end of page but don't type: G$
+move to end of word: ee
+move to end of line: $
+move to beginning of line: 0
+
+You want a string in C? Make an array of characters. 
+
+C is so small. You have to import basic functionalities as you want to use them. 
+Even when you want to print out to the console, you have to #include <stdio.h>. 
+This is why C is so good, it's so small and so fast. 
+We need to compile languages quickly and no one wants to do that in Java or Python. 
+The langs are just too big and would take too long. 
+
+How can we share our thoughts and ideas with a computer? With an inanimate object? 
+We have to learn how to speak to them using electicity and magnets. 
+
+
+
+~~~~~~~~~
+
+Since C is a low level language, farther away from human language, it doesn't know how
+long a string (character array) is exactly. 
+
+C uses the \0 character as a sentinel character. When C sees this, it knows that it has reached the end of the array of characters [string].
+
+\0 is the character with ACSII value zero.
+
+SO::: when you make a string, a char array for the letters in the string, you MUST make room for the sentinel character which will
+be placed at the end of the array to denote the end of the array. 
+
+my intuition -- C places the \0 at the end of the array automatically when reading input from the console
+you, however, should account for the \0 when you are creating a string char array. 
+	and if you dont, C will not know where the end of the string is. 
+
+It seems that the reason indexing begins at 0 is so the computer can calculate DISTANCE among elements. 
+The computer cares about distance because this would help it be able to see where in memory another 
+	element is in comparison to another one.
+The computer stores elements in consective spaces in memory. 
+
+
+
+Ok, so usually, we will define strings as string literals, like so "example". 
+But, remember that C doesn't see strings out of the box and also 
+	strings really are just character arrays with the sentinel value at the end. 
+
+STRING LITERALS ARE CONSTANT: 
+	we can change the elements in an array of characters, but we can't change the
+	letters in a string literal. 
+	like in Java, when we make a string, then we perform string concatenation, += . 
+	The old string looses it's reference, or pointer, is picked up as garbage, 
+	then the new string is being pointed to and remains in memory. 
+
+	So I am gussing that the same thing has to happen in C, but C is naive to 
+	implicit memory management. 
+	If we want to "change a string literal", we have to destroy the old one
+	and make a brand new one, which is actually not changing the original string
+	at all. . . .
+
+Don't make too many comparisons to Java, those were just my intuitions from what i've read
+	so far.. C stores data differently. 
+
+
+
+IN C, boolean values are numbers. 
+	True is 0 
+	False is !0
+
+so you could do this in C if you wanted: 
+
+int people_moshing = 34;           //make a space in memory for an integer data type, assign the value 34 to the variable people_moshing
+if(people_moshing)                 //is people_moshing true? is people_moshing == 0? 
+	take_off_glasses();        //if people_moshing == 0, then execute the function take_off_glasses(), a function which takes no arguments
+
+this is a great way to check if a number is not zero
+
+if(value is zero) 
+	do this
+
+if(!value is zero) 
+	do this
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

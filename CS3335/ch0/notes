@@ -1,0 +1,8 @@
+In order to unzip a tarball, make sure that you do this: 
+
+tar -xvf filename.tar
+
+In order to preview the files of a tarball, make sure that you do this: 
+
+tar -tvf filename.tar
+
