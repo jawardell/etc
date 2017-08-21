@@ -195,6 +195,8 @@ gcc send the file to the compiler and there are three steps
 		looks at whole source code file one line at time, then executes after that
 		sees headerfiles, locates them, and puts them into the source code!
 	INTERMEDIATE FILE
+		an intermediate file is made which we don't see
+		the compiler uses this file to get through the next few steps
 	COMPILING -- takes the output from intermediate file and chekcs for syntax errors
 		if everything is OK ~ generate object file .o file
 	LINKER FILE -- this is what takes the object file to the final executable file
