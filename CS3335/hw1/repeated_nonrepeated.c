@@ -3,9 +3,15 @@
 int main(){
 	// Change the elements in the following array
 	// to test your program
-	int digits[]={2,0,38,2,3,1,3};
+	int digits[]={};
 	int i;
 	
+	if(sizeof(digits) == 0) {
+		puts("first rep: n/a\nfirst non-rep: n/a\n");
+		puts("last rep: n/a\nlast non-rep: n/a\n");
+		return 0;
+	}
+
 	printf("In the array of ");	
 	for (i=0; i<sizeof(digits)/sizeof(int); i++)
 		printf("%d ", digits[i]);
