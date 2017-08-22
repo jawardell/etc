@@ -27,15 +27,22 @@ int main(){
 	for(i = 0; i < 99; i++) //initialize all tallies to 0
 		tallies[i] = 0;
 	
-	for(i = 0; i < sizeof(digits); i++) { //1. look at values and make tallies
+
+	puts("\n[1/5]tallies array initialized to 0 [we made it past that part] size of digits : ");
+	printf("%lu\n", sizeof(digits));
+
+	for(i = 0; i < sizeof(digits)/sizeof(digits[0]); i++) { //1. look at values and make tallies
 	//how many occurences are there?? let's see..
-		tallies[digits[i]]++;	
+		tallies[digits[i]] = tallies[digits[i]] +  1;	
 	}
 
-	for(i = 0; i < sizeof(digits); i++) { //2. NOW, look thru digits FORWARD
+	puts("\n[2/5]we made it past the tally making\n");
+
+	for(i = 0; i < sizeof(digits)/sizeof(digits[0]); i++) { //2. NOW, look thru digits FORWARD
 		int foundrep = 0;//finding first repeated
 		int foundnonrep = 0;//finding first non-repeated
-	
+		
+		puts("\n[3/5]inside of foward looking loop...\n");
 	
 		if(foundrep && foundnonrep) {
 			break;
@@ -52,10 +59,12 @@ int main(){
 	}
 	
 
-	for(i = sizeof(digits)-1; i >= 0; i--) { // 3. look thru digits forward
+	for(i = (sizeof(digits)/sizeof(digits[0]))-1; i >= 0; i--) { // 3. look thru digits forward
 
 		int foundrep = 0;
 		int foundnonrep = 0;
+
+		puts("\n[4/5]inside of backward looking loop...\n");
 		
 		if(foundrep && foundnonrep) {
 			break;
@@ -73,8 +82,11 @@ int main(){
 
 	}
 
-
-	printf("first rep:%d\nfirst non-rep:%d\nlast rep:%d\n last non-rep:%d", firstrep, firstnonrep, lastrep, lastnonrep);
-
+	puts("\n[5/5]made it to the end.. \n");
+	printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", firstrep, firstnonrep, lastrep, lastnonrep);
+	for(i = 0; i < sizeof(digits)/sizeof(int); i++) {
+		printf(" %d ", digits[i]);
+	}
+	puts("\n");
 	return 0;
 }
