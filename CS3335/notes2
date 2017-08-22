@@ -25,4 +25,34 @@ gcc and args to specify how you want files compiled
 :p
 
 
+what is eof --- end of file
 
+	how do we figure out where the end of the file is??? 
+
+	we can use a do whlie loop.. 
+
+	control c -- your operating system makes the program stop. the OS 
+		makes the program stop, it kills the process. you don't 
+		want your OS to come in and kill the file
+
+	but... we can tell the program where the end of the file is by doing  ---- 
+
+			CONTROL D      !!!  :P
+	your program took that signal and knows to finish that process by itself
+		need to import limits headerfile to use EOF
+		anyway, eof looks at input, waits for another round of input, waiting for 
+			CONTROL D
+	
+
+	standard io library, get char
+
+	it's a good idea to type input as an int or other signed character... 
+		other types may work , but int is safe.. 
+		... sometimes types might be automatically promoted to an integer.
+		we don't want to spend time on loops or if,else...[tangent]
+		
+
+		~~~~~Type Promotion~~~~~~~
+
+		unsigned char is not promoted to an int, 
+		however, signed char is. 
