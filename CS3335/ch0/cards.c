@@ -43,3 +43,14 @@ int main(){
 	return 0;
 
 }
+
+
+
+//the program does't know what to do with long numbers.. 
+//it continues to look for more card values. .
+
+//and parses more values of two numbers from the string and 
+//does with them what it will 
+
+//by altering the count.. 
+//because of our format scan and while loop
