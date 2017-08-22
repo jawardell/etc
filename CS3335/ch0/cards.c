@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(){
-	char card_name[3];
+	char card_name[3]; // make room for sentinel value, \0, this is ASCII value of zero. (c is dumb..)
 	int count = 0;
 	while (card_name[0]!='X'){
 		puts ("Enter the card_name: ");
