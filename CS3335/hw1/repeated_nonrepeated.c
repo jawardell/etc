@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+//doesn't work
+
 int main(){
 	// Change the elements in the following array
 	// to test your program
-	int digits[]={};
+	int digits[]={26, 25, 0 , 26, 30, 13, 25, 30, 13, 0};
 	int i;
 	
 	if(sizeof(digits) == 0) {
