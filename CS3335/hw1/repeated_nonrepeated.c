@@ -59,7 +59,7 @@ int main(){
 	}
 	
 
-	for(i = (sizeof(digits)/sizeof(digits[0]))-1; i >= 0; i--) { // 3. look thru digits forward
+	for(i = (sizeof(digits)/sizeof(digits[0]))-1; i >= 0; i--) { // 3. look thru digits backward..
 
 		int foundrep = 0;
 		int foundnonrep = 0;
