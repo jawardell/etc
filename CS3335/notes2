@@ -55,4 +55,13 @@ what is eof --- end of file
 		~~~~~Type Promotion~~~~~~~
 
 		unsigned char is not promoted to an int, 
-		however, signed char is. 
+		however, signed char is.
+
+
+
+
+
+
+		we will start talking about bit manipulation
+
+		it is important and it will be on the next assignment 
