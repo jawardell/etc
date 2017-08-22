@@ -1,11 +1,17 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 int main(){
 	// Change the elements in the following array
 	// to test your program
-	int digits[]={2,0,38,2,3,1,3};
+	int digits[]={};
 	int i;
 	
+	if(sizeof(digits) == 0) {
+		puts("first rep: n/a\nfirst non-rep: n/a\n");
+		puts("last rep: n/a\nlast non-rep: n/a\n");
+		exit(1);	
+	}
+
 	printf("In the array of ");	
 	for (i=0; i<sizeof(digits)/sizeof(int); i++)
 		printf("%d ", digits[i]);
@@ -31,14 +37,14 @@ int main(){
 	puts("\n[1/5]tallies array initialized to 0 [we made it past that part] size of digits : ");
 	printf("%lu\n", sizeof(digits));
 
-	for(i = 0; i < sizeof(digits)/sizeof(digits[0]); i++) { //1. look at values and make tallies
+	for(i = 0; i < sizeof(digits)/sizeof(int); i++) { //1. look at values and make tallies
 	//how many occurences are there?? let's see..
 		tallies[digits[i]] = tallies[digits[i]] +  1;	
 	}
 
 	puts("\n[2/5]we made it past the tally making\n");
 
-	for(i = 0; i < sizeof(digits)/sizeof(digits[0]); i++) { //2. NOW, look thru digits FORWARD
+	for(i = 0; i < sizeof(digits)/sizeof(int); i++) { //2. NOW, look thru digits FORWARD
 		int foundrep = 0;//finding first repeated
 		int foundnonrep = 0;//finding first non-repeated
 		
@@ -58,8 +64,8 @@ int main(){
 		
 	}
 	
-
-	for(i = (sizeof(digits)/sizeof(digits[0]))-1; i >= 0; i--) { // 3. look thru digits backward..
+	
+	for(i = (int)(sizeof(digits)/sizeof(int))-1; i >= 0; i--) { // 3. look thru digits backward..
 
 		int foundrep = 0;
 		int foundnonrep = 0;
