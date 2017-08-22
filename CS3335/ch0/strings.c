@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main(){
-	char s1[]="Shatner";
+	char s1[]="Shatner";//the computer is smart enough to count and insert \0 sentinel value.. 
 	printf("sizeof(s1) = %ld\n", sizeof(s1));
 	printf("strlen(s1) = %ld\n", strlen(s1));
 
