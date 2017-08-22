@@ -90,3 +90,22 @@ int main(){
 	puts("\n");
 	return 0;
 }
+
+
+/*
+I learned from this exercise how dumb c is. It doesn't even know how many elements are in an array. 
+It can , however, see how many bytes are in an array or how many bytes are in one element of an array.. 
+
+to see how many elements are in an array in c, please do the following:: 
+
+sizeof(array)   -- this tells you how many bytes are in the array
+sizeof(int)     -- this tells you how many bytes are in an int (or what ever data type, this differs per machine b/c c is machine dependent)
+sizeof(array)/sizeof(int)   --   if an int takes up this much space and there is this much data in the array, it makes sense
+	that this equation would tell you how many elements are in the array... 
+
+
+:D
+
+
+
+*/
