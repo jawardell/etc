@@ -1,0 +1,28 @@
+don't forget -- 
+
+
+you can use switch statement in c
+
+
+format scans limit your program to only accepting certain input
+
+you are responsible for managing the space and contents in an array in C
+
+don't forget about the sentinel value(s) in c
+
+don't forget that atoi is the way to convert string values to numrical values [parsing]
+
+
+
+
+preprocessing
+compiling
+linking
+
+gcc and args to specify how you want files compiled
+
+...but you can always just do make.. 
+:p
+
+
+
