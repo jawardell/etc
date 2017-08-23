@@ -91,7 +91,7 @@ int main(){
 	}
 
 	puts("\n[5/5]made it to the end.. \n");
-	printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", firstrep, firstnonrep, lastrep, lastnonrep);
+	printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", lastrep, lastnonrep, firstrep, firstnonrep);
 	for(i = 0; i < sizeof(digits)/sizeof(int); i++) {
 		printf(" %d ", digits[i]);
 	}
