@@ -31,7 +31,7 @@ int main(){
 
 	
 
-	int tallies[99]; //make tally board for every digit 1-99 
+	int tallies[100]; //make tally board for every digit 1-99 
 	for(i = 0; i < 99; i++) //initialize all tallies to 0
 		tallies[i] = 0;
 	
@@ -41,7 +41,7 @@ int main(){
 
 	for(i = 0; i < sizeof(digits)/sizeof(int); i++) { //1. look at values and make tallies
 	//how many occurences are there?? let's see..
-		tallies[digits[i]] = tallies[digits[i]] +  1;	
+		tallies[digits[i]]++;	
 	}
 
 	puts("\n[2/5]we made it past the tally making\n");
@@ -59,7 +59,7 @@ int main(){
 			firstrep = digits[i];
 			foundrep = 1;
 		}
-		if(!foundnonrep && tallies[digits[i]] == 1) {
+		if((foundnonrep != 0 ) && tallies[digits[i]] == 1) {
 			firstnonrep = digits[i];
 			foundnonrep = 1;
 		}
@@ -67,7 +67,7 @@ int main(){
 	}
 	
 	
-	for(i = (int)(sizeof(digits)/sizeof(int))-1; i >= 0; i--) { // 3. look thru digits backward..
+	for(i = sizeof(digits)/sizeof(int)-1; i >= 0; i--) { // 3. look thru digits backward..
 
 		int foundrep = 0;
 		int foundnonrep = 0;
@@ -83,7 +83,7 @@ int main(){
 			foundrep = 1;
 		}
 
-		if(!foundnonrep && tallies[digits[i]] == 1) {
+		if((foundnonrep != 0 )  && tallies[digits[i]] == 1) {
 			lastnonrep = digits[i];
 			foundnonrep = 1;
 		}
