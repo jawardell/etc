@@ -1,0 +1,77 @@
+In the array of 26 25 10 26 30 13 25 30 13 0 
+
+[1/5]tallies array initialized to 0 [we made it past that part] size of digits : 
+40
+1 0 0 0 0 0 0 0 0 0 1 0 0 2 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+[2/5]we made it past the tally making
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[3/5]inside of foward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[4/5]inside of backward looking loop...
+
+
+[5/5]made it to the end.. 
+
+last rep:26
+last non-rep:-1
+first rep:13
+first  non-rep:-1
+
+ 26  25  10  26  30  13  25  30  13  0 
+
