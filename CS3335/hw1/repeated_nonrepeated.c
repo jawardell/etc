@@ -5,7 +5,7 @@
 int main(){
 	// Change the elements in the following array
 	// to test your program
-
+	
 	//int digits[]={26, 25, 10 , 26, 30, 13, 25, 30, 13, 0};
 	int digits[]={25, 25, 25};
 //	int digits[] = {25};
@@ -71,12 +71,6 @@ int main(){
 	for(i = 0; i < sizeof(digits)/sizeof(int); i++) {
 		tallies[digits[i]]++;	
 	}
-	//for(i = 0; i < sizeof(tallies)/sizeof(int); i++) {
-	//	printf("%d ",tallies[i]);
-	//}
-
-
-
 
 
 	for(i = 0; i < sizeof(digits)/sizeof(int); i++) {
