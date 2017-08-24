@@ -1,3 +1,15 @@
+//Joanne Wardell
+//CS3335
+//Thursday, August 24, 2017
+//Design:
+	//program uses hashtable 0-99 to mark occurrences
+	//iterates forward through input array to find first rep/non-rep
+	//iterates backward through input array to find last rep/non-rep
+	//returns speacial values
+	//NOTE: if value is not found, values remain -1.
+//Runtime Commplexity - O(n) Oh-of n
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,8 +19,10 @@ int main(){
 	// to test your program
 	
 	//int digits[]={26, 25, 10 , 26, 30, 13, 25, 30, 13, 0};
-	int digits[]={25, 25, 25};
+	//int digits[]={25, 25, 25};	
+//	int digits[]={26, 25, 0 , 26, 30, 13, 25, 30, 13, 0};
 //	int digits[] = {25};
+	int digits[] = {1, 2, 3, 4, 5, 6, 7};
 	//int digits[] = {1, 2, 2, 3,4, 5, 4,8};
 	int i;
 	
