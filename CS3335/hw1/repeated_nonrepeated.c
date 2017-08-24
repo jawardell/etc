@@ -7,6 +7,7 @@ int main(){
 	// to test your program
 
 	int digits[]={26, 25, 10 , 26, 30, 13, 25, 30, 13, 0};
+	//int digits[]={25, 25, 25};
 
 	int i;
 	
@@ -31,7 +32,34 @@ int main(){
 	int lastrep = -1;
 	int lastnonrep = -1;
 
-	
+
+	if(sizeof(digits)/sizeof(int) == 1) {
+		firstrep = digits[0];
+		firstnonrep = digits[0];
+		lastrep = digits[0];
+		lastnonrep =  digits[0];	
+		printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", lastrep, lastnonrep, firstrep, firstnonrep);
+		return 0;
+	}
+	int allsame = 1;
+	int value = digits[0];
+	for(i = 0; i < sizeof(digits)/sizeof(int); i++) {
+		if(value != digits[i]) {
+			allsame = 0;		
+		}
+	}
+
+
+	if(allsame) {
+		firstrep = digits[0];	
+		firstnonrep = digits[0];	
+		lastrep = digits[0];	
+		lastnonrep = digits[0];
+		printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", lastrep, lastnonrep, firstrep, firstnonrep);
+		
+		return (0);	
+	}	
+
 
 	int tallies[100] = {}; //make tally board for every digit 1-99
 	
@@ -95,7 +123,7 @@ int main(){
 	}
 
 
-	printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", lastrep, lastnonrep, firstrep, firstnonrep);
+	printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", firstrep, firstnonrep, lastrep, lastnonrep);
 	for(i = 0; i < sizeof(digits)/sizeof(int); i++) {
 		printf(" %d ", digits[i]);
 	}
