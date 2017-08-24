@@ -121,7 +121,6 @@ int main(){
 			foundnonrep = 1;
 		}
 
-	}
 
 
 	printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", firstrep, firstnonrep, lastrep, lastnonrep);
