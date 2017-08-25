@@ -5,7 +5,7 @@
 	//program uses hashtable 0-99 to mark occurrences
 	//iterates forward through input array to find first rep/non-rep
 	//iterates backward through input array to find last rep/non-rep
-	//returns speacial values
+	//returns special values
 	//NOTE: if value is not found, values remain -1.
 //Runtime Commplexity - O(n) Oh-of n
 
