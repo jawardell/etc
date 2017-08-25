@@ -100,7 +100,7 @@ what happens when you try to make an unsigned variable signed?
 
 [11111111][11111111][11111111][11111110]
 [] are bytes
-1 and 0 are bytes
+1 and 0 are bits
 
 
 
