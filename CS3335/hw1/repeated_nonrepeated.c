@@ -18,11 +18,11 @@ int main(){
 	// Change the elements in the following array
 	// to test your program
 	
-	//int digits[]={26, 25, 10 , 26, 30, 13, 25, 30, 13, 0};
+	int digits[]={26, 25, 10 , 26, 30, 13, 25, 30, 13, 0};
 	//int digits[]={25, 25, 25};	
-//	int digits[]={26, 25, 0 , 26, 30, 13, 25, 30, 13, 0};
-//	int digits[] = {25};
-	int digits[] = {1, 2, 3, 4, 5, 6, 7};
+	//int digits[]={26, 25, 0 , 26, 30, 13, 25, 30, 13, 0};
+	//int digits[] = {25};
+	//int digits[] = {1, 2, 3, 4, 5, 6, 7};
 	//int digits[] = {1, 2, 2, 3,4, 5, 4,8};
 	int i;
 	
@@ -96,11 +96,11 @@ int main(){
 		if(foundrep && foundnonrep) {
 			break;
 		}
-		if(!foundrep  && (tallies[digits[i]] > 1)) {
+		if((!foundrep  && (tallies[digits[i]] > 1)) && (firstrep == -1)) {
 			firstrep = digits[i];
 			foundrep = 1;
 		}
-		if(!foundnonrep && (tallies[digits[i]] == 1)) {
+		if((!foundnonrep && (tallies[digits[i]] == 1)) && (firstnonrep == -1)) {
 			firstnonrep = digits[i];
 			foundnonrep = 1;
 		}
@@ -119,20 +119,19 @@ int main(){
 			break;
 		}
 
-		if(!foundrep && (tallies[digits[i]] > 1)) {
+		if((!foundrep && (tallies[digits[i]] > 1)) && (lastrep == -1)) {
 			lastrep = digits[i];
 			foundrep = 1;
 		}
 
-		if(!foundnonrep  && (tallies[digits[i]] == 1)) {
+		if((!foundnonrep  && (tallies[digits[i]] == 1))  && (lastnonrep == -1)) {
 			lastnonrep = digits[i];
 			foundnonrep = 1;
 		}
 
 	}
 
-
-	printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", firstrep, firstnonrep, lastrep, lastnonrep);
+	printf("last rep:%d\nlast non-rep:%d\nfirst rep:%d\nfirst  non-rep:%d\n\n", lastrep, lastnonrep, firstrep, firstnonrep);
 //	for(i = 0; i < sizeof(digits)/sizeof(int); i++) {
 //		printf(" %d ", digits[i]);
 //	}
