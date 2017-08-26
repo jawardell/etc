@@ -1,4 +1,4 @@
-package threads;
+
 
 public class TenThreads {
 	public static int count = 0;

@@ -1,4 +1,4 @@
-package threads;
+
 
 public class ThreadsGuardedBlock {
 	public static void main(String[] args) {
