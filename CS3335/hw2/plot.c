@@ -14,6 +14,23 @@ int main(void){
     }
 
 	// Your code here...
+	
+
+	int min = INT_MAX;
+	int max = INT_MIN;
+	
+	for(i = low; i <= high; i++) {
+		if(f(i) < min) {
+			min = f(i);
+		}
+		if(f(i) > max) {
+			min = f(i);
+		}
+	}
+	printf("min = %d\nmax = %d\n", min, max);
+	
+
+
 	return 0;
 }
 
