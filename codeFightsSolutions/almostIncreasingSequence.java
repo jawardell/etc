@@ -38,3 +38,7 @@ class almostIncreasingSequence {
 		return true;
 	}
 }
+
+//Oh-of-n O(n) solution
+//although less elegant than quadratic solution,
+	//runtime complexity is improved.
