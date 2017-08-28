@@ -24,11 +24,14 @@ int main(void){
 			min = f(i);
 		}
 		if(f(i) > max) {
-			min = f(i);
+			max = f(i);
 		}
 	}
 	printf("min = %d\nmax = %d\n", min, max);
-	
+	//do the x axis here, incriment by five to high
+	for(i = low; i <= high; i++) {
+		printf("\nt = %d\n", i);
+	}
 
 
 	return 0;
