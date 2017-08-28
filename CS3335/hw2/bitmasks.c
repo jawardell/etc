@@ -21,7 +21,7 @@ unsigned invertbits(unsigned x, int p, int n) {
 	double p2 = (double)p;
 	double i;	
 	double mask  = 0;
-	for(i = 0; i <= n+1; i++) {
+	for(i = 0; i < p-n+1; i++) {
 		
 		mask += pow(2.0,p-i);
 		
