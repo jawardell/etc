@@ -1,16 +1,43 @@
 #include <stdio.h>
 #include <limits.h>
+#include <math.h>
+
 
 void bit_print(int);
 int pack(char, char, char, char);
 char unpack(int, int);
 unsigned getbits(unsigned, int, int);
+unsigned setbits(unsigned x, int p, int n, unsigned y);
+unsigned invertbits(unsigned x, int p, int n);
+
+
+unsigned setbits(unsigned x, int p, int n, unsigned y) {
+	return 0;
+}
+
+
+unsigned invertbits(unsigned x, int p, int n) {
+	//follow the formula to make the mask
+	double p2 = (double)p;
+	double i;	
+	double mask  = 0;
+	for(i = 0; i <= n+1; i++) {
+		
+		mask += pow(2.0,p-i);
+		
+	}
+	printf("HERE IS THE MASK!! : %d\n\n\n", (int)mask);
+	return 0;
+}
+
 
 void bit_print(int a){
 	int i;
 	int n = sizeof(int) * CHAR_BIT;
 	int mask = 1 << (n-1); // mask = 100...0
 	
+
+	invertbits(14955555, 7, 4);
 	for (i=1; i<=n; i++){
 		putchar(((a & mask) == 0)? '0' : '1');
 		a <<= 1;
