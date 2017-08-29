@@ -61,3 +61,81 @@ two key points
 
 	the idea of having the \0 at the end of every char array
 	talking about the use of printf often in the program
+
+
+
+codeforces.com/blog/entry/18169
+talking about bit masking
+
+
+
+left shift is multiplying by 2 (more, 2*2, 2*2*2)
+right shift is dividing  by 2 (more, 2/2/2)
+
+
+ add the jth bit to the subject, (all this is on the blog)
+
+what is | ? this is the OR logic. 
+	1 | 1 = 1
+	0 | 1 = 1
+	1 | 0 = 1
+	0 | 0 = 0
+
+A |= ( 1 << j )
+
+step one
+	you have something that is leftshifted j times
+	one is a bunch of zeros and one at the end 
+	j is one in the example
+step two 
+	do bitwise negation
+	we do this using the nor operator ~
+	
+step three 
+	bitwise AND & 
+
+
+
+checking bits
+	shift one into the bit position
+	next do bitwise AND
+	so bitwise and clears up everything other than the bit you want
+
+get value of least significant bit
+	....
+
+
+	
+
+copy code from blog then compile it run it
+	see if it suprises you when you run it.. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
