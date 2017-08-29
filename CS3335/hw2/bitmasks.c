@@ -16,17 +16,21 @@ unsigned setbits(unsigned x, int p, int n, unsigned y) {
 	double i; 
 	for(i = 0; i < n; i++) {
 		ybm += pow(2,i); //positions of y bits
+		printf("ybm is %d\n\n", ybm);
 	}
 	unsigned ybm1 = (unsigned)ybm;
 	unsigned yex = y&ybm1; // GRAB bits from y
+	printf("yex is %u\n\n", yex);
 	double xbm = 0;
 	double p2 = (double)p;
 	unsigned xcopy = x;
 	for(i = 0; i < p2-n-1; i++) {
 		xbm += pow(2,p2-i); //postions of x bits
+		printf("xbm is %d\n\n", xbm);
 	}	
 	unsigned xbm1 = (unsigned)xbm;
 	xbm1 = xbm1^xcopy;// find positions in x
+	printf("xbm1(postion finder) is: %u\n\n", xbm1);
 	int pos = 0;
 	for(i = 0; i <= pos; i++) {
 		if(pos == n-1) {
@@ -35,7 +39,8 @@ unsigned setbits(unsigned x, int p, int n, unsigned y) {
 		yex<<1;//shift y mask into position
 		pos++;
 	}
-
+	printf("yex post shift is: %u\n\n", yex);
+	printf("xcopy | yex is: %u\n\n", xcopy | yex);
 	return xcopy | yex;//set and return bits
 }
 
@@ -100,7 +105,7 @@ unsigned getbits(unsigned x, int p, int n){
 
 int main(){
 	int x = 19;
-	printf("\n\n\tHERE WE GO!! x = 2004384122\tp=19\tn=9\t\t%u\n\n", invertbits(2004384122,19,9) );
+	printf("\n\tsetbits: x = 2004384122, y = 1634952294, p = 20, n = 4\t\t%u\n\n", setbits(2004384122, 20, 4,  1634952294 ));	
 	printf("The binary rep. of %d is:\n", x);
 	bit_print(x);
 
