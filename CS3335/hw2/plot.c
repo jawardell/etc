@@ -49,6 +49,11 @@ int main(void){
 		line[i] = ' ';
 	}
 	t = 0;
+	//plug in t
+	//make array[f(t)] = *
+	//make loop that goes to length of char array
+	//have counter for t that only increments when at the end of char array
+	//this is how you know what t is and make array[f(t)] = *
 	for(i = low; i <= high; i++) {
 		printf("t = %d", i);
 		if(f(t) == i) {
@@ -59,7 +64,7 @@ int main(void){
 		}
 		printf("\n");	
 	
-		t++;
+		ft += 5;
 
 	}
 
