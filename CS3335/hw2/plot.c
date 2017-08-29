@@ -54,17 +54,28 @@ int main(void){
 	//make loop that goes to length of char array
 	//have counter for t that only increments when at the end of char array
 	//this is how you know what t is and make array[f(t)] = *
-	for(i = low; i <= high; i++) {
+	
+	for(i = 0; i < (sizeof(line)/sizeof(char)); i++) {
 		printf("t = %d", i);
+		
+		if(i == (sizeof(line)/sizeof(char)-1)) {
+			printf("\n");
+			t++;
+			continue;
+		}
 		if(f(t) == i) {
 			printf("*");
-		} 
-		if(f(t) != i) {
-			printf("%c", line[i]);
 		}
-		printf("\n");	
+		if(f(t) != i) {
+			printf(" ");
+		}
+
+
+
+
+
 	
-		ft += 5;
+	
 
 	}
 
