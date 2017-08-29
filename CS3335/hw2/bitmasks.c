@@ -16,7 +16,7 @@ unsigned setbits(unsigned x, int p, int n, unsigned y) {
 	double i; 
 	for(i = 0; i < n; i++) {
 		ybm += pow(2,i); //positions of y bits
-		printf("ybm is %d\n\n", ybm);
+		printf("ybm is %f\n\n", ybm);
 	}
 	unsigned ybm1 = (unsigned)ybm;
 	unsigned yex = y&ybm1; // GRAB bits from y
@@ -26,7 +26,7 @@ unsigned setbits(unsigned x, int p, int n, unsigned y) {
 	unsigned xcopy = x;
 	for(i = 0; i < p2-n-1; i++) {
 		xbm += pow(2,p2-i); //postions of x bits
-		printf("xbm is %d\n\n", xbm);
+		printf("xbm is %f\n\n", xbm);
 	}	
 	unsigned xbm1 = (unsigned)xbm;
 	xbm1 = xbm1^xcopy;// find positions in x

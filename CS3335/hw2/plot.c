@@ -11,7 +11,7 @@ int main(void){
 	int low=-3, high=11;
 	for (t=low; t<=high;t++){
 		printf("f(%2d)=%3d\n",t,f(t));
-    }
+   	 }
 
 	// Your code here...
 	
@@ -29,8 +29,22 @@ int main(void){
 	}
 	printf("min = %d\nmax = %d\n", min, max);
 	//do the x axis here, incriment by five to high
+	int count = low;
+	printf("%d\n", (max-min)/5);
+	printf("\t");
+	for(i = 0; i <= (max-min)/5; i++) {
+		printf("%d\t", count);
+		count += 5;
+	}
+	puts("\n");
+	count = low;
+	printf("\t");
+	for(i = 0; i <= (max-min)/5; i++) {
+		printf("|\t");
+	}
+	puts("\n");
 	for(i = low; i <= high; i++) {
-		printf("\nt = %d\n", i);
+		printf("t = %d\n", i);
 	}
 
 
