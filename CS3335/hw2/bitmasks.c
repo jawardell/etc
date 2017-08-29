@@ -102,7 +102,6 @@ unsigned getbits(unsigned x, int p, int n){
 	return temp & mask;
 	// return (x >> (p+1-n)) & ~(~0<<n);
 }
-
 int main(){
 	int x = 19;
 	printf("\n\tsetbits: x = 2004384122, y = 1634952294, p = 20, n = 4\t\t%u\n\n", setbits(2004384122, 20, 4,  1634952294 ));	
