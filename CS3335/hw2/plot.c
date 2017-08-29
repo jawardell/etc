@@ -59,7 +59,7 @@ int main(void){
 		}
 		printf("\n");	
 	
-		
+		t++;
 
 	}
 
