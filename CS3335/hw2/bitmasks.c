@@ -21,11 +21,13 @@ unsigned invertbits(unsigned x, int p, int n) {
 	double p2 = (double)p;
 	double i;	
 	double mask  = 0;
-	for(i = 0; i < p-n+1; i++) {
+	printf("\n\t\tp2-n+1=%f\n", p2-n+1);
+	for(i = 0; i < p2-n-1; i++) {
 		
-		mask += pow(2.0,p-i);
+		mask += pow(2.0,p2-i);
 		
 	}
+	printf("\n\tmask is: %f\n", mask);
 	unsigned m = (unsigned)mask;	
 	return x^m;
 }
@@ -78,7 +80,7 @@ unsigned getbits(unsigned x, int p, int n){
 
 int main(){
 	int x = 19;
-	printf("\n\n\tHERE WE GO!! x = 1495\tp=7\tn=4\t\t%u\n\n", invertbits(1495,7,4) );
+	printf("\n\n\tHERE WE GO!! x = 2004384122\tp=19\tn=9\t\t%u\n\n", invertbits(2004384122,19,9) );
 	printf("The binary rep. of %d is:\n", x);
 	bit_print(x);
 
