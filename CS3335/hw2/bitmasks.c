@@ -26,8 +26,8 @@ unsigned invertbits(unsigned x, int p, int n) {
 		mask += pow(2.0,p-i);
 		
 	}
-	printf("HERE IS THE MASK!! : %d\n\n\n", (int)mask);
-	return 0;
+	unsigned m = (unsigned)mask;	
+	return x^m;
 }
 
 
@@ -78,7 +78,7 @@ unsigned getbits(unsigned x, int p, int n){
 
 int main(){
 	int x = 19;
-
+	printf("\n\n\tHERE WE GO!! x = 1495\tp=7\tn=4\t\t%u\n\n", invertbits(1495,7,4) );
 	printf("The binary rep. of %d is:\n", x);
 	bit_print(x);
 
