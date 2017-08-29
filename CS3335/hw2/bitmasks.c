@@ -20,14 +20,10 @@ unsigned invertbits(unsigned x, int p, int n) {
 	//follow the formula to make the mask
 	double p2 = (double)p;
 	double i;	
-	double mask  = 0;
-	printf("\n\t\tp2-n+1=%f\n", p2-n+1);
+	double mask  = 0;	
 	for(i = 0; i < p2-n-1; i++) {
-		
 		mask += pow(2.0,p2-i);
-		
-	}
-	printf("\n\tmask is: %f\n", mask);
+	}	
 	unsigned m = (unsigned)mask;	
 	return x^m;
 }
