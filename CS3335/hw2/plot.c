@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <limits.h>
 #include <math.h>
+#include <strings.h>
 
 int f(int);
-
 int main(void){
 	int i, t, funval;
 	
@@ -43,8 +43,24 @@ int main(void){
 		printf("|\t");
 	}
 	puts("\n");
+	
+	char line[max-min];
+	for(i = 0; i < (sizeof(line)/sizeof(char)) ; i++) {
+		line[i] = ' ';
+	}
+	t = 0;
 	for(i = low; i <= high; i++) {
-		printf("t = %d\n", i);
+		printf("t = %d", i);
+		if(f(t) == i) {
+			printf("*");
+		} 
+		if(f(t) != i) {
+			printf("%c", line[i]);
+		}
+		printf("\n");	
+	
+		
+
 	}
 
 
