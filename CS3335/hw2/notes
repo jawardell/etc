@@ -1,0 +1,63 @@
+looking at all the t values from low to high.... 
+
+what you want to do next is to go thru the ind var register the lowest and highest
+f values 
+register lowerst and highest f(t)
+
+groud the floating point values to the integers
+
+high and low output values
+
+
+.... 
+
+
+important values
+
+having those two values will give us the following thing
+
+the idea is ... 
+
+lets come up with an array of characters
+
+
+manipulating an array of chars or a string
+
+
+
+we will use this ti store all the LEADING white spaces.....
+
+
+don't forget about \0 value
+
+
+build up to * 
+don't forget \0 then you don't need loop to print
+after printed, make sure you get rid of * so you can reuse it
+
+so keep building up array until get to output value
+
+but still need array of size max - min + 2!! account for \0! 
+
+
+
+c allows you to make an array of size which is a variable 
+
+
+sssssssss*\0
+ssssss*\0
+ssssssssss*\0
+ssss*\0
+sssssssss*\0
+
+clear up array when done
+
+sssssssssss\0
+
+
+
+
+two key points
+
+	the idea of having the \0 at the end of every char array
+	talking about the use of printf often in the program
