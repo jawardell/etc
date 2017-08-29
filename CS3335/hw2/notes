@@ -114,6 +114,18 @@ copy code from blog then compile it run it
 
 
 
+sizeof(int) * CHAR_BIT
+
+
+
+bitwise operators don't change the value of the operands.. ? 
+they make a temp copy and alter the value of the temp copy.. ? 
+
+putchar
+puttype
+
+what is CHAR_BYTE? 
+
 
 
 
