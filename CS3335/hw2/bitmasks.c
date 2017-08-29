@@ -12,7 +12,31 @@ unsigned invertbits(unsigned x, int p, int n);
 
 
 unsigned setbits(unsigned x, int p, int n, unsigned y) {
-	return 0;
+	double ybm = 0; 
+	double i; 
+	for(i = 0; i < n; i++) {
+		ybm += pow(2,i); //positions of y bits
+	}
+	unsigned ybm1 = (unsigned)ybm;
+	unsigned yex = y&ybm1; // GRAB bits from y
+	double xbm = 0;
+	double p2 = (double)p;
+	unsigned xcopy = x;
+	for(i = 0; i < p2-n-1; i++) {
+		xbm += pow(2,p2-i); //postions of x bits
+	}	
+	unsigned xbm1 = (unsigned)xbm;
+	xbm1 = xbm1^xcopy;// find positions in x
+	int pos = 0;
+	for(i = 0; i <= pos; i++) {
+		if(pos == n-1) {
+			break;
+		}
+		yex<<1;//shift y mask into position
+		pos++;
+	}
+
+	return xcopy | yex;//set and return bits
 }
 
 
