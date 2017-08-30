@@ -48,7 +48,7 @@ int main(void){
 	for(i = 0; i < (sizeof(line)/sizeof(char)) ; i++) {
 		line[i] = ' ';
 	}
-	t = 0;
+	t = low;
 
 
 
@@ -73,16 +73,26 @@ int main(void){
 			//array[sentend] = ' '
 		//increment t
 	
-
+	
 
 	for(i = low; i <= high; i++) {
-
-		line[f(t)] = '*';
-		line[f(t) + 1] = '\0';
-		printf("t = %d %s\n", t, line);
-		line[f(t)] = ' ';
-		line[f(t) + 1] = ' ';
-		t++;
+		if(f(t) < 0) {
+					
+			line[f(t)-low] = '*';
+			line[f(t)-low + 1] = '\0';
+			printf("t = %d %s\n", t, line);
+			line[f(t)-low] = ' ';
+			line[f(t)-low + 1] = ' ';
+			t++;
+		}
+		if(f(t) >= 0) {
+			line[f(t)+low] = '*';
+			line[f(t)+low+1] = '\0';
+			printf("t = %d %s\n", t, line);
+			line[f(t)+low] = ' ';
+			line[f(t)+low+1] = ' ';
+			t++;
+		}
 	}
 
 
@@ -103,10 +113,10 @@ int main(void){
 
 int f(int t){
     // example 1
-	return (t*t-4*t+5);
+//	return (t*t-4*t+5);
     
     // example 2
-    // return (-t*t+4*t-1);
+   return (-t*t+4*t-1);
     
     // example 3
     // return (sin(t)*10);
