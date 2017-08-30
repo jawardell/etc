@@ -44,41 +44,58 @@ int main(void){
 	}
 	puts("\n");
 	
-	char line[max-min];
+	char line[(max-min) + 2];
 	for(i = 0; i < (sizeof(line)/sizeof(char)) ; i++) {
 		line[i] = ' ';
 	}
 	t = 0;
-	//plug in t
-	//make array[f(t)] = *
-	//make loop that goes to length of char array
-	//have counter for t that only increments when at the end of char array
-	//this is how you know what t is and make array[f(t)] = *
-	
-	for(i = 0; i < (sizeof(line)/sizeof(char)); i++) {
-		printf("t = %d", i);
-		
-		if(i == (sizeof(line)/sizeof(char)-1)) {
-			printf("\n");
-			t++;
-			continue;
-		}
-		if(f(t) == i) {
-			printf("*");
-		}
-		if(f(t) != i) {
-			printf(" ");
-		}
 
 
 
 
 
-	
+	//for loop to build up char array 
+		//  i goes from max to min
+		//  t is counter from low to high
+		//  incriment at end of array
+	//keep going with white spaces until 
+	//f(t) = i
+		//then make array[i] == f(t)
+			//catch this index starind
+		//then make the one after it = \0
+			//catch this index sentend
+	//finally,	
+		//print t = t
+		//print char array as string
+		//print new line
+		//reset last two indices
+			//array[starind] = ' '
+			//array[sentend] = ' '
+		//increment t
 	
 
+
+	for(i = low; i <= high; i++) {
+
+		line[f(t)] = '*';
+		line[f(t) + 1] = '\0';
+		printf("t = %d %s\n", t, line);
+		line[f(t)] = ' ';
+		line[f(t) + 1] = ' ';
+		t++;
 	}
 
+
+
+
+
+
+
+
+
+		
+
+	
 
 	return 0;
 }
