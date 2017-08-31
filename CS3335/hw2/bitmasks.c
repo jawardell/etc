@@ -15,7 +15,7 @@ unsigned setbits(unsigned x, int p, int n, unsigned y) {
 	unsigned xcopy = x;
 	xcopy = xcopy>>(p-n+1);
 
-	return [(~((~((~(xcopy^xcopy))<<n))<<(p-n+1)))&xcopy] | [[~((~(y^y))<<n)&y]<<(p-n+1)];
+	return ((~((~((~(xcopy^xcopy))<<n))<<(p-n+1)))&xcopy) | ((~((~(y^y))<<n)&y)<<(p-n+1));
 
 }
 
