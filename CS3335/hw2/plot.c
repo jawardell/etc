@@ -54,43 +54,43 @@ int main(void){
 
 
 
-	//for loop to build up char array 
-		//  i goes from max to min
-		//  t is counter from low to high
-		//  incriment at end of array
-	//keep going with white spaces until 
-	//f(t) = i
-		//then make array[i] == f(t)
-			//catch this index starind
-		//then make the one after it = \0
-			//catch this index sentend
-	//finally,	
-		//print t = t
-		//print char array as string
-		//print new line
-		//reset last two indices
-			//array[starind] = ' '
-			//array[sentend] = ' '
-		//increment t
-	
-	
 
 	for(i = low; i <= high; i++) {
-		if(f(t) < 0) {
-					
-			line[f(t)-low] = '*';
-			line[f(t)-low + 1] = '\0';
+		if(f(t) == min) {
+			line[max-min] = '*';
+			line[max-min+1] = '\0';
 			printf("t = %d %s\n", t, line);
-			line[f(t)-low] = ' ';
-			line[f(t)-low + 1] = ' ';
+			line[max-min] = ' ';
+			line[max-min+1] = ' ';
+			t++;
+			continue;
+		}
+		
+		if(f(t) == max) {
+			line[max-min] = '*';
+			line[max-min+1] = '\0';
+			printf("t = %d %s\n", t, line);
+			line[max-min] = ' ';
+			line[max-min+1] = ' ';
+			t++;
+			continue;
+
+		}
+		if(f(t) < max) {
+					
+			line[f(t)-min] = '*';
+			line[f(t)-min + 1] = '\0';
+			printf("t = %d %s\n", t, line);
+			line[f(t)-min] = ' ';
+			line[f(t)-min + 1] = ' ';
 			t++;
 		}
-		if(f(t) >= 0) {
-			line[f(t)+low] = '*';
-			line[f(t)+low+1] = '\0';
+		if(f(t) >= max) {
+			line[f(t)+min] = '*';
+			line[f(t)+min+1] = '\0';
 			printf("t = %d %s\n", t, line);
-			line[f(t)+low] = ' ';
-			line[f(t)+low+1] = ' ';
+			line[f(t)+min] = ' ';
+			line[f(t)+min+1] = ' ';
 			t++;
 		}
 	}
@@ -116,10 +116,10 @@ int f(int t){
 //	return (t*t-4*t+5);
     
     // example 2
-   return (-t*t+4*t-1);
+   //return (-t*t+4*t-1);
     
     // example 3
-    // return (sin(t)*10);
+   return (sin(t)*10);
     
     // example 4
 	// if (t>0)
