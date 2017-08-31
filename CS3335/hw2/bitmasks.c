@@ -13,6 +13,7 @@ unsigned invertbits(unsigned x, int p, int n);
 
 unsigned setbits(unsigned x, int p, int n, unsigned y) {
 	
+	return ((~((~((~(x^x))<<n))<<(p-n+1)))&x) | ((~((~(y^y))<<n)&y)<<(p-n+1));
 
 }
 
