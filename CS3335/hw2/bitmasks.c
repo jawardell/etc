@@ -13,8 +13,6 @@ unsigned invertbits(unsigned x, int p, int n);
 
 unsigned setbits(unsigned x, int p, int n, unsigned y) {
 	
-	printf("\n\n\tcleared x  %u\n\n", ((~((~((~(x^x))<<n))<<(p-n+1)))&x));	
-	printf("\n\n\ty bits  %u\n\n", 	((~((~(y^y))<<n)&y)<<(p-n+1)));
 	return ((~((~((~(x^x))<<n))<<(p-n+1)))&x) | ((~((~(y^y))<<n)&y)<<(p-n+1));
 
 }
