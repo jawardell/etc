@@ -5,6 +5,29 @@ int main(){
 
 
 
+	p = &d;  //the value of p is the address of d
+	printf("d=%lf\n", *p);
+	printf("sizeof(d)=%ld\n", sizeof(*p));
+	printf("p=%p\n", p);
+	printf("sizeof(p)=%ld\n", sizeof(p));
+	printf("address of p=%p\n", &p);
+
+	// printf("\nProvid a new value for d: ");
+	// scanf("%lf", &d);
+	// scanf("%lf", p);
+	*p = 30.2;
+	printf("d=%lf\n", *p);
+	printf("sizeof(d)=%ld\n", sizeof(*p));
+	printf("p=%p\n", p);
+	printf("sizeof(p)=%ld\n", sizeof(p));
+	printf("address of p=%p\n", &p);
+	
+	p=NULL;
+
+
+
+
+
 
 	//every var has to have a name -- d
 	//every var has to have a type -- double
@@ -65,24 +88,7 @@ int main(){
 	//then DEREFERENCE * the pionter value and follow the line to the target
 
 
-	//
+	//..so essentially, this is like assisnging the value of d to f.
 
-	p = &d;  //the value of p is the address of d
-	printf("d=%lf\n", *p);
-	printf("sizeof(d)=%ld\n", sizeof(*p));
-	printf("p=%p\n", p);
-	printf("sizeof(p)=%ld\n", sizeof(p));
-	printf("address of p=%p\n", &p);
 
-	// printf("\nProvid a new value for d: ");
-	// scanf("%lf", &d);
-	// scanf("%lf", p);
-	*p = 30.2;
-	printf("d=%lf\n", *p);
-	printf("sizeof(d)=%ld\n", sizeof(*p));
-	printf("p=%p\n", p);
-	printf("sizeof(p)=%ld\n", sizeof(p));
-	printf("address of p=%p\n", &p);
-	
-	p=NULL;
 }
