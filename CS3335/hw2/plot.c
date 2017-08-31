@@ -7,7 +7,7 @@ int f(int);
 int main(void){
 	int i, t, funval;
 	
-    // Make sure to change low and high when testing your program
+    	// Make sure to change low and high when testing your program
 	int low=-3, high=11;
 	for (t=low; t<=high;t++){
 		printf("f(%2d)=%3d\n",t,f(t));
@@ -29,18 +29,18 @@ int main(void){
 	}
 	printf("min = %d\nmax = %d\n", min, max);
 	//do the x axis here, incriment by five to high
-	int count = low;
+	int count = min;
 	printf("%d\n", (max-min)/5);
-	printf("\t");
-	for(i = 0; i <= (max-min)/5; i++) {
-		printf("%d\t", count);
+	printf("     ");
+	for(i = 0; i <= ((max-min)/5)+1; i++) {
+		printf("%5d", count);
 		count += 5;
 	}
 	puts("\n");
 	count = low;
 	printf("\t");
 	for(i = 0; i <= (max-min)/5; i++) {
-		printf("|\t");
+		printf("|    ");
 	}
 	puts("\n");
 	
@@ -48,20 +48,16 @@ int main(void){
 	for(i = 0; i < (sizeof(line)/sizeof(char)) ; i++) {
 		line[i] = ' ';
 	}
+
 	t = low;
-
-
-
-
-
 
 	for(i = low; i <= high; i++) {
 		if(f(t) == min) {
-			line[max-min] = '*';
-			line[max-min+1] = '\0';
+			line[0] = '*';
+			line[1] = '\0';
 			printf("t = %d %s\n", t, line);
-			line[max-min] = ' ';
-			line[max-min+1] = ' ';
+			line[0] = ' ';
+			line[1] = ' ';
 			t++;
 			continue;
 		}
@@ -85,7 +81,7 @@ int main(void){
 			line[f(t)-min + 1] = ' ';
 			t++;
 		}
-		if(f(t) >= max) {
+		if(f(t) > max) {
 			line[f(t)+min] = '*';
 			line[f(t)+min+1] = '\0';
 			printf("t = %d %s\n", t, line);
@@ -116,10 +112,10 @@ int f(int t){
 //	return (t*t-4*t+5);
     
     // example 2
-   //return (-t*t+4*t-1);
+//  return (-t*t+4*t-1);
     
     // example 3
-   return (sin(t)*10);
+  return (sin(t)*10);
     
     // example 4
 	// if (t>0)
