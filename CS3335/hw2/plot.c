@@ -31,15 +31,22 @@ int main(void){
 	//do the x axis here, incriment by five to high
 	int count = min;
 	printf("%d\n", (max-min)/5);
-	printf("     ");
-	for(i = 0; i <= ((max-min)/5)+1; i++) {
-		printf("%5d", count);
+	printf("    ");
+
+	for(i = 0; i <= ((max-min)/5)+5; i++) {
+		if(count < 0) {
+			printf("%5d", count);
+		}
+		if(count >= 0) {
+			printf(" %4d", count);
+		}
+		
 		count += 5;
 	}
 	puts("\n");
 	count = low;
 	printf("\t");
-	for(i = 0; i <= (max-min)/5; i++) {
+	for(i = 0; i <= ((max-min)/5)+5; i++) {
 		printf("|    ");
 	}
 	puts("\n");
@@ -55,7 +62,7 @@ int main(void){
 		if(f(t) == min) {
 			line[0] = '*';
 			line[1] = '\0';
-			printf("t = %d %s\n", t, line);
+			printf("t = %2d %s\n", t, line);
 			line[0] = ' ';
 			line[1] = ' ';
 			t++;
@@ -65,7 +72,7 @@ int main(void){
 		if(f(t) == max) {
 			line[max-min] = '*';
 			line[max-min+1] = '\0';
-			printf("t = %d %s\n", t, line);
+			printf("t = %2d %s\n", t, line);
 			line[max-min] = ' ';
 			line[max-min+1] = ' ';
 			t++;
@@ -76,7 +83,7 @@ int main(void){
 					
 			line[f(t)-min] = '*';
 			line[f(t)-min + 1] = '\0';
-			printf("t = %d %s\n", t, line);
+			printf("t = %2d %s\n", t, line);
 			line[f(t)-min] = ' ';
 			line[f(t)-min + 1] = ' ';
 			t++;
@@ -84,7 +91,7 @@ int main(void){
 		if(f(t) > max) {
 			line[f(t)+min] = '*';
 			line[f(t)+min+1] = '\0';
-			printf("t = %d %s\n", t, line);
+			printf("t = %2d %s\n", t, line);
 			line[f(t)+min] = ' ';
 			line[f(t)+min+1] = ' ';
 			t++;
@@ -109,13 +116,13 @@ int main(void){
 
 int f(int t){
     // example 1
-//	return (t*t-4*t+5);
+	return (t*t-4*t+5);
     
     // example 2
 //  return (-t*t+4*t-1);
     
     // example 3
-  return (sin(t)*10);
+//  return (sin(t)*10);
     
     // example 4
 	// if (t>0)
