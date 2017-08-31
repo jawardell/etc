@@ -116,13 +116,13 @@ int main(void){
 
 int f(int t){
     // example 1
-	return (t*t-4*t+5);
+//	return (t*t-4*t+5);
     
     // example 2
 //  return (-t*t+4*t-1);
     
     // example 3
-//  return (sin(t)*10);
+  return (sin(t)*10);
     
     // example 4
 	// if (t>0)

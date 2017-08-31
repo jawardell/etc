@@ -46,15 +46,12 @@ unsigned setbits(unsigned x, int p, int n, unsigned y) {
 
 
 unsigned invertbits(unsigned x, int p, int n) {
-	//follow the formula to make the mask
-	double p2 = (double)p;
-	double i;	
-	double mask  = 0;	
-	for(i = 0; i < p2-n-1; i++) {
-		mask += pow(2.0,p2-i);
-	}	
-	unsigned m = (unsigned)mask;	
-	return x^m;
+	unsigned mask = 0;
+	int i;
+	for(i = 0; i < p-n-1; i++) {
+		mask += (1 << p-i);
+	}
+	return x^mask;
 }
 
 
@@ -104,6 +101,7 @@ unsigned getbits(unsigned x, int p, int n){
 }
 int main(){
 	int x = 19;
+	printf("\n\n\tbit invert. >> %u\n\n", invertbits(2004384122,19,9));
 	printf("\n\tsetbits: x = 2004384122, y = 1634952294, p = 20, n = 4\t\t%u\n\n", setbits(2004384122, 20, 4,  1634952294 ));	
 	printf("The binary rep. of %d is:\n", x);
 	bit_print(x);
