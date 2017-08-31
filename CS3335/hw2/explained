@@ -1,0 +1,45 @@
+Set bits explained
+
+Part I. x-mask setup
+1. make a block of zeros as big as x
+	x^x will do this 
+2. negate that whole block of zeros
+	~
+3. leftshift the whole block n times
+	this makes all ones and n zeros
+4. negate that ~
+	make everything zeros and n ones 
+5. shift the mask into position with x bits
+	lefthift p-n+1 times
+6. negate that
+	this makes the mask zeros
+8. set x bits to zero with and
+	zero and zero
+
+
+Part II. y-mask setup
+1. make a block of zeros as big as y
+	y^y will do this
+2. negate that to get a block of all ones
+3. left shift n times 
+	this gives you all ones and n zeros
+4. negate that
+	this gives you all zeros and n ones
+5. GRAB bits from y with AND
+	leave mask of ones at end
+	and with y
+	puts y bits at end
+6. leftshift extracted bits into postion
+	leftshift p-n+1 times
+
+
+
+Part III. set xbits
+1. xbits are set to zero
+2. ybits are shifted into position
+3. use or logic to set y bits into x bits
+	one or one/zero
+	is there a one
+
+fin
+
