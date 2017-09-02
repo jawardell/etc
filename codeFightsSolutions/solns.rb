@@ -28,3 +28,16 @@ def checkPalindrome(inputString)
         
 end
 
+
+
+
+def adjacentElementsProduct(inputArray)
+    max = -999999999;
+    for i in 0..inputArray.length-2
+        if inputArray[i] * inputArray[i+1] > max
+            max = inputArray[i] * inputArray[i+1]
+        end
+    end
+    return max;
+end
+
