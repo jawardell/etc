@@ -41,3 +41,21 @@ def adjacentElementsProduct(inputArray)
     return max;
 end
 
+
+
+def allLongestStrings(inputArray)
+    count = 0
+    max = 0
+    inputArray.each do |n|
+         if n.length > max
+            max = n.length
+        end
+    end
+    array = Array.new()
+    inputArray.each do |n|
+        if n.length == max
+            array << n
+        end
+    end
+    return array
+end
