@@ -222,4 +222,313 @@ southeast.c
 
 
 
+1. how a compiler works
+2. how memory is manipulated
+
+
+when program is loaded into memory 
+
+	it occupies a number of sections in the memory
+	this is where the code resides
+	[CODE]when teh code is comp. into binary code, it's read only!!!
+	[CONSTANTS]next, there is a special place for constants another 
+		read only section of the memory
+	[GLOBALS]variables that are decalred outside of methods
+	[STACK] 
+		there is a main function and some other functions
+		void main() {
+			p();
+		}
+		void p() {
+			q();
+		}
+		void q() {}
+		
+		when you call the main funciton, it is put on the stack
+			and the other methods that it calls are put
+			on the stack ... 
+
+		------
+		  q()    <--pointer "this is the top!"
+		------
+		  
+		------
+		  p()    <--
+
+		------
+		  main() <--
+		------
+
+		there is a pointer that always point to the top 
+			of the stack it is more eff. to do it this wway.. 
+
+			so the stuff in the stack is still there..
+			it's still part of the stack... 
+
+			the pointer just changes
+			the pointer changes the definition of the 
+				top of the stack... pretty cool
+	
+
+
+
+well.. NOW let's look at southeast.c     ......  
+
+
+"look at the program and tell us what it does"
+
+
+has two methods
+	one that takes two numeric values 
+		and increases one 
+		and decreases one
+	one that takes two pointers
+		de-refs them 
+		and increases it
+		and decreases it
+
+
+both methods do the same thing, 
+	but one does it indirectly by using pointers 
+		and dreferencing them to manipulate the 
+		data values 
+
+
+
+
+
+first version(pointer method)
+so the values are incremented...
+	..BUT pass by value! so the variables on the call stack
+		associated with main remain the same 
+		because of the call stack activation method
+			(i think.. lol) 
+
+		## so pass by value, 
+		## call first version in main method, 
+		## do method, inc/dec
+		## then print out values.. 
+		## they are the same!! PASS BY VALUE
+
+
+
+
+
+
+
+
+second version
+		$tack :P
+		------
+		    
+		------
+		  
+		------  [called with pointer method]
+		  go_south_east(pointer to lat,
+					pointer to lon) <----pointer
+								"..the top"
+		------
+		 main() <--
+		    32
+		    -64
+		------
+
+BUTTTTTTT.... IF we call the second version of the method... USING POINTERS. .
+
+	it points to the actual values in memory!! NOT the activation record
+		yay
+
+let's try it 
+		
+		pass by value   vs    pass by address/reference
+		## call second version in main method
+		## use pointers to point to actual values in memory
+		## de-ref pointers to inc/dec actual values in memroy
+		## print out actual values, 
+			which were in/de by pointers.. 
+		## and the changes went through!! 
+			pass by address! 
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+int a[3] = {-1, 2, 3}
+
+
+[ -1 |  2  |  0  ]
+
+	"a is the name of this array" -- no more.. better way to describe
+
+
+		.. actually, a is a POINTER 
+			[pointer constant]
+		which contains teh address of the first 
+		integer in this array of numbers
+
+
+
+a is a pointer constant, you can't change it
+
+dirty little secret: 
+
+		when the program is compiled, the a goes away!
+		IN MACHINE CODE, variable names are replaced with their
+			memory addresses
+
+
+
+
+the lements in an array are MUTABLE
+		a[1] = 8
+
+BUT the pointer to the array is IMMUTABLE
+		!!!no!!! &a = &b
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+%^&&^%$%^&^%%^&   don't forget about the right-associative precedence
+			with addresses and ... other operators..
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+some important remarks
+
+		what does size of c give us?? 
+			[c is a pointer to the array pointer a]
+		**sizeof(c) gives us the footprint of c itself
+			the size of the POINTER of c, 
+			c's vanity,  it still exits
+		
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+what is pointer decay?? 
+
+			let's talk about it 
+
+
+the size of data pieces and strucures changes.. it's dynamic
+
+	as the size of a changes... we lose track of the size, 
+		some important information is lost along the way.. 
+
+
+
+
+-----> if we make a pointer c which is a pointer to the a pointer to 
+		an arrray... 
+
+we immediately lose the size of the array!! because 
+		sizeof(a) is size of array
+		sizeof(c) is size of POINTER!!!
+
+>>>>>>>this is pointer decay. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+lay out a forloop to look through old elements in an array.. 
+
+	see lines 22-32 in pointersandarrays.c
+
+
+caution-- don't try to use the size of the pointer to do the 
+		number of elemnts in array trick. see below: 
+
+sizeof(c)/sizeof(*c)
+
+the problem is sizeof(c) -- we don't care about the size of the pointer .. 
+it makes the wrong number of iterations.. for tthe loop.. 
+
+
+
+
+pointer artihmatic.]
+
+
+
+
+
+*(c+1)
+
+
+follow arow to address at c
+get size of it (sizeof)
+advance c by four (move it up four bytes in memroy which just happens to be the next data type....)
+then dereference it and do calc on data value
+
+
+this is how we itterate over pointer arrays
+
+c + 1    ---> yeah but what is one? 
+		one is one unit of the size of the data type of c.. 
+
+		.. SO .. 
+		get the size of the data type which c points to 
+		now we know how big one is 
+		so MOVE UP c by 'one' in memory.. 
+		which advances the c pointer to the next elemnent in teh 
+			array [points not to 0 index.. 
+					but to the next index.. 
+					plus 'one']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+**PS, don't forget to declare methods at the top of the code**
+
+
+
+
+
 

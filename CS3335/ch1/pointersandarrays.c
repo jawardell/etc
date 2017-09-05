@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 int main(){
-	int a[3]={-1, 2, 0}, b[]={20, 1};
+	int a[3]={-1, 2, 0}, b[]={20, 1}; //a is an immutable address to a[0]
 	
-	a[1] = 23;
+	a[1] = 23;//but the elements are mutable...
 
 	int i;
 	for (i=0; i<sizeof(a)/sizeof(*a); i++)
@@ -11,7 +11,10 @@ int main(){
 
 	printf("\n");
 
-	int *c =a;
+	int *c =a;//....and we can catch the address of the array
+		//...and assign it to c
+		//..a pointer to the array.. POINTER...
+		//AND c`pointer` is mutable but a`pointer` is not
 
 	// This is problematic because sizeof(c) is
 	// not the number of bytes in a, rather, it is the 
