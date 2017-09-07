@@ -1,0 +1,255 @@
+thursday lecture
+
+	see pointersandarrays.c 
+
+what is that a thing.. ? 
+
+its a pointer to the first index of the array, 
+
+	array index zero
+
+so although we talk about the array using the variable, a, 
+
+	.. a is technically a pointer to the first index of the array
+
+after the source code compiles, 
+		a is no where to be found
+		the compiler replaces a with the address in memory 
+			of the array
+		~~ arrays are immutable ~~
+
+let's think about a as a pointer 
+
+it points to the array structure
+
+it has the address fo the first element in the array 
+
+a is immutable
+
+	its a pointer constant 
+	this is how the compiler knows to replace a with an address in memory 
+
+the address of teh array is immutable 
+
+a[1] = 23;
+		although the address of the array is immuatble, 
+			the elements are mutable 
+	so we can do stuff like this. 
+
+
+
+we can update one particular element in the array 
+
+	...but another way of doing this is 
+		.. using pointer arithmatic
+
+	(more commonly used way to do this)
+
+
+*(a + 1) = 23
+
+
+
+	how do we understand this?? 
+		remember the associativity rules... 
+	so what is the type of the item that a is pointing to?? 
+
+	in this case, a is pointing to an integer.. 
+		what is the size of the integer. 
+	size of each step 
+		... in terms of the size of the data type. 
+	move up by the size of the data type to get to the next data type
+ 	so move up by the size of the data type
+	then deref and use the value of the pointer as an address 
+	then update the data whch the pointer points to 
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+"you are in charge" 
+
+what if you do something like this? 
+		*(a+3) = 100
+
+		trying to update something outside of the array.. 
+	java would stop you, 
+
+	..but c wont. 
+
+	if you try to change memory beyond the array, c will let you. 
+
+	this means that  you are actually altering the computer memory 
+		and this could be dangerous.. 
+
+
+	it will pass the compiler checks and the os  .. stuff. . 
+
+
+plus means forward, minus means backwards 
+	 in pointer arithmatic 
+
+
+
+
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+can i change the size of each step?? -- yes. 
+		we do this by CASTING the pointer to another data type
+
+
+
+
+
+
+
+
+	//*((double *)a+2) = 100;// we can cast from an int pointer, a ,
+				// to a double pointer b..!
+				//
+				//... well just kidding... 
+				//don't forget we can't try to cast  a
+				//
+				//	its a pointer constant
+				//
+
+
+
+
+size of c is not the number of bytes in teh array  --- its the size of the 
+		POINTER c 
+
+  
+   this is called pointer decay. 
+
+	as soon as we make a pointer to the array pointer, we lose information about the array 
+		this surely applies to other data types and structures
+
+
+how can we preserve the information about the data that we are pointing to? ?? 
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+sometimes there are some problems with the pointer arithmatic.. 
+	you might have to do some casting depending on the system that you are using.. 
+
+
+
+so something that he had to do was   -- 
+
+
+		*(int *)((double *)c+1)=400
+
+
+you can change the number of steps.. 
+
+		or 
+you can change the size of the step 
+	by casting. 
+
+	don't forget to cast the pointer back to 
+	it's original type when you are finished 
+
+
+
+
+pointer arithmatic is very handy and powerful. .. 
+		and yet is still dangerous at the same time.. 
+
+don't go to the wrong place.. you can get far away from the data that you want. 
+	compiler won't catch it, youwill have to figure it out 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+talking about the homework a little. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	** what is a long double.. ? ** 
+
+
+
+will be working on an imaginary computer 
+
+... 
+
+
+the values are not feasable, 
+
+
+then answer questions about it.. we can make program to help us 
+
+
+
+
+
+what think the output will be then compare with actual output
+
+
+
+compare. 
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

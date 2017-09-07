@@ -8,7 +8,8 @@ void fortune(char *msg){
 }
 
 int main(void){
-	char quote[]="Cookies make you fat";
+	char quote[]="fat";
+	printf("\nsizeof(quote) = %d\n", sizeof(quote));
 	fortune(quote);
 	return 0;
 }
