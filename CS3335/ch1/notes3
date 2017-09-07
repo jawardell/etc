@@ -250,6 +250,104 @@ compare.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+do you know that 
+	char *msg
+		and 
+	char[] msg
+
+are the same things?? yes 
+
+
+
+
+
+don't forget that pointers are not completely selfless.. 
+	they are like anyother values in memory. 
+	just some numeric value with an address and type. 
+
+	the key is being able to use the value in the pointer 
+		as an address to another place in memory 
+
+
+dref
+
+   leave the pointer 
+   use the value as an address 
+   use the data at that address
+
+
+...overflow.. 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+submit the word file with answers in it 
+.. 
+
+implementing a stack
+	 stack
+		FILO
+			first in 
+			last out
+
+	|------|  <---- pointer "here is the top!"
+	  ... 
+	|------|
+	   ... 
+	|------|
+	  ...
+	|------|
+	  ... 
+	|------|
+	   ...
+	|------|
+
+
+
+you cannot pull anything from empty stack 
+		pull ---> is it empty? 
+		push ---> is it full? 
+
+
+	|------|  <---- pointer "here is the top!"
+	  ... 
+	|------|
+	   ... 
+	|------|
+	  ...
+	|------|
+	  ... 
+	|------|
+	   ...
+	|------|
+
+
+s_top, this is an int , an index of the current top of the stack 
+	the best way to interpret this number is to know that this is 
+	the index of the stack 
+
+	if stop == -1, the stack is empty 
+
+
+&s_top
+
+update index of new top 
+	from old to new 
+	and update old values(not waht he was saying .. )\
+
+
+
+this is due on Tues.. jk the school is closed , so now the new due date is 
+	thursday of next week. 
+
+
+
+
+	
+
+
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
