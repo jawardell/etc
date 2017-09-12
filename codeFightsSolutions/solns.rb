@@ -2,6 +2,8 @@ def add(param1, param2)
     return param1  + param2
 end
 
+
+
 def centuryFromYear(year)
     if year % 100 == 0
         return year / 100
@@ -59,3 +61,16 @@ def allLongestStrings(inputArray)
     end
     return array
 end
+
+
+
+def makeArrayConsecutive2(statues)
+    count = 0
+    for i in 0..statues.length-1
+        if statues[i+1] - statues[i]
+            count += statues[i+1] - statues[i]
+        end
+    end
+    return count
+end
+
