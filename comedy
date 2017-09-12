@@ -1,4 +1,4 @@
- Programming, where variables are used as pawns in the sick game of problem solving. Let’s begin with the story of one variable and explore how he was taken advantage of by the system. We'll call this sordid adventure, A Pointer’s Tail. 
+Welcome to C  Programming, where variables are used as pawns in the sick game of problem solving. Let’s begin with the story of one variable and explore how he was taken advantage of by the system. We'll call this sordid adventure, A Pointer’s Tail. 
 
 
 On the motherboard of a MacBook Air lived a char pointer named p. ,  A home in memory was allotted for p, but a special mark was placed on p’s front door. The mark was a asterisk. Although p’s door had this mark, he lived among the other chars and types in town on a long street. The house that p lived in had an address like everyone else and it was the same size as the other chars in town, but the mark was always there on the front door like a scar on p’s life. 
