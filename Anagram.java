@@ -16,4 +16,4 @@ public class Anagram  {
 		Collections.sort(word2);
 		System.out.printf("%b\n\n", word1.equals(word2));
 	}
-}
+}//ooo she thicc...
