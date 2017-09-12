@@ -10,7 +10,7 @@ public class areSimilar {
 		    if((int)lista.get(i) == (int)listb.get(i)) {
 	            	lista.remove(i);
 	            	listb.remove(i);
-			}
+		    }
 		}
 		if(lista.size() > 2) {
 		    return false;
