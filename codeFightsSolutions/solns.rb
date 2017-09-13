@@ -84,9 +84,9 @@ def areSimilar(a, b)
         end
     end
     print(a)
-    print() 
+    print("\n") 
     print(b)
-    print()
+    print("\n")
     if a.length > 2
         return false
     end
@@ -95,6 +95,10 @@ def areSimilar(a, b)
 end
 
 
+print(a)
+print("\n")
+print(b)
+print("\n")
 a = [832, 998, 148, 570, 533, 561, 894, 147, 455, 279]
 b = [832, 998, 148, 570, 533, 561, 455, 147, 894, 279]
 areSimilar(a,b)
