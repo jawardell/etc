@@ -74,3 +74,28 @@ def makeArrayConsecutive2(statues)
     return count
 end
 
+
+
+def areSimilar(a, b)
+    for i in 0..a.length
+        if a[i] == b[i]
+            a.delete_at(i)
+            b.delete_at(i)
+        end
+    end
+    print(a)
+    print() 
+    print(b)
+    print()
+    if a.length > 2
+        return false
+    end
+    return a.sort == b.sort
+    
+end
+
+
+a = [832, 998, 148, 570, 533, 561, 894, 147, 455, 279]
+b = [832, 998, 148, 570, 533, 561, 455, 147, 894, 279]
+areSimilar(a,b)
+
