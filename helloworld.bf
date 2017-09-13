@@ -18,8 +18,8 @@ this is the ASCII value of 'A'
 
 print that out to the console
 
---fin--
+  fin
 
 
-no need to comment, 
-	bf only cares about []+-<>.
+no special comment syntax
+bf auto ignores human words and letters
