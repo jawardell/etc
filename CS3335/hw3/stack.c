@@ -22,7 +22,7 @@ char		   // output - data being popped out from the stack
 
 void push(char stack[],
 	  char item,
-	  int *top,
+	  int* top,
 	  int max_size){
 
 
@@ -63,7 +63,7 @@ max_size     -- this is the maximum number of elements that the stack can hold
 	}
 	if((*top < max_size) && (*top != max_size - 1)) {
 		stack[*top + 1] = item;
-		*top++;
+		*top = *top+1;
 		return;
 
 	}
