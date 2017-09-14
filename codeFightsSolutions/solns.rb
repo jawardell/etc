@@ -77,16 +77,12 @@ end
 
 
 def areSimilar(a, b)
-    for i in 0..a.length
+    for i in (a.length-1).downto(0)
         if a[i] == b[i]
             a.delete_at(i)
             b.delete_at(i)
         end
     end
-    print(a)
-    print("\n") 
-    print(b)
-    print("\n")
     if a.length > 2
         return false
     end
@@ -95,11 +91,4 @@ def areSimilar(a, b)
 end
 
 
-print(a)
-print("\n")
-print(b)
-print("\n")
-a = [832, 998, 148, 570, 533, 561, 894, 147, 455, 279]
-b = [832, 998, 148, 570, 533, 561, 455, 147, 894, 279]
-areSimilar(a,b)
 
