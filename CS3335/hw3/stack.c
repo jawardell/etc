@@ -45,7 +45,7 @@ void printstack(char stack[]) {
 	puts("\n\t\t~~~~print stack!~~~~\n");
 	for(i = 0; i < STACK_SIZE; i++) {
 		printf("\t\titem %d is: %c\n", i, stack[i]);
-	}
+	}//note, the stack only officially includes elements stack[0] - stack[*top]
 }
 
 
