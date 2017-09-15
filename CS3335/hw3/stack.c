@@ -37,7 +37,6 @@ char pop(char stack[], int *top) {
 		return temp;
 	}
 	return '\0';
-
 }
 
 
@@ -59,33 +58,23 @@ void makerands() {
 }
 
 
-int main() {
-	
+
+int main() {	
 	char stack[STACK_SIZE];
 	int s_top = STACK_EMPTY, *top;
-
 	srand(time(NULL));
-
 	puts("push**************\n\n");
 	for(i = 0; i < STACK_SIZE+2; i++) {
-
 		char item = (char) rand() % 89 + 33;
 		printf("\n\tpushing item: %c", item);
 		printf("\n\t\texit value:%d\n", push(stack, item, &s_top, STACK_SIZE));
-		
-
-	}
-		
+	}	
 	printstack(stack);
-
-	
 	puts("\n\npop**************\n\n");
 	top = &s_top;	
 	while(s_top != -1) {
 		i = *top;
 		printf("POP! item %d is: %c\n", i, pop(stack, top));
 	}
-
 	printstack(stack);
-
 }
