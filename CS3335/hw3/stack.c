@@ -14,6 +14,7 @@ void makerands();
 
 int push(char stack[], char item, int *top, int max_size) {
 	if(*top == max_size - 1) {
+		printf("\tnothing happend -- the stack is full!");
 		return 0;
 	}
 	if((*top < max_size) && (*top != max_size - 1)) {
@@ -30,6 +31,11 @@ int push(char stack[], char item, int *top, int max_size) {
 
 
 char pop(char stack[], int *top) {
+	if(*top != -1) {
+		char temp = stack[*top];
+		*top = *top - 1;
+		return temp;
+	}
 	return '\0';
 
 }
@@ -60,7 +66,8 @@ int main() {
 
 	srand(time(NULL));
 
-	for(i = 0; i < STACK_SIZE; i++) {
+	puts("push**************\n\n");
+	for(i = 0; i < STACK_SIZE+2; i++) {
 
 		char item = (char) rand() % 89 + 33;
 		printf("\n\tpushing item: %c", item);
@@ -68,8 +75,17 @@ int main() {
 		
 
 	}
+		
+	printstack(stack);
+
+	
+	puts("\n\npop**************\n\n");
+	top = &s_top;	
+	while(s_top != -1) {
+		i = *top;
+		printf("POP! item %d is: %c\n", i, pop(stack, top));
+	}
 
 	printstack(stack);
-	makerands();
 
 }
