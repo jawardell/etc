@@ -1,88 +1,61 @@
 
-	pushing item: R
-
+	pushing item: L
 		exit value:1
 
-
-	pushing item: i
-
+	pushing item: X
 		exit value:1
 
-
-	pushing item: 
-
+	pushing item: 
 		exit value:1
 
-
-	pushing item: 
-
+	pushing item: 
 		exit value:1
 
-
-	pushing item: Ô
-
+	pushing item: 2
 		exit value:1
 
-
-	pushing item: ]
-
+	pushing item: ÷
 		exit value:1
 
-
-	pushing item: 5
-
+	pushing item: 
 		exit value:1
 
-
-	pushing item: ×
-
+	pushing item: N
 		exit value:1
 
-
-	pushing item: ÿ
-
+	pushing item: E
 		exit value:1
 
-
-	pushing item: s
-
+	pushing item: û
 		exit value:1
+
+		~~~~print stack!~~~~
+
+		item 0 is: L
+		item 1 is: X
+		item 2 is: 
+		item 3 is: 
+		item 4 is: 2
+		item 5 is: ÷
+		item 6 is: 
+		item 7 is: N
+		item 8 is: E
+		item 9 is: û
 
 
 
 let's make some random values, shall we??
 
 
-
-115
-
-38
-
-100
-
+102
+97
+74
+61
+85
+57
+103
+83
+37
 74
 
-120
 
-77
-
-83
-
-75
-
-113
-
-78
-
-		print stack!
-
-		item0 is: R
-		item1 is: i
-		item2 is: 
-		item3 is: 
-		item4 is: Ô
-		item5 is: ]
-		item6 is: 5
-		item7 is: ×
-		item8 is: ÿ
-		item9 is: s

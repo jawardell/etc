@@ -5,7 +5,8 @@
 #define STACK_SIZE 10
 #define STACK_EMPTY -1
 
-int push(char[], char, int*, int);
+
+int push(char[], char, int*, int), i;
 char pop(char[], int*);
 void printstack(char[]);
 void makerands();
@@ -36,34 +37,34 @@ char pop(char stack[], int *top) {
 
 
 void printstack(char stack[]) {
-	int i;
-	puts("\n\t\tprint stack!\n");
+	puts("\n\t\t~~~~print stack!~~~~\n");
 	for(i = 0; i < STACK_SIZE; i++) {
-		printf("\t\titem%d is: %c\n", i, stack[i]);
+		printf("\t\titem %d is: %c\n", i, stack[i]);
 	}
 }
 
 
 void makerands() {
-	puts("\n\nlet's make some random values, shall we??\n\n");
+	puts("\n\n\nlet's make some random values, shall we??\n");
 	for(i = 0; i < STACK_SIZE; i++) {
-		printf("\n%d\n", (int)(rand() % 89 + 33));
+		printf("\n%d", (int)(rand() % 89 + 33));
 	}
+	puts("\n\n");
 }
 
 
 int main() {
 	
 	char stack[STACK_SIZE];
-	int s_top = STACK_EMPTY, *top, i;
+	int s_top = STACK_EMPTY, *top;
 
 	srand(time(NULL));
 
 	for(i = 0; i < STACK_SIZE; i++) {
 
 		char item = (char) rand() % 89 + 33;
-		printf("\n\tpushing item: %c\n", item);
-		printf("\n\t\texit value:%d\n\n", push(stack, item, &s_top, STACK_SIZE));
+		printf("\n\tpushing item: %c", item);
+		printf("\n\t\texit value:%d\n", push(stack, item, &s_top, STACK_SIZE));
 		
 
 	}
