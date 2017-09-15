@@ -1,0 +1,88 @@
+
+	pushing item: R
+
+		exit value:1
+
+
+	pushing item: i
+
+		exit value:1
+
+
+	pushing item: 
+
+		exit value:1
+
+
+	pushing item: 
+
+		exit value:1
+
+
+	pushing item: Ô
+
+		exit value:1
+
+
+	pushing item: ]
+
+		exit value:1
+
+
+	pushing item: 5
+
+		exit value:1
+
+
+	pushing item: ×
+
+		exit value:1
+
+
+	pushing item: ÿ
+
+		exit value:1
+
+
+	pushing item: s
+
+		exit value:1
+
+
+
+let's make some random values, shall we??
+
+
+
+115
+
+38
+
+100
+
+74
+
+120
+
+77
+
+83
+
+75
+
+113
+
+78
+
+		print stack!
+
+		item0 is: R
+		item1 is: i
+		item2 is: 
+		item3 is: 
+		item4 is: Ô
+		item5 is: ]
+		item6 is: 5
+		item7 is: ×
+		item8 is: ÿ
+		item9 is: s
