@@ -8,6 +8,7 @@
 int push(char[], char, int*, int);
 char pop(char[], int*);
 void printstack(char[]);
+void makerands();
 
 
 int push(char stack[], char item, int *top, int max_size) {
@@ -32,11 +33,21 @@ char pop(char stack[], int *top) {
 
 }
 
+
+
 void printstack(char stack[]) {
 	int i;
 	puts("\n\t\tprint stack!\n");
 	for(i = 0; i < STACK_SIZE; i++) {
 		printf("\t\titem%d is: %c\n", i, stack[i]);
+	}
+}
+
+
+void makerands() {
+	puts("\n\nlet's make some random values, shall we??\n\n");
+	for(i = 0; i < STACK_SIZE; i++) {
+		printf("\n%d\n", (int)(rand() % 89 + 33));
 	}
 }
 
@@ -56,10 +67,8 @@ int main() {
 		
 
 	}
-	puts("\n\nlet's make some random values, shall we??\n\n");
-	for(i = 0; i < STACK_SIZE; i++) {
-		printf("\n%d\n", (int)(rand() % 89 + 33));
-	}
 
 	printstack(stack);
+	makerands();
+
 }
