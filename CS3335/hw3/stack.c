@@ -24,7 +24,7 @@ int push(char stack[], char item, int *top, int max_size) {
 		stack[*top] = item;
 		return 1;
 	}
-	return 0;
+	return -1;
 }
 
 
