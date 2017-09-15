@@ -64,7 +64,7 @@ int main() {
 	int s_top = STACK_EMPTY, *top;
 	srand(time(NULL));
 	puts("push**************\n\n");
-	for(i = 0; i < STACK_SIZE+2; i++) {
+	for(i = 0; i < STACK_SIZE+2; i++) {//try 2 times to push when full...
 		char item = (char) rand() % 89 + 33;
 		printf("\n\tpushing item: %c", item);
 		printf("\n\t\texit value:%d\n", push(stack, item, &s_top, STACK_SIZE));
