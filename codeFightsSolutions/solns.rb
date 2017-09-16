@@ -91,4 +91,19 @@ def areSimilar(a, b)
 end
 
 
+def arrayChange(inputArray)
+    inputArray.sort
+    count = 0
+    for i in 0..inputArray.length-1
+        diff = inputArray[i + 1] - inputArray[i]
+        if diff >= 0
+            next
+        end
+        if diff < 0
+            count = count + diff.abs
+            next
+        end
+    end
 
+    return count
+end
