@@ -52,7 +52,7 @@ void printstack(char stack[]) {
 void makerands() {
 	puts("\n\n\nlet's make some random values, shall we??\n");
 	for(i = 0; i < STACK_SIZE; i++) {
-		printf("\n%d", (int)(rand() % 89 + 33));
+		printf("\n%d", (int)(rand() % 93 + 33));
 	}
 	puts("\n\n");
 }

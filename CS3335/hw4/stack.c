@@ -35,16 +35,29 @@ double pop(double stack[],
 	return 0.0;
 }
 
+void makerands() {
+	int i;
+	for(i = 0; i < 11; i++) {
+		printf("rand is: %f\n", (double)(rand()/126.0*33.0) );
+	}
+
+
+}
+
+
 int main(){
         double s[STACK_SIZE];
         double *s_top = NULL;
 
         srand(time(NULL));
+	
+
+	makerands();
 
         // Keep pushing doubles equivalent to chars randomly picked between '!'(33) and '~'(126) 
 	// to the stack until it is full.
         // Print each double before each pushing.
-
+	
         // Keep popping out doubles from the stack until it is empty
         // Print each double after each popping.
 
