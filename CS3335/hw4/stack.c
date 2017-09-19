@@ -40,8 +40,6 @@ void makerands() {
 	for(i = 0; i < 11; i++) {
 		printf("rand is: %f\n", (double)(rand()/126.0*33.0) );
 	}
-
-
 }
 
 

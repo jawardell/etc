@@ -1,0 +1,9 @@
+HAI 2.1
+CAN HAS STDIO?
+CAN HAZ STDLIB?
+
+    VISIBLE "what is your name?"
+    I HAZ A RANDY ITZ A NUMBR BLOW 1/LOL RANDY R A NUMBR BLOW 5
+    
+    
+KTHXBYE
