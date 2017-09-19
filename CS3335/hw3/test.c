@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 100
+#define SIZE 10
 
 
-void printarray(char[]);
+void printarray(char[], int);
 
 
 
-void printarray(char array[]) {
+void printarray(char array[], int size) {
 	int i;
-	for(i = 0; i < (sizeof(array)/sizeof(char)); i++) {
+	for(i = 0; i < size; i++) {
 		printf("a[%d] = %c\n", i, array[i]);
 	}
 
@@ -24,7 +24,7 @@ int main() {
 	int i;
 
 	for(i = 0; i < SIZE; i++) {
-		a[i] = i;	
+		a[i] = (char)i;	
 	}
 
 	printf("sizeof(char) = %lu\n", sizeof(char));
@@ -39,6 +39,7 @@ int main() {
 	printf("*(char *)((long double *)p+3) = %d\n", *(char *)((long double *)p+3));
 	
 	printf("\nprint array\n");
-	printarray(a);	
+	printf("sizeof(a) = %lu\nsizeof(char) = %lu\n", sizeof(a), sizeof(char));
+	printarray(a, sizeof(a)/sizeof(char));	
 
 }
