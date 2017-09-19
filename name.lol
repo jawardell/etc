@@ -1,9 +1,12 @@
 HAI 2.1
 CAN HAS STDIO?
 CAN HAZ STDLIB?
-
-    VISIBLE "what is your name?"
-    I HAZ A RANDY ITZ A NUMBR BLOW 1/LOL RANDY R A NUMBR BLOW 5
+	i R 0
+	IM IN YR loop UPPIN YR i TIL BOTH SAEM i AN 1000
+		VISIBLE SMOOSH i AN " "
+	IM OUTTA YR loop 
+   
+    
     
     
 KTHXBYE
