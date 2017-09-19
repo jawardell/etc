@@ -12,9 +12,9 @@ CAN HAS STDIO?
 		        NO WAI
 		            VISIBLE SMOOSH i AN " :)" MKAY!
 	            OIC
-	    IM OUTTA YR loopy
+	    IM OUTTA YR loopyy
 		    
-	IM OUTTA YR loopyy
+	IM OUTTA YR loopy
    
     
     
