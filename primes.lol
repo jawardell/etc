@@ -1,0 +1,24 @@
+HAI 2.1
+CAN HAS STDIO?
+
+	HOW IZ I isprime YR n
+		I HAS A i ITZ 2
+		IM IN YR loop UPPIN YR i TIL BOTH SAEM i AN n
+			BOTH SAEM 0 AN MOD OF n AN i, O RLY?
+				YA RLY
+					FOUND YR FAIL
+			OIC
+		IM OUTTA YR loop
+		FOUND YR WIN
+	IF U SAY SO
+
+	I HAS A i ITZ 1
+	IM IN YR loop UPPIN YR i TIL BOTH SAEM i AN 100
+		I IZ isprime YR i MKAY, O RLY?
+			YA RLY
+			    VISIBLE SMOOSH i AN " :)" MKAY!
+
+			OIC
+	IM OUTTA YR loop
+
+KTHXBYE
