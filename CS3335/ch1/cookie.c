@@ -8,7 +8,11 @@ void fortune(char *msg){
 }
 
 int main(void){
-	char quote[]="Cookies make you fat";
-	fortune(quote);
+	char quote[]="Cookies are good";
+	printf("\nsizeof(quote) = %d\n", sizeof(quote));
+	fortune(quote);// pass quote into the function as a pointer .. char
+		//pointer decay -- char *msg is the aise of the pointer space, 	size of char
+		//but we can prevent decay by passing in the size of the array explicitly as 
+		//		a local variable
 	return 0;
 }

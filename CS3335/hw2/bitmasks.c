@@ -25,6 +25,20 @@ unsigned invertbits(unsigned x, int p, int n) {
 		mask += (1 << p-i);
 	}
 	return x^mask;
+
+
+
+	/*
+		also could have done this: 
+
+		unsigned temp = getbits(x,p,n);
+		temp = ~temp;
+		return setbits(x,p,n,temp);
+
+		take advantage of existing function
+
+
+	*/	
 }
 
 

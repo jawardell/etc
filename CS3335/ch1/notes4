@@ -1,0 +1,352 @@
+lecture 9-14 
+
+
+
+
+let's review what we know about pointers 
+
+
+.. 
+
+
+
+we use pointers to avoid copies and share data 
+
+don't try to assign pointers of different types 
+	without casting
+
+
+
+we talked about the dangers of misusing pointers 
+we talked about pointer arithmetic 
+we talked about ensuring that we are 
+
+
+
+we talked about dynamic memory strucure, 
+	digging into memory infographic 
+
+we talked about the dangers of 
+	carelessly deallocating memory 
+	--make sure you are the last one 
+	using it 
+
+
+let's take a look at southeast.c 
+
+	this will help on the stack problem 
+
+
+
+
+
+look at southeast -- -
+		not the values but the addresses are passed,
+
+			when the fucntion is defined with pointer 
+			parameters.. 
+
+
+
+
+assign the address of variables to pointers.. 
+dereference the pointers -- 
+	-- use those assinged values as addresses 
+then dereference again and update the pointed-to value 
+
+
+
+
+
+
+
+
+
+so using this information, this is how we know to do the stack 
+
+
+
+so s_top 
+
+	why do we care?? because we never really remove items from the stack
+	
+	so who knows how many elements are really in the stack 
+	the only way that we can add and remove things from the stack is be	
+	cause of our pointer which moves 
+		it doesn't follow the last actual elemnt in the stack. .. 
+	it just changes the value that we call the top. 
+
+
+
+	so we USE the POINTER top to change the value of s_top 
+
+
+
+		.. 
+
+	we abstract the implementation by using pointers 
+
+	
+
+
+put the element there , top + 1
+now change the top index, just use top. 
+
+
+we don't care about the pointer.. 
+we just use the pointer to change the value of s_stop
+
+
+
+
+srand 
+
+	this is one way to generate random numbers in c 
+
+
+	
+
+
+
+use mod to make rand() numbers better 
+
+
+
+
+rand() % $$ + 33
+
+
+
+if not same seq of letters will happen 
+, 
+	althoug numbers would be random, 
+	the charachrts would be the same 
+
+
+
+it's all about the seed 
+.. 
+
+
+srand() --- gives you a random seed 
+
+based on the time 
+that changes the seed which has to do with the random numbers that are generated 
+
+
+
+
+
+
+
+
+learn more about seeds and c
+
+
+
+
+
+
+let's talk more about an array of integers, 
+	pointers and pointer constants 
+
+what is the name of this array?? 
+
+	a = 
+	 [1][2][6][7][6]...[n]
+
+
+well, a is really a pointer, it's a pointer constant 
+
+
+a is NOT supposed to be changed, you can't change it if you try . .
+ 
+
+after translated into machine code, there is not a SINGLE occurance where a can be found. 
+
+	it's replaced by the memory address 
+	you can't put anything else in a's memory address and this is why
+
+
+
+
+sizeof(a) -- this tells you how many elements are in the array. 
+
+we loose this data though, when we make a pointer to a 
+	make a pointer which contain's a's memory address. 
+	the pointer is now mutalbe. ... .. but 
+
+we've lost the ability to inquire about the sizeof the array 'by the name of ' a .. 
+
+if we do sizeof(the_pointer), of course, it will give us the size of the pointer 
+
+
+
+
+
+pointer decay gets worse and becomes more of a threat when.. 
+
+you pass an array into a function as an argument  . . 
+
+
+take a look at cookie.c
+
+
+don't loose your array information!!!! POINTER DECAYY>>> ... D: 
+
+
+
+
+
+
+
+
+also don't forget about order of operation and associativity rules 
+
+
+precedence and associativity 
+
+
+int* pointer -- can i do this? 
+
+
+
+
+address arithmatic.. ...  .. 
+
+
+
+it is thru address arithmatic that we are able to move elements in the array using pointers
+
+
+
+we get to the location using the arithmatic 
+	then we deref to use that location as an address
+	then we update the element in the array.. 
+
+
+this is what i think about it... 
+
+
+change step -- that's ok, just change it to TEMP increase/dec. step size..... 
+
+
+..BUT..
+
+
+don't you forget to cast it BACK to the original 'step size'!!!!! 
+
+
+
+
+the pointer needs to know what it's type  is 
+. 
+
+
+this tells it how big it is and how many bits it gets 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+top is the logical index, 
+
+
+please don't make it the memory address 
+
+
+s_top is -1, or what ever, 
+
+
+
+
+
+
+
+
+double **top
+
+
+wow... ok 
+so it's a pointer to a pointer.. 
+
+its a pointer of type pointer which points to a pointer which 
+points to a double 
+double *stop = NULL 
+
+a pointer that is supposed to have the address of the top of the stack 
+
+at beg. is null because there is noting there.. 
+
+but what are we passing to this? 
+
+the the address of **top 
+
+	&s_top
+
+
+
+s_top is not grounded anymore through your manipulations so what is it pointing to 
+
+	but we don't care about the actual address.. 
+
+		we want to use the address to update values in the stack 
+		in the array. 
+
+i
+
+
+
+
+
+
+we stated talking about the next assignment .. 
+		pointers to pointers
+		get the ref/deref right  .
+		get the addressing right.. 
+
+
+then we started to talk about memcopy
+
+
+its a built-in fucntion in the c library 
+
+
+
+btw.. there are man pages for the 'members' in the c system. 
+
+
+
+so memccopy is pretty easy to use. 
+
+	but what if peices of memory are overlapping.. ? 
+
+
+
+AND, it's actually memmove, not memcopy, that we talked about in class, 
+
+	but memcopy is also a system function, man memcopy
+	also man memmove 
+
+
+
+
+if the stuff overlapps, please! start at teh end of the from section and 
+	iterate backwards to the front!! 
+
+
+
+from[to[]] -- iterate backwards
+
+to[from[]] -- iterate forwards
+
+
+
