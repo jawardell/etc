@@ -97,7 +97,7 @@ void *mymemmove(void *to, const void *src, size_t n){
 
 
 
-	char *to_1 = (char*)to;//we now know it's not a void, but a char(pointer)!
+	char *to_1 = (char*)to;//now we know it's not a void, but a char(pointer)!
 	char *src_1 = (char*)src;//complete the casting.. 
 
 
@@ -115,46 +115,45 @@ void *mymemmove(void *to, const void *src, size_t n){
 
 	
 	int toDiff = safe_to - safe_src; // compute the DIFFERENCE between the .. 
-	int srcDiff = safe_src - safe_to;  //memory addresses of the SRC and TO and TO and SRC
+	int srcDiff = safe_src - safe_to;  //...memory addresses of the SRC and TO and TO and SRC
 	if(abs(toDiff) < n) {//min distance not satisfied
 	
 
-		//this is redundant, but listed it for better explainability
-		if(toDiff < 0) {//to overlaps src
+
+		if(toDiff < 0) {//to overlaps src (copy normally)
 			for(i = 0; i < n; i++) {
 				*(safe_to + i) = *(safe_src + i);
 			}
-			for(i = 0; i < n; i++) {
+			for(i = 0; i < n; i++) {//talk to original pointer..
 				*(to_1 + i) = *(safe_to + i);
 			} 
-			printf("\t\tmin dist not satisfied, in here!!! abs((toDiff) = %d)\n", abs(toDiff));	
+
 			return NULL;
 		}
 
-		if(srcDiff < 0) {//from overlaps to
-			printf("\t\t woah, we are in here..... from over to...  abs((toDiff) = %d)\n", abs(toDiff));	
+		if(srcDiff < 0) {//from overlaps to(special case)
+
 			for(i = 0; i < n; i++) {
 				*(safe_to + i) = *(safe_src + j);
 				j--;
 			}
-			for(i = 0; i < n; i++) {
+			for(i = 0; i < n; i++) {//talk to original pointer..
 				*(to_1 + i) = *(safe_to + i);
 			}
 			return NULL;
 		}
 
-
 	}
 	
 
-	for(i = 0; i < n; i++) {//to and src are independent
+
+	//to and src are independent if we get here...
+	for(i = 0; i < n; i++) {
 		*(safe_to + i) = *(safe_src + i);
 	}
-	for(i = 0; i < n; i++) {
+	for(i = 0; i < n; i++) {//talk to original pointer..
 		*(to_1 + i) = *(safe_to + i);
 	}
 
-	printf("\t\twhat is src pointer value?? to pointer is: %p\tsrc pointer is: %p...\n", to , src);
-	printf("\t\tmin dist IS satisfied, over here!!! abs((toDiff) = %d)\n", abs(toDiff));
 }
 
