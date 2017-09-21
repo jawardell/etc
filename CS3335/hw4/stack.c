@@ -12,24 +12,19 @@ double pop(double[], double**);
 
 void push(double stack[], double item, double** top, int max_size) {
 	//check to see if full
-	if(*top == max_size) {
+	if(**top == max_size) {
 		return;
 	}
 	//are we at end of stack
-	if(*top == max_size-1) {
-		(int**)top;
-		stack[**top] = item;	
-		(double**)top;
+	if(**top == max_size-1) {
+		stack[(int)**top] = item;
 		return;
 	}
 	//insert in normal place
 	if(**top < max_size) {
-		(int**)top;
-		stack[**top] = item;	
+		stack[(int)**top] = item;	
 		**top++;
-		(double**)top;
 		return;
-		
 	}
 }
 
@@ -37,11 +32,8 @@ double pop(double stack[], double** top) {
 	if(**top == -1) {
 		return STACK_EMPTY;
 	}
-
-	(int**)top;
-	double temp = stack[**top];
+	double temp = stack[(int)**top];
 	**top--;
-	(double**)top;
 	return temp;
 }
 
