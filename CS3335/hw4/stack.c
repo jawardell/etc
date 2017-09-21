@@ -45,7 +45,7 @@ int main() {
 		
 	}
 	double i = 0;
-	while(*s_top != STACK_EMPTY) {//pop until full
+	while(*s_top != STACK_EMPTY) {//pop until empty
 		i = *s_top;
 		printf("POP! item %d is: %f\n", (int)i, pop(s, &s_top));
 	}
