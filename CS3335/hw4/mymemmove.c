@@ -94,119 +94,33 @@ int main(int argc, char *argv[])
 void *mymemmove(void *to, const void *src, size_t n){
 //  return memmove(to, src, n);
 // Replace the return statement above with your implementation of the function...
+	char *to_1 = (char*)to;
+	char *src_1 = (char*)src;
+	int toDiff = to_1 - src_1;
+	int srcDiff = src_1 - to_1;
+	if(abs(toDiff) < n) {//min distance not satisfied
 
-	int toDiff = to - src;
-	int srcDiff = src - to;
-	if((size - abs(toDiff)) < n) {//min distance not satisfied
-
-		if((toDiff < 0) && (abs(toDiff) < size)) {//to overlaps src
-			for(i = 0; i < size; i++) {
-				*(to + i) = *(src + i);
+		if(toDiff < 0) {//to overlaps src
+			for(i = 0; i < n; i++) {
+				*(to_1 + i) = *(src_1 + i);
 			}
-			return *to;
+			return NULL;
 		}
-		if((srcDiff < 0) && (abs(srcDiff) < size)) {//from overlaps to 
-			for(i = 0; i < size; i++) {
-				*(to + i) = *(src + j);
+
+		if(srcDiff < 0) {//from overlaps to 
+			for(i = 0; i < n; i++) {
+				*(to_1 + i) = *(src_1 + j);
 				j--;
 			}
-			return *to;
+			return NULL;
 		}
 
 
 	}
-
 	
-	for(i = 0; i < size; i++) {//to and src are independent
-		*(to + i) = *(src + i);
+	for(i = 0; i < n; i++) {//to and src are independent
+		*(to_1 + i) = *(src_1 + i);
 	}
-	return *to; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* for(int i = 0; i < size; i++) {
-
-	if(((&to) + 1))
-
-
-}
-
-
-*/
-  
-//if() { from over lapping to
-/*
-start from begining of from 
-and copy to the end of to j
-
-
-int j = size-1
-for(int i = 0; i < size; i++) {
-	*(to+j) = *(from+i);
-	j--;
-}
-
-return *to;
-
-*/
-
-
-//} from[to{]} same array
-
-
-//if() { to overlapping from
-/*
-start from the end of from 
-and copy to the start of to
-
-
-int j = size-1;
-for(int i = 0; i < size; i++) {
-	*(to+i) = *(from+j);
-	j--;
-}
-
-return *to;
-
-*/
-
-
-//}  to[from{]} same array
-
-
-//if() { nothing overlapping
-/*
-
-for(int i = 0; i < size; i++) {
-	*(to+i) = *(from+i);
-}
-
-return *to;
-
-*/
-
-
-
-//} from[]  to[]
-
-
-
 
 }
 
