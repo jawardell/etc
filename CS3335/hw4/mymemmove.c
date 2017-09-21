@@ -94,6 +94,7 @@ int main(int argc, char *argv[])
 void *mymemmove(void *to, const void *src, size_t n){
 //  return memmove(to, src, n);
 // Replace the return statement above with your implementation of the function...
+	
 	char *to_1 = (char*)to;
 	char *src_1 = (char*)src;
 	int toDiff = to_1 - src_1;
