@@ -3,6 +3,8 @@
 #include <string.h>
 
 void *mymemmove(void *, const void *, size_t);
+int i, j;
+
 
 int main(int argc, char *argv[])
 {
@@ -90,8 +92,53 @@ int main(int argc, char *argv[])
 }
 
 void *mymemmove(void *to, const void *src, size_t n){
-  return memmove(to, src, n);
+//  return memmove(to, src, n);
 // Replace the return statement above with your implementation of the function...
+
+	int toDiff = to - src;
+	int srcDiff = src - to;
+	if((size - abs(toDiff)) < n) {//min distance not satisfied
+
+		if((toDiff < 0) && (abs(toDiff) < size)) {//to overlaps src
+			for(i = 0; i < size; i++) {
+				*(to + i) = *(src + i);
+			}
+			return *to;
+		}
+		if((srcDiff < 0) && (abs(srcDiff) < size)) {//from overlaps to 
+			for(i = 0; i < size; i++) {
+				*(to + i) = *(src + j);
+				j--;
+			}
+			return *to;
+		}
+
+
+	}
+
+	
+	for(i = 0; i < size; i++) {//to and src are independent
+		*(to + i) = *(src + i);
+	}
+	return *to; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* for(int i = 0; i < size; i++) {
 
