@@ -102,8 +102,7 @@ and copy to the end of to j
 int j = size-1
 for(int i = 0; i < size; i++) {
 	*(to+j) = *(from+i);
-	size--;
-
+	j--;
 }
 
 
@@ -115,7 +114,15 @@ for(int i = 0; i < size; i++) {
 
 //if() { to overlapping from
 /*
+start from the end of from 
+and copy to the start of to
 
+
+int j = size-1;
+for(int i = 0; i < size; i++) {
+	*(to+i) = *(from+j);
+	j--;
+}
 
 
 */
