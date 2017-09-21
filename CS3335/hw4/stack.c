@@ -39,7 +39,8 @@ double pop(double stack[], double** top) {
 
 int main() {
 	double s[STACK_SIZE];
-	double* s_top = STACK_EMPTY;
+	double* s_top = NULL;
+	*s_top = STACK_EMPTY;
 	srand(time(NULL));
 	
 	//push until full
