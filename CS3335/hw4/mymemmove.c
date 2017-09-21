@@ -124,6 +124,9 @@ void *mymemmove(void *to, const void *src, size_t n){
 			for(i = 0; i < n; i++) {
 				*(safe_to + i) = *(safe_src + i);
 			}
+			for(i = 0; i < n; i++) {
+				*(to_1 + i) = *(safe_to + i);
+			} 
 			printf("\t\tmin dist not satisfied, in here!!! abs((toDiff) = %d)\n", abs(toDiff));	
 			return NULL;
 		}
@@ -133,6 +136,9 @@ void *mymemmove(void *to, const void *src, size_t n){
 			for(i = 0; i < n; i++) {
 				*(safe_to + i) = *(safe_src + j);
 				j--;
+			}
+			for(i = 0; i < n; i++) {
+				*(to_1 + i) = *(safe_to + i);
 			}
 			return NULL;
 		}
@@ -144,6 +150,10 @@ void *mymemmove(void *to, const void *src, size_t n){
 	for(i = 0; i < n; i++) {//to and src are independent
 		*(safe_to + i) = *(safe_src + i);
 	}
+	for(i = 0; i < n; i++) {
+		*(to_1 + i) = *(safe_to + i);
+	}
+
 	printf("\t\twhat is src pointer value?? to pointer is: %p\tsrc pointer is: %p...\n", to , src);
 	printf("\t\tmin dist IS satisfied, over here!!! abs((toDiff) = %d)\n", abs(toDiff));
 }
