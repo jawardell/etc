@@ -92,6 +92,16 @@ int main(int argc, char *argv[])
 void *mymemmove(void *to, const void *src, size_t n){
   return memmove(to, src, n);
 // Replace the return statement above with your implementation of the function...
+
+/* for(int i = 0; i < size; i++) {
+
+	if(((&to) + 1))
+
+
+}
+
+
+*/
   
 //if() { from over lapping to
 /*
@@ -105,6 +115,7 @@ for(int i = 0; i < size; i++) {
 	j--;
 }
 
+return *to;
 
 */
 
@@ -124,6 +135,7 @@ for(int i = 0; i < size; i++) {
 	j--;
 }
 
+return *to;
 
 */
 
@@ -134,7 +146,11 @@ for(int i = 0; i < size; i++) {
 //if() { nothing overlapping
 /*
 
+for(int i = 0; i < size; i++) {
+	*(to+i) = *(from+i);
+}
 
+return *to;
 
 */
 
