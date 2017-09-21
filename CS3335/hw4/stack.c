@@ -59,7 +59,7 @@ int main() {
 	}
 	//pop until empty
 	int i = 0;
-	while() {
+	while(*s_top != STACK_EMPTY) {
 		i = *s_top;
 		printf("POP! item %d is: %f\n", pop(s, &s_top));
 	}
