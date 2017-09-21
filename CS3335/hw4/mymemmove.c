@@ -94,23 +94,44 @@ int main(int argc, char *argv[])
 void *mymemmove(void *to, const void *src, size_t n){
 //  return memmove(to, src, n);
 // Replace the return statement above with your implementation of the function...
-	
-	char *to_1 = (char*)to;
-	char *src_1 = (char*)src;
-	int toDiff = to_1 - src_1;
-	int srcDiff = src_1 - to_1;
-	if(abs(toDiff) < n) {//min distance not satisfied
 
+
+
+	char *to_1 = (char*)to;//we now know it's not a void, but a char(pointer)!
+	char *src_1 = (char*)src;//complete the casting.. 
+
+
+	char safe_to[n];
+	char safe_src[n];
+	for(i = 0; i < n; i++) {//put TO into safety array -- could be an anonymous string literal...
+		safe_to[i] = *(to_1 + i); 
+	}
+
+
+	for(i = 0; i < n; i++){//put SRC into safety array -- could be an anonymous string literal...
+		safe_src[i] = *(src_1 + i);
+	}
+
+
+	
+	int toDiff = safe_to - safe_src; // compute the DIFFERENCE between the .. 
+	int srcDiff = safe_src - safe_to;  //memory addresses of the SRC and TO and TO and SRC
+	if(abs(toDiff) < n) {//min distance not satisfied
+	
+
+		//this is redundant, but listed it for better explainability
 		if(toDiff < 0) {//to overlaps src
 			for(i = 0; i < n; i++) {
-				*(to_1 + i) = *(src_1 + i);
+				*(safe_to + i) = *(safe_src + i);
 			}
+			printf("\t\tmin dist not satisfied, in here!!! abs((toDiff) = %d)\n", abs(toDiff));	
 			return NULL;
 		}
 
-		if(srcDiff < 0) {//from overlaps to 
+		if(srcDiff < 0) {//from overlaps to
+			printf("\t\t woah, we are in here..... from over to...  abs((toDiff) = %d)\n", abs(toDiff));	
 			for(i = 0; i < n; i++) {
-				*(to_1 + i) = *(src_1 + j);
+				*(safe_to + i) = *(safe_src + j);
 				j--;
 			}
 			return NULL;
@@ -119,9 +140,11 @@ void *mymemmove(void *to, const void *src, size_t n){
 
 	}
 	
-	for(i = 0; i < n; i++) {//to and src are independent
-		*(to_1 + i) = *(src_1 + i);
-	}
 
+	for(i = 0; i < n; i++) {//to and src are independent
+		*(safe_to + i) = *(safe_src + i);
+	}
+	printf("\t\twhat is src pointer value?? to pointer is: %p\tsrc pointer is: %p...\n", to , src);
+	printf("\t\tmin dist IS satisfied, over here!!! abs((toDiff) = %d)\n", abs(toDiff));
 }
 
