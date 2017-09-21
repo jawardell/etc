@@ -4,41 +4,41 @@
 #define STACK_SIZE 10
 #define STACK_FULL -2
 #define STACK_EMPTY -1
-#define NORMAL 0
+#define NORMAL  0
 
-int myerror = NORMAL;
+double myerror = -1;
 void push(double[], double, double**, int);
 double pop(double[], double**);
 
 void push(double stack[], double item, double** top, int max_size) {
-	//check to see if full
-	puts("we are here in push 1\n");
-	if(**top == max_size) {
+	if(**top == max_size-1) {//stack is full
 		return;
 	}
-	//insert in normal place
-	puts("we are here in push 2\n");
-	if(**top < max_size) {
-		stack[(int)**top] = item;	
-		**top++;
+	if((**top < max_size) && (**top != max_size-1)) {
+		stack[(int)(**top)+1] = item;
+		**top = **top + 1;
 		return;
 	}
-	puts("we are here in push 3\n");
+	return;
 }
 
 double pop(double stack[], double** top) {
 	if(**top == -1) {
+		**top = STACK_EMPTY; 
 		return STACK_EMPTY;
 	}
 	double temp = stack[(int)**top];
-	**top--;
+	**top = **top--;
 	return temp;
 }
 
 int main() {
+	puts("we are here!!");
 	double s[STACK_SIZE];
-	double* s_top = NULL;
-	*s_top = STACK_EMPTY;
+	double* s_top = &myerror;
+	puts("we are here 2!");
+
+	puts("we are here 3");
 	srand(time(NULL));
 	puts("made it here 1\n");
 	//push until full
