@@ -91,6 +91,52 @@ int main(int argc, char *argv[])
 
 void *mymemmove(void *to, const void *src, size_t n){
   return memmove(to, src, n);
-  // Replece the return statement above with your implementation of the function...
+// Replace the return statement above with your implementation of the function...
+  
+//if() { from over lapping to
+/*
+start from begining of from 
+and copy to the end of to j
+
+
+int j = size-1
+for(int i = 0; i < size; i++) {
+	*(to+j) = *(from+i);
+	size--;
+
+}
+
+
+*/
+
+
+//} from[to{]} same array
+
+
+//if() { to overlapping from
+/*
+
+
+
+*/
+
+
+//}  to[from{]} same array
+
+
+//if() { nothing overlapping
+/*
+
+
+
+*/
+
+
+
+//} from[]  to[]
+
+
+
+
 }
 
