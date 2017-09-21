@@ -28,36 +28,25 @@ double pop(double stack[], double** top) {
 		return STACK_EMPTY;
 	}
 	double temp = stack[(int)**top];
-	**top = **top--;
+	**top = **top - 1;
 	return temp;
 }
 
 int main() {
-	puts("we are here!!");
 	double s[STACK_SIZE];
 	double* s_top = &myerror;
-	puts("we are here 2!");
-
-	puts("we are here 3");
 	srand(time(NULL));
-	puts("made it here 1\n");
-	//push until full
 	double j;
-	while(*s_top != STACK_SIZE-1) {
+	while(*s_top != STACK_SIZE-1) {//push until full
 		j = *s_top;
 		double item = (double)(rand()/126.0*33.0);
 		printf("pushing item %f into pos %d\n", item, (int)(j+1));
 		push(s, item, &s_top, STACK_SIZE);
 		
-	}	
-	puts("made it here 2\n");	
-	//pop until empty
+	}
 	double i = 0;
-	while(*s_top != STACK_EMPTY) {
+	while(*s_top != STACK_EMPTY) {//pop until full
 		i = *s_top;
 		printf("POP! item %d is: %f\n", (int)i, pop(s, &s_top));
 	}
-
-	
-	puts("made it here 3\n");
 }
