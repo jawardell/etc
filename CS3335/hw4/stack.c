@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define STACK_SIZE 10
 #define STACK_FULL -2
@@ -20,7 +21,7 @@ void push(double stack[], double item, double** top, int max_size) {
 	puts("we are here in push 2\n");
 	if(**top < max_size) {
 		stack[(int)**top] = item;	
-		**top++;
+		**top = (**top)++;
 		return;
 	}
 	puts("we are here in push 3\n");
@@ -28,10 +29,11 @@ void push(double stack[], double item, double** top, int max_size) {
 
 double pop(double stack[], double** top) {
 	if(**top == -1) {
+		**top = STACK_EMPTY;
 		return STACK_EMPTY;
 	}
 	double temp = stack[(int)**top];
-	**top--;
+	**top = (**top)--;
 	return temp;
 }
 
@@ -53,13 +55,9 @@ int main() {
 	int i = 0;
 	while(*s_top != STACK_EMPTY) {
 		i = *s_top;
-		printf("POP! item %d is: %f\n", pop(s, &s_top));
+		printf("POP! item %d is: %f\n", i, pop(s, &s_top));
 	}
 
 	
-	puts("made it here 3\n");	
-
-
-
-
+	puts("made it here 3\n");
 }
