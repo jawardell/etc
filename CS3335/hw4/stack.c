@@ -1,67 +1,72 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <math.h>
 
-#define STACK_SIZE 	10
-
-#define STACK_FULL      -2
-#define STACK_EMPTY 	-1
-#define NORMAL          0
+#define STACK_SIZE 10
+#define STACK_FULL -2
+#define STACK_EMPTY -1
+#define NORMAL 0
 
 int myerror = NORMAL;
+void push(double[], double, double**, int);
+double pop(double[], double**);
 
-void push(double [],	// input/ouput - the stack
-	  double,	// input - data being pushed onto the stack
-	  double **,	// input/output - pointer to pointer to the top of stack
-	  int);		// constant - maximum capacity of stack
-
-double			// output - data being popped out from the stack
-     pop(double [],	// input/output - the stack
-	 double **);	// input/output - pointer to pointer to top of stack
-	 
-void push(double stack[],
-	double item,
-	double **top,
-	int max_size){
-
-	// Your code here...
-}
-
-double pop(double stack[],
-	double **top){
-
-	// Your code here...
-	return 0.0;
-}
-
-void makerands() {
-	int i;
-	for(i = 0; i < 11; i++) {
-		printf("rand is: %f\n", (double)(rand()/126.0*33.0) );
+void push(double stack[], double item, double** top, int max_size) {
+	//check to see if full
+	if(*top == max_size) {
+		return;
+	}
+	//are we at end of stack
+	if(*top == max_size-1) {
+		(int**)top;
+		stack[**top] = item;	
+		(double**)top;
+		return;
+	}
+	//insert in normal place
+	if(**top < max_size) {
+		(int**)top;
+		stack[**top] = item;	
+		**top++;
+		(double**)top;
+		return;
+		
 	}
 }
 
+double pop(double stack[], double** top) {
+	if(**top == -1) {
+		return STACK_EMPTY;
+	}
 
-int main(){
-        double s[STACK_SIZE];
-        double *s_top = NULL;
+	(int**)top;
+	double temp = stack[**top];
+	**top--;
+	(double**)top;
+	return temp;
+}
 
-        srand(time(NULL));
+int main() {
+	double s[STACK_SIZE];
+	double* s_top = STACK_EMPTY;
+	srand(time(NULL));
 	
+	//push until full
+	while(*s_top != STACK_SIZE-1) {
+		double item = (double)(rand()/126.0*33.0);
+		printf("pushing item %f\n", item);
+		push(s, item, &s_top, STACK_SIZE);
+		
+	}
+	//pop until empty
+	int i = 0;
+	while() {
+		i = *s_top;
+		printf("POP! item %d is: %f\n", pop(s, &s_top));
+	}
 
-	makerands();
 
-        // Keep pushing doubles equivalent to chars randomly picked between '!'(33) and '~'(126) 
-	// to the stack until it is full.
-        // Print each double before each pushing.
-	
-        // Keep popping out doubles from the stack until it is empty
-        // Print each double after each popping.
 
-	// Repeat above until the user says 'no'.
 
-	// Your code here...
-	
-        return 0;
+
+
 }
