@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define STACK_SIZE 10
 #define STACK_FULL -2
@@ -11,15 +12,14 @@ void push(double[], double, double**, int);
 double pop(double[], double**);
 
 void push(double stack[], double item, double** top, int max_size) {
-	if(**top == max_size-1) {//stack is full
+	if(**top == max_size-1) {
 		return;
 	}
-	if((**top < max_size) && (**top != max_size-1)) {
-		stack[(int)(**top)+1] = item;
+	if((**top < max_size) && (**top != max_size)) {
+		stack[(int)(**top) + 1] = item;
 		**top = **top + 1;
 		return;
 	}
-	return;
 }
 
 double pop(double stack[], double** top) {
@@ -42,24 +42,22 @@ int main() {
 	srand(time(NULL));
 	puts("made it here 1\n");
 	//push until full
+	double j;
 	while(*s_top != STACK_SIZE-1) {
+		j = *s_top;
 		double item = (double)(rand()/126.0*33.0);
-		printf("pushing item %f\n", item);
+		printf("pushing item %f into pos %d\n", item, (int)(j+1));
 		push(s, item, &s_top, STACK_SIZE);
 		
 	}	
 	puts("made it here 2\n");	
 	//pop until empty
-	int i = 0;
+	double i = 0;
 	while(*s_top != STACK_EMPTY) {
 		i = *s_top;
-		printf("POP! item %d is: %f\n", pop(s, &s_top));
+		printf("POP! item %d is: %f\n", (int)i, pop(s, &s_top));
 	}
 
 	
-	puts("made it here 3\n");	
-
-
-
-
+	puts("made it here 3\n");
 }
