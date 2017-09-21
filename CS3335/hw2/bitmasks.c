@@ -75,7 +75,7 @@ unsigned getbits(unsigned x, int p, int n){
 int main(){
 	int x = 19;
 	printf("\n\n\tbit invert. >> %u\n\n", invertbits(2004384122,19,9));
-	printf("\n\tsetbits: x = 2004384122, y = 1634952294, p = 20, n = 4\t\t%u\n\n", setbits(2004384122, 20, 4,  1634952294 ));	
+	printf("\n\tsetbits: x = 3036075499, y = 2872406453, p = 24, n = 5\t\t%u\n\n", setbits(3036075499, 24, 5,  2872406453 ));	
 	printf("The binary rep. of %d is:\n", x);
 	bit_print(x);
 
