@@ -133,7 +133,7 @@ double unaryOperation(int operator, double operand) {
 
 
 		case 6 : 
-			return 
+			return log(operand); 
 
 
 		default: 
@@ -159,18 +159,16 @@ int main() {
 		//keep going until one item is left on the stack
 		do {
 			char* end;
-			char item = strtod(*(c+i), &end);
+			double number  = strtod(*(c+i), &end);
 			//push in all NUMBERS!
-			if((*(c+i) != end) && (*end == '\0')) { // is a number
-				push(stack, item, &s_top, ((sizeof(c))/(sizeof(char))));
+			if((c != end) && (*end == '\0')) { // is a number
+				push(stack, *(c+i), &s_top, ((sizeof(c))/(sizeof(char))));
 				
 			} else if((*(c+i) == end) && (*end != '\0')) { // isn't a number
-				if(isoperator(item) < 1) {
+				if(getoperator(c+i) < 5) {
+				}
+				if(getoperator(c+i) >= 5) {
 					
-				} else if(isoperator(item) == 2){//might be sin 
-				
-				} else if(isoperator(item) == 3) { //might be log
-				
 				}
 			}
 			i++;
