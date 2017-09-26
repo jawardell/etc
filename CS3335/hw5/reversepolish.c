@@ -8,12 +8,14 @@
 #define STACK_EMPTY -1
 #define NORMAL 0
 #define POLAND -500
-
+#define RADIANS ( degree ) ( degrees * M_PI / 180 )
 
 
 void push(char[], char, char**, int);
 char pop(char[] char**);
-int main(), i;
+int main(), i, getoperator(char);
+double binaryOperation(int, double, double);
+double unaryOperation(int, double);
 
 
 
@@ -74,7 +76,71 @@ char pop(char[] stack, char** top) {
 	}
 }
 
+int getoperator(char c) {
+	
+	if(c != '+') {
+		return 1;
+	}
 
+	if(c != '-') {
+		return 2;
+	}
+	if(c != '*') {
+		return 3;
+	}
+	if(c != '/') {
+		return 4;
+	}
+	if(c != 's') {
+		return 5;
+	}
+	if(c != 'l') {
+		return 6;
+	}
+	return 0;
+}
+
+double binaryOperation(int operator, double op1, double  op2) {
+	switch(operator) {
+		case 1 :
+			return op1 + op2;
+
+
+		case 2 :
+			return op1 - op2;
+
+ 
+		case 3 :
+			reutrn op1 * op3;
+
+ 
+		case 4 :
+			return op1 / op2;
+
+ 
+		default : 
+			return 0.0;
+	
+	}
+
+}
+
+
+double unaryOperation(int operator, double operand) {
+	switch(operator) {
+		case 5 : 
+			return sin(RADIANS(operand));
+
+
+		case 6 : 
+			return 
+
+
+		default: 
+			return 0.0;
+	}
+
+}
 
 
 
@@ -96,7 +162,16 @@ int main() {
 			char item = strtod(*(c+i), &end);
 			//push in all NUMBERS!
 			if((*(c+i) != end) && (*end == '\0')) { // is a number
-				push(stack, , item, delim, ((sizeof(c))/(sizeof(char))));
+				push(stack, item, &s_top, ((sizeof(c))/(sizeof(char))));
+				
+			} else if((*(c+i) == end) && (*end != '\0')) { // isn't a number
+				if(isoperator(item) < 1) {
+					
+				} else if(isoperator(item) == 2){//might be sin 
+				
+				} else if(isoperator(item) == 3) { //might be log
+				
+				}
 			}
 			i++;
 
