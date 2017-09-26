@@ -7,11 +7,14 @@
 #define STACK_FULL -2
 #define STACK_EMPTY -1
 #define NORMAL 0
+#define POLAND -500
+
 
 
 void push(char[], char, char**, int);
 char pop(char[] char**);
 int main(), i;
+
 
 
 void push(char stack[], char item, char** top, int max_size) {
@@ -71,17 +74,38 @@ char pop(char[] stack, char** top) {
 	}
 }
 
+
+
+
+
+
 int main() {
-	char stack[];
-	char *s_top = NULL;
-	
-	char input[];	
+	char stack[], *s_top = NULL, input[], delim[], *c = NULL;
+
+
 
 	puts("\n\tenter a reverse polish expression: \n");
-	while(fgets("%c", input) != EOF) {
+	do {
 		//use stringtok to get tokens from input
+		fgets("%c", input);
+		c = strtok(input, delim);
 		
-	}
+		//keep going until one item is left on the stack
+		do {
+			char* end;
+			char item = strtod(*(c+i), &end);
+			//push in all NUMBERS!
+			if((*(c+i) != end) && (*end == '\0')) { // is a number
+				push(stack, , item, delim, ((sizeof(c))/(sizeof(char))));
+			}
+			i++;
+
+		} while(!POLAND);
+
+
+	
+		
+	} while(input != EOF);
 
 
 }
