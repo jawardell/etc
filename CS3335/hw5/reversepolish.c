@@ -166,9 +166,168 @@ int main() {
 				
 			} else if((*(c+i) == end) && (*end != '\0')) { // isn't a number
 				if(getoperator(c+i) < 5) {
+
+
+					//perform computation 
+					//put on stack
+					//	....as string???? 
+					//	....converting decimals to strings? ?? ?? 
+					//			lossy conversion!!! 
 				}
 				if(getoperator(c+i) >= 5) {
-					
+					//perform computation
+					//put on stack 
+					//   . ..  .. as string
+					//   	.. convert decimal to string>> 
+					//   	D:
+					//
+					//
+					//
+					//
+					//   	might just need to make two stacks
+					//   		one for operators
+					//   		one for operands
+					//   		keep popping numbers into operands stack
+					//   		keep popping until operator is encountered
+					//
+					//
+					//
+					//
+					//   		char stack from input 
+					//   		double stack of calculations
+					//   			and numbers
+					//   		read input in from console 
+					//   		put into a char string,
+					//   			this is iterable.. 
+					//   			don't forget '\0'
+					//   			keep looking at chars
+					//   			grab chars and put them onto 
+					//   				numbers stack.. 
+					//   			keep putting them on.. 
+					//
+					//
+					//   		wait!! 
+					//   			now we see an operator!! 
+					//
+					//
+					//
+					//   		grab the numbers on the numbers stack 
+					//   		 	get all two of them!! 
+					//   		 		is it a unary or 
+					//   		 			binary 
+					//   		 		operator?? 
+					//   		 	perform the calcluation.. 
+					//   		 push the result of the calculation back onto the 
+					//   		 	stack.. 
+					//
+					//   		keep doing this until we reach the end of the
+					//   			iterable list of chars.. 
+					//   		when we are at the end of char list, 
+					//   			we should have only one value left im the
+					//   			stack of numerical calculation values. .. s
+					//   		we can return this value. 
+					//
+					//   		this is the result of the polish expression. 
+					//   		\
+					//
+					//
+					//
+					//
+					//
+					//
+					//
+					//
+					//
+					//
+					//   		so > 
+					//
+					//
+					//   		read in input
+					//
+					//   		use fgets to grab whole line 
+					//
+					//
+					//   		use strtok to place into an array / pointer location
+					//
+					//
+					//   		iterate over input array / iterable pointer 
+					//
+					//
+					//
+					//
+					//   		THE HEART : our stack of doubles
+					//
+					//   			layer one: stack pointer constant
+					//   			layer two: element in stack
+					//
+					//   		
+					//   		push numbers onto numbers stack
+					//
+					//
+					//   		when an operator is seen, 
+					//   		pop either two or one of the elements in the stack
+					//
+					//
+					//   		perform the operation 
+					//
+					//
+					//   		place calculation back onto stack 
+					//
+					//
+					//
+					//   		when the iterable char list/ array is at the end 
+					//
+					//
+					//   		and 
+					//
+					//
+					//   		the numbers stack has one element left 
+					//
+					//
+					//
+					//
+					//   		we have the answer
+					//
+					//
+					//
+					//
+					//
+					//
+					//
+					//
+					//
+					//   		~~~~~~~~~~ 
+					//
+					//
+					//   		iterataing through characters
+					//   		parsing all numbers into doubles 
+					//   		and pushing them onto stack 
+					//
+					//
+					//   		use functions to identify correct operator actions
+					//		execute those operations and return a douible value
+					//
+					//
+					//		push that single double value on the stack
+					//
+					//
+					//		the next number on the stack will use the 
+					//			previously calculated value .. 
+					//
+					//
+					//
+					//
+					//
+					//
+					//
+					//			this should work. 
+					//
+					//
+					//			hopefully i can implement it. .. 
+					//
+					//   		
+					//
+			
 				}
 			}
 			i++;
