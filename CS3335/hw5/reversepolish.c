@@ -8,18 +8,18 @@
 #define STACK_EMPTY -1
 #define NORMAL 0
 #define POLAND -500
-#define RADIANS ( degree ) ( degrees * M_PI / 180 )
+#define RADIANS( degrees ) ( degrees * M_PI / 180 )
 
 
 void push(double[], double, double**, int);
-char pop(double[] double**);
+double pop(double[], double**);
 int main(), i, getoperator(char), alarm, myerror;
 double binaryOperation(int, double, double);
 double unaryOperation(int, double);
 
 
 
-void push(double stack[], double item, double** top, double max_size) {
+void push(double stack[], double item, double** top, int max_size) {
 	//stack size report
 	if(*top == stack) {
 		alarm = POLAND;
@@ -46,7 +46,7 @@ void push(double stack[], double item, double** top, double max_size) {
 	}
 
 	//pushing normally
-	if(*top < (stack + max_value + 1)) {
+	if(*top < (stack + max_size + 1)) {
 		++(*top);
 		**top = item;
 		myerror = NORMAL;
@@ -55,7 +55,7 @@ void push(double stack[], double item, double** top, double max_size) {
 
 }
 
-char pop(double[] stack, double** top) {
+double pop(double stack[], double** top) {
 	double item;
 	
 	//stack size report
@@ -113,19 +113,19 @@ int getoperator(char c) {
 double binaryOperation(int operator, double op1, double  op2) {
 	switch(operator) {
 		case 1 :
-			return op1 + op2;
+			return (op1 + op2);
 
 
 		case 2 :
-			return op1 - op2;
+			return (op1 - op2);
 
  
 		case 3 :
-			reutrn op1 * op3;
+			return (op1 * op2);
 
  
 		case 4 :
-			return op1 / op2;
+			return (op1 / op2);
 
  
 		default : 
@@ -182,7 +182,7 @@ int main() {
 	
 
 	//iterate over input array
-	for(i = 0; i < ((sizeof(input)) / (sizeof(char)); i++)) {
+	for(i = 0; i < ((sizeof(input)) / (sizeof(char))); i++) {
 		//prepare for parse attempt
 		char* endpointer;
 		double temp = strtod(*(tokens + i), &endpointer);
@@ -190,7 +190,7 @@ int main() {
 			//push number onto the stack
 			push(stack, temp, &s_top, 200);
 		} else { //we have an operator
-			char operator = *(c + i);
+			char operator = *(tokens + i);
 			if(getoperator(operator) < 5) {
 				double operand2 = pop(stack, &s_top);
 				double operand1 = pop(stack, &s_top);
