@@ -3,24 +3,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-#define STACK_FULL
-#define STACK_EMPTY
-#define NORMAL
-#define POLAND
+#define STACK_FULL -2
+#define STACK_EMPTY -1
+#define NORMAL 0
+#define POLAND -500
 #define RADIANS( degrees ) ( degrees * M_PI / 180 )
 
-void push(double[], double, double**, int);
-void push(char[], char, char**, int);
-double pop(double[], double**);
-char pop(char[], char**);
-int main(), i, getoperator(char), alarm, myerror_c, myerror_d; 
-double unaryOperation(int, double, double);
-double binaryOperation(int, double);
+void pushD(double[], double, double**, int);
+void pushC(char* [], char* , char***, int);
+double popD(double[], double**);
+char popC(char* [], char***);
+int  i, getoperator(char), alarm, myerror_c, myerror_d; 
+double unaryOperation(int, double);
+double binaryOperation(int, double, double);
 
 
 
-void push(double stack[], double item, double** top, int max_size) {
+void pushD(double stack[], double item, double** top, int max_size) {
 	//report stack size
 	if(*top == stack) {
 		alarm = POLAND;
@@ -58,7 +57,7 @@ void push(double stack[], double item, double** top, int max_size) {
 
 }
 
-void push(char stack[], char item, char** top, int max_size) {
+void pushC(char* stack[], char* item, char*** top, int max_size) {
 	//has top been initialized yet?
 	if(*top == NULL) {
 		*top = stack;
@@ -90,7 +89,7 @@ void push(char stack[], char item, char** top, int max_size) {
 
 }
 
-double pop(double stack[], double** top) {
+double popD(double stack[], double** top) {
 	//report stack size
 	if(*top == stack) {
 		alarm = POLAND;
@@ -116,7 +115,7 @@ double pop(double stack[], double** top) {
 	return item;
 }
 
-char pop(char stack[], char** top) {
+char* popC(char* stack[], char*** top) {
 	//is the stack empty? 
 	if(myerror_c = STACK_EMPTY) {
 		return 0.0;
@@ -124,20 +123,20 @@ char pop(char stack[], char** top) {
 
 	//popping last item? 
 	if(*top == stack) {
-		char item = **top;
+		char* item = **top;
 		*top = NULL;
 		myerror_c = STACK_EMPTY;
 		return item;
 	}
 
 	//popping normally
-	char item = **top;
+	char* item = **top;
 	--(*top);
 	myerror_c = NORMAL;
 	return item;
 }
 
-int getoperator(char c) {
+int getoperator(char* c) {
 	switch(c) {
 		case '+' : 
 			return 1;
@@ -203,44 +202,44 @@ int main() {
 	scanf("%d", &c_num);
 
 	double stack_d[d_num], **d_top = NULL;
-	char stack_c[c_num + d_num], **c_top = NULL;
+	char* stack_c[c_num + d_num], **c_top = NULL;
 
 
 
 	char* token = strtok(input, " ");
 	do {
-		push(stack_c, token, &c_top, (c_num+d_num));
+		pushC(stack_c, token, &c_top, (c_num+d_num));
 		token = strtok(NULL, " ");
 
 	} while(token != NULL);
 
 	while(myerror_c != STACK_EMPTY) {
-		char current = pop(stack_c, &c_top);
+		char* current = popC(stack_c, &c_top);
 		char* endpointer;	
 		double temp = strtd(current, &endpointer);//try to parse
 		
 
 		if((current != endpointer) && (endpointer != '\0')) { //we have a number
-			push(stack_d, temp, &d_top, d_num);
+			pushD(stack_d, temp, &d_top, d_num);
 		} else { //we have an operator
-			char operator = current;
+			char* operator = current;
 			
 			if(getoperator(operator) < 5) {
-				double operand2 = pop(stack_d, &top_d);
-				double operand1 = pop(stack_d, &top_d);
+				double operand2 = popD(stack_d, &d_top);
+				double operand1 = popD(stack_d, &d_top);
 				double eval = binaryOperation(getoperator(operator), operand1, operand2);
-				push(stack_d, eval, top_d, d_num);
+				pushD(stack_d, eval, &d_top, d_num);
 			}
 			if(getoperator(operator) >= 5) {
-				double operand = pop(stack_d, &d_top);
+				double operand = popD(stack_d, &d_top);
 				double eval = unaryOperation(getoperator(operator), operand);
-				push(eval, stack_d, &d_top, d_num);
+				pushD(stack_d, eval,  &d_top, d_num);
 			}
 
 		}
 
 		if(alarm == POLAND) {
-			solution = pop(stack_d, &d_top);
+			solution = popD(stack_d, &d_top);
 			break;
 		}
 	}
