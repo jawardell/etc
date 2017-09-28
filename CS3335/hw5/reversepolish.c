@@ -207,6 +207,7 @@ int main() {
 		//check to see if answer is ready
 		if(alarm = POLAND) {
 			solution = pop(stack, &s_top);
+			break;
 		}
 
 	}
