@@ -13,13 +13,18 @@
 
 void push(double[], double, double**, int);
 char pop(double[] double**);
-int main(), i, getoperator(char);
+int main(), i, getoperator(char), alarm, myerror;
 double binaryOperation(int, double, double);
 double unaryOperation(int, double);
 
 
 
 void push(double stack[], double item, double** top, double max_size) {
+	//stack size report
+	if(*top == stack) {
+		alarm = POLAND;
+	}
+
 	//has the pointer been initialized yet?
 	if(*top == NULL) {
 		*top = stack;
@@ -53,6 +58,11 @@ void push(double stack[], double item, double** top, double max_size) {
 char pop(double[] stack, double** top) {
 	double item;
 	
+	//stack size report
+	if(*top == stack) {
+		alarm = POLAND;
+	}
+
 	//is the stack empty?
 	if((*top == NULL) || (myerror == STACK_EMPTY)) {
 		return;
@@ -146,6 +156,9 @@ double unaryOperation(int operator, double operand) {
 
 
 int main() { 
+	double solution = 0;
+
+
 	//ask for input
 	puts("enter a reverse polish expression\n");
 	
@@ -190,9 +203,17 @@ int main() {
 				push(stack, item, &s_top, 200);
 			}
 		}
+		
+		//check to see if answer is ready
+		if(alarm = POLAND) {
+			solution = pop(stack, &s_top);
+		}
 
 	}
 
+
+	printf("\n\tThe reverse Polish expression evaluates to: %f\n", solution);
+	puts("\n\tHave a nice day!\n\n");
 	
 
 
