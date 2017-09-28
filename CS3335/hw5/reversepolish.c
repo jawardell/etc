@@ -10,10 +10,10 @@
 #define RADIANS( degrees ) ( degrees * M_PI / 180 )
 
 void pushD(double[], double, double**, int);
-void pushC(char* [], char* , char***, int);
+void pushC(char* [], char* , char**, int);
 double popD(double[], double**);
-char popC(char* [], char***);
-int  i, getoperator(char), alarm, myerror_c, myerror_d; 
+char* popC(char* [], char**);
+int  i, getoperator(char*), alarm, myerror_c, myerror_d; 
 double unaryOperation(int, double);
 double binaryOperation(int, double, double);
 
@@ -57,7 +57,7 @@ void pushD(double stack[], double item, double** top, int max_size) {
 
 }
 
-void pushC(char* stack[], char* item, char*** top, int max_size) {
+void pushC(char* stack[], char* item, char** top, int max_size) {
 	//has top been initialized yet?
 	if(*top == NULL) {
 		*top = stack;
@@ -115,10 +115,10 @@ double popD(double stack[], double** top) {
 	return item;
 }
 
-char* popC(char* stack[], char*** top) {
+char* popC(char* stack[], char** top) {
 	//is the stack empty? 
 	if(myerror_c = STACK_EMPTY) {
-		return 0.0;
+		return NULL;
 	}
 
 	//popping last item? 
@@ -137,7 +137,7 @@ char* popC(char* stack[], char*** top) {
 }
 
 int getoperator(char* c) {
-	switch(c) {
+	switch(*c) {
 		case '+' : 
 			return 1;
 		case '-' : 
@@ -202,7 +202,7 @@ int main() {
 	scanf("%d", &c_num);
 
 	double stack_d[d_num], **d_top = NULL;
-	char* stack_c[c_num + d_num], **c_top = NULL;
+	char* stack_c[c_num + d_num], *c_top = NULL;
 
 
 
