@@ -20,12 +20,14 @@ double binaryOperation(int, double, double);
 void push(double stack[], double item, double** top, int max_size) {
 	//report stack size
 	if(*top == stack) {
+		puts("poland!");
 		alarm = POLAND;
 	}
 
 	//has top been initialized yet?
 	if(*top == NULL) {
 		*top = stack;
+		printf("pushing item %f\n", item);
 		**top = item;
 		++(*top);
 		return;
@@ -39,6 +41,7 @@ void push(double stack[], double item, double** top, int max_size) {
 	//pushing last item?
 	if(*top == (stack + (max_size - 2))) {
 		++(*top);
+		printf("pushing item %f\n", item);
 		**top = item;
 		myerror_d = STACK_FULL;
 		return;
@@ -47,6 +50,7 @@ void push(double stack[], double item, double** top, int max_size) {
 	//pushing normally
 	if(*top < (stack + (max_size - 1))) {
 		++(*top);
+		printf("pushing item %f\n", item);
 		**top = item;
 		myerror_d = NORMAL;
 		return;
@@ -58,17 +62,20 @@ void push(double stack[], double item, double** top, int max_size) {
 double pop(double stack[], double** top) {
 	//report stack size
 	if(*top == stack) {
+		puts("poland!!");
 		alarm = POLAND;
 	}
 
 	//is the stack empty? 
-	if(myerror_d = STACK_EMPTY) {
+	if(myerror_d == STACK_EMPTY) {
+		puts("stack empty");
 		return 0.0;
 	}
 
 	//popping last item? 
 	if(*top == stack) {
 		double item = **top;
+		printf("pop: %f\n", item);
 		*top = NULL;
 		myerror_d = STACK_EMPTY;
 		return item;
@@ -76,6 +83,7 @@ double pop(double stack[], double** top) {
 
 	//popping normally
 	double item = **top;
+	printf("pop: %f\n", item);
 	--(*top);
 	myerror_d = NORMAL;
 	return item;
@@ -101,6 +109,7 @@ int getoperator(char* c) {
 
 
 }
+
 
 double unaryOperation(int operator, double operand) {
 	switch(operator) {
@@ -132,6 +141,7 @@ double binaryOperation(int operator, double op1, double op2) {
 int main() {
 	double solution = 0;
 	char input[200];
+	myerror_d = 0;
 
 	puts("\n\tenter a reverse polish expression\n");
 	fgets(input, sizeof(input), stdin);	
@@ -159,7 +169,8 @@ int main() {
 		//try to parse token
 		
 		strtod(token, &endpointer);
-		if((token != endpointer) && (*endpointer != '\0')) { //we have a number
+		printf("*endpointer is %c\n", *endpointer);
+		if((*endpointer == '\0') || (endpointer == 0)) { //we have a number
 			double item = strtod(token, &endpointer);
 			push(stack_d, item, &d_top, d_num);
 			
@@ -186,6 +197,7 @@ int main() {
 		}
 
 	} while(token != NULL);
+	
 
 	
 	printf("\n\tThe evaluated reverse polish expression is: %f\n", solution);
