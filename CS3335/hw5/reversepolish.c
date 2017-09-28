@@ -155,7 +155,11 @@ double unaryOperation(int operator, double operand) {
 
 
 
-int main() { 
+int main() {
+
+	puts("\n\tdebug 1\n");
+
+ 
 	double solution = 0;
 
 
@@ -165,32 +169,42 @@ int main() {
 	//make dummy array for input
 	char input[200];
 
+	puts("\n\tdebug 2\n");
+
+ 
 	
 	//get input as string
 	fgets(input, sizeof(input), stdin);
 
-
-	//grab string tokens using strtok
-	char delim[] = " ";
-	char* tokens;
-	tokens = strtok(input, delim);
-
+	puts("\n\tdebug 3\n");
+	
 
 	//prepare stack for doubles
 	double stack[200];
 	double *s_top = NULL;
 	
 
-	//iterate over input array
-	for(i = 0; i < ((sizeof(input)) / (sizeof(char))); i++) {
-		//prepare for parse attempt
+	printf("printf(input) is %s\n", input); 
+
+	//grab string tokens using strtok
+	char* token = strtok(input, " ");
+	do {	
+		printf("current token = %s\n", token);
+		token = strtok(NULL, " ");
+
+
+		//prepare for parsing
 		char* endpointer;
-		double temp = strtod(*(tokens + i), &endpointer);
-		if((tokens != endpointer) && (*endpointer != '\0')) {//we have a number
-			//push number onto the stack
+		double temp = strtod(token, &endpointer);
+
+
+		if((token != endpointer) && (*endpointer != '\0')) { //we have a number
 			push(stack, temp, &s_top, 200);
+			
 		} else { //we have an operator
-			char operator = *(tokens + i);
+			char operator = token;
+
+
 			if(getoperator(operator) < 5) {
 				double operand2 = pop(stack, &s_top);
 				double operand1 = pop(stack, &s_top);
@@ -198,20 +212,29 @@ int main() {
 				push(stack, item, &s_top, 200);
 			}
 			if(getoperator(operator) >= 5) {
-				double operand1 = pop(stack, &s_top);
-				double item = unaryOperation(getoperator(operator), operand1);
+				double operand = pop(stack, &s_top);
+				double item = unaryOperation(getoperator(operator), operand);
 				push(stack, item, &s_top, 200);
 			}
 		}
 		
-		//check to see if answer is ready
+
+		//see if one item is left on stack
 		if(alarm = POLAND) {
 			solution = pop(stack, &s_top);
 			break;
 		}
 
-	}
+	} while(token != NULL);
+	
+	
+	
 
+
+
+	puts("\n\tdebug 11\n");
+
+ 
 
 	printf("\n\tThe reverse Polish expression evaluates to: %f\n", solution);
 	puts("\n\tHave a nice day!\n\n");
