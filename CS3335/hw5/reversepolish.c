@@ -59,11 +59,6 @@ void push(double stack[], double item, double** top, int max_size) {
 }
 
 void push(char stack[], char item, char** top, int max_size) {
-	//report stack size
-	if(*top == stack) {
-		alarm = POLAND;
-	}
-
 	//has top been initialized yet?
 	if(*top == NULL) {
 		*top = stack;
@@ -122,11 +117,6 @@ double pop(double stack[], double** top) {
 }
 
 char pop(char stack[], char** top) {
-	//report stack size
-	if(*top == stack) {
-		alarm = POLAND;
-	}
-
 	//is the stack empty? 
 	if(myerror_c = STACK_EMPTY) {
 		return 0.0;
@@ -193,8 +183,6 @@ double binaryOperation(int operator, double op1, double op2) {
 		default : 
 			return 0.0;
 	}
-
-
 }
 
 int main() {
@@ -226,8 +214,39 @@ int main() {
 
 	} while(token != NULL);
 
-	while	
+	while(myerror_c != STACK_EMPTY) {
+		char current = pop(stack_c, &c_top);
+		char* endpointer;	
+		double temp = strtd(current, &endpointer);//try to parse
+		
 
+		if((current != endpointer) && (endpointer != '\0')) { //we have a number
+			push(stack_d, temp, &d_top, d_num);
+		} else { //we have an operator
+			char operator = current;
+			
+			if(getoperator(operator) < 5) {
+				double operand2 = pop(stack_d, &top_d);
+				double operand1 = pop(stack_d, &top_d);
+				double eval = binaryOperation(getoperator(operator), operand1, operand2);
+				push(stack_d, eval, top_d, d_num);
+			}
+			if(getoperator(operator) >= 5) {
+				double operand = pop(stack_d, &d_top);
+				double eval = unaryOperation(getoperator(operator), operand);
+				push(eval, stack_d, &d_top, d_num);
+			}
+
+		}
+
+		if(alarm == POLAND) {
+			solution = pop(stack_d, &d_top);
+			break;
+		}
+	}
+	
+	printf("\n\tThe evaluated reverse polish expression is: %f\n", solution);
+	puts("\n\tHave a nice day!");
 	
 
 	
