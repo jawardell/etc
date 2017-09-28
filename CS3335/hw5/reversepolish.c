@@ -11,15 +11,15 @@
 #define RADIANS ( degree ) ( degrees * M_PI / 180 )
 
 
-void push(char[], char, char**, int);
-char pop(char[] char**);
+void push(double[], double, double**, int);
+char pop(double[] double**);
 int main(), i, getoperator(char);
 double binaryOperation(int, double, double);
 double unaryOperation(int, double);
 
 
 
-void push(char stack[], char item, char** top, int max_size) {
+void push(double stack[], double item, double** top, double max_size) {
 	//has the pointer been initialized yet?
 	if(*top == NULL) {
 		*top = stack;
@@ -50,8 +50,8 @@ void push(char stack[], char item, char** top, int max_size) {
 
 }
 
-char pop(char[] stack, char** top) {
-	char item;
+char pop(double[] stack, double** top) {
+	double item;
 	
 	//is the stack empty?
 	if((*top == NULL) || (myerror == STACK_EMPTY)) {
@@ -145,199 +145,56 @@ double unaryOperation(int operator, double operand) {
 
 
 
-int main() {
-	char stack[], *s_top = NULL, input[], delim[], *c = NULL;
-
-
-
-	puts("\n\tenter a reverse polish expression: \n");
-	do {
-		//use stringtok to get tokens from input
-		fgets("%c", input);
-		c = strtok(input, delim);
-		
-		//keep going until one item is left on the stack
-		do {
-			char* end;
-			double number  = strtod(*(c+i), &end);
-			//push in all NUMBERS!
-			if((c != end) && (*end == '\0')) { // is a number
-				push(stack, *(c+i), &s_top, ((sizeof(c))/(sizeof(char))));
-				
-			} else if((*(c+i) == end) && (*end != '\0')) { // isn't a number
-				if(getoperator(c+i) < 5) {
-
-
-					//perform computation 
-					//put on stack
-					//	....as string???? 
-					//	....converting decimals to strings? ?? ?? 
-					//			lossy conversion!!! 
-				}
-				if(getoperator(c+i) >= 5) {
-					//perform computation
-					//put on stack 
-					//   . ..  .. as string
-					//   	.. convert decimal to string>> 
-					//   	D:
-					//
-					//
-					//
-					//
-					//   	might just need to make two stacks
-					//   		one for operators
-					//   		one for operands
-					//   		keep popping numbers into operands stack
-					//   		keep popping until operator is encountered
-					//
-					//
-					//
-					//
-					//   		char stack from input 
-					//   		double stack of calculations
-					//   			and numbers
-					//   		read input in from console 
-					//   		put into a char string,
-					//   			this is iterable.. 
-					//   			don't forget '\0'
-					//   			keep looking at chars
-					//   			grab chars and put them onto 
-					//   				numbers stack.. 
-					//   			keep putting them on.. 
-					//
-					//
-					//   		wait!! 
-					//   			now we see an operator!! 
-					//
-					//
-					//
-					//   		grab the numbers on the numbers stack 
-					//   		 	get all two of them!! 
-					//   		 		is it a unary or 
-					//   		 			binary 
-					//   		 		operator?? 
-					//   		 	perform the calcluation.. 
-					//   		 push the result of the calculation back onto the 
-					//   		 	stack.. 
-					//
-					//   		keep doing this until we reach the end of the
-					//   			iterable list of chars.. 
-					//   		when we are at the end of char list, 
-					//   			we should have only one value left im the
-					//   			stack of numerical calculation values. .. s
-					//   		we can return this value. 
-					//
-					//   		this is the result of the polish expression. 
-					//   		\
-					//
-					//
-					//
-					//
-					//
-					//
-					//
-					//
-					//
-					//
-					//   		so > 
-					//
-					//
-					//   		read in input
-					//
-					//   		use fgets to grab whole line 
-					//
-					//
-					//   		use strtok to place into an array / pointer location
-					//
-					//
-					//   		iterate over input array / iterable pointer 
-					//
-					//
-					//
-					//
-					//   		THE HEART : our stack of doubles
-					//
-					//   			layer one: stack pointer constant
-					//   			layer two: element in stack
-					//
-					//   		
-					//   		push numbers onto numbers stack
-					//
-					//
-					//   		when an operator is seen, 
-					//   		pop either two or one of the elements in the stack
-					//
-					//
-					//   		perform the operation 
-					//
-					//
-					//   		place calculation back onto stack 
-					//
-					//
-					//
-					//   		when the iterable char list/ array is at the end 
-					//
-					//
-					//   		and 
-					//
-					//
-					//   		the numbers stack has one element left 
-					//
-					//
-					//
-					//
-					//   		we have the answer
-					//
-					//
-					//
-					//
-					//
-					//
-					//
-					//
-					//
-					//   		~~~~~~~~~~ 
-					//
-					//
-					//   		iterataing through characters
-					//   		parsing all numbers into doubles 
-					//   		and pushing them onto stack 
-					//
-					//
-					//   		use functions to identify correct operator actions
-					//		execute those operations and return a douible value
-					//
-					//
-					//		push that single double value on the stack
-					//
-					//
-					//		the next number on the stack will use the 
-					//			previously calculated value .. 
-					//
-					//
-					//
-					//
-					//
-					//
-					//
-					//			this should work. 
-					//
-					//
-					//			hopefully i can implement it. .. 
-					//
-					//   		
-					//
-			
-				}
-			}
-			i++;
-
-		} while(!POLAND);
-
+int main() { 
+	//ask for input
+	puts("enter a reverse polish expression\n");
+	
+	//make dummy array for input
+	char input[200];
 
 	
-		
-	} while(input != EOF);
+	//get input as string
+	fgets(input, sizeof(input), stdin);
+
+
+	//grab string tokens using strtok
+	char delim[] = " ";
+	char* tokens;
+	tokens = strtok(input, delim);
+
+
+	//prepare stack for doubles
+	double stack[200];
+	double *s_top = NULL;
+	
+
+	//iterate over input array
+	for(i = 0; i < ((sizeof(input)) / (sizeof(char)); i++)) {
+		//prepare for parse attempt
+		char* endpointer;
+		double temp = strtod(*(tokens + i), &endpointer);
+		if((tokens != endpointer) && (*endpointer != '\0')) {//we have a number
+			//push number onto the stack
+			push(stack, temp, &s_top, 200);
+		} else { //we have an operator
+			char operator = *(c + i);
+			if(getoperator(operator) < 5) {
+				double operand2 = pop(stack, &s_top);
+				double operand1 = pop(stack, &s_top);
+				double item = binaryOperation(getoperator(operator), operand1, operand2);
+				push(stack, item, &s_top, 200);
+			}
+			if(getoperator(operator) >= 5) {
+				double operand1 = pop(stack, &s_top);
+				double item = unaryOperation(getoperator(operator), operand1);
+				push(stack, item, &s_top, 200);
+			}
+		}
+
+	}
+
+	
+
 
 
 }
