@@ -9,17 +9,15 @@
 #define POLAND -500
 #define RADIANS( degrees ) ( degrees * M_PI / 180 )
 
-void pushD(double[], double, double**, int);
-void pushC(char* [], char* , char**, int);
-double popD(double[], double**);
-char* popC(char* [], char**);
+void push(double[], double, double**, int);
+double pop(double[], double**);
 int  i, getoperator(char*), alarm, myerror_c, myerror_d; 
 double unaryOperation(int, double);
 double binaryOperation(int, double, double);
 
 
 
-void pushD(double stack[], double item, double** top, int max_size) {
+void push(double stack[], double item, double** top, int max_size) {
 	//report stack size
 	if(*top == stack) {
 		alarm = POLAND;
@@ -57,39 +55,7 @@ void pushD(double stack[], double item, double** top, int max_size) {
 
 }
 
-void pushC(char* stack[], char* item, char** top, int max_size) {
-	//has top been initialized yet?
-	if(*top == NULL) {
-		*top = stack;
-		**top = item;
-		++(*top);
-		return;
-	}
-
-	//is the stack full?
-	if(myerror_c == STACK_FULL) {
-		return;
-	}
-	
-	//pushing last item?
-	if(*top == (stack + (max_size - 2))) {
-		++(*top);
-		**top = item;
-		myerror_c = STACK_FULL;
-		return;
-	}
-
-	//pushing normally
-	if(*top < (stack + (max_size - 1))) {
-		++(*top);
-		**top = item;
-		myerror_c = NORMAL;
-		return;
-	}
-
-}
-
-double popD(double stack[], double** top) {
+double pop(double stack[], double** top) {
 	//report stack size
 	if(*top == stack) {
 		alarm = POLAND;
@@ -112,27 +78,6 @@ double popD(double stack[], double** top) {
 	double item = **top;
 	--(*top);
 	myerror_d = NORMAL;
-	return item;
-}
-
-char* popC(char* stack[], char** top) {
-	//is the stack empty? 
-	if(myerror_c = STACK_EMPTY) {
-		return NULL;
-	}
-
-	//popping last item? 
-	if(*top == stack) {
-		char* item = **top;
-		*top = NULL;
-		myerror_c = STACK_EMPTY;
-		return item;
-	}
-
-	//popping normally
-	char* item = **top;
-	--(*top);
-	myerror_c = NORMAL;
 	return item;
 }
 
@@ -201,48 +146,47 @@ int main() {
 	int c_num; 
 	scanf("%d", &c_num);
 
-	double stack_d[d_num], **d_top = NULL;
-	char* stack_c[c_num + d_num], *c_top = NULL;
+	double stack_d[d_num], *d_top = NULL;
+	
 
 
 
 	char* token = strtok(input, " ");
 	do {
-		pushC(stack_c, token, &c_top, (c_num+d_num));
 		token = strtok(NULL, " ");
+		char* endpointer;
+		
+		//try to parse token
+		
+		strtod(token, &endpointer);
+		if((token != endpointer) && (*endpointer != '\0')) { //we have a number
+			double item = strtod(token, &endpointer);
+			push(stack_d, item, &d_top, d_num);
+			
+		} else { //we have an operator
+			if(getoperator(token) < 5) {
+				double op1 = pop(stack_d, &d_top);
+				double op2 = pop(stack_d, &d_top);
+				double eval = binaryOperation(getoperator(token), op1, op2);
+				push(stack_d, eval, &d_top, d_num);
+			}
+			if(getoperator(token) >= 5) {
+				double op1 = pop(stack_d, &d_top);
+				double eval = unaryOperation(getoperator(token), op1);
+				push(stack_d, eval, &d_top, d_num);
+				
+			}
+			
+		}
+
+		//check stack size
+		if(alarm = POLAND) {
+			solution = pop(stack_d, &d_top);
+			break;
+		}
 
 	} while(token != NULL);
 
-	while(myerror_c != STACK_EMPTY) {
-		char* current = popC(stack_c, &c_top);
-		char* endpointer;	
-		double temp = strtd(current, &endpointer);//try to parse
-		
-
-		if((current != endpointer) && (endpointer != '\0')) { //we have a number
-			pushD(stack_d, temp, &d_top, d_num);
-		} else { //we have an operator
-			char* operator = current;
-			
-			if(getoperator(operator) < 5) {
-				double operand2 = popD(stack_d, &d_top);
-				double operand1 = popD(stack_d, &d_top);
-				double eval = binaryOperation(getoperator(operator), operand1, operand2);
-				pushD(stack_d, eval, &d_top, d_num);
-			}
-			if(getoperator(operator) >= 5) {
-				double operand = popD(stack_d, &d_top);
-				double eval = unaryOperation(getoperator(operator), operand);
-				pushD(stack_d, eval,  &d_top, d_num);
-			}
-
-		}
-
-		if(alarm == POLAND) {
-			solution = popD(stack_d, &d_top);
-			break;
-		}
-	}
 	
 	printf("\n\tThe evaluated reverse polish expression is: %f\n", solution);
 	puts("\n\tHave a nice day!");
