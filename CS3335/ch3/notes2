@@ -240,7 +240,138 @@ test to see if this can recongnize and handle
 
 
 
+so what we can see is that the program can handle 
+	flags using the paradigm
+	and that we can handle the trahs args
 
+
+	-t and no furhter info 
+
+	d:t
+		
+
+	or -d folowed by additional information
+	'd'
+		delivery = optarg 
+		multiple args, 	
+		strings, 
+		more flags. 
+		etc
+	't'
+		deli`very = thick
+		here we know there is only
+		one argument (flag?)
+
+
+
+
+
+
+talking about assignemnt 6 
+
+
+
+there is a minor difference between the uniq command 
+	on mac and linux... 
+
+
+so we need to use linux the whole time!! 
+	so can use redhat or office machine. 
+
+
+there are three programs 
+
+this one is pretty involved. 
+
+
+need to start tonight 
+will take a very long time 
+
+	today is the third 
+	the fifth he will be traveling**no class 
+	the tenth, will be the fall break **no class
+	the twelth ITS DUE**class on thurs
+
+
+another announcement   ==> a TEST
+
+	we will be having two tests 
+
+	TEST 1
+		whole class time 
+		will cover ch0 to ch3
+		open notes and code
+
+		NO COMPUTER
+
+
+
+
+
+but lets keep talking about a6
+
+
+
+...
+
+
+
+UNIX lots of well designed tools we can use 
+
+	cut 
+	sort 
+	uniq
+
+
+lets use them to manipulate txt/binary files
+(are same in unix, not same in windows)
+
+lots of emp information 
+we have the names 
+we have the titles 
+we have names
+departments, dates, some numbers 
+
+
+we can use cut to extract any particular column 
+	and play with the information afterwards
+
+we can man the commands to learn more 
+
+
+man cut 
+
+
+cut -d !       vs      cut -d!
+
+	can we do it? -d! delimeter is ! 
+
+using cut.. . 
+
+
+cut -d! -f3 emp.list
+
+that is the command that is exactly the same 
+	as cut from this file 
+	lets use ! as delimeter
+	and i am interested in the third column 
+
+
+
+the titles are the ones that we want to extract 
+
+	is a space allowed? ---> yes 
+
+
+
+
+
+
+
+	
+
+
+`
 
 
 
