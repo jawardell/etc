@@ -364,6 +364,135 @@ the titles are the ones that we want to extract
 
 
 
+cut -d ! -f2 emp.lst
+
+cutj -d *  -f2 emp.lst
+
+	WOAH!! this means wildcard
+
+will replace * with $ to fix that 
+
+
+
+cut -d $ -f2 emp.lst
+
+don't choose * as a delimeter 
+
+
+cut -d $ -f3 emp.lst
+
+
+
+well this would be easier 
+
+
+
+
+
+cut and pipe so it takes it as input 
+	wait no we want to pipe to sort 
+cut -d $ -f3 emp.lst | sort 
+
+
+cut -d $ -f6 emp.lst
+
+
+
+how does it sort?? 	
+
+	it sorts it alphabetically by default!! 
+
+	how is it supposed to know if those 
+	values are numbers or not?? 
+
+that's not wht i want.. 
+
+
+how to i tell sort to sort using numberial values// 
+
+	we use a flag -n
+
+cut -d $ -f6 emp.lst | sot -n
+
+
+cut -d $ -f3  emp.lst | sort
+
+
+
+
+cut -d $ -f3  emp.lst | sort | uniq
+
+
+we only want uniq tiitles...
+but wait uniq has options too!!
+
+
+cut -d $ -f3  emp.lst | sort | uniq -c -d
+
+only show tiitles that show up once 
+on;y print duplicate lines 
+also show number of occurenteces
+
+
+cut -d $ -f3  emp.lst | sort | uniq -c -u
+only print the titles that show up once 
+
+
+the combination of the two will be original 
+
+
+cut -d $ -f3  emp.lst | sort | uniq -d -u
+
+	on linux this refuses, the two flags are 
+	contradiciting eachother 
+
+BUT try it on Mac.....!!!!!! it's not the same there 
+	prob not the same in other ways too.. 
+
+
+
+so let's cut and send it to sort and send it to uniq
+
+	on mac 
+	and request only duplicates -d
+	and request only non-duplicates -u
+
+and for some reason it works.. 
+	it does something
+
+                 hi! O.K.
+
+
+
+
+
+
+that's the job of cut, the job or sort, and what
+	uniq does
+
+
+
+now lets become comfortable with the three
+	comands by manning them 
+	playing with them etc..
+
+
+
+
+lets get to the core.. 
+
+
+
+	implement cut in a file called my cut 
+	i want you to relax because 
+	you grab all of those options from command line
+	and send it to the system cut function 
+
+
+
+
+he gives us a skeleton code for mycut 
+	  
 
 
 
