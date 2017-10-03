@@ -5,48 +5,82 @@
 #define STACK_SIZE 10
 #define STACK_FULL -2
 #define STACK_EMPTY -1
-#define NORMAL  0
+#define NORMAL 0
 
-double myerror = -1;
+int myerror;
 void push(double[], double, double**, int);
 double pop(double[], double**);
 
 void push(double stack[], double item, double** top, int max_size) {
-	if(**top == max_size-1) {
+	//init top
+	if(*top == NULL) {
+		*top = stack;
+		**top = item;
+		printf("\npushed item %f first on stack\n", item);
+		++(*top);
+		myerror = NORMAL; 
 		return;
 	}
-	if((**top < max_size) && (**top != max_size)) {
-		stack[(int)(**top) + 1] = item;
-		**top = **top + 1;
+
+	//stack is full
+	if(myerror == STACK_FULL) {
+		printf("\nstack is full\n");
 		return;
 	}
+
+	//pushing last item
+	if((*top == stack + (max_size - 2)) && (myerror == NORMAL)) {
+		++(*top);
+		**top = item;
+		printf("\npushed item %f last on stack\n", item);
+		myerror = STACK_FULL;
+		return;
+	}
+
+	//push normally
+	++(*top);
+	**top = item;
+	printf("\npushed item %f normally\n", item);
+	myerror = NORMAL;
 }
 
+
 double pop(double stack[], double** top) {
-	if(**top == -1) {
-		**top = STACK_EMPTY; 
-		return STACK_EMPTY;
+	//stack is empty
+	if(myerror == STACK_EMPTY) {
+		printf("\nstack is empty, nothing to pop\n");
 	}
-	double temp = stack[(int)**top];
-	**top = **top - 1;
+
+	//pop last item
+	if(*top == stack) {
+		double temp = **top;
+		--(*top);
+		myerror = STACK_EMPTY;
+		return;
+	}
+
+	//pop normally
+	double temp = **top;
+	--(*top);
+	printf("\npopping item %f normally\n", temp);
 	return temp;
 }
 
+
 int main() {
-	double s[STACK_SIZE];
-	double* s_top = &myerror;
+	double stack[STACK_SIZE];
+	double* s_top = NULL;
 	srand(time(NULL));
-	double j;
-	while(*s_top != STACK_SIZE-1) {//push until full
-		j = *s_top;
+
+
+	while(myerror != STACK_FULL) {
 		double item = (double)(rand()/126.0*33.0);
-		printf("pushing item %f into pos %d\n", item, (int)(j+1));
-		push(s, item, &s_top, STACK_SIZE);
-		
+		push(stack, item, &s_top, STACK_SIZE);	
 	}
-	double i = 0;
-	while(*s_top != STACK_EMPTY) {//pop until empty
-		i = *s_top;
-		printf("POP! item %d is: %f\n", (int)i, pop(s, &s_top));
+
+	while(myerror != STACK_EMPTY) {
+		pop(stack, &s_top);
 	}
+
+
 }
