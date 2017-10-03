@@ -169,8 +169,8 @@ int main() {
 		//try to parse token
 		
 		strtod(token, &endpointer);
-		printf("*endpointer is %c\n", *endpointer);
-		if((*endpointer == '\0') || (endpointer == 0)) { //we have a number
+		//printf("*endpointer is %c\n", *endpointer);
+		if((*endpointer == '\0') &&  (endpointer == token)) { //we have a number
 			double item = strtod(token, &endpointer);
 			push(stack_d, item, &d_top, d_num);
 			
@@ -191,7 +191,7 @@ int main() {
 		}
 
 		//check stack size
-		if(alarm = POLAND) {
+		if(alarm == POLAND) {
 			solution = pop(stack_d, &d_top);
 			break;
 		}

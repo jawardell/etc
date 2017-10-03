@@ -7,46 +7,55 @@
 #define STACK_EMPTY -1
 #define NORMAL  0
 
-double myerror = -1;
+int myerror;
 void push(double[], double, double**, int);
 double pop(double[], double**);
 
 void push(double stack[], double item, double** top, int max_size) {
-	if(**top == max_size-1) {
+	//initialize top
+	if(*top == NULL) {
+		puts("init stack top\n");
+		*top == stack;
+		**top = item;
+		++(*top);
+		myerror = NORMAL;
 		return;
 	}
-	if((**top < max_size) && (**top != max_size)) {
-		stack[(int)(**top) + 1] = item;
-		**top = **top + 1;
+
+	//stack is full
+	if(myerror == STACK_FULL) {
+		puts("the stack is full...\n");
 		return;
 	}
+
+	//pushing last item
+	if(*top == stack + (max_size - 2)) {
+		
+	++(*top);
+		**top = item;
+		myerror = STACK_FULL;
+		return;
+	}
+	
+	//pushing normally
+	++(*top);
+	**top = item;
+	myerror - NORMAL;
 }
+
 
 double pop(double stack[], double** top) {
-	if(**top == -1) {
-		**top = STACK_EMPTY; 
-		return STACK_EMPTY;
+	//the stack is empty
+	if(myerror = STACK_EMPTY) {
+		puts("stack empty, returning null...\n");
+		return NULL;
 	}
-	double temp = stack[(int)**top];
-	**top = **top - 1;
-	return temp;
+	
+	
 }
 
+
 int main() {
-	double s[STACK_SIZE];
-	double* s_top = &myerror;
-	srand(time(NULL));
-	double j;
-	while(*s_top != STACK_SIZE-1) {//push until full
-		j = *s_top;
-		double item = (double)(rand()/126.0*33.0);
-		printf("pushing item %f into pos %d\n", item, (int)(j+1));
-		push(s, item, &s_top, STACK_SIZE);
-		
-	}
-	double i = 0;
-	while(*s_top != STACK_EMPTY) {//pop until empty
-		i = *s_top;
-		printf("POP! item %d is: %f\n", (int)i, pop(s, &s_top));
-	}
+
+
 }

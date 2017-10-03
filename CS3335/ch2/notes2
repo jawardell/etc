@@ -1,0 +1,293 @@
+procedural programming paradigm 
+
+
+do one thing and do it well 
+
+
+
+if we can do things in a small way, we 
+can link them up and use them in a larger way. 
+
+
+we will be using multiple files together to accomplish one task 
+
+
+
+everything that we have done so far has been in one 
+single file, 
+
+but we are moving into deeper territory 
+
+
+
+make a file in json format
+
+so that we can plot using google maps where she rides her bike 
+
+
+
+we will use the json files 
+
+
+geo to json version one dot c
+ 
+
+json format
+
+data=[
+
+
+]
+
+the pairs of key and values that will represent the data 
+
+
+we will accept input from the console 
+
+
+%79[^\n]
+
+
+	i will take up to 79 characters 
+	this is giving me room for the \0 value
+	but i don't want to read in the \n new line character 
+
+	that is what the ^ does 
+	
+	
+	we can be selective about the input that we read in 
+		using scanf 
+
+the gps information is a recording of the sequence of infomration that tells where the rider
+
+has been 
+
+
+
+thanks to scanf we can quit out of the program using EOF 
+
+
+we are going to tell the scanf to rediret
+
+
+
+> redirect output 
+
+< redirect input 
+
+
+
+this is a unix standard 
+
+
+geo2json_v1 < gpsdata.csv 
+
+
+run this program and recieve input information from gpsdata.csv
+
+we can send output to an external file using > 
+
+
+
+
+
+
+geo2json_v1 < gpsdata.csv > output.json
+
+read input from another file 
+and send output to another file 
+
+
+
+
+we can check the contents of a file by using the cat command 
+
+
+
+we can read the data in csv format, but that's no fun
+
+
+there is a map.html page that we can open in the browser, 
+
+
+but there is a file called map files 
+this is where we want to put the json data 
+
+
+
+map files 
+
+
+
+pretty cool 
+
+
+:D
+
+
+
+
+
+
+
+
+
+specify the mode of which you are accessing the file
+are you reading the file or 
+are you writing to the file 
+
+
+we can point to a file
+
+
+
+we can do this thing here FILE *ifp or *ofp
+
+
+
+
+
+we can make pointers to a file 
+
+
+
+
+in regular scanf, we don't always have to speicfy where we are reading from 
+
+
+the flow of the program in versions one and two are pretty much the same 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+we can redirect output twice .. 
+what if there are error messges? 
+
+
+we can use the stderror library function 
+which knows what do about about secondary error messages. 
+
+we can redirect error messages to a secondary file by doing this 2>
+
+
+
+
+
+validation logic for input 
+
+
+regular logic 
+
+
+
+there are two files 
+
+'the first one send out an output file 
+
+anything that enters the second program will be legal 
+
+an errors would have been filtered out by the first program 
+
+
+
+we use piping to run two programs at the same time 
+
+
+more about redircting input 
+
+
+it is the pipe that will bridge the two programs for us 
+
+
+	ir:ch3 joannewardell$ (./bermuda | ./geo2json_v1) < spooky.csv > output.json
+
+
+
+
+wow! 
+
+
+this runs the two files at the same time, uses the csv file for input and then redirects the output to the output.json file 
+
+
+
+
+
+
+
+PIPE! 
+
+this brings us back to the first slide 
+
+
+make a chain of progarms that do thier jobs very well 
+
+we can chain them up using pipe and they will 
+	each do thier part in getting teh job done 
+
+
+	
+
+
+how do we output to multiple files 
+
+
+don't forget that we made pointers which allow us to talk to and about the files that we 
+
+want to write to 
+
+
+there are special operations and functions for FILE data types 
+
+
+we say fopen() to use a file 
+
+we either read or write to the file 
+
+
+fscanf, fprintf, etc
+
+
+what is strstr()
+
+
+	checks to see if the second argument is a substring of the first 
+
+
+use strstr to find out if a string is a part of another string 
+
+
+strnstr
+
+
+this regulates how many characters you will be checking 
+
+
+
+str3str only check this many characters 
+
+
+
+don't forget that these functions return a pointer! 
+
+they point to the first character in the string, 
+
+	and just know that strings in c are just arrays of characters 
+		with null terminators at the end 
+
+
+
