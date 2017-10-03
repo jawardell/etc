@@ -4,8 +4,14 @@
 
 int main(int argc, char *argv[]){
 	char line[80];
-
-	if (argc != 6){
+	
+	int i; 
+	for(i = 0; i < argc; i++ ) {
+		printf("arg #%d is %s\n", i, argv[i]);
+	}
+	if (argc != 6){//is the number of arguments 6 or not? 
+		//the name of the program itself is one of them.. 
+		
 		fprintf(stderr, "You need to give five arguments.\n");
 		return 1;
 	}	

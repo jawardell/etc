@@ -1,0 +1,255 @@
+we can pass arguments to our program when we run it 
+we do that by compiling the program 
+then running it with the arguments beside it
+
+those arguments are placed into an array called 
+	argv
+
+they are in the form of a string
+
+
+.. 
+
+checks if the number of arguments is 6 
+
+if not, we are not supplying the right number of 
+	arguments
+	might be too little 
+	might be too much
+
+
+
+
+need to give five arguments comming from input from
+	command line 
+
+
+
+in program, 
+	then you pass the test of right number of 
+	arguments 
+	and move on 
+
+
+the file might not be openable.. 
+
+	it might just be readabel
+
+
+
+it is risky to assume that the IO operations 			will always succeeedd.. 
+
+	we must be able to handle those 
+
+
+we need to test to see if the file is mutablne or ont
+	we need to test to see if the io operation
+	succeeded or not 
+
+
+args explained 
+
+number one is the first filter 
+
+
+
+
+
+
+we use file linkers in source code to talk to 
+	the actual files on the compute r
+
+
+
+scanf waits for the input from console, 
+
+
+
+fscanf reads from in
+	in is a file linker of your choice.. 
+
+
+if the fscanf is good, 
+	we use strstr 
+		is the second argument a 
+		SUBSET	
+		of the first argument 
+
+
+
+
+
+
+
+
+fscanf --- read from an input file
+
+
+
+
+sends this entire line to file1
+
+
+
+the file handler 
+which is associated with the file in memory 
+
+
+
+
+
+
+
+
+
+
+we can do things to be selective about how we read in 
+
+
+data from files ;
+
+
+
+what ever we type right there will all be going ot 
+	argv
+
+that array of strings
+
+
+the number of them goes to argc
+
+
+
+
+DONT FORGET that the call of the program itself 
+
+	GOES INTO ARGV and is accounted for in m
+	ARGC
+
+
+
+
+
+*****we were talking about v2 spooky
+
+
+
+amybe we want ot follow the program call with some 
+	flags or options
+
+
+we can do that.. 
+
+
+
+
+we do this by thinking about the contents of argv
+
+
+how to handle the optional fields, 
+
+this is the case don't ask why
+
+this is the paradigm
+
+
+
+
+
+this is what we do: 
+
+
+
+
+we use the get opt built in functionm
+getopt(argc, argv, "d:t")
+
+if there is an option that is followed by a string
+	with detailed information 
+	put a colon after it
+
+d:t 
+
+
+t is not followed by a colon 
+
+
+-t 
+
+there is nothing after it 
+
+
+
+
+if there is -t 
+
+that meaans the customer want the pizza to be thick 
+
+
+sooo ... 
+
+
+it seesm taht optarg return the charachter after the -
+
+
+
+
+two of those will adjust two of those vales so that you
+	can handle other arguments if any 
+
+
+
+
+other arguments 
+	they all begin with a dash 
+
+
+after we have processed those optional arguments 
+	we want to continue with the other s
+
+
+
+we want to handle those and do whatever we can with them 
+
+
+
+argc ==> 3 
+argv ==> [  "x"
+
+	    "y"
+
+	    "z"
+         ]
+
+
+
+this is similar to the code that we just added to
+category_v2.c
+
+
+
+
+
+we undersstand how the mechanism works, now lets do 
+somehting with it 
+
+
+
+test to see if this can recongnize and handle 
+	trash arguments 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
