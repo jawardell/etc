@@ -492,7 +492,177 @@ lets get to the core..
 
 
 he gives us a skeleton code for mycut 
-	  
+
+
+
+problematic 
+
+
+
+we want to keep line 9 and get rid of after "cut ..""
+
+that whole string will be taking advantage of the system
+	function of cut 
+
+we ill have to use the argv and argc to prucess the inputs 
+	and stuff. 
+	
+
+think about the examples that we did in class today
+
+he says those will be very useful
+
+
+	mycut -d! -f3 emp.lst
+
+
+ok if you can pull this off, ,,the second one follows
+
+
+i want you to work on sort.. 
+at the very end, 
+
+
+	vi mysort
+
+
+	line 9 : system("sort")
+
+	  grab args contact with sort, space, 
+		whole string sent to system
+	
+
+
+
+
+
+ok the last one is really hard 
+
+not allowed to use system function
+
+
+
+
+which sucks
+
+
+
+uniqe is very powerful 
+
+has many options
+
+lets see if we can handle three options to begin with j
+
+we have to implement at least three of them 
+
+how do we do this 
+
+
+
+
+HINTZZZZ*********~~~~~~~III yassss 
+woot woot woot woo woo woow oo woo wowowooerwerjwe
+let gpooooooooo
+
+
+
+myuniq.c
+
+think about it 
+
+
+wen you progam starts, there is a main fncion, 
+
+d	we can couple it with other functions as we want
+	we want to grab other argumentes as needed 
+	we can also have nothing. 
+	myuniq   filename.txt
+
+	make sure that we amke no flag the default;
+		another way he will test is 
+
+	mycut...|mysort|myuniq
+		need to be ready for pipe to other functions!!!!!! 
+
+
+		mycut...|mysort|myuniq  -d -c
+
+	should be ready for flags and pipes
+
+	should be ready for redirecting output and
+	looking at input from other file 
+
+
+	main function that ha sections
+	firstsection    ****processing 
+		while loop that gets input   ===> look at orderpizza.c
+		argc -= optidn;
+		argf += optind; //optional indicator
+
+
+		order pizza 
+	
+
+		also can have -u
+		adjust how flags are proccessed depending on what is passed in
+	
+
+	second section	******argc branch-out
+
+		2 cases: waht is the value of argc after processing flgas?????
+			argc 1 --- get input from file afte flags
+			argc 0 --- get input from command output from pipe
+		there are two cases 
+			1 the name of the input file is not there 
+				there must be a file handler that is used to point to the
+				command line
+				there are teo posible values for argc 0 or 1  
+					0 proceesed flags and nothing left
+					1 processed flags adn there is a flag 
+				
+			2 it is comming from prev command thanks to pipe
+	
+
+	third section
+
+
+		if    stdin
+
+		there are two stings
+			there are teo titles 
+			compare them are they same 
+			if same, move on 
+				to deal with second and third
+				have counter to deal with number of occuences
+				staying on first one until we see boarder between same and not same
+			if not same, 
+				boarder is broken
+				we have number of occurences of a
+				the output must say four a
+				new title ---> time to summarize the previous
+
+			
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~ ~ ~ ~ ~ "~ ~ ~ ~ ~ ~ ~
 
 
 
