@@ -6,121 +6,52 @@
 #define STACK_FULL -2
 #define STACK_EMPTY -1
 #define NORMAL 0
-#define POLAND -500
-#define RADIANS( degrees ) ( degrees * M_PI / 180 )
+
 
 void push(double[], double, double**, int);
 double pop(double[], double**);
-int  i, getoperator(char*), alarm, myerror_c, myerror_d; 
-double unaryOperation(int, double);
-double binaryOperation(int, double, double);
+int myerror;
 
 
 
 void push(double stack[], double item, double** top, int max_size) {
-	//report stack size
-	if(*top == stack) {
-		puts("poland!");
-		alarm = POLAND;
-	}
-
-	//has top been initialized yet?
+	//init top
 	if(*top == NULL) {
 		*top = stack;
-		printf("pushing item %f\n", item);
 		**top = item;
 		++(*top);
+		myerror = NORMAL;
 		return;
 	}
 
-	//is the stack full?
-	if(myerror_d == STACK_FULL) {
+	//stack is full
+	if(myerror == STACK_FULL) {
 		return;
 	}
-	
-	//pushing last item?
-	if(*top == (stack + (max_size - 2))) {
+
+	//pushing last item
+	if((*top == stack + (max_size - 2)) && (myerror == NORMAL)) {
 		++(*top);
-		printf("pushing item %f\n", item);
 		**top = item;
-		myerror_d = STACK_FULL;
+		myerror = STACK_FULL;
 		return;
 	}
 
 	//pushing normally
-	if(*top < (stack + (max_size - 1))) {
-		++(*top);
-		printf("pushing item %f\n", item);
-		**top = item;
-		myerror_d = NORMAL;
-		return;
-	}
-
-
+	++(*top);
+	**top = item;
+	myerror = NORMAL;
 }
 
-double pop(double stack[], double** top) {
-	//report stack size
+double pop(double stack[], double item) {
+	//popping last item
 	if(*top == stack) {
-		puts("poland!!");
-		alarm = POLAND;
+		double temp = **top;
+		--(*top);
+		myerror = STACK_EMPTY;
+		return temp;
 	}
-
-	//is the stack empty? 
-	if(myerror_d == STACK_EMPTY) {
-		puts("stack empty");
-		return 0.0;
-	}
-
-	//popping last item? 
-	if(*top == stack) {
-		double item = **top;
-		printf("pop: %f\n", item);
-		*top = NULL;
-		myerror_d = STACK_EMPTY;
-		return item;
-	}
-
-	//popping normally
-	double item = **top;
-	printf("pop: %f\n", item);
-	--(*top);
-	myerror_d = NORMAL;
-	return item;
-}
-
-int getoperator(char* c) {
-	switch(*c) {
-		case '+' : 
-			return 1;
-		case '-' : 
-			return 2;
-		case '*' : 
-			return 3;
-		case '/' : 
-			return 4;
-		case 's' : 
-			return 5;
-		case 'l' : 
-			return 6;
-		default: 
-			return 0;
-	}
-
-
-}
-
-
-double unaryOperation(int operator, double operand) {
-	switch(operator) {
-		case 5 : 
-			return (sin(RADIANS(operand)));
-		case 6 : 
-			return (log(operand));
-		default : 
-			return 0.0;
-
-	}
+<<<<<<< HEAD
 }
 
 double binaryOperation(int operator, double op1, double op2) {
@@ -204,5 +135,12 @@ int main() {
 	puts("\n\tHave a nice day!");
 	
 
+=======
+>>>>>>> 0bc2fd1b89f987633eb26bd85f2267e45f45945f
 	
+	//pop normally
+	double temp = **top;
+	--(*top);
+	myerror = NORMAL;
+	return temp;
 }
