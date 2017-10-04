@@ -75,7 +75,7 @@ int main() {
 		char* endpointer;
 		double number;
 			number = strtod(ptr2token, &endpointer);
-		if((endpointer == ptr2token) && (*endpointer != '\0')) {//we have a number
+		if((endpointer == ptr2token) && (*endpointer == '\0')) {//we have a number
 
 			printf("\nthe number is %f\n", number);
 		} else {//we don't have a number
