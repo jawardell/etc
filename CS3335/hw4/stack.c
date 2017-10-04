@@ -43,7 +43,7 @@ void push(double stack[], double item, double** top, int max_size) {
 double pop(double stack[], double** top) {
 	//stack is empty
 	if((*top == NULL) || (myerror == STACK_EMPTY)) {
-		return 0.0;
+		return NULL;
 	}
 
 	//pop last item
