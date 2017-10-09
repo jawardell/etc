@@ -43,5 +43,7 @@ int main(int argc, char *argv[]){
 				puts("invalid argument");
 		}
 	}
+	argc -= optind;
+	argc += optind;
 	fprintf(stdout, "arguments: %s\n", arguments);
 }
