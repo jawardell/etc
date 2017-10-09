@@ -6,7 +6,9 @@
 
 int main(int argc, char *argv[]){
 	char* arguments;
+	char* file_name;
 	char ch;
+	int d = 0, b = 0, c = 0, f = 0, n = 0, s = 0;
 	while((ch = getopt(argc, argv, "d:b:c:f:ns")) != EOF) {
 		switch(ch) {
 			case 'd' :
