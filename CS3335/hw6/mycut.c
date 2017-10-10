@@ -136,7 +136,19 @@ int main(int argc, char* argv[]) {
 			printf("\narguments is %s\n", arguments);
 		}
 	}
-
+	
+	
+	if(arguments == NULL) {
+		puts("we think arguments is null");
+		puts("\ncut command requires arguments. please try again.\n");
+	} else {
+		puts("debug 1");
+		char command[100];
+		puts("\ndebug 2\n");
+		sprintf(command, "cut %s", arguments);
+		puts("\ndebug 3\n");
+		puts(command);
+	}
 	
 	return 0;
 }
