@@ -50,7 +50,7 @@ int main() {
 char* arguments = "some bullshit";
 int main() {
 	puts("wtf");
-	char empty[0];puts("ok");
+	char empty[100];puts("ok");
 	sprintf(empty, "%s _", arguments);puts("more ok");
 	puts(empty);
 	printf("%s", empty);	
