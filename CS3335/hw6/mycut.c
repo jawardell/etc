@@ -136,37 +136,45 @@ int main(int argc, char* argv[]) {
 			printf("\narguments is %s\n", arguments);
 		}
 	}
-	
-	
+
+
 	if(arguments == NULL) {
 		puts("we think arguments is null");
 		puts("\ncut command requires arguments. please try again.\n");
-	} else {		
+	} else {
+		printf("\n\tLook, arguments is %s|\n", arguments);
+		printf("\nstrlen(arguments) == %d\n", strlen(arguments));
 		char command[100];
-
-		char* cut = "cut";
-
-		if(command == NULL) {
-			puts("command is null here.");
-		}
+		char cutty[] = "cut";
+		char *test = NULL;
+		test = strcat(cutty, arguments);
 		
-		printf("\n\tLOOK!!! arguments is %s\n", arguments);
-
-		sprintf(command, "%s %s", "cut", arguments);
-
-		puts("\ndebug 1\n");
-
-		printf("\ncommand to be issued is %s\n", command);
+		printf("\nthis is test %s\n", test);
+		//sprintf(command, "%s %s",  arguments, cutty);
+		//printf("\ncommand is %s\n", command);
 
 
-		puts("\ndebug 2\n");
 
 
-		system(command);
 
 
-		puts("\ndebug 3\n");
-	}
+
+
+
+
+
+		//if(command == NULL) {
+		//	puts("command is null here.");
+		//}
+		
+
+
+
+		//system(command);
+
+
+
 	
+	}
 	return 0;
 }
