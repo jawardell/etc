@@ -67,39 +67,42 @@ int main(int argc, char* argv[]) {
 	}
 	if(b){
 		puts("\nconcatenating bstring and arguments\n");
-		char* temp = arguments;
-		sprintf(arguments, "%s ", temp);
-		//arguments = strcat(bstring, "");
+		arguments = bstring;
+		char temp[100];
+		sprintf(temp, "%s ", arguments);
+		printf("\ntemp is %s\n", temp);
+		arguments = temp;
 		printf("\narguments is %s\n", arguments);
 	}
 	if(c){
 		puts("\nconcatenating cstring and arguments\n");
-		char* temp = arguments;
-		arguments = strcat(temp, cstring);
+		char temp[100];
+		sprintf(temp, "%s %s", arguments);
+		printf("\ntemp is %s\n", temp);
+		arguments = temp;
 		printf("\narguments is %s\n", arguments);
 	}
 	if(d){
 		puts("\nconcatenating dstring and arguments\n");
-		char* temp = arguments; 
-		arguments = strcat(temp, dstring);
+		arguments = strcat(dstring, "");
 		printf("\narguments is %s\n", arguments);
 	}
 	if(f){
 		puts("\nconcatenating fstring and arguments\n");
-		char* temp = arguments;
-		arguments = strcat(temp, fstring);
+
+
 		printf("\narguments is %s\n", arguments);
 	}
 	if(n){
 		puts("\nconcatenating nstring and arguments\n");
-		char* temp = arguments;
-		arguments = strcat(temp, nstring);
+
+
 		printf("\narguments is %s\n", arguments);
 	}
 	if(s){
 		puts("\nconcatenating sstring and arguments\n");
-		char* temp = arguments;
-		arguments = strcat(temp, sstring);
+
+
 		printf("\narguments is %s\n", arguments);
 	}
 
