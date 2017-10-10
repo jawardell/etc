@@ -141,13 +141,31 @@ int main(int argc, char* argv[]) {
 	if(arguments == NULL) {
 		puts("we think arguments is null");
 		puts("\ncut command requires arguments. please try again.\n");
-	} else {
-		puts("debug 1");
+	} else {		
 		char command[100];
+
+		char* cut = "cut";
+
+		if(command == NULL) {
+			puts("command is null here.");
+		}
+		
+		printf("\n\tLOOK!!! arguments is %s\n", arguments);
+
+		sprintf(command, "%s %s", "cut", arguments);
+
+		puts("\ndebug 1\n");
+
+		printf("\ncommand to be issued is %s\n", command);
+
+
 		puts("\ndebug 2\n");
-		sprintf(command, "cut %s", arguments);
+
+
+		system(command);
+
+
 		puts("\ndebug 3\n");
-		puts(command);
 	}
 	
 	return 0;
