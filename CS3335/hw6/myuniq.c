@@ -96,7 +96,7 @@ int main(int argc, char* argv[]){
 				}
 			}
 			count = 1;
-			strcopy(line_one, line_two);
+			strcpy(line_one, line_two);
 		}
 		if(count != 0) {
 			if(c) {
