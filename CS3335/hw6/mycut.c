@@ -48,21 +48,6 @@ int main(int argc, char* argv[]) {
 			sstring = argv[i];
 			printf("\nsstring is %s\n", sstring);
 		}
-		//this won't work because the program doesn't see 
-		//input redirection in the argv or argc info
-		//	.. i don't think this part is neccesary though.. 
-		//i just have to use the system function and pass the 
-		//final string concatenation as the argument. . . 
-		if(strstr(argv[i], "<")) {
-			puts("look where we are! we have a < input redirection");
-			puts("proceeding with next character check.. what is the index?");
-			printf("\nthe current index is %f, going to check index %f\n", i, i+1);
-			if(i != (argc-1)) {
-				puts("going to assign filename = argv[i+1]..");
-				file_name = argv[i+1];
-				printf("\nfile_name is %s\n", file_name);
-			}
-		}
 
 	}
 	if(b) {	
@@ -143,34 +128,37 @@ int main(int argc, char* argv[]) {
 		puts("\ncut command requires arguments. please try again.\n");
 	} else {
 		printf("\n\tLook, arguments is %s|\n", arguments);
-		printf("\nstrlen(arguments) == %d\n", strlen(arguments));
+		printf("\nstrlen(arguments) == %lu\n", strlen(arguments));
 		char command[100];
 		char cutty[] = "cut";
-		char *test = NULL;
-		test = strcat(cutty, arguments);
+		sprintf(command, "%s %s", cutty, arguments);
 		
-		printf("\nthis is test %s\n", test);
-		//sprintf(command, "%s %s",  arguments, cutty);
-		//printf("\ncommand is %s\n", command);
-
-
-
-
-
-
-
-
-
-
-
-		//if(command == NULL) {
-		//	puts("command is null here.");
-		//}
+		puts(command);
 		
 
+		
+	
 
 
-		//system(command);
+
+
+
+
+
+
+
+
+
+
+
+	//	if(command == NULL) {
+	//		puts("command is null here.");
+	//	}
+		
+
+
+
+		system(command);
 
 
 
