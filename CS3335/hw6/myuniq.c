@@ -65,56 +65,66 @@ int main(int argc, char* argv[]){
 		infile = stdin;
 	}
 
-	char line_one[200];
-	char line_two[200];
-	fgets(line_one, 200, infile);
+	char prev[200];
+	char curr[200];
+	fgets(curr, 200, infile);
 	int count = 1;
-	
-	while(fgets(line_two, 200, infile) != NULL) {	
-		if(strcmp(line_one, line_two)) {
+
+	while (fgets(curr, 200, infile) != NULL) {
+		if (strcmp(prev, curr) == 0) {
 			count++;
 		} else {
-			if(d && u) {
+			if (u == 1 && d == 1) {
 				count = 0;
+				printf("not possible\n");
 				break;
 			}
-			if(c) {
-				printf("%d", count);
+			if (c == 1) {
+				printf("%d ", count);
 			}
-			if(!d && u) {
-				if(count == 1) {
-					printf("%s", line_one);
+			if (d != 1 && u != 1) {
+				printf("\n");
+			}
+			if (d == 1 && u != 1) {
+				if (count > 1) {
+				printf("%s", prev);
 				} else {
 					printf("\n");
 				}
 			}
-			if(d && !u) {
-				if(count > 1) {
-					printf("%s", line_one);
+			if (u == 1 && d != 1) {
+				if (num == 1) {
+					printf("%s", prev);
 				} else {
 					printf("\n");
 				}
 			}
 			count = 1;
-			strcpy(line_one, line_two);
-		}
-		if(count != 0) {
-			if(c) {
-				printf("%d", count);
-			}
-			if(d && !u) {
-				if(count > 1) {
-					printf("%s", line_one);
-				}
-				if(u && !d) {
-					if(count == 1) {
-						printf("%s", line_one);
-					}
-				}
-			}
+			strcpy(prev, curr);
 		}
 	}
 
+	if (count != 0) {
+		if (c == 1) {
+			printf("%d ",count);
+		}
+		if (d == 1 && u != 1) {
+			if (count > 1) {
+				printf("%s", prev);
+			}
+		}
+		if (u_check == 1 && d_check != 1) {
+			if (num == 1) {
+				printf("%s", prev);
+			}
+		}
+		if (u_check == 1 && d_check == 1) {
+			printf("IT CANT BE DONE!");
+		}
+	}
+
+
+	
 	fclose(infile);
 
 
