@@ -60,11 +60,6 @@ int main(int argc, char* argv[]){
 		if (strcmp(prev, curr) == 0) {
 			count++;
 		} else {
-			if ((u == 1) && (d == 1)) {
-				count = 0;
-				printf("not possible\n");
-				break;
-			}
 			if (c == 1) {	
 				printf("%d ", count);
 			}
