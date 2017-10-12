@@ -9,9 +9,9 @@ char *bstring, *dstring, *fstring, *gstring, *istring, *Mstring, *nstring, *rstr
 
 
 int main(int argc, char* argv[]) {
-	printf("\nargc is %d\n", argc);
+
 	for(j = 1; j < argc; j++) {
-		printf("\niteration %d, argv[%d] is %s\n", j, j, argv[j]);
+
 		if(strstr(argv[j], "b")) {
 			b = 1; 
 			bstring = argv[j];
