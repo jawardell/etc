@@ -8,8 +8,7 @@ int argc_copy;
 int main(int argc, char* argv[]){
 	// Get the options (-c, -d, -u, some combinations of them, or none at all)
 	// ... ...
-	char ch;
-	argc_copy = argc;
+	char ch;	
 	int c = 0, d = 0, u = 0;
 	printf("\nargc value pre processing is %d\n", argc);
 	while((ch = getopt(argc, argv, "cdu")) != EOF) {
@@ -69,57 +68,59 @@ int main(int argc, char* argv[]){
 	char curr[200];
 	fgets(curr, 200, infile);
 	int count = 1;
-
+	
 	while (fgets(curr, 200, infile) != NULL) {
+		puts("\nwe are in here\n");
 		if (strcmp(prev, curr) == 0) {
 			count++;
 		} else {
-			if (u == 1 && d == 1) {
+			if ((u == 1) && (d == 1)) {
+				puts("\ndebug 1\n");	
 				count = 0;
 				printf("not possible\n");
 				break;
 			}
 			if (c == 1) {
+				puts("\ndebug 2\n");
 				printf("%d ", count);
 			}
-			if (d != 1 && u != 1) {
+			if ((d != 1) && (u != 1)) {
+				puts("\ndebug 3\n");	
 				printf("\n");
 			}
-			if (d == 1 && u != 1) {
+			if ((d == 1) && (u != 1)) {
+				puts("\ndebug 4\n");	
 				if (count > 1) {
-				printf("%s", prev);
-				} else {
-					printf("\n");
-				}
-			}
-			if (u == 1 && d != 1) {
-				if (num == 1) {
 					printf("%s", prev);
 				} else {
 					printf("\n");
 				}
 			}
-			count = 1;
-			strcpy(prev, curr);
+			if ((u == 1) && (d != 1)) {
+				puts("\ndebug 5\n");	
+				if (count == 1) {
+					printf("%s", prev);
+				} else {
+					printf("\n");
+				}
+			}
 		}
 	}
 
 	if (count != 0) {
+		puts("\ndebug 6\n");	
 		if (c == 1) {
 			printf("%d ",count);
 		}
-		if (d == 1 && u != 1) {
+		if ((d == 1) &&(u != 1)) {
 			if (count > 1) {
 				printf("%s", prev);
 			}
 		}
-		if (u_check == 1 && d_check != 1) {
-			if (num == 1) {
+		if ((u == 1) && (d != 1)) {
+			if (count == 1) {
 				printf("%s", prev);
 			}
-		}
-		if (u_check == 1 && d_check == 1) {
-			printf("IT CANT BE DONE!");
 		}
 	}
 
