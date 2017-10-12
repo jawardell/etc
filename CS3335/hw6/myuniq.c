@@ -60,7 +60,7 @@ int main(int argc, char* argv[]){
 		if (strcmp(prev, curr) == 0) {
 			count++;
 		} else {
-			if (c == 1) {	
+			if (c) {	
 				printf("%d ", count);
 			}
 			if ((d != 1) && (u != 1)) {
@@ -84,10 +84,10 @@ int main(int argc, char* argv[]){
 	}
 
 	if (count != 0) {
-		if (c == 1) {
+		if (c) {
 			printf("%d ",count);
 		}
-		if ((d == 1) &&(u != 1)) {
+		if ((d == 1) && (u != 1)) {
 			if (count > 1) {
 				printf("%s", prev);
 			}
