@@ -1,0 +1,302 @@
+wont be tested on do one thing and do it well 
+
+
+given a piece of code what does it do 
+
+
+
+ok that is a little scary 
+
+
+
+ok but look its open note and no computers 
+ 
+
+
+
+like what is a pointer 
+wont do it like we never talked about the concepts at all 
+
+
+and we can hbabe a chain of pointers that allow us to have 
+
+indirect 
+
+
+
+
+assignment 5 he will talk about it 
+
+
+
+
+common ly made mistakes and others..
+
+
+also will go over the assignement that we just turned in 
+
+
+
+mycut mysort myuniq
+
+
+dont forget bit manipulation that will be on the test
+
+
+
+
+reverse polish here we gooooooo
+
+
+
+
+
+
+:set filetype=c
+shift v
+select whole file gg G
+press = 
+
+
+
+YAAAASSS    ---- formatting 
+
+
+
+wwwooooooo
+
+
+
+
+use fgets strlen 
+
+char s[100]
+char delim[] = " "
+char *c
+
+while(fgets(s, sizeof(s), stdin)) {
+
+	s[strlen(s)-1] = "\0";//wow!!! delete the new line that fgets added there!!!!!
+	c = strtok(s, delim)
+	push(stack, strtod(c, MULL), &s_top, STACK_SIZE)
+	
+	while((c = strtok(NULL, delim)) != NULL) {
+		if(strcmp(c, "+") == 0) {
+			y = pop(stack, &s_top)
+			x = pop(stack, &s_top)
+			push(stack, x+y, &s_top, STACK_SIZE)
+		}
+		if(strcmp(c, "-") == 0) {
+
+
+			y = pop(stack, &s_top)
+			x = pop(stack, &s_top)
+			push(stack, x-y, &s_top, STACK_SIZE)
+		}
+		if(strcmp(c, "/") == 0) {
+		
+			y = pop(stack, &s_top)
+			x = pop(stack, &s_top)
+			push(stack, x/y, &s_top, STACK_SIZE)
+		}
+		if(strcmp(c, "*") == 0) {
+
+			y = pop(stack, &s_top)
+			x = pop(stack, &s_top)
+			push(stack, x*y, &s_top, STACK_SIZE)
+		}
+		if(strcmp(c, "sin") == 0) {
+		
+			y = pop(stack, &s_top)
+			push(stack, sin(RADIANS(y)), &s_top, STACK_SIZE)
+		}
+		if(strcmp(c, log) == 0) {
+
+		}
+		else {
+			one more operand.. 
+			push(stack, strtod(c, NULL), &s_top, STACK_SIZE)
+		}
+	}
+	
+	rev polish lets goo
+
+
+	this is how the iphone handles operators
+
+
+	we can afford to use this if else if else.... its studpid and its 
+		bad practice of course
+
+		but we can afford to do it in this case lllloooolll	
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+REV POL PRO 
+	letz go 
+
+
+
+
+define ILLIGALOPERATOR
+define INSUFICIENT_OPERAND
+.....
+make it robust by defining global flags
+
+
+...
+
+strtod
+	if(s != endptr && *endptr == '\0') {
+		is a number, we are good to go 
+		with first operand
+	} else {
+		oops, this is an INSUFFICENT OPERAND
+	}
+
+
+	while((c = strtok(NULL, delim)) != NULL) {
+		if(strcmp(c, "+") == 0) {
+			y = pop(stack, &s_top)
+			x = pop(stack, &s_top)
+			push(stack, x+y, &s_top, STACK_SIZE)
+			
+			if(myerror == STACK_EMPTY) {
+				wooo we are a pro
+				
+				myerror = INSUFFICIENT_OPERAND
+				break
+			
+			}
+		}
+		if(strcmp(c, "-") == 0) {
+
+
+			y = pop(stack, &s_top)
+			x = pop(stack, &s_top)
+			push(stack, x-y, &s_top, STACK_SIZE)
+		
+			if(myerror == STACK_EMPTY) {
+				wooo we are a pro
+				
+				myerror = INSUFFICIENT_OPERAND
+				break
+			
+			}
+
+		}
+		if(strcmp(c, "/") == 0) {
+		
+			y = pop(stack, &s_top)
+			x = pop(stack, &s_top)
+			push(stack, x/y, &s_top, STACK_SIZE)
+	
+			if(myerror == STACK_EMPTY) {
+				wooo we are a pro
+				
+				myerror = INSUFFICIENT_OPERAND
+				break
+			
+			}
+
+
+		}
+		if(strcmp(c, "*") == 0) {
+
+			y = pop(stack, &s_top)
+			x = pop(stack, &s_top)
+			push(stack, x*y, &s_top, STACK_SIZE)
+	
+			if(myerror == STACK_EMPTY) {
+				wooo we are a pro
+				
+				myerror = INSUFFICIENT_OPERAND
+				break
+			
+			}
+
+
+		}
+		if(strcmp(c, "sin") == 0) {
+		
+			y = pop(stack, &s_top)
+			push(stack, sin(RADIANS(y)), &s_top, STACK_SIZE)	
+			if(myerror == STACK_EMPTY) {
+				wooo we are a pro
+				
+				myerror = INSUFFICIENT_OPERAND
+				break
+			
+			}
+
+
+		}
+		if(strcmp(c, log) == 0) {
+			y = pop(stack, &s_top)
+			if(y <= 0) {
+				myerror = INSUFFICIENT_OPERAND
+			}
+			push(stack, log(y),  &s_top, STACK_SIZE)	
+			if(myerror == STACK_EMPTY) {
+				wooo we are a pro
+				
+				myerror = INSUFFICIENT_OPERAND
+				break
+			
+			}
+
+
+		}
+	if(myerror == 0) {
+		.....
+		some pro stuff
+		.....
+
+		we are good to go because my error is normal
+
+
+
+		ps, dr xu is a cowboy
+		he is wearing boots today
+
+			
+
+
+	}
+
+	
+		else {
+			one more operand.. 
+			push(stack, strtod(c, NULL), &s_top, STACK_SIZE)
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
