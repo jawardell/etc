@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
+char command[200];
 char* arguments;
 char *bstring, *cstring, *dstring, *fstring, *nstring, *sstring;
 int b = 0, c = 0, d = 0, f = 0, n = 0, s = 0, i;
@@ -86,7 +88,6 @@ int main(int argc, char* argv[]) {
 		puts("we think arguments is null");
 		puts("\ncut command requires arguments. please try again.\n");
 	} else {
-		char command[100];
 		char cutty[] = "cut";
 		sprintf(command, "%s %s", cutty, arguments);
 		puts(command);

@@ -3,10 +3,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+
+char final[200];
+char command[200];
 char* arguments;
 int b = 0, d = 0, f = 0, g = 0, i = 0, M = 0, n = 0, r = 0, j;
 char *bstring, *dstring, *fstring, *gstring, *istring, *Mstring, *nstring, *rstring;
-
+char* filename;
 
 int main(int argc, char* argv[]) {
 
@@ -43,6 +46,10 @@ int main(int argc, char* argv[]) {
 		if(strstr(argv[j], "r")) {
 			r = 1;
 			rstring = argv[j];
+		}
+
+		if(strstr(argv[j], ".")) {
+			filename = argv[j];	
 		}
 	}
 
@@ -133,12 +140,16 @@ int main(int argc, char* argv[]) {
 
 	if(arguments == NULL) {
 		puts("\nwe think arguments is null. . . \n");
-		puts("\nthe sort command requires arguments, please try again. . . \n");
+		char sorty[] = "sort";
+		sprintf(command, "%s %s", sorty, filename);
+		system(command);	
+		exit(0);	
 	} else {
-		char command[100];
 		char sorty[] = "sort";
 		sprintf(command, "%s %s", sorty, arguments);
-		system(command);	
+		sprintf(final, "%s %s", command, filename);	
+		puts(final);
+		system(final);	
 	}
 
 }
