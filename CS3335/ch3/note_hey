@@ -291,6 +291,47 @@ strtod
 
 
 
+ok i think mac alias saved this file... 
+
+
+either way.. 
+
+thank god i have it now.. 
+
+
+
+
+
+
+
+we talked about a6
+
+
+
+omg the test cases tho for the first two.. 
+
+
+
+
+pipe mycut to mysort 
+
+
+	think mine would fail this.. 
+
+
+	either way
+
+
+
+
+
+ok now we are talking about myuniq
+
+
+'not standing on the on the shoulders of giants.. 
+
+
+sitting on the knees of meager cs student
 
 
 
@@ -299,4 +340,74 @@ strtod
 
 
 
+repeated = uniq = 1
+
+
+	wow lol we can do this thoooo
+
+
+
+
+cool 
+
+
+
+
+
+
+
+
+
+
+
+rememer we are in the int main method, 
+
+		we can just return when we are ready to quit
+		yas and use return values 
+
+
+
+	ok 
+
+
+
+
+so switch statement is pretty easy to use to catch bad arguments 
+
+
+
+while(fscanf(ifp, "%199[^/n]/n")) {
+	if(strcmp(prev, curr)) {
+		show(ofp, prev, count, d, u)
+	}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+woahhhhhh 
+
+
+	interview questions
+
+	how to do swap??? using butter fly swap doeee e
+
+
+
+
+yassss
 
