@@ -76,9 +76,7 @@ int main(int argc, char* argv[]){
 			if ((u == 1) && (d != 1)) {
 				if (count == 1) {
 					printf("%s", prev);
-				} else {
-					printf("\n");
-				}
+				}	
 			}
 			count = 1;
 			strcpy(prev, curr);
