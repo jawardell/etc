@@ -10,7 +10,6 @@ int main(int argc, char* argv[]){
 	// ... ...
 	char ch;	
 	int c = 0, d = 0, u = 0;
-	printf("\nargc value pre processing is %d\n", argc);
 	while((ch = getopt(argc, argv, "cdu")) != EOF) {
 		switch(ch) {
 			case 'c' :
@@ -33,18 +32,7 @@ int main(int argc, char* argv[]){
 		puts("\ntry again.\n");
 		exit(1);
 	}
-	
-	if(c) {
-		puts("we have a c");
-	}
-	if(d) {
-		puts("we have a d");
-	}
-	if(u) {
-		puts("we have a u");
-	}
-	printf("\nargc value post processing is: %d\n", argc);
-	printf("\nargv[0] -- %s\n", argv[0]);
+
 	
 	// Figure out whether the input is comng from a file 
 	// whose name is provided as a command line argument like
@@ -56,7 +44,6 @@ int main(int argc, char* argv[]){
 
 	if(argc) {
 		//process input file argument
-		printf("\nfilename is %s \n", argv[0]);
 		infile = fopen(argv[0], "r");
 
 	} else {
@@ -66,49 +53,44 @@ int main(int argc, char* argv[]){
 
 	char prev[200];
 	char curr[200];
-	fgets(curr, 200, infile);
+	fgets(prev, 200, infile);
 	int count = 1;
 	
 	while (fgets(curr, 200, infile) != NULL) {
-		puts("\nwe are in here\n");
 		if (strcmp(prev, curr) == 0) {
 			count++;
 		} else {
 			if ((u == 1) && (d == 1)) {
-				puts("\ndebug 1\n");	
 				count = 0;
 				printf("not possible\n");
 				break;
 			}
-			if (c == 1) {
-				puts("\ndebug 2\n");
+			if (c == 1) {	
 				printf("%d ", count);
 			}
 			if ((d != 1) && (u != 1)) {
-				puts("\ndebug 3\n");	
-				printf("\n");
+				printf("%s", prev);
 			}
 			if ((d == 1) && (u != 1)) {
-				puts("\ndebug 4\n");	
 				if (count > 1) {
 					printf("%s", prev);
-				} else {
-					printf("\n");
+				} else if(count <= 1) {	
+					printf("%s", prev);
 				}
 			}
 			if ((u == 1) && (d != 1)) {
-				puts("\ndebug 5\n");	
 				if (count == 1) {
 					printf("%s", prev);
 				} else {
 					printf("\n");
 				}
 			}
+			count = 1;
+			strcpy(prev, curr);
 		}
 	}
 
 	if (count != 0) {
-		puts("\ndebug 6\n");	
 		if (c == 1) {
 			printf("%d ",count);
 		}
