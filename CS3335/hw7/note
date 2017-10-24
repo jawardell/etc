@@ -1,0 +1,220 @@
+compilattion behind the scences 
+there are several source files that need to tlak to eachother 
+allow some functions to call other functions
+a number of global variables shared among funcionts 
+the functions manipulate the same set of global variables 
+understanding the assignment
+due date extended to friday 
+talk about assignment
+talk about new material managing big programs
+then will talk about the test 
+good advice -- what's past has past, let's look forward 
+there is another test toward the end of the semester 
+	lets do even better on the second test 
+we are here to learn this important programming paradigm of c programming 
+if you have a choice to avoid global vars, please do so 
+	don't use globals, they look good at first glance.... 
+but as time goes on, the more that you use them the more trouble they will give you 
+mult players will take thier roles in changing those values 
+	chances are that globals will come back and bite you 
+
+.. 
+
+ok 
+
+
+
+managing big programs 
+untarred chapter 4 tarball 
+
+
+diagram 
+encrypt.c
+
+
+look at it! 
+this contains the function def and body of that function encrypt
+takes a pointer that points to an array of characters 
+in the function there is a while loop that checks
+	deref give me first char
+	inc 	
+	deref give me the next 
+	do this and get all chars
+every time we have a character 
+	we do x or with the character and the number 31
+	this returns some "random" junk character 
+	we give this value back to the array itself.
+	that's "encrypt"
+
+
+separate the dec from def
+the order of multoiple functions will be mattering 
+	and this will become chaos! 
+declare all of the funcionts ahead of time in sep files 
+	so that order doesn't matter 
+
+
+make fundtion declareations in header files, 
+	then include those header files 
+	in the dot c files which contain the definition of the function bodies 
+	all of these are separate from the 
+
+
+
+
+return type, name, parentheseis, types of arguments with no need to 
+		specify the names of the arguments, then a 
+		winki boi to conclude it
+
+
+there are relationships between these headerfiles and dot c files ... 
+
+	they become dependent 
+
+
+
+when compiler comes in 
+
+		that treis to compile the program 
+		it ggoes thru two stages 
+
+
+
+	KEYWORD!!!!! INDIVIDUALITY!!!!!!!!
+
+	the c compiler treats each c file individually and compile each .cfile 
+
+	preprcoessing, compilation, assembling
+
+	preprocessing --- 
+
+		sees the line of the header file include line	
+		searches for the header file, 
+		replaces that line with the contents of the header file 
+		not the only thing that this step does... 
+		define constants and stuff at top 
+			this is also a part that preprocessing does 
+			define this constant as something to not be changed down the road
+		if there is a function, it needs to be decalred first 
+		if there is a var it needs to be declared first 
+
+
+	 	let's pretend we are the compiler
+		look at stuff vars fundtions headers 
+			been decalred? found header file? extern members? 
+
+
+	anytime a funciont shows up, there must be a declaration of it first 
+	in the encrypt decrypt examples, there is only really one operation, the 
+		encrypt operation 
+	decrypt is just repeating the ecrypt operation on ecrypted data in order to finall y
+		decrypt it 
+	
+	
+	so there is one header file that is used in both decrypt and encrypt
+		its needed in encrypt because that's how its declarati 
+		its needed in decrypt because it's called in the body of decrypt
+			decrypt is implemented by calling the encrypt functino 
+
+	in the encrypt decrypt system example , the encrypt.h file is a major dependency of the 
+		system operations (both functions call encrypt() and thus need to see its 
+		declaration to know what it is)
+	as long as there are no conflicts in the argments of calling the function after including the 
+		hfile, there should be no problems in calling the function
+
+	we want to see how many times a function is called 
+	we can use an external variable which the functions can use 
+	the purpose of this variable is to keep track of the number of times the function
+		has been called so far 
+	how can we use a global var in c
+	properly 
+	its not a good idea to dec. the var in main as a local var 
+	also don't try declaring as regular old global	
+	make sure you declare as extern 
+	so enter the main function 
+	declare the var as a global but don't init
+	init to one in main 
+	then in each other method call, using extern keyword, they will increment the value 
+		of this function call counter variable 
+	encrypt dot c
+		it needs this variabel for counting, 
+		but if you look at those dot c files, they are defined here 
+		but it si not a good idea to decalre a variable more than once 
+		and in other places. 
+		so!!! 
+		the extern line is NOT declareing the variable 
+		it's just calming down the compiler so it wont' cry
+		find this var  , not locally, but somewhere else
+
+
+	decrypt dot c
+		this thing calls decrypt 
+		then makes sure that it is incremented by one 
+		the rule is that the var must be decalred first 
+			in order to pass the compiler test 
+		definition vs declareatyion 
+			declaration tells compiler two things, name and type of it 
+			definiation measn that the memory of this variable is taken care of 
+				
+
+
+
+
+	compiler enters linking phase ---
+		this is where the compiler will come in and merge the final .o files 
+		into the final executable 
+		those intermediate object files are the results of the individual compilations
+		NOW
+		the linking phase will come in and moerge those files into the final executable
+		sees the int declareation 
+			makes room for an int in memory 
+			strcuturs, dynamic memory allocation, etc.
+			anywayt
+			the compiler must have some bookkeeping mechanism to keep up wiht
+			how much memory should i allocate for this variable 
+			
+
+
+
+	ok so how do we compile this system by the way? 
+		we we can just manually compile it using gcc.... 
+			gcc filename ..... filename.. .... -o and all other files
+
+			woow!!! that sucks and is way too hard to do and 	
+			how do you know what needs to be updated or not
+			and what dependencies there are .. etc. 
+			dang that's annoying. 
+
+
+			BUT
+
+			there is this cool guy named make! 
+
+		we can specify a makefile 
+		which explicitly lists file dependecies 
+			and reciipes to address compiling them should 
+			dependencies change . . . . 
+
+	
+
+
+
+
+
+so make some global var in main method 
+but don't define (vs initialize?)
+then upon entering the main method, 
+	set the value
+
+
+
+
+
+
+
+
+
+
+
+
+
