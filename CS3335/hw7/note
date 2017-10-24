@@ -212,9 +212,198 @@ then upon entering the main method,
 
 
 
+put exern declareations in the header files 
+so we have the declaration of the encrypt.c function in en.h
+encrypt has to use the external var so put that declartion in the en.h
+
+	makes sense! we include the h file
+	then the compiler inserts the h file contents at the top of the code 
+	so it's like typing it manually at the top of the source code file 
+		except its safer now, reduces ambigutiy, and looks better, removes need to care about 
+		function call order 
+	
 
 
 
 
+wow ok lets get right into the news im your host ////
+
+
+lets learn about make 
+			we dont want to use gcc  -- oh no
+			we don't want to recomiple files which are up to date 
+			we don't want to remember which files need to be recompiled 
+			we don;t want to remember the dependecies of headers and sources
+		we are lazy humans, tell our MAKE BOT to do it for us
+		using the make tool
+
+
+
+can we automate the make process? yes! 
+
+
+
+go with the default naming convention -- makefile     OR       Makefile
+	can make special custom name, but why tho
+
+
+if we choose the default makefile naming convention, we can do this  >make
+if we are special and need to have custom makefile naming convention do this >make mymakefile
+
+
+^^ srsly? the second one tho.. ? 
+
+
+every make file has a set of rules 
+every rule has two lines 
+	the recipie and the dependency
+
+let's get right into it 
+
+
+ASCII encoded human readable text file 
+
+every rule has two componendts dependency and recipie
+
+TARGET: DEPENENCY1 DEPENDENCY2 ... DEPENDENTN
+	COMPILATION RECIPIE
+
+
+
+example
+	
+
+
+when these dependencies change, for the purpose of regenerating this object file 
+		the recreation of this object file depends on the status of its dependencies
+
+
+
+
+run this command with the purpose of recreating this object file 
+	generating the final executable 
+	when any of them have been changed due to the source code changes recompile the target 
+
+
+
+
+WAIT!!! 
+
+	look at that saucy indent !!!! 
+
+	\tabgcc
+	the beginning of every recipie line is a tab from the keyboard
+		WOAH
+	DO NOT
+		try to make the tab three spaces. 
+		make sure that you hit the tab key. 
+
+
+yas
+
+
+
+
+
+two header files, main file, and two dot c files 
+	thanks to the makefile, i don't have to keep track of annoying stuff. 
+
+
+all i have to do is this >make
+
+
+WOW!! Thanks Make!
+
+:D
+
+
+we can add another tool that removes the .o files, but by default the object files remain 
+	in the directory 
+
+
+
+
+this is not the final version of a makefile 
+	they do not look like our makefiles 
+	as soon as someone looks at a makefile like ours, 
+		they auto know that this is written as a beginner 
+	nextime we wil professionalize our make file 
+	so that it looks like real life how people would actually do it
+	our make file is overally explicit and looks stupid to any non-novice programme
+	check our make a diffrence part of the book for better make files 
+	there are dir vsariables and ohter cool flags that make MAKING more flexible, 
+		but essentially ours does does same thing in a less robust and more explict way 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+talking about the assignment 
+
+
+
+
+game of life
+what is the key purpose of this assigment
+practice with header files 
+practice with c files 
+practice with make file 
+he wants a big fat tarball 
+that contains a number of c files 
+a number of h files 
+and a make file 
+that he will use to compiler our program
+when the program does not compile, you will get a zero
+
+organize the c files in a way that there are at least three of them
+and each file only contains one functoin 
+and if it turns out that one function's vars have to be shared, 
+make sure that you use extern 
+we use sleep function to tell the thread to sleep 
+
+
+
+
+
+
+why not just put all the functions into h files (?)
+
+	put function declarations into c source code files 
+	put fucntion delcarations into h files, even if its one line
+	put main into main c file
+	
+
+
+
+when we call main 
+give me some space on the stack 
+stack works FILO LIFO
+	call main 
+	only have two local variables 
+	
+
+
+
+
+put a function on the stack, 
+	all eyes on current element operation on stack 
+	then moves into different section 
 
 
