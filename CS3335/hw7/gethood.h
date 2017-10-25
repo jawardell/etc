@@ -1,0 +1,1 @@
+int gethood(int, int);

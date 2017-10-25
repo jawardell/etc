@@ -1,67 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-int main() {
-	int rows, cols, i, j;
-	puts("\nenter rows\n");
-	scanf("%d", &rows);
-	printf("\nrows is %d\n", rows);
-	puts("\nenter cols\n");
-	scanf("%d", &cols);
-	printf("\ncols is %d\n", cols);
+#include <strings.h>
+#include <time.h>
 
 
-	char array[rows][cols];
-	for(i = 0; i < rows; i++) {
-		for(j = 0; j < cols; j++) {
-			array[i][j] = '*';
-		}
+int rowlim, collim, percent, i, j;
+//char board[][];
+
+
+int main(int argc, char* argv[]) {	
+	if(argc == 2) {
+		rowlim = atoi(argv[0]);
+		collim = atoi(argv[1]);
+		percent = 10;
+	} else if(argc == 3) {
+		percent = atoi(argv[0]);
+		rowlim  = atoi(argv[1]);
+		collim = atoi(argv[2]);
 	}
 
-	int rowlength;
+	int num_orgs = (percent * (rowlim * collim)) - (rowlim * collim);
+	int num_blank = (rowlim * collim) - numorgs; 	
 
-	for(i = 0; i < rows; i++) {
-		for(j = 0; j < cols; j++) {	
-			if(j == cols-1) {
-				printf("%c\n", array[i][j]);
-			} else {
-				printf("%c", array[i][j]);
-			}
+	char* board[rowlim][collim];
+	for(i = 0; i < rowlim; i++) {
+		for(j = 0; j < collim; j++) {
+			char[i][j] = "*";
 		}
 	}
+	
+	srand(time(NULL));
 
-	int choice;
+	for(i = numorgs; i >= 0; i--) {
+		int randx = rand() % collim;
+		int randy = rand() % rowlim;
+		board[randx][randy] = "x";
+	}
 
-	do {
-		puts("\n\n");
-		printf("\nyour choice was %d .. \n", choice);
-		puts("\n\n");
-		int x, y;
-		puts("\n\twhere would you like to place an x?\n");
-		puts("\nenter x-coord\n");
-		scanf("%d", &x);
-		printf("\nx is %d\n", x);
-		puts("\n\tenter y-coord\n");
-		scanf("%d", &y);
-		printf("\ny is %d\n", y);
-		printf("\nthe coordinates are (%d, %d)\n", x, y);
+	printboard(rowlim, collim);
 
-		array[x][y] = 'x';
+	
+	
+	
 
-		for(i = 0; i < rows; i++) {
-			for(j = 0; j < cols; j++) {
-				if(j == cols-1) {
-					printf("%c\n", array[i][j]);
-				} else {
-					printf("%c", array[i][j]);
-				}
-			}
-		}
-
-		puts("\n\n");
-		puts("\nwould you like to place an x?  [1 yes  |  0 no]\n");
-		scanf("%d", &choice);
-
-	} while(choice);
 }
