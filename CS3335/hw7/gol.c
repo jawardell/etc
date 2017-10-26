@@ -5,23 +5,31 @@
 #include <time.h>
 
 int main(int argc, char* argv[]) {
-	int collim;
-	int rowlim; 
-	int percent;
-	if(argc == 3) { puts("\nmade it here\n");
-		percent = atoi(argv[0]); puts("\nmade it here\n");
-		rowlim = atoi(argv[1]); puts("\nmade it here\n");
-		collim = atoi(argv[2]);
-	} else if(argc == 2) {
-		rowlim = atoi(argv[0]);
-		collim = atoi(argv[1]);
+	double collim;
+	double rowlim; 
+	double percent;
+	if(argc == 4) { puts("\nmade it here\n");
+		percent = (double)atoi(argv[1]); printf("\npercent is %f\n", percent); 
+		rowlim = (double)atoi(argv[2]); printf("\nrowlim is %f\n", rowlim);
+		collim = (double)atoi(argv[3]); printf("\ncollim is %f\n", collim);
+	} else if(argc == 3) {
+		rowlim = (double)atoi(argv[1]);
+		collim = (double)atoi(argv[2]);
+		percent = 10;
+	} else {
+		puts("\noops, you did not enter commands correctly...\n");
+		puts("\nusage: ./gameoflife percent_organisms rows columns\n");
+		puts("\nor usage: ./gameoflife rows columns\tpercent defaults to 10 percent life\n");
+		return 1;
 	}
-	int num_orgs = ((percent * .01) * (collim * rowlim));
-	int num_blank = (collim * rowlim) - num_orgs;
+	double num_orgs = ((percent * .01) * (collim * rowlim));
+	double num_blank = (collim * rowlim) - num_orgs;
 
+	printf("\nnumber of orgs %d\n", (int)num_orgs);
+	
 	int i, j;
 
-	char board[rowlim][collim];
+	char board[(int)rowlim][(int)collim];
 	
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
@@ -31,16 +39,18 @@ int main(int argc, char* argv[]) {
 	
 	srand(time(NULL));
 
-	for(i = num_orgs; i <= 0; i--) {
-		int randx = rand() % rowlim;
-		int randy = rand() % collim;
-		board[randx][randy] = 'x';
+	for(i = (int)num_orgs; i >= 0; i--) {
+		int randx = rand() % (int)rowlim;
+		printf("\nrandx is %d\n", randx);
+		int randy = rand() % (int)collim;
+		printf("\nrandy is %d\n", randy);
+		board[(int)randx][(int)randy] = 'x';
 	}
 
-
-	for(i = 0; i < rowlim; i++) {
-		for(j = 0; j < collim; j++) {
-			if(j == (rowlim - 1)) {
+	
+	for(i = 0; i < (int)rowlim; i++) {
+		for(j = 0; j < (int)collim; j++) {
+			if(j == ((int)rowlim - 1)) {
 				printf("%c\n", board[i][j]);
 			} else {
 				printf("%c", board[i][j]);
