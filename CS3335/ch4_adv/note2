@@ -1,0 +1,319 @@
+ok here we go talking about make 
+
+when we make our makfiles later, they will look so much better than they do 
+putting diffetrent types of files into separate folders
+they are all mixed up and contained in one folder, we should organize them.. 
+
+but as the size of the program grows, we are talking about some 
+	h files
+	o files 
+	c files 
+its always better to sepearte them into separate folders so that we are more professional 
+
+
+ok lets get right into it
+
+
+we are still scratching the surface of this powerful tool called make
+
+
+if you want to dig deeper, please search for stuff online and books
+
+there is a good book by orliey publisher 
+
+called make in a nutshell 
+
+
+
+
+dr xu is so coool 
+
+
+ok 
+
+
+don't thnik that after we are done learning about make that we are pros
+
+there is still so much more to learn 
+there are whole books about it 
+
+
+
+
+
+
+
+
+
+
+we are just sractiching the surface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+talking about makefiles 
+
+
+a makefile 
+all it contains is a bunch of rules 
+
+rules have two components
+
+define dependencies and recipies 
+
+how do we interpret the rules 
+
+	dependency lines 
+	recipe lines
+don't forget that the space is a tab, not a number of spaces. 
+
+what the dependency line says is 
+	anytime anyone of those files after the colon is changed, 
+	the file before the colon needs to be regenerated. 
+	otherwise, it donesn't make sense to keep the old files
+	how does gcc regenerate the target file? 
+		that is the recepie: gcc please do this command on my os and re generate teh target file
+
+
+	the final executatble depends on those threee object files 
+	
+
+	dependency relationships are key to understanting the structure of the makefile 
+the target ultimate exe file depends on those three dot o files 
+the o files depend on the dot c and dot h files 
+the dot c files depend on the dot o files 
+
+
+
+when to do it      dependency line
+how to do it       recipie line
+
+
+
+make sure that the makefile is in the pwd of the files 
+then you can make 
+
+
+ya 
+
+
+
+please be careful about the naming convention that you choose for the makefile 
+
+
+
+
+as soon as you reach something liek the type of makefile that we ahve, you see a lot of room to imporve 
+
+we can improve the rule
+
+
+
+
+everytime we see something that is repeted, we know that we should wrap it up into a variable 
+		to hold common expressions and refer to them later on 
+
+
+
+
+what if all of a sudden you want to use another type of compiler in the make file? 
+
+you would have to do the same thing over and over for each type of different compiler that you would want to use 
+
+
+
+makefile allows you to speicify variables 
+
+
+
+
+so here we go specifying variables, see ch4_adv/makefiles/
+
+
+CC = gcc //caprture the gcc expresssion into a variaobe called CC
+
+$(CC)//now use the CC variable 
+
+CFLAGS = -g
+LDFLAGS = 
+
+naming conventions for c compiler CC (c compiler)
+LDFLAGS = -lm
+OBJS = encrypt.o decrypt.o message_hider.o
+all: message_hider 
+	//specify the name of the final product 
+	//the final executable
+
+
+clean rm $(OBJS)
+
+
+
+
+
+
+vim add new lines press o 		yes yes 
+yes
+
+vim shiftZZ
+
+also, fix vim so that it knows that i am editing a makefile fix vimrc
+
+
+make -f makefile.2 clean
+
+
+
+
+
+
+
+when you realise that you have mutl occurances ofthe same thing, what if i change it
+	think about variavles or trying other ways to centralize what you are doing 
+
+
+
+taking advantage of existing libraries
+you have to line them up and link them up with the compiler 
+
+
+
+
+
+
+anytime you see a ^ that means that you are highlighting all dependencies 
+$@   -- there is a $ for vars, so $@ highlights the target
+
+
+streamlining and professionalizing the maekfile
+
+
+
+
+
+&< refers to the very first dependency  
+
+
+
+
+the three rules in this make file look the same, 
+	esp the recipie lines 
+generate header dependencies 
+
+
+we can use a wildcard 
+
+
+
+	we can combine the three recipies that look the same
+
+	we can do this by using a wildcard * symbol 
+
+	encrupty.o depends on encrypt .h and encrypt.c
+
+
+		dont you thingk that the encrupt.c dependency is redundent 
+		e.o: e.c e.h
+			the c file INCLUDES the h file!! so it should be obvious to the compiler that 
+			.h is a dependency of the o file, but shouldn't have to be explicitly 
+
+
+		combine similar lines of code in the recipes
+		and 
+		eliminate overly explicit dependencies 
+
+		%     -=-- this is the make wildcard
+
+
+	CAUTION!!!!! 
+
+
+		how do i come up with the header dependency relationship 
+what you do when you have your own prohect, you can assemble a template and copy it each time that you want to do a make file 
+
+
+
+
+include dependencies 
+
+
+SRCS = $(pathstbts %.o, %.c, $(OBJS))
+SRC = .....c .......c .......c
+
+	what if you change the names of the files? the wildcard saves you, it finds all files with the extension .c
+
+
+
+yay 
+
+
+so this line will generate this file for you, dependencies 
+
+	preprocessing option, it's a flag
+	dependencies: $(SRCS)
+
+
+
+multiple folders housing multiple files 
+
+
+
+everything looks very disorganized, we want to have the files oragnized and still be able to use teh make utility 
+
+instead of putting everything flat into one folder, we will place all the files into the right folders 
+
+how many folders are we talking about? typically four 
+
+src   -- .c files 
+obj ----- /.obj /.bin /.inc /.src
+
+
+
+
+
+dynamic libraries and static libarries 
+
+
+
+we will make our own libraries so that we can serve the community 
+we want to put our stuff in a library upload it to the cloud so that people can use it 
+yas 
+
+
+
+
+two types of libaries dynamic and static
+
+
+
+
+
+we can shorten the src dir by wrapping it up into a variable 
+SRC_DIR = ./src_files
+INC_DIR = 
+
+
+
+.obj_files/.o .o .o .o .o .o o. o. o. o. o. o
+
+
+
+organize files into folders 
+this will help us to be professional 
+there are naming conventions, make sure to follwo those because they are commonly known and used in the programming  ommunity 
+we need to wrap up redundantly used statements in the maekfile 
+also, we need to specify where our files are 
+we can use self-refereential fucntions within the rules so that we can look and operate better 
+	rthen if we see that things are stearting to look the same again, wrpat those up into vars
+be sure to be carefule about the path specifications ----- for examples, the SRCS and SRC_ they can't be the sam..?
+	anyway, you have to do this thing where you swap the paths
