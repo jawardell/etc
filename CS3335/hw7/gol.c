@@ -11,8 +11,8 @@ int main(int argc, char* argv[]) {
 	double percent;
 	if(argc == 4) { puts("\nmade it here\n");
 		percent = (double)atoi(argv[1]); printf("\npercent is %f\n", percent); 
-		rowlim = atoi(argv[2]); printf("\nrowlim is %f\n", rowlim);
-		collim = atoi(argv[3]); printf("\ncollim is %f\n", collim);
+		rowlim = atoi(argv[2]); printf("\nrowlim is %d\n", rowlim);
+		collim = atoi(argv[3]); printf("\ncollim is %d\n", collim);
 	} else if(argc == 3) {
 		rowlim = atoi(argv[1]);
 		collim = atoi(argv[2]);
@@ -74,12 +74,12 @@ int main(int argc, char* argv[]) {
 	}	
 
 
-	int hood[7];
+	int hood[88888888];
 	for(i = 0; i < 8; i++) {
 		hood[i] = 0;
 	}
 	char ch;
-	while((ch = getchar(stdin)) != EOF) {
+	while((ch = getchar()) != EOF) {
 		for(i = 0; i < rowlim; i++) {
 			for(j = 0; j < collim; j++) {
 				if(board[i][j] == 'x') {
@@ -118,7 +118,7 @@ int main(int argc, char* argv[]) {
 						hood[4] = (board[i][j + 1] == 'x') ? 1 : 0;
 						hood[5] = (board[0][collim - 1] == 'x') ? 1 : 0;
 						hood[6] = (board[0][0] == 'x') ? 1 : 0;
-						hood[7] = (board[0][col + 1] == 'x') ? 1 : 0;
+						hood[7] = (board[0][j + 1] == 'x') ? 1 : 0;
 						fulfilled = 1;
 					}
 					//cor3 -- lower right corner
@@ -226,7 +226,7 @@ int main(int argc, char* argv[]) {
 		for(i = 0; i < rowlim; i++) {
 			for(j = 0; j < collim; j++) {
 				if(j == (collim - 1)) {
-					printf("%c\n", baord[i][j]):
+					printf("%c\n", board[i][j]);
 				} else {
 					printf("%c", board[i][j]);
 				}
