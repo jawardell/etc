@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
 	//initialize the board to spaces
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
-			board[i][j] = ' ';
+			board[i][j] = '*';
 		}
 	}
 
@@ -51,9 +51,7 @@ int main(int argc, char* argv[]) {
 		//while observing the percentage of life requested
 	for(i = (int)num_orgs; i >= 0; i--) {
 		int randx = rand() % rowlim;
-		printf("\nrandx is %d\n", randx);
 		int randy = rand() % collim;
-		printf("\nrandy is %d\n", randy);
 		if (board[randx][randy] == 'x') {
 		//x has already been placed here
 		//so trick the for loop and continue on
@@ -65,7 +63,9 @@ int main(int argc, char* argv[]) {
 
 	}
 
-	/* print out the board just for kicks and giggles...
+
+
+	//do first board print
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
 			if(j == (rowlim - 1)) {
@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
-	*/
+
 
 
 	//make array to hold values of neighbors of each grid space
@@ -85,24 +85,17 @@ int main(int argc, char* argv[]) {
 			hoodcount[i][j] = 0;
 		}
 	}	
-
-
 	int hood[8]; //make linear array to hold number of neighbors count
 	for(i = 0; i < 8; i++) {//initialize that array to zeros
 		hood[i] = 0;
 	}
-
-
-
-
-
 	//for each grid space, observe all eight of its neighbor positions
 	//check each position to see if there is an x there
 	//if so, mark that position in the hood linear array
 	//also do corner and edge wrapping on the board
 
-	char ch;//get ready to loooop!
-	while((ch = getchar()) != EOF) { //keep doing this until we reiceve EOF signal from stdin
+	//get ready to loooop!
+	while((getchar()) != EOF) { //keep doing this until we reiceve EOF signal from stdin
 		for(i = 0; i < rowlim; i++) {
 			for(j = 0; j < collim; j++) {
 				if(board[i][j] == 'x') {
@@ -122,6 +115,7 @@ int main(int argc, char* argv[]) {
 					}
 					//cor1 -- upper right corner
 					if((i == 0) && (j == (collim - 1))) {
+
 						hood[0] = (board[rowlim -1][j - 1] == 'x') ? 1 : 0;
 						hood[1] = (board[rowlim - 1][j] == 'x') ? 1 : 0;
 						hood[2] = (board[rowlim - 1][0] == 'x') ? 1 : 0;
@@ -134,6 +128,7 @@ int main(int argc, char* argv[]) {
 					}
 					//cor 2 -- lower left corner
 					if((i == (rowlim - 1)) && (j == 0)) {
+
 						hood[0] = (board[i - 1][collim - 1] == 'x') ? 1 : 0;
 						hood[1] = (board[i - 1][j] == 'x') ? 1 : 0;
 						hood[2] = (board[i - 1][j + 1] == 'x') ? 1 : 0;
@@ -145,7 +140,8 @@ int main(int argc, char* argv[]) {
 						fulfilled = 1;
 					}
 					//cor3 -- lower right corner
-					if((i == (rowlim - 1)) && (j == (collim - 1))) {
+					if((i == (rowlim - 1)) && (j == (collim - 1))) { 
+
 						hood [0] = (board[i - 1][j - 1] == 'x') ? 1 : 0;
 						hood [1] = (board[i + 1][j] == 'x') ? 1 : 0;
 						hood [2] = (board[i - 1][0] == 'x') ? 1 : 0;
@@ -165,7 +161,7 @@ int main(int argc, char* argv[]) {
 						fulfilled = 1;
 					}
 					//column wrapping on right side
-					if((j == collim - 1) && (fulfilled == 0)) {
+					if((j == collim - 1) && (fulfilled == 0)) { 
 						hood[2] = (board[i - 1][0] == 'x') ? 1 : 0;
 						hood[4] = (board[i][0] == 'x') ? 1 : 0;
 						hood[7] = (board[i + 1][0] == 'x') ? 1 : 0;
@@ -211,13 +207,13 @@ int main(int argc, char* argv[]) {
 			}
 		}
 
-		puts("\nprinting hoodcount array. . . .\n");
+
 		for(i = 0; i < rowlim; i++) {
 			for(j = 0; j < collim; j++) {
 				if(j == (collim - 1)) {
-					printf("%2c\n", board[i][j]);
+					printf("%2d\n", (int)hoodcount[i][j]);
 				} else {
-					printf("%2c ", board[i][j]);
+					printf("%2d ",(int)hoodcount[i][j]);
 				}
 			}
 		}
