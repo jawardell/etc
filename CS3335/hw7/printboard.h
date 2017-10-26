@@ -1,3 +1,3 @@
 void printboard(int, int);
-extern char**;
+extern char* const board;
 

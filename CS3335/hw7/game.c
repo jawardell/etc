@@ -2,11 +2,9 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <time.h>
-
+#include "printboard.h"
 
 int rowlim, collim, percent, i, j;
-//char board[][];
-
 
 int main(int argc, char* argv[]) {	
 	if(argc == 2) {
@@ -20,21 +18,21 @@ int main(int argc, char* argv[]) {
 	}
 
 	int num_orgs = (percent * (rowlim * collim)) - (rowlim * collim);
-	int num_blank = (rowlim * collim) - numorgs; 	
+	int num_blank = (rowlim * collim) - num_orgs; 	
 
-	char* board[rowlim][collim];
+	char board[rowlim][collim];
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
-			char[i][j] = "*";
+			board[i][j] = '*';
 		}
 	}
-	
-	srand(time(NULL));
 
-	for(i = numorgs; i >= 0; i--) {
+	srand(time(NULL));//use time as a random seed
+
+	for(i = num_orgs; i >= 0; i--) {
 		int randx = rand() % collim;
 		int randy = rand() % rowlim;
-		board[randx][randy] = "x";
+		board[randx][randy] = 'x';
 	}
 
 	printboard(rowlim, collim);
