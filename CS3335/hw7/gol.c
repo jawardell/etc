@@ -67,7 +67,10 @@ int main(int argc, char* argv[]) {
 	}	
 
 
-	
+	int hood[7];
+	for(i = 0; i < 8; i++) {
+		hood[i] = 0;
+	}
 	
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
@@ -75,7 +78,7 @@ int main(int argc, char* argv[]) {
 				//if its a corner, check for corner cases
 				//col0
 				if((i == row) && (j == col)) {
-					
+					hood[] = 
 				}
 			}
 		}
