@@ -9,43 +9,54 @@ int main(int argc, char* argv[]) {
 	int collim;
 	int rowlim; 
 	double percent;
-	if(argc == 4) { puts("\nmade it here\n");
-		percent = (double)atoi(argv[1]); printf("\npercent is %f\n", percent); 
-		rowlim = atoi(argv[2]); printf("\nrowlim is %d\n", rowlim);
-		collim = atoi(argv[3]); printf("\ncollim is %d\n", collim);
-	} else if(argc == 3) {
+	
+	//grab those args!
+	if(argc == 4) { //percent specified
+		percent = (double)atoi(argv[1]);
+		rowlim = atoi(argv[2]);
+		collim = atoi(argv[3]);
+
+	} else if(argc == 3) {//percent set to default
 		rowlim = atoi(argv[1]);
 		collim = atoi(argv[2]);
 		percent = 10;
-	} else {
+
+	} else {//useage not satisfied
 		puts("\noops, you did not enter commands correctly...\n");
 		puts("\nusage: ./gameoflife percent_organisms rows columns\n");
 		puts("\nor usage: ./gameoflife rows columns\tpercent defaults to 10 percent life\n");
 		return 1;
 	}
+
+	//initialize a few variables here, make percentage calculations
 	double num_orgs = ((percent * .01) * (collim * rowlim));
 	double num_blank = (collim * rowlim) - num_orgs;
-
-	printf("\nnumber of orgs %f\n", num_orgs);
-
 	int i, j;
-
 	char board[rowlim][collim];
 
+
+	//initialize the board to spaces
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
-			board[i][j] = '*';
+			board[i][j] = ' ';
 		}
 	}
 
+
+	//use time as a random seed
 	srand(time(NULL));
 
+
+	//randomly place x's on board 
+		//while observing the percentage of life requested
 	for(i = (int)num_orgs; i >= 0; i--) {
 		int randx = rand() % rowlim;
 		printf("\nrandx is %d\n", randx);
 		int randy = rand() % collim;
 		printf("\nrandy is %d\n", randy);
 		if (board[randx][randy] == 'x') {
+		//x has already been placed here
+		//so trick the for loop and continue on
 			i++;
 			continue;
 		} else {
@@ -54,7 +65,7 @@ int main(int argc, char* argv[]) {
 
 	}
 
-
+	/* print out the board just for kicks and giggles...
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
 			if(j == (rowlim - 1)) {
@@ -64,22 +75,34 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
+	*/
 
 
+	//make array to hold values of neighbors of each grid space
 	double hoodcount[rowlim][collim];
-	for(i = 0; i < rowlim; i++) {
+	for(i = 0; i < rowlim; i++) {   //initialize that array to zeros
 		for(j=  0; j < collim; j++) {
 			hoodcount[i][j] = 0;
 		}
 	}	
 
 
-	int hood[8];
-	for(i = 0; i < 8; i++) {
+	int hood[8]; //make linear array to hold number of neighbors count
+	for(i = 0; i < 8; i++) {//initialize that array to zeros
 		hood[i] = 0;
 	}
-	char ch;
-	while((ch = getchar()) != EOF) {
+
+
+
+
+
+	//for each grid space, observe all eight of its neighbor positions
+	//check each position to see if there is an x there
+	//if so, mark that position in the hood linear array
+	//also do corner and edge wrapping on the board
+
+	char ch;//get ready to loooop!
+	while((ch = getchar()) != EOF) { //keep doing this until we reiceve EOF signal from stdin
 		for(i = 0; i < rowlim; i++) {
 			for(j = 0; j < collim; j++) {
 				if(board[i][j] == 'x') {
