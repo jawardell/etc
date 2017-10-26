@@ -3,18 +3,18 @@
 #include <math.h>
 #include <strings.h>
 #include <time.h>
-
+int k;
 int main(int argc, char* argv[]) {
-	double collim;
-	double rowlim; 
+	int collim;
+	int rowlim; 
 	double percent;
 	if(argc == 4) { puts("\nmade it here\n");
 		percent = (double)atoi(argv[1]); printf("\npercent is %f\n", percent); 
-		rowlim = (double)atoi(argv[2]); printf("\nrowlim is %f\n", rowlim);
-		collim = (double)atoi(argv[3]); printf("\ncollim is %f\n", collim);
+		rowlim = atoi(argv[2]); printf("\nrowlim is %f\n", rowlim);
+		collim = atoi(argv[3]); printf("\ncollim is %f\n", collim);
 	} else if(argc == 3) {
-		rowlim = (double)atoi(argv[1]);
-		collim = (double)atoi(argv[2]);
+		rowlim = atoi(argv[1]);
+		collim = atoi(argv[2]);
 		percent = 10;
 	} else {
 		puts("\noops, you did not enter commands correctly...\n");
@@ -25,11 +25,11 @@ int main(int argc, char* argv[]) {
 	double num_orgs = ((percent * .01) * (collim * rowlim));
 	double num_blank = (collim * rowlim) - num_orgs;
 
-	printf("\nnumber of orgs %d\n", (int)num_orgs);
+	printf("\nnumber of orgs %f\n", num_orgs);
 
 	int i, j;
 
-	char board[(int)rowlim][(int)collim];
+	char board[rowlim][collim];
 
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
@@ -40,17 +40,23 @@ int main(int argc, char* argv[]) {
 	srand(time(NULL));
 
 	for(i = (int)num_orgs; i >= 0; i--) {
-		int randx = rand() % (int)rowlim;
+		int randx = rand() % rowlim;
 		printf("\nrandx is %d\n", randx);
-		int randy = rand() % (int)collim;
+		int randy = rand() % collim;
 		printf("\nrandy is %d\n", randy);
-		board[(int)randx][(int)randy] = 'x';
+		if (board[randx][randy] == 'x') {
+			i++;
+			continue;
+		} else {
+			board[randx][randy] = 'x';
+		}
+
 	}
 
 
-	for(i = 0; i < (int)rowlim; i++) {
-		for(j = 0; j < (int)collim; j++) {
-			if(j == ((int)rowlim - 1)) {
+	for(i = 0; i < rowlim; i++) {
+		for(j = 0; j < collim; j++) {
+			if(j == (rowlim - 1)) {
 				printf("%c\n", board[i][j]);
 			} else {
 				printf("%c", board[i][j]);
@@ -166,15 +172,50 @@ int main(int argc, char* argv[]) {
 					hood[7] = (board[i + 1][j + 1] == 'x') ? 1 : 0;
 				}	
 			}
-		}
 
-		int count = 0;
-		//sum up neigbors array
-		for(i = 0; i < 8; i++) {
-			if(hood[i] == 1) {
-				count++;
+			int count = 0;
+			//sum up neigbors array
+			for(k = 0; k < 8; k++) {
+				if(hood[k] == 1) {
+					count++;
+				}
+			}
+
+			//place neighbors count in hoodcount array
+			hoodcount[i][j] = count;
+		}
+	}
+
+	puts("\nprinting hoodcount array. . . .\n");
+	for(i = 0; i < rowlim; i++) {
+		for(j = 0; j < collim; j++) {
+			if(j == (collim - 1)) {
+				printf("%2c\n", board[i][j]);
+			} else {
+				printf("%2c ", board[i][j]);
+			}
+		}
+	}
+	
+
+	//look at hoodcount array to redraw board
+	for(i = 0; i < rowlim; i ++) {
+		for(j = 0; j < collim; j++) {
+			//overcrowding
+			if(hoodcount[i][j] > 3) {
+				board[i][j] = ' ';
+			}
+			//reproduction
+			if(hoodcount[i][j] == 3) {
+				board[i][j] = 'x';
+			}
+			//survival
+			if((hoodcount[i][j] == 2) && (board[i][j] == 'x')) {
+				continue;
 			}
 		}
 
 	}
+
+	//flush the console output
 }
