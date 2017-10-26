@@ -74,7 +74,7 @@ int main(int argc, char* argv[]) {
 	}	
 
 
-	int hood[88888888];
+	int hood[8];
 	for(i = 0; i < 8; i++) {
 		hood[i] = 0;
 	}
