@@ -317,3 +317,13 @@ we can use self-refereential fucntions within the rules so that we can look and 
 	rthen if we see that things are stearting to look the same again, wrpat those up into vars
 be sure to be carefule about the path specifications ----- for examples, the SRCS and SRC_ they can't be the sam..?
 	anyway, you have to do this thing where you swap the paths
+
+
+
+there is a pointer that points to something
+whos address that we are giving to ptr
+on the stack this is mains territory right now
+
+
+
+ok so when you call a fucntion, rememver that they are put on the stack and teh local variables 
