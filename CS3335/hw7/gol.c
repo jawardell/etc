@@ -59,4 +59,25 @@ int main(int argc, char* argv[]) {
 	}
 
 
+	double hoodcount[rowlim][collim];
+	for(i = 0; i < rowlim; i++) {
+		for(j=  0; j < collim; j++) {
+			hoodcount[i][j] = 0;
+		}
+	}	
+
+
+	
+	
+	for(i = 0; i < rowlim; i++) {
+		for(j = 0; j < collim; j++) {
+			if(board[i][j] == 'x') {
+				//if its a corner, check for corner cases
+				//col0
+				if((i == row) && (j == col)) {
+					
+				}
+			}
+		}
+	}
 }
