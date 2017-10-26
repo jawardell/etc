@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 	int collim;
 	int rowlim; 
 	double percent;
-	
+
 	//grab those args!
 	if(argc == 4) { //percent specified
 		percent = (double)atoi(argv[1]);
@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
 	//initialize the board to spaces
 	for(i = 0; i < rowlim; i++) {
 		for(j = 0; j < collim; j++) {
-			board[i][j] = '*';
+			board[i][j] = ' ';
 		}
 	}
 
@@ -48,13 +48,13 @@ int main(int argc, char* argv[]) {
 
 
 	//randomly place x's on board 
-		//while observing the percentage of life requested
+	//while observing the percentage of life requested
 	for(i = (int)num_orgs; i >= 0; i--) {
 		int randx = rand() % rowlim;
 		int randy = rand() % collim;
 		if (board[randx][randy] == 'x') {
-		//x has already been placed here
-		//so trick the for loop and continue on
+			//x has already been placed here
+			//so trick the for loop and continue on
 			i++;
 			continue;
 		} else {
@@ -95,7 +95,7 @@ int main(int argc, char* argv[]) {
 	//also do corner and edge wrapping on the board
 
 	//get ready to loooop!
-	while((getchar()) != EOF) { //keep doing this until we reiceve EOF signal from stdin
+	while(!feof(stdin)) { //keep doing this until we reiceve EOF signal from stdin
 		for(i = 0; i < rowlim; i++) {
 			for(j = 0; j < collim; j++) {
 				if(board[i][j] == 'x') {
@@ -207,17 +207,17 @@ int main(int argc, char* argv[]) {
 			}
 		}
 
-
-		for(i = 0; i < rowlim; i++) {
-			for(j = 0; j < collim; j++) {
-				if(j == (collim - 1)) {
-					printf("%2d\n", (int)hoodcount[i][j]);
-				} else {
-					printf("%2d ",(int)hoodcount[i][j]);
-				}
-			}
-		}
-
+		/*
+		   for(i = 0; i < rowlim; i++) {
+		   for(j = 0; j < collim; j++) {
+		   if(j == (collim - 1)) {
+		   printf("%2d\n", (int)hoodcount[i][j]);
+		   } else {
+		   printf("%2d ",(int)hoodcount[i][j]);
+		   }
+		   }
+		   }
+		 */
 
 		//look at hoodcount array to redraw board
 		for(i = 0; i < rowlim; i ++) {
@@ -258,7 +258,7 @@ int main(int argc, char* argv[]) {
 
 
 		//tell the thread to sleep
-		usleep(200000);
+		usleep(500000);
 
 	} //throw it all into a while loop with EOF sentinel value . . . 
 }
