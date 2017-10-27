@@ -233,6 +233,10 @@ int main(int argc, char* argv[]) {
 				if(hoodcount[i][j] == 2) {
 					continue;
 				}
+				//lonliness
+				if(hoodcount[i][j] < 2) {
+					board[i][j] = ' ';
+				}
 			}
 
 		}
