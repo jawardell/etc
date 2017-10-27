@@ -8,6 +8,12 @@
 #include <time.h>
 int k;
 int main(int argc, char* argv[]) {
+	puts("\n\thello! thank you for using game of life\n");
+	puts("\n\tplease use ctrl c  to quit.\n");
+	puts("\n\tthank you!\n");
+
+	usleep(7000000);
+	
 	int collim;
 	int rowlim; 
 	double percent;
@@ -101,6 +107,9 @@ int main(int argc, char* argv[]) {
 		for(i = 0; i < rowlim; i++) {
 			for(j = 0; j < collim; j++) {
 				if(board[i][j] == 'x') {
+
+
+
 					int fulfilled = 0;
 					//if its a corner, do special corner wrapping
 					//cor0  -- upper left corner
@@ -206,7 +215,11 @@ int main(int argc, char* argv[]) {
 			}
 		}
 
+
+
+
 		/*
+
 		   for(i = 0; i < rowlim; i++) {
 		   for(j = 0; j < collim; j++) {
 		   if(j == (collim - 1)) {
@@ -216,18 +229,22 @@ int main(int argc, char* argv[]) {
 		   }
 		   }
 		   }
+
 		 */
 
 		//look at hoodcount array to redraw board
 		for(i = 0; i < rowlim; i ++) {
 			for(j = 0; j < collim; j++) {
-				//overcrowding
-				if(hoodcount[i][j] > 3) {
-					board[i][j] = ' ';
-				}
 				//reproduction
 				if(hoodcount[i][j] == 3) {
 					board[i][j] = 'x';
+					continue;
+				}
+
+				//overcrowding
+				if(hoodcount[i][j] > 3) {
+					board[i][j] = ' ';
+					continue;
 				}
 				//survival
 				if(hoodcount[i][j] == 2) {
@@ -236,6 +253,7 @@ int main(int argc, char* argv[]) {
 				//lonliness
 				if(hoodcount[i][j] < 2) {
 					board[i][j] = ' ';
+					continue;
 				}
 			}
 
@@ -244,16 +262,25 @@ int main(int argc, char* argv[]) {
 		//clear the command prompt
 		system("clear");
 
+
+		k = rowlim+1;
 		//print board
 		for(i = 0; i < rowlim; i++) {
+			k--;
 			for(j = 0; j < collim; j++) {
 				if(j == (collim - 1)) {
-					printf("%c\n", board[i][j]);
+					printf("%3c\t%d\n", board[i][j], k);
 				} else {
-					printf("%c", board[i][j]);
+					printf("%3c", board[i][j]);
 				}
 			}
 		}
+
+		for(i =1 ; i <= collim; i++) {
+			printf("%3d", i);
+		}
+
+
 
 
 		//flush the standard output stream
