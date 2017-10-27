@@ -1,3 +1,5 @@
+#include "retone.h"
+#include "retzero.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -103,94 +105,91 @@ int main(int argc, char* argv[]) {
 					//if its a corner, do special corner wrapping
 					//cor0  -- upper left corner
 					if((i == 0) && (j == 0)) {
-						hood[0] = (board[rowlim-1][collim-1] == 'x') ? 1 : 0;
-						hood[1] = (board[rowlim-1][0] == 'x') ? 1 : 0;
-						hood[2] = (board[rowlim - 1][1] == 'x') ? 1 : 0;
-						hood[3] = (board[i][collim - 1] == 'x') ? 1 : 0;
-						hood[4] = (board[i][j + 1] == 'x') ? 1 : 0;
-						hood[5] = (board[i + 1][collim - 1] == 'x') ? 1 : 0;
-						hood[6] = (board[i + 1][j] == 'x') ? 1 : 0;
-						hood[7] = (board[i + 1][j + 1] == 'x') ? 1 : 0;
+						hood[0] = (board[rowlim-1][collim-1] == 'x') ? retone() : retzero();
+						hood[1] = (board[rowlim-1][0] == 'x') ? retone() : retzero();
+						hood[2] = (board[rowlim - 1][1] == 'x') ? retone() : retzero();
+						hood[3] = (board[i][collim - 1] == 'x') ? retone() : retzero();
+						hood[4] = (board[i][j + 1] == 'x') ? retone() : retzero();
+						hood[5] = (board[i + 1][collim - 1] == 'x') ? retone() : retzero();
+						hood[6] = (board[i + 1][j] == 'x') ? retone() : retzero();
+						hood[7] = (board[i + 1][j + 1] == 'x') ? retone() : retzero();
 						fulfilled = 1;
 					}
 					//cor1 -- upper right corner
 					if((i == 0) && (j == (collim - 1))) {
-
-						hood[0] = (board[rowlim -1][j - 1] == 'x') ? 1 : 0;
-						hood[1] = (board[rowlim - 1][j] == 'x') ? 1 : 0;
-						hood[2] = (board[rowlim - 1][0] == 'x') ? 1 : 0;
-						hood[3] = (board[i][j - 1] == 'x') ? 1 : 0;
-						hood[4] = (board[0][0] == 'x') ? 1 : 0;
-						hood[5] = (board[i + 1][j - 1] == 'x') ? 1 : 0;
-						hood[6] = (board[i + 1][j] == 'x') ? 1 : 0;
-						hood[7] = (board[i + 1][0] == 'x') ? 1 : 0;
+						hood[0] = (board[rowlim -1][j - 1] == 'x') ? retone() : retzero();
+						hood[1] = (board[rowlim - 1][j] == 'x') ? retone() : retzero();
+						hood[2] = (board[rowlim - 1][0] == 'x') ? retone() : retzero();
+						hood[3] = (board[i][j - 1] == 'x') ? retone() : retzero();
+						hood[4] = (board[0][0] == 'x') ? retone() : retzero();
+						hood[5] = (board[i + 1][j - 1] == 'x') ? retone() : retzero();
+						hood[6] = (board[i + 1][j] == 'x') ? retone() : retzero();
+						hood[7] = (board[i + 1][0] == 'x') ? retone() : retzero();
 						fulfilled = 1;
 					}
 					//cor 2 -- lower left corner
 					if((i == (rowlim - 1)) && (j == 0)) {
-
-						hood[0] = (board[i - 1][collim - 1] == 'x') ? 1 : 0;
-						hood[1] = (board[i - 1][j] == 'x') ? 1 : 0;
-						hood[2] = (board[i - 1][j + 1] == 'x') ? 1 : 0;
-						hood[3] = (board[i][collim - 1] == 'x') ? 1 : 0;
-						hood[4] = (board[i][j + 1] == 'x') ? 1 : 0;
-						hood[5] = (board[0][collim - 1] == 'x') ? 1 : 0;
-						hood[6] = (board[0][0] == 'x') ? 1 : 0;
-						hood[7] = (board[0][j + 1] == 'x') ? 1 : 0;
+						hood[0] = (board[i - 1][collim - 1] == 'x') ? retone() : retzero();
+						hood[1] = (board[i - 1][j] == 'x') ? retone() : retzero();
+						hood[2] = (board[i - 1][j + 1] == 'x') ? retone() : retzero();
+						hood[3] = (board[i][collim - 1] == 'x') ? retone() : retzero();
+						hood[4] = (board[i][j + 1] == 'x') ? retone() : retzero();
+						hood[5] = (board[0][collim - 1] == 'x') ? retone() : retzero();
+						hood[6] = (board[0][0] == 'x') ? retone() : retzero();
+						hood[7] = (board[0][j + 1] == 'x') ? retone() : retzero();
 						fulfilled = 1;
 					}
 					//cor3 -- lower right corner
 					if((i == (rowlim - 1)) && (j == (collim - 1))) { 
-
-						hood [0] = (board[i - 1][j - 1] == 'x') ? 1 : 0;
-						hood [1] = (board[i + 1][j] == 'x') ? 1 : 0;
-						hood [2] = (board[i - 1][0] == 'x') ? 1 : 0;
-						hood [3] = (board[i][j - 1] == 'x') ? 1 : 0;
-						hood [4] = (board[i][0] == 'x') ? 1 : 0;
-						hood [5] = (board[0][j - 1] == 'x') ? 1 : 0;
-						hood [6] = (board[0][j] == 'x') ? 1 : 0;
-						hood [7] = (board[0][0] == 'x') ? 1 : 0;
+						hood [0] = (board[i - 1][j - 1] == 'x') ? retone() : retzero();
+						hood [1] = (board[i + 1][j] == 'x') ? retone() : retzero();
+						hood [2] = (board[i - 1][0] == 'x') ? retone() : retzero();
+						hood [3] = (board[i][j - 1] == 'x') ? retone() : retzero();
+						hood [4] = (board[i][0] == 'x') ? retone() : retzero();
+						hood [5] = (board[0][j - 1] == 'x') ? retone() : retzero();
+						hood [6] = (board[0][j] == 'x') ? retone() : retzero();
+						hood [7] = (board[0][0] == 'x') ? retone() : retzero();
 						fulfilled = 1;
 					}
 					//if it just needs normal wrapping adjustments
 					//column wrapping on left side
 					if((j == 0) && (fulfilled == 0)) {
-						hood[0] = (board[i - 1][rowlim - 1] == 'x') ? 1 : 0;
-						hood[3] = (board[i][rowlim - 1] == 'x') ? 1 : 0;
-						hood[5] = (board[i + 1][rowlim - 1]) ? 1 : 0;
+						hood[0] = (board[i - 1][rowlim - 1] == 'x') ? retone() : retzero();
+						hood[3] = (board[i][rowlim - 1] == 'x') ? retone() : retzero();
+						hood[5] = (board[i + 1][rowlim - 1]) ? retone() : retzero();
 						fulfilled = 1;
 					}
 					//column wrapping on right side
 					if((j == collim - 1) && (fulfilled == 0)) { 
-						hood[2] = (board[i - 1][0] == 'x') ? 1 : 0;
-						hood[4] = (board[i][0] == 'x') ? 1 : 0;
-						hood[7] = (board[i + 1][0] == 'x') ? 1 : 0;
+						hood[2] = (board[i - 1][0] == 'x') ? retone() : retzero();
+						hood[4] = (board[i][0] == 'x') ? retone() : retzero();
+						hood[7] = (board[i + 1][0] == 'x') ? retone() : retzero();
 						fulfilled = 1;
 					}
 					//row wrapping at bottom
 					if((i == rowlim - 1) && (fulfilled == 0)) {
-						hood[5] = (board[0][j - 1] == 'x') ? 1 : 0;
-						hood[6] = (board[0][j] == 'x') ? 1 : 0;
-						hood[7] = (board[0][j + 1] == 'x') ? 1 : 0;
+						hood[5] = (board[0][j - 1] == 'x') ? retone() : retzero();
+						hood[6] = (board[0][j] == 'x') ? retone() : retzero();
+						hood[7] = (board[0][j + 1] == 'x') ? retone() : retzero();
 						fulfilled = 1;
 					}
 					//row wrapping at top
 					if((i == 0) && (fulfilled == 0)) {
-						hood[0] = (board[rowlim - 1][j - 1] == 'x') ? 1 : 0;
-						hood[1] = (board[rowlim - 1][j] == 'x') ? 1 : 0;
-						hood[2] = (board[rowlim - 1][j + 1] == 'x') ? 1 : 0;
+						hood[0] = (board[rowlim - 1][j - 1] == 'x') ? retone() : retzero();
+						hood[1] = (board[rowlim - 1][j] == 'x') ? retone() : retzero();
+						hood[2] = (board[rowlim - 1][j + 1] == 'x') ? retone() : retzero();
 						fulfilled = 1;
 					}
 					//if no wrapping is needed, check neighbor positions normally
 					if(fulfilled == 0) {
-						hood[0] = (board[i - 1][j - 1] == 'x') ? 1 : 0;
-						hood[1] = (board[i - 1][j] == 'x') ? 1 : 0;
-						hood[2] = (board[i - 1][j + 1] == 'x') ? 1 : 0;
-						hood[3] = (board[i][j - 1] == 'x') ? 1 : 0;
-						hood[4] = (board[i][j + 1] == 'x') ? 1 : 0;
-						hood[5] = (board[i + 1][j - 1] == 'x') ? 1 : 0;
-						hood[6] = (board[i + 1][j] == 'x') ? 1 : 0;
-						hood[7] = (board[i + 1][j + 1] == 'x') ? 1 : 0;
+						hood[0] = (board[i - 1][j - 1] == 'x') ? retone() : retzero();
+						hood[1] = (board[i - 1][j] == 'x') ? retone() : retzero();
+						hood[2] = (board[i - 1][j + 1] == 'x') ? retone() : retzero();
+						hood[3] = (board[i][j - 1] == 'x') ? retone() : retzero();
+						hood[4] = (board[i][j + 1] == 'x') ? retone() : retzero();
+						hood[5] = (board[i + 1][j - 1] == 'x') ? retone() : retzero();
+						hood[6] = (board[i + 1][j] == 'x') ? retone() : retzero();
+						hood[7] = (board[i + 1][j + 1] == 'x') ? retone() : retzero();
 					}	
 				}
 
