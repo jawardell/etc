@@ -1,11 +1,11 @@
-//#include "resprint.h"
-//#include "arrprint.h"
-//#include "talk.h"
-//#include "getin.h"
-//#include "arrprint.h"
-//#include "mean.h"
-//#include "sdev.h"
-//#include "resprint.h"
+#include "resprint.h"
+#include "arrprint.h"
+#include "talk.h"
+#include "getin.h"
+#include "arrprint.h"
+#include "mean.h"
+#include "sdev.h"
+#include "resprint.h"
 #include <stdio.h>
 #include <math.h>//might not need
 #include <time.h>//might not need

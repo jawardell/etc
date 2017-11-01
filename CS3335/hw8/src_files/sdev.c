@@ -1,4 +1,4 @@
-//#include "sdev.h"
+#include "sdev.h"
 #include <math.h>
 
 double sdev(double list[8], double mean) {

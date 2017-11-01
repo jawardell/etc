@@ -1,4 +1,4 @@
-//#include "mean.h"
+#include "mean.h"
 
 
 double mean(double list[8]) {

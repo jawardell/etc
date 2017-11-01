@@ -1,4 +1,4 @@
-//#include "getin.h"
+#include "getin.h"
 #include <stdio.h>
 int getin(double list[8]) {
 	int i;
