@@ -16,7 +16,7 @@ LDFLAGS = -lm
 all: $(BIN_DIR)/app
 
 $(BIN_DIR)/app: $(OBJS)
-	$(CC) $(LDFLAGS) -o $@ - c $^
+	$(CC) $(LDFLAGS) -o $@ -c $^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
