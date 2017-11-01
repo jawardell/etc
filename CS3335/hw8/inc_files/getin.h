@@ -1,1 +1,1 @@
-int getin(double(*)[8], int, int);
+int getin(double[8]);

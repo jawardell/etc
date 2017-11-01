@@ -1,0 +1,8 @@
+./obj_files/arrprint.o: src_files/arrprint.c inc_files/arrprint.h
+./obj_files/getin.o: src_files/getin.c inc_files/getin.h
+./obj_files/mean.o: src_files/mean.c inc_files/mean.h
+./obj_files/resprint.o: src_files/resprint.c inc_files/resprint.h
+./obj_files/sdev.o: src_files/sdev.c inc_files/sdev.h
+./obj_files/talk.o: src_files/talk.c inc_files/talk.h
+./obj_files/app.o: src_files/app.c inc_files/resprint.h inc_files/arrprint.h \
+ inc_files/talk.h inc_files/getin.h inc_files/mean.h inc_files/sdev.h

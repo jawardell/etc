@@ -1,1 +1,1 @@
-void resprint(double[8], double[8]);
+void resprint(double[8], double[8], double, double);

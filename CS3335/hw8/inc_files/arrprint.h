@@ -1,1 +1,1 @@
-void arrprint(int[8]);
+void arrprint(double[8]);
