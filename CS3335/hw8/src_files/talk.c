@@ -1,5 +1,5 @@
 #include "talk.h"
-#include <math.h>
+
 #include <stdio.h>
 void talk() {
 	puts("\nHello human!\n");

@@ -1,4 +1,3 @@
-#include <math.h>
 #include "arrprint.h"
 #include <stdio.h>
 void arrprint(double list[8]) {

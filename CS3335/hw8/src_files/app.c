@@ -1,4 +1,3 @@
-#include <math.h>
 #include "resprint.h"
 #include "arrprint.h"
 #include "talk.h"
