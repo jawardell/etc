@@ -1,4 +1,5 @@
 #include "resprint.h"
+#include <math.h>
 #include <stdio.h>
 void resprint(double list[8], double diffs[8], double mean, double sdev) {
 	int i;

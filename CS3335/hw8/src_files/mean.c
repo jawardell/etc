@@ -1,5 +1,5 @@
 #include "mean.h"
-
+#include <math.h>
 
 double mean(double list[8]) {
 	double res = 0;
