@@ -12,7 +12,12 @@ void resprint(double list[8], double diffs[8], double mean, double sdev) {
 	puts("------------------------------------------");
 	printf("%-20s%-20s%-20s\n", "Index", "Item", "Diff");
 	for(i = 0; i < 8; i++) {
-		printf("%-20.3d%-20.3f%-20.3f\n", i, *(list + i), *(diffs + i));
+		if(*(diffs + i) < 0) {
+
+			printf("%-20d%-20.3f%-19.3f\n", i, *(list + i), *(diffs + i));
+		} else {
+			printf("%-20d%-20.3f%-20.3f\n", i, *(list + i), *(diffs + i));
+		}
 	}
 
 }
