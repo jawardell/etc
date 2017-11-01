@@ -1,5 +1,11 @@
+//#include "resprint.h"
+//#include "arrprint.h"
+//#include "talk.h"
 //#include "getin.h"
-//#include "calc.h"
+//#include "arrprint.h"
+//#include "mean.h"
+//#include "sdev.h"
+//#include "resprint.h"
 #include <stdio.h>
 #include <math.h>//might not need
 #include <time.h>//might not need
@@ -12,21 +18,16 @@
 #define MAX_ITEM 8
 
 int main(int argc, char* argv[]) {
-	puts("\nHello human! Enter a list of numbers.\n");
-	puts("\nI will make some calcuations for you.\n");
-	puts("\nPlease only enter 0 to 8 numbers. Thank you!\n");
-
-	int nums[MAX_ITEM], i = 0;
+	double list[MAX_SIZE], diffs[MAX_SIZE];
+	talk();
+	getin(list);
+	arrprint(list);
+	double mean = mean(list);
+	double sdev = sdev(list, mean);
+	resprint(list, diffs);
 	
-	char* str;
-	str = scanf("%s", &str);
-	while(str != "\n") {
-		if() {
-		}
-		int temp = atoi(str); 
-		scanf("%d", &temp);
-		nums[i] = temp;
-		printf("\nnums[%d] = %d\n",i,  nums[i]);
-		i++;
-	}
+
+
+	
+	
 }
