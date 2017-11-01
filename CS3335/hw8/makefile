@@ -6,7 +6,7 @@ BIN_DIR = ./bin_files
 CC = gcc 
 
 
-_OBJS = arrprint.o getin.o mean.o resprint.o sdev.o talk.o
+_OBJS = arrprint.o getin.o mean.o resprint.o sdev.o talk.o app.o
 OBJS = $(patsubst %, $(OBJ_DIR)/%, $(_OBJS))
 _SRCS = $(patsubst %.o, %.c, $(_OBJS))
 SRCS = $(patsubst %, $(SRC_DIR)/%, $(_SRCS))
