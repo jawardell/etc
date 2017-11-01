@@ -1,5 +1,5 @@
 #include "resprint.h"
-
+#include <stdio.h>
 void resprint(double list[8], double diffs[8], double mean, double sdev) {
 	int i;
 	printf("\nThe mean is %f.\n", mean);
