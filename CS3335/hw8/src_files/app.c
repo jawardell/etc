@@ -1,7 +1,5 @@
-#include "resprint.h"
 #include "talk.h"
 #include "getin.h"
-#include "arrprint.h"
 #include "mean.h"
 #include "sdev.h"
 #include "resprint.h"
