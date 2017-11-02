@@ -1,4 +1,3 @@
-#include <math.h>
 #include "getin.h"
 #include <stdio.h>
 int getin(double list[8]) {
