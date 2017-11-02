@@ -1,7 +1,4 @@
-package graphs;
-
 import java.util.*;
-
 public class Vertex {
 	private String label;
 	private ArrayList<Vertex> neighbors;
@@ -12,8 +9,6 @@ public class Vertex {
 	private int blackCost;
 	private int minCount;
 	private boolean isStable;
-
-
 	public Vertex(String label, ArrayList<Vertex> neighbors, boolean isWhite, int whiteCost, int blackCost) {
 		this.label = label;
 		this.neighbors = neighbors;
@@ -27,26 +22,19 @@ public class Vertex {
 		isStable = false;
 		minCount = 0;
 	}
-
 	public Vertex(String label) {
 		this.label = label;
 		isStable = false;
 	}
-
-
-
-
 	public boolean isStable() {
 		return minCount > 4;
 	}
-
 	public boolean getRawStable() {
 		return isStable;
 	}
 	public void setStable(boolean isStable) {
 		this.isStable = isStable;
 	}
-
 	public int getMinCount() {
 		return minCount;
 	}
@@ -56,7 +44,6 @@ public class Vertex {
 			isStable = true;
 		}
 	}
-
 	public String getLabel() {
 		return label;
 	}
@@ -111,11 +98,7 @@ public class Vertex {
 		} else {
 			res = "null";
 		}
-
 		return "\n\nVertex: " + label + "\nNeighbors: " + res
 		+ "\nisWhite: " + isWhite + "\nWhite Cost: " + whiteCost + "\nBlack Cost: " + blackCost + "\nDegree: " + degree;
-
-
-
 	}
 }

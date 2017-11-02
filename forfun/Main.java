@@ -1,13 +1,9 @@
-package graphs;
-
 import java.util.*;
-
 public class Main {
 	static int numVertices, itercount = 0;
 	static Scanner console = new Scanner(System.in);
 	static ArrayList<Vertex> graph;
 	static int[][][] adjMatrix;
-
 	public static void main(String[] args) {
 		graph = new ArrayList<>();
 		try {
@@ -16,13 +12,10 @@ public class Main {
 			assignNeigbors();
 			displayGraph();
 			getGreedyPath();
-
 		} catch (Exception e) {
 			System.out.println("\n\t\tAn exception occured.");
 		}
-
 	}
-
 	public static void initMatrix() {
 		for (int i = 0; i < adjMatrix.length; i++) {
 			for (int j = 0; j < adjMatrix[0].length; j++) {
@@ -32,7 +25,6 @@ public class Main {
 			}
 		}
 	}
-
 	public static void printMatrix() {
 		System.out.print("\n");
 		for (Vertex v : graph) {
@@ -52,7 +44,6 @@ public class Main {
 		}
 		System.out.println("\n");
 	}
-
 	public static void fillMatrix() {
 		System.out.print("\n\nAdjacency Matrix Initialization\n\n\t~~~~~~~~~~~~~~~~\n");
 		System.out.println("\n\nEnter the number of vertices: ");
@@ -88,7 +79,6 @@ public class Main {
 			break;
 		}
 	}
-
 	public static void initVertices() {
 		System.out.println("\n\n\nVertex Initialization\n\n\t~~~~~~~~~~~~~~~~\n");
 		for (Vertex v : graph) {
@@ -119,14 +109,11 @@ public class Main {
 			break;
 		}
 	}
-
 	public static void displayGraph() {
 		for (Vertex v : graph) {
 			System.out.print(v.toString());
 		}
-
 	}
-
 	public static void assignNeigbors() {
 		for (int row = 0; row < adjMatrix.length; row++) {
 			graph.get(row).initNeighbors();
@@ -137,7 +124,6 @@ public class Main {
 			}
 		}
 	}
-
 	public static boolean graphIsStable() {
 		for (int i = 1; i < graph.size(); i++) {
 			if (!graph.get(i).isStable()) {
@@ -146,10 +132,8 @@ public class Main {
 		}
 		return true;
 	}
-
 	public static void getGreedyPath() {
 		ArrayList<String> path = new ArrayList<>();
-
 		graph.get(0).setStable(true);
 		System.out.println("\n\na.stable: " + graph.get(0).getRawStable() + " before\n\n");
 		for (int i = 1; i < 100; i++) {
@@ -174,7 +158,6 @@ public class Main {
 //				path.add(itercount++ + ". " + vertex.getLabel() + " to " + minNeighbor.getLabel() + ".  "
 //						+ vertex.getLabel() + " stable: " + vertex.isStable() + ". graph is stable: " + graphIsStable()
 //						+ "\n");
-
 			} else {
 				for (Vertex neighbor : vertex.getNeighbors()) {
 					if ((neighbor.getBlackCost() + adjMatrix[scheduler][graph.indexOf(neighbor)][1]) < min) {
@@ -192,7 +175,6 @@ public class Main {
 //						+ vertex.getLabel() + " stable: " + vertex.getRawStable() + ". graph is stable: " + graphIsStable()
 //						+ "\n");
 			}
-
 		}
 		String message = "";
 		for (String string : path) {
@@ -200,5 +182,4 @@ public class Main {
 		}
 		System.out.println("\n\n\n" + graph.get(0).getLabel() + ".stable after: " + graph.get(0).getRawStable() + "\n\n" + message);
 	}
-
 }
