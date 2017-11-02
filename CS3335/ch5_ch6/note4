@@ -278,3 +278,35 @@ we want to define a node what is it
 
 
 let's do it `
+
+
+
+we can have a datatype which is of type custom_struct* 
+
+	make room for a box which holds the mem address of this kind of struct 
+
+
+
+
+cant have anon struct if it contains pointer to nested struct 
+	without explicitly specifying a name, there is room for ambiguity
+	"what kind of struct am i pointing to???"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
