@@ -1,0 +1,280 @@
+today we will be talking about stucts and dynamic memory allocation 
+
+
+
+
+here is the assignment 
+
+
+
+
+he will give the assigmnet for the sake of understanding
+then we will get farmiliar with the techniques during lecuture 
+we have a week 
+then we will see if we can do the assignment after learning more 
+
+we will use a data strucuture called a circular linked list 
+
+
+enter the names of the soldiers: 
+	use control d to finish
+they can choose the number of soldiers 
+	after they see the control d, the program stops
+
+
+even though cl dont have a beg or end ,
+
+	we will need to insert a special pointer which tells us where the beg and end are 
+
+
+
+lets call beg cursor
+this output must come from a funct called display or something
+	so that one the beg is where the cursor is pointing to 
+
+... 
+	jack then the next is called stephen 
+	then the next one is called scott 
+	.. 
+	the last one is the one that the cursor is landing on
+
+then we prompt give me the name of the soldiers 
+then control d to finish j
+then the program prints out the list 
+then give me the elimination order 
+
+
+
+do ont count the cursor 
+	move up elimination order nodes 
+	delete node that you land on
+
+
+
+
+
+
+
+so far we have primitive data types
+long, double, short, byte, int, char, pointers 
+arrays, of ints, of chars, of pointers 
+but we have never had a DS which allows tus to hold fields of different types 
+	this will be very useful in real life 
+think of them like the class in java 
+	but only the attributes 
+	only the state 
+	no behaviors or actions
+	no functions (take input and give output)
+	no methods (manipulate current data`)
+
+
+
+
+
+
+lol we end struct with semi colon 
+struct {
+ 	blah 
+	blah 
+	blah
+	. . . . 
+};
+
+
+
+
+
+remember that when the job is compiled it has three phases 
+	compiles all dot c files 
+	then it does the linking 
+	then it links it into the final product 
+		only when the linking is performed is when the memory components are examined
+		so we don't care about allocation during compilation of dot c files 
+		gcc only checks syntax in phase one 
+	
+
+
+
+
+
+we can instantiate a variabele of the type of the struct 
+
+a structure is put into an array 
+
+
+
+[ [n]  [s]  [teeth]  [age] ]
+[ []  []      [69]  [4] ]
+
+
+
+oh yeah but what happens to a string literal!?!?!?!?
+
+
+[ [n]  [s]  [teeth]  [age] ]
+[ []  []      [69]  [4] ]
+
+string literals ---->
+	they have a scary pointer! 
+	they also have out friend null terminator '/0'
+	they are a constant
+
+
+
+
+structures are references 
+if we try to pass the instance of a struct to a function, 
+	it makes a copy 
+	containing refs to constants and other structs
+	and makes copies of prims
+		don't try to manipulate info in teh copy of the struct, see pool puzzle
+
+	instead ....
+		make a functoin which accepts a pointer to the original structure 
+		this allows for deep manipulation of data 
+		instead of shallow manipulation 
+	
+
+we acces info in structs by using dot notation like java 
+we POINT to data in structs using this : (*f).age   or    f -> age 
+
+
+
+
+structs can contain other strucures 
+	this is called nesting strucutures 
+
+	how do we access info two level deep into a struct..... ? 
+		we use dot notation to access attributes 
+		we have to use two dots, for example, to access data through a
+			 struct and into another struct
+		fish..exercise_hour
+
+
+
+
+
+TYPE DEF
+	what is it? 
+a very commonly used tool in c to give a stuct an alias
+
+	every time we need a structure,we have to do this 
+		struct dlfkjsdflks = sdlfkjsdlf k ...
+		too big... 
+	
+
+
+just wrap up the instantiation into an alias
+
+
+	DONT FORGET THE SEMI COLON AT THE END OF STRUCTS 
+
+
+stuct ex {
+
+	...
+	...
+	...
+
+
+}  makeit;
+
+
+
+makit is the alias for 
+	struct ex = { ..., ..., ... };
+
+could instsantiate with makeit
+
+
+
+
+
+wait!! 
+
+
+
+
+we can make anon stucts
+
+	put an alias with it 
+
+
+
+typedef struct {} doit;
+
+doit;
+
+
+
+
+take a look at scubadiver.c to see how to instantiate
+	and deep manipulate nested structures in c
+
+
+
+... 
+
+
+
+
+
+
+chapter five
+
+discussions on unions
+enums 
+bitfields
+	take a look at those 
+
+
+
+
+
+
+--- --- --- 
+
+
+
+
+chapter 6 dynamic memory allocation 
+
+
+
+
+	the nature -- link up stuff that we like 
+
+
+
+DMA
+
+keep in your mind that your playgound is the heap
+stack has a characteristic -- you loose information for the stack 
+	when it gets popped off along with the data contained in the 
+
+
+sometimes we want to contain the data that is independent from the memory that you are using 
+	independent fromt he function that you are calling 
+	even after the function call is done, you still have information about the 
+		function that you just called 
+but you allocation space from the heap 
+	then YOU RETURN IT
+
+
+but what if you forget --- MEMORY LEAK 
+	the ocmputer slows down to the extet that the coputer slows down 
+	esp on a server 
+	hogs bandwidth and no one can use it
+
+
+linked list 
+we want to visit a number of items
+
+
+	....
+we want to define a node what is it 
+	we do it using a struct
+
+
+
+let's do it `
