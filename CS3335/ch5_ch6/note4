@@ -293,6 +293,41 @@ cant have anon struct if it contains pointer to nested struct
 	"what kind of struct am i pointing to???"
 
 
+talked about linked list 
+	make list 
+	stucts as nodes
+	add node 
+	removed node 
+	using stack not heap, no need to allocation and give back 
+	leaning on the stack 
+
+
+
+drawbacks of using stack for linked list 
+	have to make nodes before hand
+	under os control 
+	what if the knowledge of all those islands does not exist 
+		dont have ahead of time knowledge, making islands DYNAMICALLY
+
+
+
+.... lets get right into the news 
+
+
+
+	islands.2   ----> LETS USE THAT HEEEEAAAAP!! 
+
+
+
+requating memory from the heap 
+	malloc 
+	calloc
+
+new friends!! 
+
+
+
+
 
 
 
