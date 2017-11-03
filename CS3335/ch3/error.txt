@@ -1,2 +1,0 @@
-Invalid latitude: 142.362885
-Invalid longitude: -271.089691
