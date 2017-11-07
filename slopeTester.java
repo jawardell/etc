@@ -158,21 +158,22 @@ public class slopeTester {
 				}
 			}
 		}
-		System.out.print("\t\t\n\nROUND ONE\n\n");
+//		System.out.print("\t\t\n\nROUND ONE\n\n");
 		for (int row = 0; row <= (((2 * g - 1) / 2) - 1); row++) {// copy into
 																	// list
 			for (int col = 0; col < n; col++) {
 				list[row][col] = array[row][col];
-				norm_print(list);
+//				norm_print(list);
 			}
 		}
-		System.out.print("\t\t\n\nROUND TWO\n\n");
+//		System.out.print("\t\t\n\nROUND TWO\n\n");
 		int count = 1;
 		for (int row = 0; row < list.length / 2; row++) {// do reflection
 			for (int col = 0; col < n; col++) {
 				list[list.length - count][col] = list[row][col] * (-1);
-				norm_print(list);
+//				norm_print(list);
 			}
+			count++;
 		}
 		return list;
 		// return array;
