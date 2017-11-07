@@ -1,4 +1,4 @@
-package doit;
+
 
 import java.util.Scanner;
 
@@ -158,17 +158,20 @@ public class slopeTester {
 				}
 			}
 		}
-
+		System.out.print("\t\t\n\nROUND ONE\n\n");
 		for (int row = 0; row <= (((2 * g - 1) / 2) - 1); row++) {// copy into
 																	// list
 			for (int col = 0; col < n; col++) {
 				list[row][col] = array[row][col];
+				norm_print(list);
 			}
 		}
+		System.out.print("\t\t\n\nROUND TWO\n\n");
 		int count = 1;
 		for (int row = 0; row < list.length / 2; row++) {// do reflection
 			for (int col = 0; col < n; col++) {
 				list[list.length - count][col] = list[row][col] * (-1);
+				norm_print(list);
 			}
 		}
 		return list;
@@ -240,6 +243,7 @@ public class slopeTester {
 	}
 
 	public static void norm_print(int[][] array) {
+		System.out.print("\n");
 		for(int i = 0; i < array.length; i++) {
 			for(int j = 0; j < array[0].length; j++) {
 				if(j == array[0].length-1) {
@@ -252,17 +256,4 @@ public class slopeTester {
 	
 	}
 
-	// add option for output in CVS format
-	// SL ambiguity: can paths sit on the line?
-	// this would create brand new output
-	// i plan to make this more elegant and less scary
-	// logical redunancies and bugs
-	// sum columns
-	// encorporate state analysis
-	// also encorporate different formatting
-	// no zeros above SL
-	// mult. check and prime check
-	// also want to do a state comparison as g increases
-	// test formating for 1/m slope, with any m (scary, but awesome)
-	// make scripts for every report? avoid obfuscation, encourage simplicity
 }
