@@ -187,4 +187,165 @@ but has memory leak
 
 
 
+we can pass functions as function arguments 
+we can have a pointer which is of type pointer 
+
+
+
+but we want to talk about something which is called 
+
+	enum 
+
+
+we talked about structs 
+we skipped unions 
+we skipped enums 
+we skipped bitfields
+
+
+we are still going to not talk about unions or bitfields.. 
+
+
+
+but 
+
+
+
+we will be tlaking about enums 
+
+
+when we assign 0 to a, 
+
+	what is the meaning of zero.. 
+	maybe zero means hot 
+	and maybe one means warm 
+	and maybe two mean cold 
+but without that meaning established , we have no ideas what those numbers mean 
+
+
+
+
+to make the code more readable, we can use the enum -- 'thing' -- to establish meaning for numbers 
+
+
+
+enum colors{red, blue, green};
+
+	when i say red, i am talking about 0
+	when i say blue, i am talking about  1
+	when i say green, i am talking about 2
+
+
+
+
+enum colors{red = 12, blue = 14, green = 13};
+	when i say 12, i am talking about red
+	when i say 14, i am talking about blue
+	when i say 13, i am talking about green
+
+
+
+
+
+
+
+
+passing a function pointer as an argument of a function 
+
+
+	printf is a classic example of this 
+
+
+printf("%d", a, .........)
+
+
+	who knows how many arguments there are.. 
+	printf handles them all 
+	this is called irratic arguments 
+
+
+
+looking for mr right 
+
+	uses two criteria
+
+	but how do we handlge additional criteria??? 
+
+
+how about we keep the find fucntion as it is, but 
+	we pass the search criteria as an argument \
+	into the function which finds 
+	the for loop  that searches for the criteria
+
+
+
+remember, sprintf or sscanf =====> we can specify the source and where it is coming from 
+
+
+
+so we can read in the input string and use that as the source 
+	we can search the source, the string, for the criteria 
+	which will be formatted for t us beforehand.. 
+
+^^ this is referring to the code for finding mr right 
+
+
+
+
+
+the funciton in example one is pretty inflexible, 
+
+in version two we make a lot of different functions to handle idfferent types of parameters 
+
+
+"what you need is some way for passing the code for the test to the find() function. 
+If you had some way of wrapping up a piece of code and handing that code to the function, 
+it would be like passing the find() function a testing machine that it could apply to each piece of data"
+
+
+
+
+
+
+woah!! 
+function names are already pointers... 
+this is a dirty little secret 
+
+function_name -- think about it as a variable 
+
+
+
+int(*function_name)(*char);
+a pointer of type function with arguments of type char pointer which returns an int
+
+this is the same as 
+
+int function_name(char*);
+
+
+
+a pointer pointing to a peice of code 
+
+from now on, think about the function name as a pointer 
+
+match as another pointer is pointing to the same function 
+
+we can have multiple pointers pointing to the same piece of code 
+
+
+wow, that is powerful
+   and cool :) 
+
+
+
+two pointers pointting to the same data 
+now .. 
+two pointers pointing to the same code 
+
+
+
+
+
+
+
 
