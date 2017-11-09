@@ -111,16 +111,8 @@ end
 
 
 
-
-
-
-
-
-
-
-
 def arrayChange(inputArray)
-	inputArray.sort
+#	inputArray.sort
 	count = 0
 	while !is_inc
 		for i in 0..inputArray.length
