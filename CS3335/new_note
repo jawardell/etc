@@ -1,0 +1,25 @@
+we will have to use dynamic memory to solve these problems from now on
+
+
+there are a number of islands that we want to visit
+
+we need a way to represent those islands in code 
+
+so we will use structs to represent these islands 
+
+
+we can use the alias by using typedef 
+
+
+	don't forget, that structs that contain an atrribute of typeh 
+		them self
+	therefore, it would be impossible to have an anon struct 
+		that contains an instance of itself
+	so we can do typedef on a struct and use the alias.. 
+
+	but we have to say what kind of struct it is
+
+
+
+
+if we c

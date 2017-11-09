@@ -114,7 +114,7 @@ end
 def arrayChange(inputArray)
 #	inputArray.sort
 	count = 0
-	while !is_inc
+	while !is_inc(inputArray)
 		for i in 0..inputArray.length
 			diff = inputArray[i + 1].to_i - inputArray[i].to_i
 			if diff < 0 #needs fixing
