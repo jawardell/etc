@@ -348,4 +348,61 @@ two pointers pointing to the same code
 
 
 
+woah!! we have a lot of redundant lines of code!! 
+
+we can wrap up those repeated lines of code into functions!! 
+
+this will make our code easier to maintain, more readable, and just way better tho!! 
+
+
+
+
+yas 
+
+
+
+
+
+
+allowing funcionts to be passed as arugments into other functions is the number one feature in 
+JavaScript
+
+programming is very hard 
+lots of dymanic things happendin 
+
+
+web development 
+front end 
+and 
+back end
+
+
+front -- appearence, the browser, take care of it 
+
+
+	in the old days, we had js as the fundaemntal lang
+	supporting all kinds of fundatmenta tools 
+
+but now 
+
+	js penetrates the front end and the back end 
+	having js as the core of the front end 
+	and the back end 
+
+
+
+cool 
+
+it has the name of js 
+ but dont think that js is similar to java 
+js is functional programming lang 
+java is oo
+
+functions can be passed as arguments into other functions
+
+
+
+all of a sudden, functions can be passed as function args, ----> this is a big deal
+
+
 
