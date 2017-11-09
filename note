@@ -1,0 +1,190 @@
+use / to search for somehting in vim
+
+make sure not to do 
+
+i -> name = name
+
+
+do this: 
+
+i -> name = strdup(name)
+
+
+this makes a copy of the string att. name 
+	and puts it on the heap 
+
+
+it calls malloc within the function 
+and places name on the heap 
+
+
+
+the incorrect line puts name on the STACK 
+which is a risky thing to do 
+
+
+there is also a funciton called string copy
+	strcpy
+
+string copy assumes that the target has sufficient memory space already 
+
+strcopy takes two args 
+	takes the dest 
+	takes the src
+
+
+doesnt call malloc internally 
+it assumes that the src has sufficent amount of memory ahead of time 
+
+this will fail (in the islands example or any other dynamic memory management 
+	situation) because the size of the attribute might not always be the same
+	we can't assume the size of the attribute if the user is entering it 
+
+
+what is the remedy -- let's call malloc first then call strcpy
+
+
+
+ --- if you are just in love with strcpy and don't want to do strdup
+--- otherwise, we don't have to do it 
+
+
+there is a sister fucntion to malloc --- calloc 
+
+
+
+calloc you can specify the ammount of data you want 
+malloc you dont have to specify the ammount you want, it can do it on its own 
+
+
+if you use strdup, atuo allocated memory for you 
+
+other wise, if yo uwant to use strcpy, you have to make room on the heap 
+
+	it will fail if you dont' do malloc or calloc before hand 
+
+
+
+
+what is the difference between strcpy and strdup ?? 
+	 	this will be a test question .. . . 
+
+
+
+
+
+
+now, let's talk about chapter 6 .. . ... 
+
+
+
+
+
+memory leak  -- an issue that is hard to track down 
+and is hard to address 
+
+
+
+valgrind 
+
+
+this is an opensource tool that everyone can download and use 
+	on mac and unix
+
+
+install and config on mac is somewhat a hassle 
+sudo apt-get install valgrind.. 
+sounds easy enough for good old ubuntie box
+
+
+google cloud uses main memroy on the server to store program s
+when you leave and come back, software that you downloaded might be gone, 
+
+it done'st use a hard disk, it uses the server 
+
+
+
+we can download valgrind  on google cloud,
+when we come back it might be gone, 
+	but its not that hard to get it back .. 
+on cloud 
+
+
+
+
+but on mac tho.. 
+
+D:
+
+
+
+anyway. 
+
+
+
+
+going to try brew install valgrind 
+
+
+
+
+
+
+
+dont remove the structure itslef when releaseing a node 
+we must release its attributes that are stored on the heap FIRST 
+then we can finally release the entire struct 
+
+
+
+
+
+
+
+valgrind --lead-check=full executable_name
+
+
+
+will execute the program and check for memory leak while running it 
+
+
+
+
+
+he will run valgrind 
+to check for memory leak 
+
+
+
+delivering a program that seems to be working 
+but has memory leak 
+	not a big deal if you will be runnign the program for a short time 
+	but if you have to run the program for a long time, memory leak can cause severe problems. . . . 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
