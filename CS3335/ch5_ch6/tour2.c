@@ -28,6 +28,10 @@ island *find(island *, const char *);
 // and returns the new head. 
 island *release(island *, const char *);
 
+// release(h) removes all records (including any referenced items on leap, i.e. names)
+// from the linked list recursively
+void release_all(island *);
+
 void display(island *start){
 	if(start == NULL){
 		printf("Empty list.\n");
@@ -49,9 +53,19 @@ island *create(const char *name){
 	}
 	
 	// The following is correct.
-	i->name = strdup(name);
+	// i->name = strdup(name);
 	// The following is wrong.
 	// i->name = name;
+  
+	// The following is wrong too because strcpy does not allocate space. It
+  // assumes the target has sufficient memory space already.
+	// strcpy(i->name, name);
+  // To fix it if you still want to use strcpy, you have to do the following
+	if((i->name= calloc(10, sizeof(char)))==NULL){
+		printf("Out of memory on heap.\n");
+		return NULL;
+	}
+	strcpy(i->name, name);
 
 	i->opens = "09:00";
 	i->closes = "17:00";
@@ -135,11 +149,24 @@ island *release(island *h, const char *name){
 	}
 }
 
+// release(h) removes all records (including any referenced items on leap, i.e. names)
+// from the linked list recursively
+void release_all(island *h){
+  if(h){
+    if(h->name)
+      free(h->name);
+
+    struct island_type *n=h->next;
+    free(h);
+    release_all(n);
+  }
+}
+
 int main(){
 	island *start = NULL;
 	island *n;
 	char name[80];
-	while ( fgets(name, sizeof(name), stdin) != NULL ){
+	for (; fgets(name, sizeof(name), stdin) != NULL ;){
 		name[strlen(name)-1]='\0';
 		if( (n=create(name))==NULL)
 			return 1;
@@ -147,7 +174,6 @@ int main(){
 	} 
 	display(start);
 
-  // clear everything (including EOF) from the input stream 
   fseek(stdin,0,SEEK_END);
 
 	printf("\nWhat do you want to find? ");
@@ -173,5 +199,6 @@ int main(){
 	start =release(start, name);
 	display(start);
 
+  release_all(start);
 	return 0;
 }

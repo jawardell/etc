@@ -29,7 +29,7 @@ void happy_birthday2(struct fish *f){
 }
 
 int main(){
-	struct fish snappy = {"Snappy", "Piranha", 69, 4};//instantiating the struct, fish!! :P
+	struct fish snappy = {"Snappy", "Piranha", 69, 4};
  	catalog(snappy); 
 
 	happy_birthday(snappy);
