@@ -1,5 +1,5 @@
-#include <cl.h>
-//#include <method.h>
+#include "cl.h"
+//#include "function.h"
 
 #include <string.h>
 #include <stdlib.h>
@@ -12,9 +12,9 @@ typedef struct soldier_type {
 
 
 void* insert(void* cursor, void* name) {
-	soldier s;     //make a variable for the soldier
-	if((s = malloc(sizeof(soldier))) == NULL) { //make room on heap
-		puts("no more room on heap");	//also, check for room on heap
+	soldier s;
+	if((s = malloc(sizeof(soldier))) == NULL) {
+		puts("no more room on heap");
 		puts("exiting now. . .");
 		return 1;
 	}
