@@ -7,60 +7,65 @@
 
 typedef struct soldier_type {
 	char* name;
-	soldier_type* next;
+	struct soldier_type* next;
 } soldier;
 
 
 void* insert(void* cursor, void* name) {
-	soldier s;
+	soldier* s;
+	soldier* curse = (soldier*)cursor;
+	char* name1 = (char*)name;
 	if((s = malloc(sizeof(soldier))) == NULL) {
 		puts("no more room on heap");
 		puts("exiting now. . .");
-		return 1;
+		return NULL;
 	}
 
 	//make room on heap for the name
 	//then put it on the heap
 	//then make the pointer in struct point to it
-	s -> strdup(name);
+	s -> name =  strdup(name1);
 
 
 	//if list empty, there is no cursor
 	//make s point to itself
 	//then return s as the new cursor
-	if (cursor -> next == NULL) {
+	if (curse -> next == NULL) {
 		s -> next = s;	
 		return s;
 	}
 
 	//otherwise, insert directly after the cursor
 	//and return s as the new cursor
-	cursor -> next = s;
+	curse -> next = s;
 	return s;	
 
 }
 
 void* release(void* cursor) {
-	if(cursor == NULL) {
+	soldier* curse = (soldier*)cursor;
+	if(curse == NULL) {
 		return NULL;
 	}
-	soldier* temp = cursor -> next;
+	soldier* temp = curse -> next;
 	soldier* good = temp -> next;
 	free(temp -> name);
 	free(temp);
-	cursor -> next = good;
-	return cursor;
+	curse -> next = good;
+	return curse;
 }
 
 void* advance(void* cursor) {
-	soldier* temp = cursor -> next;
-	cursor -> next = temp -> next;
-	return cursor;
+	soldier* curse = (soldier*)cursor;
+	soldier* temp = curse -> next;
+	curse -> next = temp -> next;
+	return curse;
 }
 
 void print(void* cursor) {
-	soldier* temp = cursor -> next;
-	fprintf(stdout, "\n%s\n", temp.name);
+	soldier* curse = (soldier*)cursor;
+	soldier* temp = curse -> next;
+	fprintf(stdout, "\n%s\n", temp -> name);
 }
 
 
@@ -78,12 +83,13 @@ int main() {
 	int i = 1;
 
 	while((cursor -> next) != NULL) {
+		soldier* c = cursor -> next;
 		if(i % 7 == 0) {
-			fprintf(stdout, "\n%s died\n", c.name);
+			fprintf(stdout, "\n%s died\n", c -> name);
 		}
 		advance(cursor);
 		i++;	
 	}
-	fprintf(stdout, "\n%s survived\n", cursor.name);
+	fprintf(stdout, "\n%s survived\n", cursor -> name);
 
 }
