@@ -25,13 +25,13 @@ void* insert(void* cursor, void* name) {
 	//then put it on the heap
 	//then make the pointer in struct point to it
 	s -> name =  strdup(name1);
-
+	fprintf(stdout, "\nname is %s\n", s -> name);
 
 	//if list empty, there is no cursor
 	//make s point to itself
 	//then return s as the new cursor
-	if (curse -> next == NULL) {
-		s -> next = s;	
+	if (curse == NULL) {
+		s -> next = s;
 		return s;
 	}
 
@@ -71,25 +71,28 @@ void print(void* cursor) {
 
 int main() {
 
-	soldier* cursor; puts("\nmade it here\n");
+	soldier* cursor; 
 
 
-	char name[100];puts("\nmade it here\n");
-	while(fgets(name, sizeof(name), stdin) != NULL) { puts("\nmade it here\n");
-		insert(&cursor, &name);puts("\nmade it here\n");
+	char name[100];
+	while(fgets(name, sizeof(name), stdin) != NULL) { 
+
+		cursor = insert(&cursor, name);
+		fprintf(stdout, "\ninserted soldier %s ...\n", cursor -> name);
 	}
 
 	//kill every seventh one
-	int i = 1;puts("\nmade it here\n");
+	int i = 1;
 
-	while((cursor -> next) != NULL) {puts("\nmade it here\n");
-		soldier* c = cursor -> next;puts("\nmade it here\n");
-		if(i % 7 == 0) {puts("\nmade it heren");
-			fprintf(stdout, "\n%s died\n", c -> name);puts("made it here");
+	while((cursor -> next) != NULL) {
+		soldier* c = cursor -> next;
+		
+		if(i % 7 == 0) {
+			fprintf(stdout, "\n%s died\n", c -> name);
 		}
-		advance(&cursor);puts("\nmade it here\n");
-		i++;puts("\nmade it here\n");
-	}puts("\nmade it here\n");
-	fprintf(stdout, "\n%s survived\n", cursor -> name);puts("\nmade it here\n");
+		advance(&cursor);
+		i++;
+	}
+	fprintf(stdout, "\n%s survived\n", cursor -> name);
 
 }
