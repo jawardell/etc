@@ -71,25 +71,25 @@ void print(void* cursor) {
 
 int main() {
 
-	soldier* cursor;
+	soldier* cursor; puts("\nmade it here\n");
 
 
-	char name[100];
-	while(fgets(name, sizeof(name), stdin) != NULL) {
-		insert(&cursor, &name);
+	char name[100];puts("\nmade it here\n");
+	while(fgets(name, sizeof(name), stdin) != NULL) { puts("\nmade it here\n");
+		insert(&cursor, &name);puts("\nmade it here\n");
 	}
 
 	//kill every seventh one
-	int i = 1;
+	int i = 1;puts("\nmade it here\n");
 
-	while((cursor -> next) != NULL) {
-		soldier* c = cursor -> next;
-		if(i % 7 == 0) {
-			fprintf(stdout, "\n%s died\n", c -> name);
+	while((cursor -> next) != NULL) {puts("\nmade it here\n");
+		soldier* c = cursor -> next;puts("\nmade it here\n");
+		if(i % 7 == 0) {puts("\nmade it heren");
+			fprintf(stdout, "\n%s died\n", c -> name);puts("made it here");
 		}
-		advance(&cursor);
-		i++;	
-	}
-	fprintf(stdout, "\n%s survived\n", cursor -> name);
+		advance(&cursor);puts("\nmade it here\n");
+		i++;puts("\nmade it here\n");
+	}puts("\nmade it here\n");
+	fprintf(stdout, "\n%s survived\n", cursor -> name);puts("\nmade it here\n");
 
 }
