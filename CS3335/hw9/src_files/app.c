@@ -76,7 +76,7 @@ int main() {
 
 	char name[100];
 	while(fgets(name, sizeof(name), stdin) != NULL) {
-		insert(cursor, name);
+		insert(&cursor, &name);
 	}
 
 	//kill every seventh one
@@ -87,7 +87,7 @@ int main() {
 		if(i % 7 == 0) {
 			fprintf(stdout, "\n%s died\n", c -> name);
 		}
-		advance(cursor);
+		advance(&cursor);
 		i++;	
 	}
 	fprintf(stdout, "\n%s survived\n", cursor -> name);
