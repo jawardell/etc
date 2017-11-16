@@ -1,0 +1,18 @@
+need to to rearrange only on insert not advance. 
+can do this with loop 
+
+while(current -> next ! cursor) {
+	current = current -> next
+}
+
+then do it one more time . . . 
+
+current = current -> next 
+
+
+then return the current next as the new cursor. 
+
+
+fin
+
+now on to implementation
