@@ -1,7 +1,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-define DECK_SIZE = 52
+#define DECK_SIZE = 52
 
 
 typedef struct {
