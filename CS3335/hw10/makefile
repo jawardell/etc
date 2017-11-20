@@ -4,7 +4,7 @@ OBJ_DIR = ./obj_files
 BIN_DIR = ./bin_files
 
 CC = gcc
-_OBJS = app.o compare.o makedeck.o qsort.o shuffle_deck.o
+_OBJS = app.o compare.o make_deck.o qsort.o shuffle_deck.o
 OBJS = $(patsubst %, $(OBJ_DIR)/%, $(_OBJS))
 _SRCS = $(patsubst %.o, %.c, $(_OBJS))
 SRCS = $(patsubst %, $(SRC_DIR)/%, $(_SRCS))
