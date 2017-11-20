@@ -19,4 +19,8 @@ void qsort(void* base, size_t nmemb, size_t size,
 
 
 
-int main() {}
+int main() {
+
+
+
+}
