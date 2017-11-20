@@ -15,17 +15,21 @@ typedef struct {
 } card;
 
 
-void make_deck(card* const deck, card* face[], card* suit[]);
-void shuffle_deck(card* const deck);
-void deal_deck(const card* const);
-void compare(const void*, const void*);
-void qsort(void* base, size_t nmemb, size_t size, 
-	int(*compare)(const void*, const void*));
-
 
 
 int main() {
 
-
+	card deck[DECK_SIZE];
+	const char *face[] = {"Ace", "King", "Queen", "Jack", "Ten", "Nine", 
+		"Eight", "Seven", "Six", "Five", "Four", "Three", "Two", "One"};
+	const char *suit[] = {"Hearts", "Diamonds", "Clubs", "Spades"};
+	srand(time(NULL));
+	make_deck(deck, face, suit);
+	suffle(deck);
+	int i;
+	for(i = 0; i < 11; i++) {
+		printf("%10s of %-10s\n", deck[i].face, deck[i].suit);
+	}
+	puts("\n");
 
 }
