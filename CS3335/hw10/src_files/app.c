@@ -1,6 +1,11 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "make_deck.h"
+#include "shuffle_deck.h"
+#include "deal_deck.h"
+#include "compare.h"
+#include "qsort.h"
 #define DECK_SIZE = 52
 
 
