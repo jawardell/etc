@@ -7,6 +7,7 @@ typedef struct {
 	const char* face;
 	const char* suit;
 	int facevalue;
+	int suitvalue;
 } card;
 
 
@@ -39,9 +40,10 @@ int main() {
 
 	//build deck
 	for(i = 0; i < DECK_SIZE; i++) {
-		deck[i].facevalue = i%13;
-		deck[i].face = face_names[i%13];
-		deck[i].suit = suit_names[i/13];
+		deck[i].facevalue = i % 13;
+		deck[i].suitvalue = i / 13;
+		deck[i].face = face_names[i % 13];
+		deck[i].suit = suit_names[i / 13];
 	}
 	//build deck
 
@@ -67,10 +69,9 @@ int main() {
 	//deal deck
 	card hand[10];
 	fprintf(stdout, "\nThe following is a 'random' hand of ten cards.\n\n");
-	for(i = 0; i < 11; i++) {
-		j = rand() % DECK_SIZE;
-		hand[i] = deck[j];
-		fprintf(stdout, "%10s of %-5s\n", deck[j].face, deck[j].suit);
+	for(i = 0; i < 11; i++) {	
+		hand[i] = deck[i];
+		fprintf(stdout, "%10s of %-5s\n", hand[i].face, hand[i].suit);
 	}
 	puts("\n");
 	//deal deck
@@ -100,7 +101,9 @@ int main() {
 }
 
 int compare(const void* card_a, const void* card_b) {
-
+	if((*(card*)card_a).facevalue == (*(card*)card_b).facevalue) {
+		return (*(card*)card_a).suitvalue - (*(card*)card_b).suitvalue;
+	}
 	return (*(card*)card_a).facevalue - (*(card*)card_b).facevalue;
 
 }

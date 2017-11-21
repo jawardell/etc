@@ -1,6 +1,1 @@
-./obj_files/app.o: src_files/app.c inc_files/make_deck.h inc_files/shuffle_deck.h \
- inc_files/compare.h inc_files/card.h
-./obj_files/compare.o: src_files/compare.c inc_files/compare.h inc_files/card.h
-./obj_files/make_deck.o: src_files/make_deck.c inc_files/make_deck.h inc_files/card.h
-./obj_files/qsort.o: src_files/qsort.c inc_files/card.h
-./obj_files/shuffle_deck.o: src_files/shuffle_deck.c inc_files/shuffle_deck.h
+./obj_files/app.o: src_files/app.c
