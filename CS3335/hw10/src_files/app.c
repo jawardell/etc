@@ -16,13 +16,7 @@ int compare(const void*, const void*);
 void qsort(void*, size_t, size_t, int(*compar)(const void*, const void*));
 
 
-
 int i, j;
-
-enum face { Ace, King, Queen, Jack, Ten, Nine, Eight, Seven, 
-		Six, Five, Four, Three, Two };
-
-enum suit { Hearts, Diamonds, Spades, Clubs };
 
 
 
