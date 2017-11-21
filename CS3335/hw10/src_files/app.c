@@ -1,28 +1,17 @@
-#include <stdio.h>
 #include <time.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include "struct.h"
+#include "compare.h"
+#include "qsort.h"
+#include "makeseed.h"
 #define DECK_SIZE 52
-
-typedef struct {
-	const char* face;
-	const char* suit;
-	int facevalue;
-	int suitvalue;
-} card;
-
-
-int compare(const void*, const void*);
-
-void qsort(void*, size_t, size_t, int(*compar)(const void*, const void*));
-
 
 int i, j;
 
-
-
 int main() {
 
-	srand(time(NULL));
+	makeseed();
 
 	card deck[DECK_SIZE];
 	const char *face_names[] = { "Ace", "King", "Queen", "Jack", "Ten", "Nine", 
@@ -93,7 +82,7 @@ int main() {
 
 
 }
-
+/*
 int compare(const void* card_a, const void* card_b) {
 	if((*(card*)card_a).facevalue == (*(card*)card_b).facevalue) {
 		return (*(card*)card_a).suitvalue - (*(card*)card_b).suitvalue;
@@ -101,3 +90,4 @@ int compare(const void* card_a, const void* card_b) {
 	return (*(card*)card_a).facevalue - (*(card*)card_b).facevalue;
 
 }
+*/
