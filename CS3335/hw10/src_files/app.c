@@ -29,7 +29,7 @@ int main() {
 				"Eight", "Seven", "Six", "Five", "Four", "Three", "Two" }; 
 
 
-	const char *suit_names[] = { "Hearts", "Diamonds", "Spades", "Clubs" };
+	const char *suit_names[] = { "Clubs", "Diamonds", "Hearts", "Spades" };
 
 
 	//build deck
