@@ -1,1 +1,1 @@
-int compare(const void*, const* void);
+int compare(const void*, const void*);
