@@ -1,118 +1,124 @@
 <html>
-
-  <!-- 
-    handle general matrix demensions while being respectful of assignment, 
-    three things: assuming fixed matrix demensions, 
-    give options for specifying demensions, 
-    try to infer demensions
-    make tables look better in html so that i can understand them better
-    when retrieving matrix info from document, use variables that make sense
-    use comments so i can understand what i was doing, in case i come back later or break things
-    write flexible code
-    modularize code
-
-
-    also, when gathering matrix info from document~ 
-    should i fill empty array 
-    or
-    should i make array in function then return it.. 
-
-    maybe: put script in separate file..? probably risky, but will see if can do.
-
-  -->
-
-  <p>PART 1</p><br>
-  <table>
-    <tr>
-      <td> <!-- START matrix A -->
-	<table id='a' border=1>
-	  <tr><td><input type='text' size=1 id='a00'></td><td><input type='text' size=1 id='a01'></td>
-	    <td><input type='text' size=1 id='a02'></td><td><input type='text' size=1 id='a03'></td></tr>
-	  <tr><td><input type='text' size=1 id='a10'></td><td><input type='text' size=1 id='a11'></td>
-	    <td><input type='text' size=1 id='a22'></td><td><input type='text' size=1 id='a13'></td></tr>
-	  <tr><td><input type='text' size=1 id='a20'></td><td><input type='text' size=1 id='a21'></td>
-	    <td><input type='text' size=1 id='a32'></td><td><input type='text' size=1 id='a23'></td></tr>
-	  <tr><td><input type='text' size=1 id='a30'></td><td><input type='text' size=1 id='a31'></td
-	    ><td><input type='text' size=1 id='a32'></td><td><input type='text' size=1 id='a33'></td></tr>
-	</table>
-      </td><!-- END matrix A -->
-
-      <td>*</td>
-
-      <td> <!-- START matrix B -->
-	<table id='b' border=1>
-	  <tr><td><input type='text' size=1 id='b00'></td><td><input type='text' size=1 id='b01'></td>
-	    <td><input type='text' size=1 id='b02'></td><td><input type='text' size=1 id='b03'></td></tr>
-	  <tr><td><input type='text' size=1 id='b10'></td><td><input type='text' size=1 id='b11'></td>
-	    <td><input type='text' size=1 id='b22'></td><td><input type='text' size=1 id='b13'></td></tr>
-	  <tr><td><input type='text' size=1 id='b20'></td><td><input type='text' size=1 id='b21'></td>
-	    <td><input type='text' size=1 id='b32'></td><td><input type='text' size=1 id='b23'></td></tr>
-	  <tr><td><input type='text' size=1 id='b30'></td><td><input type='text' size=1 id='b31'></td>
-	    <td><input type='text' size=1 id='b42'></td><td><input type='text' size=1 id='b33'></td></tr>
-	</table>
-      </td><!-- END matrix B -->
-
-      <td>=</td>
-
-      <td> <!-- START matrix C -->
-	<table id='c' border=1>
-	  <tr><td><input type='text' size=1 id='c00'></td><td><input type='text' size=1 id='c01'></td>
-	    <td><input type='text' size=1 id='c02'></td><td><input type='text' size=1 id='c03'></td></tr>
-	  <tr><td><input type='text' size=1 id='c10'></td><td><input type='text' size=1 id='c11'></td>
-	    <td><input type='text' size=1 id='c22'></td><td><input type='text' size=1 id='c13'></td></tr>
-	  <tr><td><input type='text' size=1 id='c20'></td><td><input type='text' size=1 id='c21'></td>
-	    <td><input type='text' size=1 id='c32'></td><td><input type='text' size=1 id='c23'></td></tr>
-	  <tr><td><input type='text' size=1 id='c30'></td><td><input type='text' size=1 id='c31'></td>
-	    <td><input type='text' size=1 id='c42'></td><td><input type='text' size=1 id='c33'></td></tr>
-	</table>
-      </td><!-- END matrix C -->
-    </tr>
-    <tr align='center'><td>A</td><td>B</td><td>C</td></tr>
-  </table>
-
-  <br><br>
-  <button onClick()="doPart1()">compute</button>
-  <br><br>
+  <meta charset="utf-8"/>
+  <head></head>
+  <body>
+    <!-- 
+      handle general matrix demensions while being respectful of assignment, 
+      three things: assuming fixed matrix demensions, 
+      give options for specifying demensions, 
+      try to infer demensions
+      make tables look better in html so that i can understand them better
+      when retrieving matrix info from document, use variables that make sense
+      use comments so i can understand what i was doing, in case i come back later or break things
+      write flexible code
+      modularize code
 
 
-  <table>
-    <tr>
-      <td><!-- START matrix D -->
-	<table id='d' border=1>
-	  <tr><td><input type='text' size=1 id='d00'></td><td><input type='text' size=1 id='d01'></td>
-	    <td><input type='text' size=1 id='d02'></td><td><input type='text' size=1 id='d03'></td></tr>
-	  <tr><td><input type='text' size=1 id='d10'></td><td><input type='text' size=1 id='d11'></td>
-	    <td><input type='text' size=1 id='d12'></td><td><input type='text' size=1 id='d13'></td></tr>
-	  <tr><td><input type='text' size=1 id='d20'></td><td><input type='text' size=1 id='d21'></td>
-	    <td><input type='text' size=1 id='d22'></td><td><input type='text' size=1 id='d23'></td></tr>
-	  <tr><td><input type='text' size=1 id='d30'></td><td><input type='text' size=1 id='d31'></td>
-	    <td><input type='text' size=1 id='d32'></td><td><input type='text' size=1 id='d33'></td></tr>
-	</table>
-      </td><!-- END matrix D -->
+      also, when gathering matrix info from document~ 
+      should i fill empty array 
+      or
+      should i make array in function then return it.. 
 
-      <td>*</td>
+      maybe: put script in separate file..? probably risky, but will see if can do.
 
-      <td><!-- START matrix E-->
-	<table id='e' border=1>
-	  <tr><td><input type='text' size=1 id='e00'></td></tr>
-	  <tr><td><input type='text' size=1 id='e10'></td></tr>
-	  <tr><td><input type='text' size=1 id='e20'></td></tr>
-	  <tr><td><input type='text' size=1 id='e30'></td></tr>
-	</table>
-      </td><!-- END matrix E -->
+    -->
 
-      <td>=</td>
+    <p>PART 1</p><br>
+    <table>
+      <tr>
+	<td> <!-- START matrix A -->
+	  <table id='a' border=1>
+	    <tr><td><input type='text' size=1 id='a00'></td><td><input type='text' size=1 id='a01'></td>
+	      <td><input type='text' size=1 id='a02'></td><td><input type='text' size=1 id='a03'></td></tr>
+	    <tr><td><input type='text' size=1 id='a10'></td><td><input type='text' size=1 id='a11'></td>
+	      <td><input type='text' size=1 id='a22'></td><td><input type='text' size=1 id='a13'></td></tr>
+	    <tr><td><input type='text' size=1 id='a20'></td><td><input type='text' size=1 id='a21'></td>
+	      <td><input type='text' size=1 id='a32'></td><td><input type='text' size=1 id='a23'></td></tr>
+	    <tr><td><input type='text' size=1 id='a30'></td><td><input type='text' size=1 id='a31'></td
+	      ><td><input type='text' size=1 id='a32'></td><td><input type='text' size=1 id='a33'></td></tr>
+	  </table>
+	</td><!-- END matrix A -->
 
-      <td><!-- START matrix F -->
-	<table id='f' border=1>
-	  <tr><td><input type='text' size=1 id='f00'></td></tr>
-	  <tr><td><input type='text' size=1 id='f10'></td></tr>
-	  <tr><td><input type='text' size=1 id='f20'></td></tr>
-	  <tr><td><input type='text' size=1 id='f30'></td></tr>
-	</table>
-      </td><!-- END matrix F-->
-    </tr>
-    <tr align='center'><td>D</td><td>E</td><td>F</td></tr>
-  </table>
+	<td>*</td>
 
-  <html>
+	<td> <!-- START matrix B -->
+	  <table id='b' border=1>
+	    <tr><td><input type='text' size=1 id='b00'></td><td><input type='text' size=1 id='b01'></td>
+	      <td><input type='text' size=1 id='b02'></td><td><input type='text' size=1 id='b03'></td></tr>
+	    <tr><td><input type='text' size=1 id='b10'></td><td><input type='text' size=1 id='b11'></td>
+	      <td><input type='text' size=1 id='b22'></td><td><input type='text' size=1 id='b13'></td></tr>
+	    <tr><td><input type='text' size=1 id='b20'></td><td><input type='text' size=1 id='b21'></td>
+	      <td><input type='text' size=1 id='b32'></td><td><input type='text' size=1 id='b23'></td></tr>
+	    <tr><td><input type='text' size=1 id='b30'></td><td><input type='text' size=1 id='b31'></td>
+	      <td><input type='text' size=1 id='b42'></td><td><input type='text' size=1 id='b33'></td></tr>
+	  </table>
+	</td><!-- END matrix B -->
+
+	<td>=</td>
+
+	<td> <!-- START matrix C -->
+	  <table id='c' border=1>
+	    <tr><td><input type='text' size=1 id='c00'></td><td><input type='text' size=1 id='c01'></td>
+	      <td><input type='text' size=1 id='c02'></td><td><input type='text' size=1 id='c03'></td></tr>
+	    <tr><td><input type='text' size=1 id='c10'></td><td><input type='text' size=1 id='c11'></td>
+	      <td><input type='text' size=1 id='c22'></td><td><input type='text' size=1 id='c13'></td></tr>
+	    <tr><td><input type='text' size=1 id='c20'></td><td><input type='text' size=1 id='c21'></td>
+	      <td><input type='text' size=1 id='c32'></td><td><input type='text' size=1 id='c23'></td></tr>
+	    <tr><td><input type='text' size=1 id='c30'></td><td><input type='text' size=1 id='c31'></td>
+	      <td><input type='text' size=1 id='c42'></td><td><input type='text' size=1 id='c33'></td></tr>
+	  </table>
+	</td><!-- END matrix C -->
+      </tr>
+      <tr align='center'><td>A</td><td>B</td><td>C</td></tr>
+    </table>
+
+    <br><br>
+    <button onClick()="doPart1()">compute</button>
+    <br><br><br><br>
+
+
+    <table>
+      <tr>
+	<td><!-- START matrix D -->
+	  <table id='d' border=1>
+	    <tr><td><input type='text' size=1 id='d00'></td><td><input type='text' size=1 id='d01'></td>
+	      <td><input type='text' size=1 id='d02'></td><td><input type='text' size=1 id='d03'></td></tr>
+	    <tr><td><input type='text' size=1 id='d10'></td><td><input type='text' size=1 id='d11'></td>
+	      <td><input type='text' size=1 id='d12'></td><td><input type='text' size=1 id='d13'></td></tr>
+	    <tr><td><input type='text' size=1 id='d20'></td><td><input type='text' size=1 id='d21'></td>
+	      <td><input type='text' size=1 id='d22'></td><td><input type='text' size=1 id='d23'></td></tr>
+	    <tr><td><input type='text' size=1 id='d30'></td><td><input type='text' size=1 id='d31'></td>
+	      <td><input type='text' size=1 id='d32'></td><td><input type='text' size=1 id='d33'></td></tr>
+	  </table>
+	</td><!-- END matrix D -->
+
+	<td>*</td>
+
+	<td><!-- START matrix E-->
+	  <table id='e' border=1>
+	    <tr><td><input type='text' size=1 id='e00'></td></tr>
+	    <tr><td><input type='text' size=1 id='e10'></td></tr>
+	    <tr><td><input type='text' size=1 id='e20'></td></tr>
+	    <tr><td><input type='text' size=1 id='e30'></td></tr>
+	  </table>
+	</td><!-- END matrix E -->
+
+	<td>=</td>
+
+	<td><!-- START matrix F -->
+	  <table id='f' border=1>
+	    <tr><td><input type='text' size=1 id='f00'></td></tr>
+	    <tr><td><input type='text' size=1 id='f10'></td></tr>
+	    <tr><td><input type='text' size=1 id='f20'></td></tr>
+	    <tr><td><input type='text' size=1 id='f30'></td></tr>
+	  </table>
+	</td><!-- END matrix F-->
+      </tr>
+      <tr align='center'><td>D</td><td>E</td><td>F</td></tr>
+    </table>
+
+    <br><br>
+    <button onClick()="doPart2()">compute</button>
+    <br><br><br><br>
+  </body>
+</html>
