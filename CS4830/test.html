@@ -152,14 +152,14 @@ function doPart1() {
   	var C = [];
 	for(var i = 0; i < 4; i++) C[i] = [];
 
+	//gather matrix data from document, see function gatherMatrix below
+	gatherMatrix("a", A.length, A[0].length, A);
+	gatherMatrix("b", B.length, B[0].length, B);
+	gatherMatrix("c", C.length, C[0].length, C);
+
 	var areConformable = Math.abs(A[0].length - B.length) < Number.EPSILON;
 
 	if(areConformable) {
-		//gather matrix data from document, see function gatherMatrix below
-		gatherMatrix("a", A.length, A[0].length, A);
-		gatherMatrix("b", B.length, B[0].length, B);
-		gatherMatrix("c", C.length, C[0].length, C);
-
 		//perform naive matrix multiplication, O(n^3)
 		for(var x = 0; x < B.length; x++) {
 			for(var y = 0; y < A.length; y++) {
