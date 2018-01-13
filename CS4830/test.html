@@ -152,7 +152,7 @@ function doPart1() {
   	var C = [];
 	for(var i = 0; i < 4; i++) C[i] = [];
 
-	var areConformable = (Math.abs(A[0].length - B.length) < Number.EPSILON);
+	var areConformable = Math.abs(A[0].length - B.length) < Number.EPSILON;
 
 	if(areConformable) {
 		
