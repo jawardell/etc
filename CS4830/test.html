@@ -234,6 +234,9 @@ function multiply(matrix1, matrix2, matrix3) {
 			for(var y = 0; y < matrix1.length; y++) {
 				for(var z = 0; z < matrix2[0].length; z++) {
 					matrix3[y][z] += matrix1[y][x] * matrix2[x][x];
+					console.log(y.toString() + z.toString()
+					+ y.toString() + x.toString()
+					+ x.toString() + x.toString() + "/n");
 				}
 			}
 		}
