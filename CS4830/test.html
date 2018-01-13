@@ -156,31 +156,24 @@ function doPart1() {
 	gatherMatrix("a", A.length, 4, A);
 	gatherMatrix("b", B.length, 4, B);
 
-
-	var areConformable = Math.abs(A[0].length - B.length) < Number.EPSILON;
-
-	if(areConformable) {
-		//perform naive matrix multiplication, O(n^3)
-		for(var x = 0; x < B.length; x++) {
-			for(var y = 0; y < A.length; y++) {
-				for(var z = 0; z < B[0].length; z++) {
-					C[y][z] += A[y][x] * B[x][x];
-				}
-			}
+	//initialize values in final matrix to 0
+	for(var i = 0; i < 4; i++) {
+		for(var j = 0; j < 4; j++) {
+			C[i][j] = 0.0;
 		}
-
-		//put computed data into C, see function fillSolnMatrix below
-		fillSolnMatrix("c", C.length, C[0].length, C);
-	} else {
-		document.getElementById("msg1").innerHTML = "the matrices are not conformable."
 	}
+
+
+	//perform matrix multiplication, see funtion multiply below
+	multiply(A, B, C);
+
+	//put computed data into C, see function fillSolnMatrix below
+	fillSolnMatrix("c", C.length, C[0].length, C);
 
 }
 
 
 function doPart2() {
-	//this is repeated code
-	//need to make separate function for mat. mult. computation
 	var D = [];
 	for(var i = 0; i < 4; i++) D[i] = [];
 	var E = [];
@@ -188,38 +181,30 @@ function doPart2() {
 	var F = [];
 	for(var i = 0; i < 4; i++) F[i] = [];
 
-	var areConformable = Math.abs(D[0].length - E.length) < Number.EPSILON;
-
-	if(areConformable) {
-		//gather matrix data from document, see function gatherMatrix below
-		gatherMatrix("d", D.length, D[0].length, D);
-		gatherMatrix("e", E.length, E[0].length, E);
-		gatherMatrix("f", F.length, F[0].length, F);
-
-		//perform naive matrix multiplication, O(n^3)
-		for(var x = 0; x < E.length; x++) {
-			for(var y = 0; y < D.length; y++) {
-				for(var z = 0; z < E[0].length; z++) {
-					F[y][z] += D[y][x] * E[x][x];
-				}
-			}
+	//initialize values in final matrix to 0
+	for(var i = 0; i < 4; i++) {
+		for(var j = 0; j < 1; j++) {
+			F[i][j] = 0.0;
 		}
-
-		//put computed data into F, see function fillSolnMatrix below
-		fillSolnMatrix("f", F.length, F[0].length, F);
-	} else {
-		document.getElementById("msg1").innerHTML = "the matrices are not conformable."
 	}
+	
+	//gather matrix data from document, see function gatherMatrix below
+	gatherMatrix("d", D.length, D[0].length, D);
+	gatherMatrix("e", E.length, E[0].length, E);
+	gatherMatrix("f", F.length, F[0].length, F);
 
+	//compute matrix multiplication, see function multiply below
+	multiply(E, D, F);
+
+
+	//put computed data into F, see function fillSolnMatrix below
+	fillSolnMatrix("f", F.length, F[0].length, F);
+	
 }
 
 
-//might need to make this function return the matrix, 
-//because this could present a problem: 
-//matrix is a local variable here. the question is, 
-//does js pass by reference or pass by value. 
-//how does it handle arrays as arguments..? 
-//we shall see at runtime my friend . . . 
+
+
 function gatherMatrix(type, row, col, matrix) {
 	for(var i = 0; i < row; i++) {
 		for(var j = 0; j < col; j++) {
@@ -230,7 +215,7 @@ function gatherMatrix(type, row, col, matrix) {
 
 }
 
-function fillSolnMatrix(type, row, col, matrix) {//might have the same problem here. 
+function fillSolnMatrix(type, row, col, matrix) {
 		for(var i = 0; i < row; i++) {
 			for(var j = 0; j < col; j++) {
 				var loc = type + i.toString() + j.toString();
@@ -240,13 +225,28 @@ function fillSolnMatrix(type, row, col, matrix) {//might have the same problem h
 }
 
 
+function multiply(matrix1, matrix2, matrix3) {
+	var areConformable = Math.abs(matrix1[0].length - matrix2.length) < Number.EPSILON;
 
+	if(areConformable) {
+		//perform naive matrix multiplication, O(n^3)
+		for(var x = 0; x < matrix2.length; x++) {
+			for(var y = 0; y < matrix1.length; y++) {
+				for(var z = 0; z < matrix2[0].length; z++) {
+					matrix3[y][z] += matrix1[y][x] * matrix2[x][x];
+				}
+			}
+		}
+
+	} else {
+		document.getElementById("msg1").innerHTML = "the matrices are not conformable."
+	}
+}
 
 
 
 function showYes() {
 	document.getElementById("yesdiv1").style.visibility='visible';
-
 }
 
 </script>
