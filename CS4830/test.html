@@ -155,7 +155,22 @@ function doPart1() {
 	var areConformable = Math.abs(A[0].length - B.length) < Number.EPSILON;
 
 	if(areConformable) {
-		
+		//gather matrix data from document, see function gatherMatrix below
+		gatherMatrix("a", A.length, A[0].length, A);
+		gatherMatrix("b", B.length, B[0].length, B);
+		gatherMatrix("c", C.length, C[0].length, C);
+
+		//perform naive matrix multiplication, O(n^3)
+		for(var x = 0; x < B.length; x++) {
+			for(var y = 0; y < A.length; y++) {
+				for(var z = 0; z < B[0].length; z++) {
+					C[y][z] += A[y][x] * B[x][x];
+				}
+			}
+		}
+	
+		//put computed data into C, see function fillSolnMatrix below
+		fillSolnMatrix("c", C.length, C[0].length, C);
 	} else {
 		document.getElementById("msg1").innerHTML = "the matrices are not conformable."
 	}
@@ -165,8 +180,14 @@ function doPart1() {
 
 function doPart2() {}
 
+function gatherMatrix(type, row, col, matrix) {}
 
-function gatherMatrix(type, row, col, array) {}
+function fillSolnMatrix(type, row, col, matrix) {}
+
+
+
+
+
 
 function showYes() {
   document.getElementById("yesdiv1").style.visibility='visible';
