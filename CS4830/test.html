@@ -20,7 +20,6 @@
       should i make array in function then return it.. 
 
       maybe: put script in separate file..? probably risky, but will see if can do.
-
     -->
 
     <p>PART 1</p><br>
@@ -121,4 +120,40 @@
     <button onClick()="doPart2()">compute</button>
     <br><br><br><br>
   </body>
+
+
+  <div id='optional' style="visibility: hidden;">
+    specify matrix demensions? <br>
+    <form>
+      <button id='yes' onClick="showYes()">yes</button>
+      <div id='yesdiv1' style="visibility: hidden;">
+	<input type='text' size=1 id='arows'>
+	<input type='text' size=1 id='acols'>
+	<input type='text' size=1 id='brows'>
+	<input type='text' size=1 id='bcols'>
+      </div><button id='no'>no</button></form>
+  </div>
+
 </html>
+
+
+
+<script>
+
+function doPart1() {
+
+
+}
+
+
+function doPart2() {}
+
+
+function gatherMatrix(type, row, col, array) {}
+
+function showYes() {
+  document.getElementById("yesdiv1").style.visibility='visible';
+
+}
+
+</script>
