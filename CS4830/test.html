@@ -3,10 +3,10 @@
   <head></head>
   <body>
     <!-- 
-      handle general matrix demensions while being respectful of assignment, 
-      three things: assuming fixed matrix demensions, 
-      give options for specifying demensions, 
-      try to infer demensions
+      handle general matrix dimensions while being respectful of assignment, 
+      three things: assuming fixed matrix dimensions, 
+      give options for specifying dimensions, 
+      try to infer dimensions
       make tables look better in html so that i can understand them better
       when retrieving matrix info from document, use variables that make sense
       use comments so i can understand what i was doing, in case i come back later or break things
@@ -124,7 +124,7 @@
 
 
   <div id='optional' style="visibility: hidden;">
-    specify matrix demensions? <br>
+    specify matrix dimensions? <br>
     <form>
       <button id='yes' onClick="showYes()">yes</button>
       <div id='yesdiv1' style="visibility: hidden;">
@@ -178,7 +178,40 @@ function doPart1() {
 }
 
 
-function doPart2() {}
+function doPart2() {
+	//this is repeated code
+	//need to make separate function for mat. mult. computation
+	var D = [];
+	for(var i = 0; i < 4; i++) D[i] = [];
+  	var E = [];
+	for(var i = 0; i < 4; i++) E[i] = [];
+  	var F = [];
+	for(var i = 0; i < 4; i++) F[i] = [];
+
+	var areConformable = Math.abs(D[0].length - E.length) < Number.EPSILON;
+
+	if(areConformable) {
+		//gather matrix data from document, see function gatherMatrix below
+		gatherMatrix("d", D.length, D[0].length, D);
+		gatherMatrix("e", E.length, E[0].length, E);
+		gatherMatrix("f", F.length, F[0].length, F);
+
+		//perform naive matrix multiplication, O(n^3)
+		for(var x = 0; x < E.length; x++) {
+			for(var y = 0; y < D.length; y++) {
+				for(var z = 0; z < E[0].length; z++) {
+					F[y][z] += D[y][x] * E[x][x];
+				}
+			}
+		}
+	
+		//put computed data into F, see function fillSolnMatrix below
+		fillSolnMatrix("f", F.length, F[0].length, F);
+	} else {
+		document.getElementById("msg1").innerHTML = "the matrices are not conformable."
+	}
+
+}
 
 
 //might need to make this function return the matrix, 
