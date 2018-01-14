@@ -189,12 +189,12 @@ function doPart2() {
 	}
 	
 	//gather matrix data from document, see function gatherMatrix below
-	gatherMatrix("d", D.length, D[0].length, D);
-	gatherMatrix("e", E.length, E[0].length, E);
+	gatherMatrix("d", D.length, 4, D);
+	gatherMatrix("e", E.length, 1, E);
 
 
 	//compute matrix multiplication, see function multiply below
-	multiply(E, D, F);
+	multiply(D, E, F);
 
 
 	//put computed data into F, see function fillSolnMatrix below
@@ -236,7 +236,7 @@ function multiply(matrix1, matrix2, matrix3) {
 					matrix3[y][z] += matrix1[y][x] * matrix2[x][x];
 					console.log(y.toString() + z.toString()
 					+ y.toString() + x.toString()
-					+ x.toString() + x.toString() + "/n");
+					+ x.toString() + x.toString() + "\n");
 				}
 			}
 		}
