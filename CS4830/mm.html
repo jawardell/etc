@@ -221,7 +221,8 @@ function gatherMatrix(type, row, col, matrix) {
 	for(var i = 0; i < row; i++) {
 		for(var j = 0; j < col; j++) {
 			var loc = type + i.toString() + j.toString();
-			matrix[i][j] = parseFloat(document.getElementById(loc).value);
+			matrix[i][j] = isNaN(parseFloat(document.getElementById(loc).value)) ? 0.0 
+				: parseFloat(document.getElementById(loc).value);
 		}
 	}
 
@@ -231,7 +232,9 @@ function fillSolnMatrix(type, row, col, matrix) {
 		for(var i = 0; i < row; i++) {
 			for(var j = 0; j < col; j++) {
 				var loc = type + i.toString() + j.toString();
-				document.getElementById(loc).value = matrix[i][j].toString();
+				if(!isNaN(document.getElementById(loc).value)) {
+					document.getElementById(loc).value = matrix[i][j].toString();
+				}	
 			}
 		}
 }
