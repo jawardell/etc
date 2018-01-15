@@ -177,7 +177,7 @@ function doPart1() {
 
 
 	//perform matrix multiplication, see funtion multiply below
-	multiply(A, B, C);
+	C = multiply(A, B);
 
 	//put computed data into C, see function fillSolnMatrix below
 	fillSolnMatrix("c", C.length, C[0].length, C);
@@ -206,7 +206,7 @@ function doPart2() {
 
 
 	//compute matrix multiplication, see function multiply below
-	multiply(D, E, F);
+	F = multiply(D, E);
 
 
 	//put computed data into F, see function fillSolnMatrix below
@@ -237,8 +237,16 @@ function fillSolnMatrix(type, row, col, matrix) {
 }
 
 
-function multiply(matrix1, matrix2, matrix3) {
+function multiply(matrix1, matrix2) {
 	var areConformable = Math.abs(matrix1[0].length - matrix2.length) < Number.EPSILON;
+
+	var matrix3 = [];
+	for(var i = 0; i < matrix1.length; i++) {
+		for(var j = 0; j < matrix2[0].length; j++) {
+			matrix3[i][j] = 0;
+		}
+	}
+
 
 	if(areConformable) {
 		//perform naive matrix multiplication, O(n^3)
@@ -249,6 +257,7 @@ function multiply(matrix1, matrix2, matrix3) {
 				}
 			}
 		}
+		return matrix3;
 
 	} else {
 		document.getElementById("msg1").innerHTML = "the matrices are not conformable.";
