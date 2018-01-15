@@ -1,0 +1,267 @@
+<!-- 
+
+Name: Joanne Wardell
+Class: CS4830
+Section: 4
+Date: January 14th 2018
+
+Description:
+This assignment multiplies two matrices together using the 
+naive matrix multiplication algorithm. The program relies on the fact that the 
+demensions of the matrices are specified in the assignment, 4X4, but will be improved in order to 
+infer or allow input for other demensions. This program tests to see if the matrices 
+are conformale before performing the multipliication calculation.
+
+
+Design: 
+gather Matrix Information from document
+parse data from document
+make arrays to hold data
+initialize arrays to default numeric values
+iterate over 
+	rows in array for matrix A
+		columns in array for matrix B
+			accumulate values for every column in matrix A array
+			and store the values in matrix C array
+place values from matrix C array onto document
+
+
+
+
+-->
+
+<html>
+	<meta charset="utf-8"/>
+	<head></head>
+	<body>
+		<p>PART 1</p><br>
+		<table>
+			<tr>
+				<td> <!-- START matrix A -->
+					<table id='a' border=1>
+						<tr><td><input type='text' size=1 id='a00'></td><td><input type='text' size=1 id='a01'></td>
+							<td><input type='text' size=1 id='a02'></td><td><input type='text' size=1 id='a03'></td></tr>
+						<tr><td><input type='text' size=1 id='a10'></td><td><input type='text' size=1 id='a11'></td>
+							<td><input type='text' size=1 id='a12'></td><td><input type='text' size=1 id='a13'></td></tr>
+						<tr><td><input type='text' size=1 id='a20'></td><td><input type='text' size=1 id='a21'></td>
+							<td><input type='text' size=1 id='a22'></td><td><input type='text' size=1 id='a23'></td></tr>
+						<tr><td><input type='text' size=1 id='a30'></td><td><input type='text' size=1 id='a31'></td>
+							<td><input type='text' size=1 id='a32'></td><td><input type='text' size=1 id='a33'></td></tr>
+					</table>
+				</td><!-- END matrix A -->
+
+				<td>*</td>
+
+				<td> <!-- START matrix B -->
+					<table id='b' border=1>
+						<tr><td><input type='text' size=1 id='b00'></td><td><input type='text' size=1 id='b01'></td>
+							<td><input type='text' size=1 id='b02'></td><td><input type='text' size=1 id='b03'></td></tr>
+						<tr><td><input type='text' size=1 id='b10'></td><td><input type='text' size=1 id='b11'></td>
+							<td><input type='text' size=1 id='b12'></td><td><input type='text' size=1 id='b13'></td></tr>
+						<tr><td><input type='text' size=1 id='b20'></td><td><input type='text' size=1 id='b21'></td>
+							<td><input type='text' size=1 id='b22'></td><td><input type='text' size=1 id='b23'></td></tr>
+						<tr><td><input type='text' size=1 id='b30'></td><td><input type='text' size=1 id='b31'></td>
+							<td><input type='text' size=1 id='b32'></td><td><input type='text' size=1 id='b33'></td></tr>
+					</table>
+				</td><!-- END matrix B -->
+
+				<td>=</td>
+
+				<td> <!-- START matrix C -->
+					<table id='c' border=1>
+						<tr><td><input type='text' size=1 id='c00'></td><td><input type='text' size=1 id='c01'></td>
+							<td><input type='text' size=1 id='c02'></td><td><input type='text' size=1 id='c03'></td></tr>
+						<tr><td><input type='text' size=1 id='c10'></td><td><input type='text' size=1 id='c11'></td>
+							<td><input type='text' size=1 id='c12'></td><td><input type='text' size=1 id='c13'></td></tr>
+						<tr><td><input type='text' size=1 id='c20'></td><td><input type='text' size=1 id='c21'></td>
+							<td><input type='text' size=1 id='c22'></td><td><input type='text' size=1 id='c23'></td></tr>
+						<tr><td><input type='text' size=1 id='c30'></td><td><input type='text' size=1 id='c31'></td>
+							<td><input type='text' size=1 id='c32'></td><td><input type='text' size=1 id='c33'></td></tr>
+					</table>
+				</td><!-- END matrix C -->
+				<p id='msg1'></p>
+			</tr>
+			<tr align='center'><td>A</td><td>B</td><td>C</td></tr>
+		</table>
+
+		<br><br>
+		<button onClick="doPart1()">compute</button>
+		<br><br><br><br>
+
+
+		<table>
+			<tr>
+				<td><!-- START matrix D -->
+					<table id='d' border=1>
+						<tr><td><input type='text' size=1 id='d00'></td><td><input type='text' size=1 id='d01'></td>
+							<td><input type='text' size=1 id='d02'></td><td><input type='text' size=1 id='d03'></td></tr>
+						<tr><td><input type='text' size=1 id='d10'></td><td><input type='text' size=1 id='d11'></td>
+							<td><input type='text' size=1 id='d12'></td><td><input type='text' size=1 id='d13'></td></tr>
+						<tr><td><input type='text' size=1 id='d20'></td><td><input type='text' size=1 id='d21'></td>
+							<td><input type='text' size=1 id='d22'></td><td><input type='text' size=1 id='d23'></td></tr>
+						<tr><td><input type='text' size=1 id='d30'></td><td><input type='text' size=1 id='d31'></td>
+							<td><input type='text' size=1 id='d32'></td><td><input type='text' size=1 id='d33'></td></tr>
+					</table>
+				</td><!-- END matrix D -->
+
+				<td>*</td>
+
+				<td><!-- START matrix E-->
+					<table id='e' border=1>
+						<tr><td><input type='text' size=1 id='e00'></td></tr>
+						<tr><td><input type='text' size=1 id='e10'></td></tr>
+						<tr><td><input type='text' size=1 id='e20'></td></tr>
+						<tr><td><input type='text' size=1 id='e30'></td></tr>
+					</table>
+				</td><!-- END matrix E -->
+
+				<td>=</td>
+
+				<td><!-- START matrix F -->
+					<table id='f' border=1>
+						<tr><td><input type='text' size=1 id='f00'></td></tr>
+						<tr><td><input type='text' size=1 id='f10'></td></tr>
+						<tr><td><input type='text' size=1 id='f20'></td></tr>
+						<tr><td><input type='text' size=1 id='f30'></td></tr>
+					</table>
+				</td><!-- END matrix F-->
+			</tr>
+			<tr align='center'><td>D</td><td>E</td><td>F</td></tr>
+		</table>
+
+		<br><br>
+		<button onClick="doPart2()">compute</button>
+		<br><br><br><br>
+	</body>
+
+
+	<div id='optional' style="visibility: hidden;">
+		specify matrix dimensions? <br>
+		<form>
+			<button id='yes' onClick="showYes()">yes</button>
+			<div id='yesdiv1' style="visibility: hidden;">
+				<input type='text' size=1 id='arows'>
+				<input type='text' size=1 id='acols'>
+				<input type='text' size=1 id='brows'>
+				<input type='text' size=1 id='bcols'>
+			</div><button id='no'>no</button></form>
+	</div>
+
+</html>
+
+
+
+<script>
+
+function doPart1() {
+	//assume A is 4 by 4 and B is 4 by 4
+	// if A is n X m , B is m X l, then C is n X l
+	//thus, in this case, C is a 4 by 4 matrix
+	var A = [];
+	for(var i = 0; i < 4; i++) A[i] = [];
+	var B = [];
+	for(var i = 0; i < 4; i++) B[i] = [];
+	var C = [];
+	for(var i = 0; i < 4; i++) C[i] = [];
+
+	//gather matrix data from document, see function gatherMatrix below
+	gatherMatrix("a", A.length, 4, A);
+	gatherMatrix("b", B.length, 4, B);
+
+	//initialize values in final matrix to 0
+	for(var i = 0; i < 4; i++) {
+		for(var j = 0; j < 4; j++) {
+			C[i][j] = 0.0;
+		}
+	}
+
+
+	//perform matrix multiplication, see funtion multiply below
+	multiply(A, B, C);
+
+	//put computed data into C, see function fillSolnMatrix below
+	fillSolnMatrix("c", C.length, C[0].length, C);
+
+}
+
+
+function doPart2() {
+	var D = [];
+	for(var i = 0; i < 4; i++) D[i] = [];
+	var E = [];
+	for(var i = 0; i < 4; i++) E[i] = [];
+	var F = [];
+	for(var i = 0; i < 4; i++) F[i] = [];
+
+	//initialize values in final matrix to 0
+	for(var i = 0; i < 4; i++) {
+		for(var j = 0; j < 1; j++) {
+			F[i][j] = 0.0;
+		}
+	}
+	
+	//gather matrix data from document, see function gatherMatrix below
+	gatherMatrix("d", D.length, 4, D);
+	gatherMatrix("e", E.length, 1, E);
+
+
+	//compute matrix multiplication, see function multiply below
+	multiply(D, E, F);
+
+
+	//put computed data into F, see function fillSolnMatrix below
+	fillSolnMatrix("f", F.length, F[0].length, F);
+	
+}
+
+
+
+
+function gatherMatrix(type, row, col, matrix) {
+	for(var i = 0; i < row; i++) {
+		for(var j = 0; j < col; j++) {
+			var loc = type + i.toString() + j.toString();
+			matrix[i][j] = parseFloat(document.getElementById(loc).value);
+		}
+	}
+
+}
+
+function fillSolnMatrix(type, row, col, matrix) {
+		for(var i = 0; i < row; i++) {
+			for(var j = 0; j < col; j++) {
+				var loc = type + i.toString() + j.toString();
+				document.getElementById(loc).value = matrix[i][j].toString();
+			}
+		}
+}
+
+
+function multiply(matrix1, matrix2, matrix3) {
+	var areConformable = Math.abs(matrix1[0].length - matrix2.length) < Number.EPSILON;
+
+	if(areConformable) {
+		//perform naive matrix multiplication, O(n^3)
+		for(var x = 0; x < matrix1.length; x++) {
+			for(var y = 0; y < matrix2[0].length; y++) {
+				for(var z = 0; z < matrix1[0].length; z++) {
+					matrix3[x][y] += matrix1[x][z] * matrix2[z][y];
+					console.log(y.toString() + z.toString()
+					+ y.toString() + x.toString()
+					+ x.toString() + x.toString() + "\n");
+				}
+			}
+		}
+
+	} else {
+		document.getElementById("msg1").innerHTML = "the matrices are not conformable.";
+	}
+}
+
+
+
+function showYes() {
+	document.getElementById("yesdiv1").style.visibility='visible';
+}
+
+</script>
