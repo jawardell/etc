@@ -1,0 +1,104 @@
+<HTML>
+<meta charset="utf-8"/>
+<head></head>
+
+<body>
+
+<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
+
+<script>
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+
+canvas.addEventListener("mousedown", handleMouseDown);
+canvas.addEventListener("mousemove", handleMouseMove);
+canvas.addEventListener("mouseup", handleMouseUp);
+
+  
+var p0 = {x: 0, y:0};
+var p1 = {x: 0, y:0};
+
+ 
+var isdown = 0;
+
+ 
+display();
+
+
+function setPixel(x, y) {
+	context.fillRect(x, y, 1, 1);
+}
+  
+
+function handleMouseUp(event)
+{
+	isdown = 0;
+	p1.x = event.clientX - canvas.offsetLeft;
+	p1.y = event.clientY - canvas.offsetTop;
+	display();
+}
+
+  
+
+function handleMouseDown(event)
+{
+	isdown = 1;
+	p0.x = event.clientX - canvas.offsetLeft;
+	p0.y = event.clientY - canvas.offsetTop;
+	display();
+
+}
+
+  
+
+function handleMouseMove(event)
+
+{
+	if (isdown == 0)
+		return;
+	
+  	p1.x = event.clientX - canvas.offsetLeft;
+	p1.y = event.clientY - canvas.offsetTop;
+
+	display();
+}
+
+
+
+function bresenham(p0, p1)
+{
+
+}
+
+  
+
+function display()
+{
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	var dx = p1.x - p0.x;
+	var dy = p1.y - p0.y;
+
+	context.fillStyle = "#000000";
+	context.strokeStyle = "#000000";
+	
+	//bresenham(p0, p1); <!-- this should work before you turn in your assignment -->
+
+
+	// this is what your algorithm SHOULD output, comment these when working on the algorithm
+	context.beginPath();
+	context.moveTo(p0.x, p0.y);
+	context.lineTo(p1.x, p1.y);
+	context.stroke();
+
+}
+
+  
+
+</script>
+
+<p id='quadrant'></p>
+
+</body>
+
+</html>
