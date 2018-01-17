@@ -69,15 +69,15 @@ function handleMouseMove(event)
 function bresenham(p0, p1)
 {
 
-	var x0 = p0[0];
-	var y0 = p0[1];
-	var x1 = p1[0];
-	var y1 = p1[1];
+	var x0 = p0.x;
+	var y0 = p0.y;
+	var x1 = p1.x;
+	var y1 = p1.y;
 	var dx = x1 - x0;
 	var dy = y1 - y0;
 	var D = D - 2*dx;
 	var y = y0;
-	for (var x = x0; x < x1; x++) {
+	for (var x = x0; x <= x1; x++) {
 		setPixel(x,y);
 		if(D > 0) {
 			y++;
