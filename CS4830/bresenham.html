@@ -68,23 +68,21 @@ function handleMouseMove(event)
 
 function bresenham(p0, p1)
 {
-	var x0 = p0.x;
-	var y0 = p0.y;
-	var x1 = p1.x;
-	var y1 = p1.y;
-	var dx = x1 - x0;
-	var dy = y1 - y0;
-	var D = D - 2*dx;
-	var y = y0;
-	for (var x = x0; x <= x1; x++) {
-		setPixel(x,y);
-		if(D > 0) {
-			y++;
-			D = D - 2*dx;
+	if(abs(p1.y - p0.y) < abs(p1.x - p0.x)) {
+		if(x0 > x) {
+			belowLine(p1.x, p1.y, p0.x, p0.y);
+		} else {
+			belowLine(p0.x, p0.y, p1.x, p1.y);
 		}
-		D = D + 2*dy;
+	} else 
+		if(p0.y > p1.y) {
+			aboveLine(p1.x, p1.y, p0.x, p0.y);
+		} else {
+			aboveLine(p0.x, p0.y, p1.x, p1.y);
+		}
 	}
 }
+
 
 
 function belowLine(x0, y0, x1, y1) {
