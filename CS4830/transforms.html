@@ -178,6 +178,23 @@ function create_matrices_from_HTML() {
     //first the translation
 	initialize_empty_js_matrices();
 	// parse the parameters from HTML input boxes
+	double tx = parseFloat(document.getElementById("tx"));
+	double ty = parseFloat(document.getElementById("ty"));
+	double sx = parseFloat(document.getElementById("sx"));
+	double sy = parseFloat(document.getElementById("sy"));
+	double theta = parseFloat(document.getElementById("theta"))
+	S[0][0] = sx;
+	S[1][1] = sy;
+	T[0][2] = tx;
+	T[1][2] = ty;
+	
+	R[0][0] = Math.cos(theta);
+
+
+
+
+
+
 
 	// create and populate T, S and R 
     
