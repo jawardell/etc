@@ -46,7 +46,7 @@ context.translate(canvas.width/2, canvas.height/2);
 context.scale(canvas.width/10, canvas.height/10);
 context.lineWidth=0.02;
 
-var T, S, R; // translation, sclae and rotation matrices 
+var T, S, R; // translation, scale and rotation matrices 
 var g = []; // array containing the geometry vertices 
 
 
@@ -242,6 +242,9 @@ function create_matrices_from_HTML() {
 function apply_transforms() {
 	// for all vertices in g, apply the transformations 
 	
+	console.log("g pre-processing");
+	printMatrix(g);
+	
 		
 	//get each vertex from g, per row
 	//then multiply each vertex by rotation matrix
@@ -265,8 +268,10 @@ function apply_transforms() {
 	}
 	
 	console.log("\nrotation complete\n");
+	console.log("g after rotation");
+	printMatrix(g);
 	
-	for(var i = 0; i < g.length; i++) {
+	for(var row = 0; row < g.length; row++) {
 		var vertex = [];
 		vertex[0] = [];
 		vertex[1] = [];
@@ -287,9 +292,10 @@ function apply_transforms() {
 	}
 	
 	console.log("\nscale complete\n");
-
+	console.log("g after scale");
+	printMatrix(g);
 	
-	for(var i = 0; i < g.length; i++) {
+	for(var row = 0; row < g.length; row++) {
 		var vertex = [];
 		vertex[0] = [];
 		vertex[1] = [];
@@ -310,7 +316,8 @@ function apply_transforms() {
 	}
 	
 	console.log("\ntranslation complete\n");
-	
+	console.log("g after translation");
+	printMatrix(g);
 }
 
 
@@ -332,24 +339,27 @@ function refresh() {
 	context.fill();
 	context.closePath();
 
-	draw_axes();
-	create_geometry();
-	apply_transforms();
-	draw_geometry();
+	draw_axes(); console.log("here on line 342");
+	create_geometry(); console.log("here on line 343");
+	apply_transforms(); console.log("here on line 344");
+	draw_geometry(); console.log("here on line 345");
+	console.log("geometry drawn successfully");
 	
 }
 
 
 function printMatrix(matrix) {
+	var res = "";
 	for(var i = 0; i < matrix.length; i++) {
 		for(var j = 0; j < matrix[0].length; j++) {
 			if(j == matrix[0].length - 1) {
-				console.log(matrix[i][j] + "\n");
+				res += matrix[i][j] + "\n";
 			} else {
-				console.log(matrix[i][j] + " ");
+				res += matrix[i][j] + " ";
 			}
 		}
 	}
+	console.log(res);
 }
 
 
