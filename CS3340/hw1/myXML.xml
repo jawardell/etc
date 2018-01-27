@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="myXML_2.xsl"?>
+<users>
+    <person>
+        <name>Joanne</name>
+        <role>Student</role>
+        <ID>456789393</ID>
+    </person>
+    <person>
+        <name>Tim</name>
+        <role>Staff</role>
+        <ID>474747777</ID>
+    </person>
+    <person>
+        <name>Jane</name>
+        <role>Faculty</role>
+        <ID>748923302</ID>
+    </person>
+    <person>
+        <name>Dr. Chakraborty</name>
+        <role>Faculty</role>
+        <ID>6647392974</ID>
+    </person>
+
+</users>

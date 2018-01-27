@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script></head>
+
+
+<head>
+<script>
+    $(document).ready(function() {
+
+        
+
+
+
+       $("#purchaseButton").click(function() {
+            var total = 0;
+            var msg = "";
+            var wrap = $("#giftwrapCheckBox");
+            var customBook = $("#booktext");
+            var customPrice = $("#pricetext");
+            var books = [];
+            var prices = [];
+            var inhere = false;
+
+            $("#multiselector option:selected").each(function () {
+                books.push($(this).text());
+                prices.push($(this).val());
+                msg += $(this).text() + " - $" + $(this).val() + ".00\n";
+                total += parseFloat($(this).val());
+            });
+
+            if ((customBook.val() != "") && (customPrice.val() != "")) { msg += customBook.val() + " - $" + customPrice.val() + ".00\n"; total += parseFloat(customPrice.val());}
+
+            $("input[name='options']:checked").each(function() {
+                if(parseFloat($(this).val()) == 5) {
+                    msg += "Gift Wrap - $" + $(this).val() + ".00\n";
+                } else { msg += "Rush Order - $" + $(this).val() + ".00\n";}
+                total += parseFloat($(this).val());
+            });
+            
+            $("#stateMultiSelector option:selected").each(function() {
+                if(parseFloat($(this).val()) == 5) {
+                    msg += "Ship to NY - $" + $(this).val() + ".00\n";
+                } else if(parseFloat($(this).val()) == 7) {
+                    msg += "Ship to CA - $" + $(this).val() + ".00\n";
+                } else {
+                    msg += "Ship to SC - $" + $(this).val() + ".00\n";
+                }
+                total += parseFloat($(this).val());
+            });
+
+            $("input[name='customerType']:checked").each(function() {
+                if(parseFloat($(this).val()) == .1) {
+                    msg += "Government Customer\nGovernment Discount: $" + $(this).val() * total + "\n"; inhere = true;
+                } else { msg += "General Customer\n"; }
+                total -= parseFloat($(this).val())*total;
+            });
+            if (inhere) {
+                $("#receiptTextArea").val(msg + "_________________\nTotal: $" + total + "0");
+            } else {
+                $("#receiptTextArea").val(msg + "_________________\nTotal: $" + total + ".00");
+            }
+
+       });
+    });
+
+
+</script>
+
+</head>
+
+<style>
+     table {
+         font-family: Verdana;
+         margin-right: auto;
+     }
+     h1 {
+         font-family: Verdana;
+     }
+     a {
+         font-family: Verdana;
+     }
+     td {
+         width: 300px;
+         padding: 2%;
+         height: 35px;
+     }
+</style>
+
+
+
+<head>
+    <title></title>
+    <span style="font-family:Verdana;">
+        <a href="https://lucius.valdosta.edu/jawardell/default.html">Home</a> > <a href="default.html">HW 1</a> > jQuery.html
+     </span>
+        <br><br>
+        <h1>Book Order Form</h1><br>
+
+        <table>
+            <tr>
+                <!-- ROW 1-->
+                <td>
+                    <h3><b>Select Books and/or Supply Book title and price</b></h3>
+                </td>
+                <td>
+                    <select multiple="multiple" id="multiselector">
+                        <option value="20" id="Walden Pond">Walden Pond</option>
+                        <option value="15" id="Zen and the Art...">Zen and the Art...</option>
+                        <option value="8" id="The Razor's Edge">The Razor's Edge</option>
+                        <option value="15" id="The Poisonwood Bible">The Poisonwood Bible</option>
+                        <option value="10" id="Wuthering Heights">Wuthering Heights</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <!-- ROW 2-->
+                <td>
+                    <!-- blank-->
+                </td>
+                <td>
+                    Book<input id="booktext" type="text" />
+
+                </td>
+                <td>
+                    Price<input type="text" id="pricetext" />
+                </td>
+            </tr>
+            <tr>
+                <!-- ROW 3-->
+                <td>
+                    <p><b>Options</b></p>
+                </td>
+                <td>
+                    <input name="options" value="10" type="checkbox" id="rushorderCheckBox" />Rush Order
+                </td>
+                <td>
+                    <input name="options" value="5" type="checkbox" id="giftwrapCheckBox" />Gift Wrap
+                </td>
+            </tr>
+            <tr>
+                <!-- ROW 4-->
+                <td>
+                    <p><b>Customer Type</b></p>
+                </td>
+                <td>
+                    <input value="0" name="customerType" type="radio" id="General Customer" />General
+                </td>
+                <td>
+                    <input value=".1" name="customerType" type="radio" id="Government Customer" />Government
+                </td>
+            </tr>
+            <tr>
+                <!-- ROW 5-->
+                <td>
+                    <p><b>Ship To</b></p>
+                </td>
+                <td>
+                    <select id="stateMultiSelector">
+                        <option id="NY" value="5">NY</option>
+                        <option id="CA" value="7">CA</option>
+                        <option id="SC" value="3">SC</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- blank-->
+                </td>
+                <td>
+                    <p>Purchase Details</p>
+                </td>
+            </tr>
+            <tr>
+                <!-- ROW 6-->
+                <td>
+                    <button id="purchaseButton">Purchase</button>
+                </td>
+                <td>
+                    <textarea id="receiptTextArea" style="height: 200px; width: 250px;" ></textarea>
+                </td>
+            </tr>
+        </table>
+</head>
+<body>
+
+</body>
+</html>

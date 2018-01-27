@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="jquery-1.11.2.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btnAge").click(function () {
+                var but = $(this);
+                var butText = but.prop('value');
+                if (butText == "Enter") {
+                    $("#result2").text("You are " + $("#txtAge").prop('value') + " years old");
+                    but.prop('value', 'Reset');
+                }
+                else {
+                    $("#ageStuff").fadeOut(1000);
+                    $("#ageStuff").promise().done(function () {
+                        $("#result2").text("");
+                        $("#txtAge").prop('value', '');
+                        but.prop('value', 'Enter');
+                        $("#ageStuff").fadeIn(1000);
+                        $("#txtAge").focus();
+                    });
+                }
+            });
+        });
+
+        function squareRoot() {
+            var val = window.prompt("Gimme a number", 483);
+            var x = parseFloat(val);
+            var result = Math.sqrt(x);
+            window.alert("The sq.root of " + x + " is " + result.toFixed(3));
+        }
+
+        function greeting() {
+            var name = document.getElementById("txtName");
+            var result = document.getElementById("result");
+            result.innerHTML = "Hi, " + name.value;
+        }
+ </script>
+    <title></title>
+    <link href="siteStyles.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            height: 23px;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://lucius.valdosta.edu/jawardell" style="font-family:Verdana;"><b>Home</b></a><span style="font-family:Verdana; color:#000000;"><b> > Lab 4</b></span>
+    <h2>Lab 4</h2>
+    <p>
+        This is lab 4, <a href="page2.html">page 2</a>.</p>
+    <p class ="special">
+        This is some more stuff.</p>
+
+    <table class="auto-style1">
+        <tr>
+            <td class="header">Artist</td>
+            <td class="header">Album</td>
+        </tr>
+        <tr>
+            <td class="auto-style2">James Taylor</td>
+            <td class="auto-style2">Sweet Baby James</td>
+        </tr>
+    </table>
+
+    <p>
+ <input id="Button1" type="button" value="Press Me" onclick="squareRoot()" />
+</p>
+
+
+    <p>
+ What is your name?
+ <input id="txtName" type="text" />
+ <input id="Button2" type="button" value="Enter" onclick="greeting()" />
+ </p>
+ <p id="result" class="special"></p>
+    <p id="ageStuff">
+ How old are you?
+ <input id="txtAge" type="text" />
+ <input id="btnAge" type="button" value="Enter" />
+ </p>
+ <p id="result2" class="special"></p>
+
+</body>
+</html>

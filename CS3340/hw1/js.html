@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+
+
+
+<script>
+    var total = 0.0;
+    
+    
+    function purchase() {
+        var msg = "";
+        var customBook = document.getElementById("booktext");
+        var customPrice = document.getElementById("pricetext");
+        var bookPrice = document.getElementById("pricetext");
+        var bookList = document.getElementById("multiselector");
+        var rushOrder = document.getElementById("rushorderCheckBox");
+        var giftWrap = document.getElementById("giftwrapCheckBox");
+
+        
+        for(i = 0; i < bookList.length; i++) {
+            if(bookList[i].selected) {
+                msg += "$" + bookList[i].value + ".00 - " + bookList[i].id + "\n";
+                total += parseFloat(bookList[i].value);
+            }
+        }
+        if ((customBook.value != "") && (customPrice.value != "")) { msg += "$ " + customPrice.value + ".00 - " + customBook.value + "\n"; total += parseFloat(customPrice.value); }
+        if(giftWrap.checked) {
+            total += 5.0;
+            msg += "$5.00 - Gift Wrap\n";
+        }
+
+        if(rushOrder.checked) {
+            total += 10.0;
+            msg += "$10.00 - Rush Order\n";
+        }
+        var inhere = false;
+        var govCustomer = document.getElementById("governmentRadioButton");
+        var genCustomer = document.getElementById("generalRadioButton");
+        //which customer type is selected?
+        if(govCustomer.checked) {
+            total -= (total*.1);
+            msg += "Government Customer\n";
+            msg += "Government Discount: $" + (total * .1).toString() + "\n"; inhere = true;
+        } else {
+            msg += "General Customer\n";
+        }
+
+
+        var state = document.getElementById("stateMultiSelector");
+        //which state is selected?
+        for(i = 0; i < state.length; i++) {
+            if(state[i].selected) {
+                total += parseFloat(state[i].value);
+                msg += "Ship to " + state[i].id + ". $" + state[i].value + ".00\n";
+            }
+        }
+        
+        var receiptArea = document.getElementById("receiptTextArea");
+        if (inhere) { receiptArea.value = msg + "\n_______________________\nTotal: $" + total + "0"; }
+        else { receiptArea.value = msg + "\n_______________________\nTotal: $" + total + ".00"; }
+        
+        total = 0;
+    }
+
+
+
+    </script>
+
+    <style>
+         table {
+        font-family: Verdana;
+        margin-right: auto;
+    }
+    h1 {
+        font-family: Verdana;
+    }
+    a {
+        font-family: Verdana;
+    }
+    td {
+        width: 100px;
+        padding: 2%;
+        height: 35px;
+    }
+
+
+
+
+    </style>
+    <html>
+    <head>
+        <title></title>
+        <span style="font-family:Verdana;">
+            <a href="https://lucius.valdosta.edu/jawardell/default.html">Home</a> >
+            <a href="default.html">HW 1</a> > js.html
+        </span>
+            <br>
+            <br>
+            <h1>Book Order Form</h1>
+            <br>
+
+            <table>
+                <tr>
+                    <!-- ROW 1-->
+                    <td>
+                        <h3><b>Select Books and/or Supply Book title and price</b></h3>
+                    </td>
+                    <td>
+                        <select multiple="multiple" id="multiselector">
+                            <option class="books" value="20" id="Walden Pond">Walden Pond</option>
+                            <option class="books" value="15" id="Zen and the Art...">Zen and the Art...</option>
+                            <option class="books" value="8" id="The Razor's Edge">The Razor's Edge</option>
+                            <option class="books" value="15" id="The Poisonwood Bible">The Poisonwood Bible</option>
+                            <option class="books" value="10" id="Wuthering Heights">Wuthering Heights</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ROW 2-->
+                    <td>
+                        <!-- blank-->
+                    </td>
+                    <td>
+                        Book<input type="text" id="booktext" />
+
+                    </td>
+                    <td>
+                        Price<input type="text" id="pricetext" />
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ROW 3-->
+                    <td>
+                        <p><b>Options</b></p>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="rushorderCheckBox" />Rush Order
+                    </td>
+                    <td>
+                        <input type="checkbox" id="giftwrapCheckBox" />Gift Wrap
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ROW 4-->
+                    <td>
+                        <p><b>Customer Type</b></p>
+                    </td>
+                    <td>
+                        <input type="radio" id="generalRadioButton" />General
+                    </td>
+                    <td>
+                        <input type="radio" id="governmentRadioButton" />Government
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ROW 5-->
+                    <td>
+                        <p><b>Ship To</b></p>
+                    </td>
+                    <td>
+                        <select id="stateMultiSelector">
+                            <option id="NY" value="5">NY</option>
+                            <option id="CA" value="7">CA</option>
+                            <option id="SC" value="3">SC</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- blank-->
+                    </td>
+                    <td>
+                        <p>Purchase Details</p>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- ROW 6-->
+                    <td>
+                        <button id="purchaseButton" onclick="purchase()">Purchase</button>
+                    </td>
+                    <td>
+                        <textarea id="receiptTextArea" style="height: 200px; width: 200px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+    </head>
+    <body>
+
+    </body>
+    </html>
