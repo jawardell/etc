@@ -183,23 +183,53 @@ function create_matrices_from_HTML() {
 	double sx = parseFloat(document.getElementById("sx"));
 	double sy = parseFloat(document.getElementById("sy"));
 	double theta = parseFloat(document.getElementById("theta"))
-	S[0][0] = sx;
-	S[1][1] = sy;
-	T[0][2] = tx;
-	T[1][2] = ty;
 	
-	R[0][0] = Math.cos(theta);
-
-
-
 
 
 
 
 	// create and populate T, S and R 
     
+	for(var i = 0; i < S.length; i++) {
+		for(var j = 0; j < 3; j++) {
+			S[i][j] = 0.0;
+		}
+	}
+
+	for(var i = 0; i < T.length; i++) {
+		for(var j = 0; j < 3; j++) {
+			T[i][j] = 0.0;
+		}
+	}
+
+	for(var i = 0; i < R.length; i++) {
+		for(var j = 0; j < 3; j++) {
+			R[i][j] = 0.0;
+		}
+	}
+
+	  
+	S[0][0] = sx;
+	S[1][1] = sy;
+	S[2][2] = 1;
+
+	T[0][2] = tx;
+	T[1][2] = ty;
+	T[0][0] = 1;
+	T[1][1] = 1;
+	T[2][2] = 1;
+	
+	R[0][0] = Math.cos(theta * (Math.PI / 180.0));
+	R[0][1] = -Math.sin(theta * (Math.PI / 180.0));
+	R[1][0] = Math.sin(theta * (Math.PI / 180.0));
+	R[1][1] = Math.cos(theta * (Math.PI / 180.0));
+	R[2][2] = 1.0;
+
+
 
 }
+
+
 
 // this function applies the transformations (R, S and T, in that order)
 // on all vertices stored in g
