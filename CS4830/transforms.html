@@ -238,6 +238,7 @@ function apply_transforms() {
 	
 		
 	//get each vertex from g, per row
+	//then multiply each vertex by rotation matrix
 	for(var row = 0; row < G.length; row++) {
 		var vertex = [];
 		vertex[0] = [];
@@ -256,7 +257,53 @@ function apply_transforms() {
 		G[row][2] = vprime[2][0];
 		
 	}
+	
+	console.log("\nrotation complete\n");
+	
+	for(var i = 0; i < G.length; i++) {
+		var vertex = [];
+		vertex[0] = [];
+		vertex[1] = [];
+		vertex[2] = [];
+		
+		
+		vertex[0][0] = G[row][0];
+		vertex[1][0] = G[row][1];
+		vertex[2][0] = G[row][2];
+		
+		//apply transformation to vertex
+		var vprime = multiply(S, vertex);
+	
+		//overwrite old vertices in G with transformed ones
+		G[row][0] = vprime[0][0];
+		G[row][1] = vprime[1][0]; 
+		G[row][2] = vprime[2][0];
+	}
+	
+	console.log("\nscale complete\n");
 
+	
+	for(var i = 0; i < G.length; i++) {
+		var vertex = [];
+		vertex[0] = [];
+		vertex[1] = [];
+		vertex[2] = [];
+		
+		
+		vertex[0][0] = G[row][0];
+		vertex[1][0] = G[row][1];
+		vertex[2][0] = G[row][2];
+		
+		//apply transformation to vertex
+		var vprime = multiply(T, vertex);
+	
+		//overwrite old vertices in G with transformed ones
+		G[row][0] = vprime[0][0];
+		G[row][1] = vprime[1][0]; 
+		G[row][2] = vprime[2][0];
+	}
+	
+	console.log("\ntranslation complete\n");
 	
 }
 
@@ -287,6 +334,17 @@ function refresh() {
 }
 
 
+function printMatrix(matrix) {
+	for(var i = 0; i < matrix.length; i++) {
+		for(var j = 0; j < matrix[0].length; j++) {
+			if(j == matrix[0].length - 1) {
+				console.log(matrix[i][j] + "\n");
+			} else {
+				console.log(matrix[i][j] + " ");
+			}
+		}
+	}
+}
 
 
 </script>
