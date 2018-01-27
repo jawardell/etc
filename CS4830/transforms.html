@@ -235,6 +235,29 @@ function create_matrices_from_HTML() {
 // on all vertices stored in g
 function apply_transforms() {
 	// for all vertices in g, apply the transformations 
+	
+		
+	//get each vertex from g, per row
+	for(var row = 0; row < G.length; row++) {
+		var vertex = [];
+		vertex[0] = [];
+		vertex[1] = [];
+		vertex[2] = [];
+		vertex[0][0] = G[row][0];
+		vertex[1][0] = G[row][1];
+		vertex[2][0] = G[row][2];
+		
+		//apply transformation to vertex
+		var vprime = multiply(R, vertex);
+	
+		//overwrite old vertices in G with transformed ones
+		G[row][0] = vprime[0][0];
+		G[row][1] = vprime[1][0]; 
+		G[row][2] = vprime[2][0];
+		
+	}
+
+	
 }
 
 
