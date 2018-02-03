@@ -38,10 +38,17 @@
 
     var image;
 
+	var allLoaded;
+	
+	var frameNumber;
 
+	var startTime;
+	
+	var grid;
+	
+	
     function draw() {
 		frameNumber ++;
-	
         graphics.clearRect(0,0,canvas.width,canvas.height);  // Clear the canvas, so it shows its background color.
     } // end of draw()
     
@@ -71,6 +78,8 @@
         elapsedTimeMillis = Date.now() - startTime;
 
 		// GAME LOGIC here
+		graphics.rect(100,100,15,15);
+		graphics.stroke();
 	
         draw();
 
@@ -93,6 +102,15 @@
         try {
             canvas = document.getElementById("canvas");
             graphics = canvas.getContext("2d");
+			console.log(canvas.height);
+			console.log(canvas.width);
+			grid = [];
+			for(var i = 0; i < 600; i++) grid[i] = [];
+			for(var i = 0; i < 600; i++) for(var j = 0; j < 600; j++) grid[i][j] = 0;
+			for(var i = 0; i < 600; i++) for(var j = 0; j < 600; j++) console.log(grid[i][j]);
+			
+			graphics.rect(500,500,15,15);
+			graphics.stroke();
         } catch(e) {
             document.getElementById("canvasholder").innerHTML =
                "Canvas graphics is not supported.<br>" +
