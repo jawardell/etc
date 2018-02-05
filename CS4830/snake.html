@@ -28,6 +28,10 @@
 </style>
 <script>
 
+
+	var x_coord = 100;
+	var y_coord = 100;
+
     "use strict";  // gives improved error-checking in scripts.
 
     var canvas;    // The canvas element on which we will draw.
@@ -38,6 +42,8 @@
 
     var image;
 
+	var drawFrame = false;
+	
 	var allLoaded;
 	
 	var frameNumber;
@@ -49,7 +55,7 @@
 	
     function draw() {
 		frameNumber ++;
-        graphics.clearRect(0,0,canvas.width,canvas.height);  // Clear the canvas, so it shows its background color.
+        //graphics.clearRect(0,0,canvas.width,canvas.height);  // Clear the canvas, so it shows its background color.
     } // end of draw()
     
     
@@ -74,12 +80,48 @@
      *  for the function to be called again.
      */
     function doFrame() {
+		console.log("we are here");
+		x_coord += 0;
+		y_coord += 10;
+		
+		
+		graphics.clearRect(x_coord, y_coord-10,15,15);
+		graphics.rect(x_coord, y_coord,15,15);
+		graphics.stroke();
+		
         frameNumber++;
         elapsedTimeMillis = Date.now() - startTime;
+		
+		if(elapsedTimeMillis > 15) {
+			
+		
+			startTime = Date.now();
+			draw();
+			
+			if(drawFrame) {
+			
+				//graphics.rect(x_coord*20, y_coord*20, 15, 15);
+				//graphics.stroke();
+				//x_coord += 10;
+				//y_coord += 0;
+				drawFrame = false;
+				
+			} else {
+				drawFrame = true;
+			}
+			
+		
+		} else {
+		
+		}
+		
+		
 
 		// GAME LOGIC here
-		graphics.rect(100,100,15,15);
-		graphics.stroke();
+		x_coord += 0;
+		y_coord += 10;
+		
+		
 	
         draw();
 
@@ -99,12 +141,38 @@
 	// keyboard handler initialized
 	// game loop is setup
     function init() {
-//        try {
+        try {
             canvas = document.getElementById("canvas");
             graphics = canvas.getContext("2d");
+		
+			
+			
+        } catch(e) {
+            document.getElementById("canvasholder").innerHTML =
+               "Canvas graphics is not supported.<br>" +
+               "An error occurred while initializing graphics."
+	    		+ e.message;
+	          }
+
+		image = new Image(60, 45);   // using optional size for image
+		// load an image of intrinsic size 300x227 in CSS pixels
+		image.src = 'https://openclipart.org/image/2400px/svg_to_png/243661/1457652300.png';
+		image.onload = imageLoaded();
+		while(!allLoaded) { } // very risky 
+		
+		
+		
+		
+		graphics.rect(100,100,15,15);
+		graphics.stroke();
+		
+
+		// GAME INIT 
+
 			var rows = canvas.height;
 			var cols = canvas.width;
 			grid = [];
+			/*
 			for(var i = 0; i < rows; i++) grid[i] = [];
 			for(var i = 0; i < rows; i++) {
 				for(var j = 0; j < cols; j++) {
@@ -116,25 +184,7 @@
 					console.log(grid[i][j]);
 				}
 			}
-			
-					
-			
-			graphics.rect(500,500,15,15);
-			graphics.stroke();
-  //      } catch(e) {
-  //          document.getElementById("canvasholder").innerHTML =
-  //             "Canvas graphics is not supported.<br>" +
-  //             "An error occurred while initializing graphics."
-	    //		+ e.message;
-	    //      }
-
-		image = new Image(60, 45);   // using optional size for image
-		// load an image of intrinsic size 300x227 in CSS pixels
-		image.src = 'https://openclipart.org/image/2400px/svg_to_png/243661/1457652300.png';
-		image.onload = imageLoaded();
-		while(!allLoaded) { } // very risky 
-
-		// GAME INIT 
+			*/
 
 		// handle keyboard
         document.addEventListener("keydown", doKeyDown, false);
