@@ -29,6 +29,8 @@
 <script>
 
 
+	var direction = 40;
+
 	var x_coord = 100;
 	var y_coord = 100;
 
@@ -62,18 +64,25 @@
 
     function doKeyDown(evt) {
         var code = evt.keyCode;  // Numerical code for key that was pressed.
+		console.log("woo!! we did it key event!");
         switch (code) {
 		case 37:  // left arrow key
+			direction = 37;
 		    break;
 		case 39:  // right arrow key
+			direction = 39;
 		    break;
 		case 38:  // up arrow key
+			direction = 38;
 		    break;
 		case 40:  // down arrow key
+			direction = 40;
 		    break;
         }
     }
     
+	
+	
 
     /**
      *  Draw one frame of the animation, and call requestAnimationFrame() to arrange
@@ -81,11 +90,26 @@
      */
     function doFrame() {
 		console.log("we are here");
-		x_coord += 0;
-		y_coord += 10;
 		
 		
-		graphics.clearRect(x_coord, y_coord-10,15,15);
+		
+		if(direction == 40) {
+			y_coord += 20;
+		}
+		
+		if(direction == 37) {
+			x_coord -= 20;
+		}
+		
+		if(direction == 39) {
+			x_coord += 20;
+		}
+		
+		if(direction == 38) {
+			y_coord -= 20;
+		}
+		
+		//graphics.clearRect(x_coord, y_coord-10,15,15);
 		graphics.rect(x_coord, y_coord,15,15);
 		graphics.stroke();
 		
@@ -94,7 +118,6 @@
 		
 		if(elapsedTimeMillis > 15) {
 			
-		
 			startTime = Date.now();
 			draw();
 			
@@ -107,12 +130,13 @@
 				drawFrame = false;
 				
 			} else {
+				draw();
 				drawFrame = true;
 			}
 			
 		
 		} else {
-		
+			console.log("we ended up in else on line 139");
 		}
 		
 		
