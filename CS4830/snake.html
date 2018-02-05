@@ -99,20 +99,20 @@
 	// keyboard handler initialized
 	// game loop is setup
     function init() {
-        try {
+//        try {
             canvas = document.getElementById("canvas");
             graphics = canvas.getContext("2d");
-			console.log(canvas.height);
-			console.log(canvas.width);
+			var rows = canvas.height;
+			var cols = canvas.width;
 			grid = [];
-			for(var i = 0; i < 600; i++) grid[i] = [];
-			for(var i = 0; i < 600; i++) {
-				for(var j = 0; j < 600; j++) {
+			for(var i = 0; i < rows; i++) grid[i] = [];
+			for(var i = 0; i < rows; i++) {
+				for(var j = 0; j < cols; j++) {
 					grid[i][j] = 0;
 				}
 			}  
-			for(var i = 0; i < 600; i++) {
-				for(var j = 0; j < 600; j++) {
+			for(var i = 0; i < rows; i++) {
+				for(var j = 0; j < cols; j++) {
 					console.log(grid[i][j]);
 				}
 			}
@@ -121,11 +121,12 @@
 			
 			graphics.rect(500,500,15,15);
 			graphics.stroke();
-        } catch(e) {
-            document.getElementById("canvasholder").innerHTML =
-               "Canvas graphics is not supported.<br>" +
-               "An error occurred while initializing graphics.";
-        }
+  //      } catch(e) {
+  //          document.getElementById("canvasholder").innerHTML =
+  //             "Canvas graphics is not supported.<br>" +
+  //             "An error occurred while initializing graphics."
+	    //		+ e.message;
+	    //      }
 
 		image = new Image(60, 45);   // using optional size for image
 		// load an image of intrinsic size 300x227 in CSS pixels
