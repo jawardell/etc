@@ -57,7 +57,7 @@
 	
     function draw() {
 		frameNumber ++;
-        //graphics.clearRect(0,0,canvas.width,canvas.height);  // Clear the canvas, so it shows its background color.
+        graphics.clearRect(0,0,canvas.width,canvas.height);  // Clear the canvas, so it shows its background color.
     } // end of draw()
     
     
@@ -89,6 +89,11 @@
      *  for the function to be called again.
      */
     function doFrame() {
+		
+		
+		
+
+		// GAME LOGIC here
 		console.log("we are here");
 		
 		
@@ -116,7 +121,7 @@
         frameNumber++;
         elapsedTimeMillis = Date.now() - startTime;
 		
-		if(elapsedTimeMillis > 15) {
+		if(elapsedTimeMillis >= 2000) {
 			
 			startTime = Date.now();
 			draw();
@@ -140,14 +145,8 @@
 		}
 		
 		
-
-		// GAME LOGIC here
-		x_coord += 0;
-		y_coord += 10;
-		
-		
 	
-        draw();
+        //draw();
 
         requestAnimationFrame(doFrame);
     }
