@@ -9,7 +9,7 @@
 -->
 <head>
 <meta charset="UTF-8">
-<title>turbo snake</title><br>
+<title>dankery~`*/</title><br>
 score
 <p id="score"></p>
 <p id="report"></p>
@@ -143,31 +143,40 @@ score
 
 		// GAME LOGIC here
 		
-		console.log("we are here");
+		//console.log("we are here");
 		console.log("xcoord = " + x_coord);
 		console.log("ycoord = " + y_coord);
+		console.log("grid xcoord = " + parseInt(x_coord/40));
+		console.log("grid ycoord = " + parseInt(y_coord/30));
+		
+		print_grid(grid);
 		
 		
+		grid[parseInt(x_coord/30)][parseInt(y_coord/40)] = "*";
 		
 		if(direction == 40) {
-			y_coord += 20;
-			graphics.clearRect(x_coord, y_coord-20, 15, 15);
+			y_coord += 7;
+			graphics.clearRect(x_coord, y_coord-7, 15, 15);
+			grid[parseInt(x_coord/30)][parseInt((y_coord-7)/40)] = "0";
 		}
 		
 		
 		if(direction == 37) {
-			x_coord -= 20;
-			graphics.clearRect(x_coord+20, y_coord, 15, 15);
+			x_coord -= 7;
+			graphics.clearRect(x_coord+7, y_coord, 15, 15);
+			grid[parseInt((x_coord+7)/30)][parseInt(y_coord/40)] = "0";
 		}
 		
 		if(direction == 39) {
-			x_coord += 20;
-			graphics.clearRect(x_coord-20, y_coord, 15, 15);
+			x_coord += 7;
+			graphics.clearRect(x_coord-7, y_coord, 15, 15);
+			grid[parseInt((x_coord-7)/30)][parseInt(y_coord/40)] = "0";
 		}
 		
 		if(direction == 38) {
-			y_coord -= 20;
-			graphics.clearRect(x_coord, y_coord+20, 15, 15);
+			y_coord -= 7;
+			graphics.clearRect(x_coord, y_coord+7, 15, 15);
+			grid[parseInt(x_coord/30)][parseInt((y_coord+7)/40)] = "0";
 		}
 
 
@@ -200,16 +209,12 @@ score
 		
 		
 		//if(grid[parseInt(x_coord/30)][parseInt(y_coord/40)] == "*") {
-		//	console.log("you ran into yourself. exiting now.");
-		//	return;
+			//console.log("you ran into yourself. exiting now.");
+			//return;
 		//} else {
 			grid[parseInt(x_coord/30)][parseInt(y_coord/40)] = "*";
-
 			graphics.fillStyle =  "#000000";
 			graphics.fillRect(x_coord,y_coord, 15,15);
-		
-	
-		
 		//}
 		
 		//graphics.clearRect(x_coord, y_coord-10,15,15);
@@ -250,7 +255,7 @@ score
 		console.log("we loaded the image");
 		allLoaded = true;
     }
-
+	
 
 
 	// this function gets called when HTML page loads
@@ -323,12 +328,30 @@ score
         }
         requestAnimationFrame(doFrame);
     }
+	
+	
+	
+	
+	
+	function print_grid(grid) {
+		res = "";
+		for(var i = 0; i < grid.length; i++) {
+			for(var j = 0; j < grid[0].length; j++) {
+				if(j == grid[0].length-1) {
+					res += grid[i][j] + "\n";
+				} else {
+					res += grid[i][j];
+				}
+			}
+		}
+		console.log(res);
+	}
     
 </script>
 </head>
 <body onload="init()"> <!-- the onload attribute here is what calls the init() function -->
 
-<h2>Turbo Snake</h2>
+<h2>Dank Ant</h2>
 <p id='score'></p>
 <noscript>
     <!-- This message will be shown in the page if JavaScript is not available. -->
