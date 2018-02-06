@@ -9,7 +9,10 @@
 -->
 <head>
 <meta charset="UTF-8">
-<title>Snake</title>
+<title>Snake</title><br>
+score
+<p id="score"></p>
+<p id="report"></p>
 <style>
     /* This style section is here to make the canvas more obvious on the
        page.  It is white on a light gray page background, with a thin
@@ -27,8 +30,10 @@
     }
 </style>
 <script>
+	var score = 0; 
 
-
+	var food_x;
+	var food_y;
 
 	var direction = 40;
 
@@ -112,22 +117,26 @@
 		
 		if(x_coord >= canvas.width) {
 			console.log("woah, x went too far, stopping");
+			document.getElementById("report").innerHTML = "game over";
 			return;
 		}
 		
 		if(x_coord == 0) {
 			console.log("woah, x went too far, stopping");
+			document.getElementById("report").innerHTML = "game over";
 			return;
 		}
 		
 		
 		if(y_coord == 0) {
 			console.log("woah, y went too far, stopping");
+			document.getElementById("report").innerHTML = "game over";
 			return;
 		}
 		
 		if(y_coord >= canvas.width) {
 			console.log("woah, y went too far, stopping");
+			document.getElementById("report").innerHTML = "game over";
 			return;
 		}
 		
@@ -164,7 +173,28 @@
 
 		if(grid[parseInt(x_coord/30)][parseInt(y_coord/40)] == "F") {
 			console.log("you landed on food");
+			score += 1;
+			document.getElementById("score").innerHTML = score;
+			graphics.clearRect(food_x, food_y, 15, 15);
 		
+			food_x = parseInt(Math.random()*801);
+			console.log("food x = " + food_x);
+			food_y = parseInt(Math.random()*601);
+			console.log("food y = " + food_y);	
+			grid[parseInt(food_x/30)][parseInt(food_y/40)] = 0;
+			//graphics.drawImage(image,food_x,food_y);
+			graphics.fillStyle =  "#FF0000";
+			graphics.fillRect(food_x,food_y, 15,15);
+		
+			
+		
+		
+			
+			
+			console.log("food_x/30 " + food_x/30);
+			console.log("food_y/40 " + food_y/40);
+
+			grid[parseInt(food_x/30)][parseInt(food_y/40)] = "F";
 		}
 
 		
@@ -253,9 +283,9 @@
 		
 
 		// GAME INIT 
-			var food_x = parseInt(Math.random()*801);
+			food_x = parseInt(Math.random()*801);
 			console.log("food x = " + food_x);
-			var food_y = parseInt(Math.random()*601);
+			food_y = parseInt(Math.random()*601);
 			console.log("food y = " + food_y);
 			
 			//graphics.drawImage(image,food_x,food_y);
