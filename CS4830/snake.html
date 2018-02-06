@@ -151,6 +151,9 @@
 			y_coord -= 20;
 		}
 		
+		grid[x_coord][y_coord] = "*";
+		
+		
 		//graphics.clearRect(x_coord, y_coord-10,15,15);
 		graphics.rect(x_coord, y_coord,15,15);
 		graphics.stroke();
@@ -237,12 +240,13 @@
 			//graphics.drawImage(image,food_x,food_y);
 			graphics.fillStyle =  "#FF0000";
 			graphics.fillRect(food_x,food_y, 15,15);
+			grid[food_x][food_y] = "F";
 			//graphics.stroke();
 			
 		
 			var rows = 30;
 			var cols = 40;
-		/*
+		
 			for(var i = 0; i < rows; i++) {
 				grid[i] = [];
 			}
@@ -253,7 +257,7 @@
 					grid[i][j] = 0.0;
 				}
 			}
-			*/
+		
 			
 			console.log("grid complete.");
 			
