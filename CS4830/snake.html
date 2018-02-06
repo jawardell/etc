@@ -34,6 +34,8 @@
 	var x_coord = 100;
 	var y_coord = 100;
 
+	var dir_log = []; dir_log[0] = 40; dir_log[1] = 0;
+	
     "use strict";  // gives improved error-checking in scripts.
 
     var canvas;    // The canvas element on which we will draw.
@@ -56,6 +58,7 @@
 	
 	
     function draw() {
+		
 		frameNumber ++;
         graphics.clearRect(0,0,canvas.width,canvas.height);  // Clear the canvas, so it shows its background color.
     } // end of draw()
@@ -91,10 +94,46 @@
     function doFrame() {
 		
 		
+		if(x_coord >= canvas.width) {
+			console.log("woah, x went too far, stopping");
+			return;
+		}
+		
+		if(x_coord == 0) {
+			console.log("woah, x went too far, stopping");
+			return;
+		}
+		
+		
+		if(y_coord == 0) {
+			console.log("woah, y went too far, stopping");
+			return;
+		}
+		
+		if(y_coord >= canvas.width) {
+			console.log("woah, y went too far, stopping");
+			return;
+		}
 		
 
 		// GAME LOGIC here
+		
+		
+		var food_x = parseInt(Math.random()*801);
+		var food_y = parseInt(Math.random()*601);
+		graphics.drawImage(image, 15,15);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		console.log("we are here");
+		console.log("xcoord = " + x_coord);
+		console.log("ycoord = " + y_coord);
 		
 		
 		
@@ -192,22 +231,23 @@
 
 		// GAME INIT 
 
-			var rows = canvas.height;
-			var cols = canvas.width;
-			grid = [];
-			/*
-			for(var i = 0; i < rows; i++) grid[i] = [];
+		
+			var rows = 30;
+			var cols = 40;
+		
+			for(var i = 0; i < rows; i++) {
+				grid[i] = [];
+			}
+			
+			
 			for(var i = 0; i < rows; i++) {
 				for(var j = 0; j < cols; j++) {
-					grid[i][j] = 0;
-				}
-			}  
-			for(var i = 0; i < rows; i++) {
-				for(var j = 0; j < cols; j++) {
-					console.log(grid[i][j]);
+					grid[i][j] = 0.0;
 				}
 			}
-			*/
+			
+			
+			
 
 		// handle keyboard
         document.addEventListener("keydown", doKeyDown, false);
