@@ -152,28 +152,29 @@ score
 		print_grid(grid);
 		
 		
-		grid[parseInt(x_coord/30)][parseInt(y_coord/40)] = "*";
+		//grid[parseInt(x_coord/30)][parseInt(y_coord/40)] = "*";rest of snake
+		grid[parseInt(x_coord/30)][parseInt(y_coord/40)] = "H";
 		
-		if(direction == 40) {
+		if(direction == 40) {//down
 			y_coord += 7;
 			graphics.clearRect(x_coord, y_coord-7, 15, 15);
 			grid[parseInt(x_coord/30)][parseInt((y_coord-7)/40)] = "0";
 		}
 		
 		
-		if(direction == 37) {
+		if(direction == 37) {//left
 			x_coord -= 7;
 			graphics.clearRect(x_coord+7, y_coord, 15, 15);
 			grid[parseInt((x_coord+7)/30)][parseInt(y_coord/40)] = "0";
 		}
 		
-		if(direction == 39) {
+		if(direction == 39) {//right
 			x_coord += 7;
 			graphics.clearRect(x_coord-7, y_coord, 15, 15);
 			grid[parseInt((x_coord-7)/30)][parseInt(y_coord/40)] = "0";
 		}
 		
-		if(direction == 38) {
+		if(direction == 38) {//up
 			y_coord -= 7;
 			graphics.clearRect(x_coord, y_coord+7, 15, 15);
 			grid[parseInt(x_coord/30)][parseInt((y_coord+7)/40)] = "0";
@@ -212,7 +213,7 @@ score
 			//console.log("you ran into yourself. exiting now.");
 			//return;
 		//} else {
-			grid[parseInt(x_coord/30)][parseInt(y_coord/40)] = "*";
+			grid[parseInt(x_coord/30)][parseInt(y_coord/40)] = "H";
 			graphics.fillStyle =  "#000000";
 			graphics.fillRect(x_coord,y_coord, 15,15);
 		//}
