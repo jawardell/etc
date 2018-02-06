@@ -54,7 +54,7 @@
 
 	var startTime;
 	
-	var grid;
+	var grid = [];
 	
 	
     function draw() {
@@ -119,9 +119,7 @@
 		// GAME LOGIC here
 		
 		
-		var food_x = parseInt(Math.random()*801);
-		var food_y = parseInt(Math.random()*601);
-		graphics.drawImage(image, 15,15);
+		
 		
 		
 		
@@ -192,6 +190,7 @@
     
 
     function imageLoaded() {
+		console.log("we loaded the image");
 		allLoaded = true;
     }
 
@@ -216,11 +215,11 @@
 	    		+ e.message;
 	          }
 
-		image = new Image(60, 45);   // using optional size for image
+		image = new Image(15, 15);   // using optional size for image
 		// load an image of intrinsic size 300x227 in CSS pixels
 		image.src = 'https://openclipart.org/image/2400px/svg_to_png/243661/1457652300.png';
 		image.onload = imageLoaded();
-		while(!allLoaded) { } // very risky 
+		while(!allLoaded) { console.log("loading image......"); } // very risky 
 		
 		
 		
@@ -230,11 +229,20 @@
 		
 
 		// GAME INIT 
-
+			var food_x = parseInt(Math.random()*801);
+			console.log("food x = " + food_x);
+			var food_y = parseInt(Math.random()*601);
+			console.log("food y = " + food_y);
+			
+			//graphics.drawImage(image,food_x,food_y);
+			graphics.fillStyle =  "#FF0000";
+			graphics.fillRect(food_x,food_y, 15,15);
+			//graphics.stroke();
+			
 		
 			var rows = 30;
 			var cols = 40;
-		
+		/*
 			for(var i = 0; i < rows; i++) {
 				grid[i] = [];
 			}
@@ -245,7 +253,9 @@
 					grid[i][j] = 0.0;
 				}
 			}
+			*/
 			
+			console.log("grid complete.");
 			
 			
 
@@ -255,7 +265,7 @@
         frameNumber = 0;
         elapsedTimeMillis = 0;
         startTime = Date.now();  // current time, in milliseconds.
-        draw();  // Call draw() to draw on the canvas.
+        //draw();  // Call draw() to draw on the canvas.
         if (!window.requestAnimationFrame) { // This is for Internet Explorer 9
             window.requestAnimationFrame = function(callback) {
                 setTimeout(callback, 1000/60);    
