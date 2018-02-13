@@ -8,7 +8,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		try {
+			System.out.print("woo?1");
 			init();
+			System.out.print("woo?2");
 		} catch(Exception e) {
 			System.out.print("\nwe threw an exception.\n\texiting gracefully..");
 		}
@@ -64,11 +66,22 @@ public class Main {
 	
 
 	public static void parseMatrices(int[][] mat1, int[][] mat2) throws Exception {
-		File file = new File("file");
+		File file = null;
+		try {
+			file = new File("C:/Users/jawardell_admin/Desktop/joanne/code/etc/threading/file.txt");
+		} catch(Exception e) {
+			System.out.print("\ndafuq\n");
+			
+		}
+		System.out.print("woo?3");
 		Scanner scanner = new Scanner(file);
+		System.out.print("woo?4");
 		mat1 = new int[scanner.nextInt()][scanner.nextInt()];
+		System.out.print("woo?5");
 		mat2 = new int[scanner.nextInt()][scanner.nextInt()];
+		System.out.print("woo?6");
 		if(mat1[0].length != mat2.length) {
+			System.out.print("woo?7");
 			throw new Exception("\n\tthe matrices are not conformable\n");
 		}
 		int row = 0;
