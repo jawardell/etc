@@ -8,9 +8,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		try {
-			System.out.print("woo?1");
 			init();
-			System.out.print("woo?2");
 		} catch(Exception e) {
 			System.out.print("\nwe threw an exception.\n\texiting gracefully..");
 		}
@@ -70,35 +68,36 @@ public class Main {
 		try {
 			file = new File("C:/Users/jawardell_admin/Desktop/joanne/code/etc/threading/file.txt");
 		} catch(Exception e) {
-			System.out.print("\ndafuq\n");
-			
+			System.out.print("\n\n\tthe file was not found. please check the path...\ntry again please.");
 		}
-		System.out.print("woo?3");
 		Scanner scanner = new Scanner(file);
-		System.out.print("woo?4");
 		mat1 = new int[scanner.nextInt()][scanner.nextInt()];
-		System.out.print("woo?5");
 		mat2 = new int[scanner.nextInt()][scanner.nextInt()];
-		System.out.print("woo?6");
+		System.out.print(mat1[0].length + "\n");
+		System.out.print(mat2.length + "\n");
 		if(mat1[0].length != mat2.length) {
-			System.out.print("woo?7");
 			throw new Exception("\n\tthe matrices are not conformable\n");
-		}
+		} 
 		int row = 0;
+		scanner.nextLine();
+		scanner.nextLine();
 		for(int i = 0; i < mat1.length; i++) {
-			String[] array = scanner.nextLine().split(" ");
+			String[] array = scanner.nextLine().split("  ");
 			int[] nums = new int[array.length];
 			for(int j = 0; j < array.length; j++) {
 				mat1[row][j] = Integer.parseInt(array[j]);
 			}
+			
 			row++;
 		}
 		row = 0;
+		scanner.nextLine();
+		scanner.nextLine();
 		for(int i = 0; i < mat2.length; i++) {
-			String[] array = scanner.nextLine().split(" ");
+			String[] array = scanner.nextLine().split("  ");
 			int[] nums = new int[array.length];
 			for(int j = 0; j < array.length; j++) {
-				mat1[row][j] = Integer.parseInt(array[j]);
+				mat2[row][j] = Integer.parseInt(array[j]);
 			}
 			row++;
 		}
