@@ -3,23 +3,15 @@ import java.io.*;
 import java.util.concurrent.*;
 
 public class Main {
-	public static int[][] mat1;
-	public static int[][] mat2;
-	public static int[][] finmat;
+	public static int[][] mat1, mat2, finmat;
 	
 	
 	public static void main(String[] args) {
-		
 		try {
 			init();
-			
-			
 		} catch(Exception e) {
 			System.out.print("\nwe threw an exception.\n\texiting gracefully..");
-			
 		}
-		
-		
 	}		
 	
 	
