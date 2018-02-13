@@ -92,7 +92,7 @@ public class Main() {
 		}
 		int row = 0;
 		for(int i = 0; i < mat1.length; i++) {
-			char array = scanner.nextLine().split(" ");
+			char[] array = scanner.nextLine().split(" ");
 			int nums = new int[array.length];
 			for(int i = 0; i < array.length; i++) {
 				mat1[row][i] = Character.getNumericValue(array[i]);
