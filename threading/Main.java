@@ -12,6 +12,8 @@ public class Main {
 		} catch(Exception e) {
 			System.out.print("\nwe threw an exception.\n\texiting gracefully..");
 		}
+      
+      printsoln();
 	}		
 	
 	
@@ -23,8 +25,9 @@ public class Main {
 			for(int i = 0; i < mat1.length; i++) {
 				Matrix matrix = new Matrix(mat1);
 				executor.execute(new Task(matrix.getRow(i), mat2, i));
-				while(!executor.isTerminated()) {}
 			}
+         executor.shutdown();
+         while(!executor.isTerminated()) { /*wait for each thread to complete*/ }
 	}
 	
 	
@@ -32,7 +35,7 @@ public class Main {
 	public static int[][] mult() {
 		int[][] mat3 = new int[mat1.length][mat2[0].length];
 		
-		boolean areConformable = mat1[0].length == mat1.length;
+		boolean areConformable = mat1[0].length == mat2.length;
 		
 		if(areConformable) {
 			for(int x = 0; x < mat1.length; x++) {
@@ -73,8 +76,6 @@ public class Main {
 		Scanner scanner = new Scanner(file);
 		mat1 = new int[scanner.nextInt()][scanner.nextInt()];
 		mat2 = new int[scanner.nextInt()][scanner.nextInt()];
-		System.out.print(mat1[0].length + "\n");
-		System.out.print(mat2.length + "\n");
 		if(mat1[0].length != mat2.length) {
 			throw new Exception("\n\tthe matrices are not conformable\n");
 		} 
@@ -101,6 +102,7 @@ public class Main {
 			row++;
 		}
 		scanner.close();
+      finmat = new int[mat1.length][mat2[0].length];
 	}
 
 
@@ -168,10 +170,26 @@ public class Main {
 		public int[][] getRow(int rowInd) {
 			int[][] res = new int[1][numCols];
 			for(int i = 0; i < numCols; i++) {
-				res[rowInd][i] = data[rowInd][i];
+				res[0][i] = data[rowInd][i];
 			}
 			return res;
 		}
 		
 	}
+   
+   
+   public static void printsoln() {
+      System.out.print("\nthank you for using my program!\n");
+      System.out.print("\nthe following is the solution matrix:\n");
+      for(int i = 0; i < finmat.length; i++) {
+         for(int j = 0; j < finmat[0].length; j++) {
+            if(j == finmat[0].length - 1) {
+               System.out.print(finmat[i][j] + "\n");
+            } else {
+               System.out.print(finmat[i][j] + " ");
+            }
+         }
+      }
+   
+   }
 }
