@@ -9,7 +9,17 @@ public class Main() {
 	
 	public static void Main(String[] args) {
 		
+		try {
+			init();
+		} catch(Exception e) {
+			System.out.print("\nwe threw an exception.\n\texiting gracefully..");
+			
+		}
 		
+		
+	}		
+	
+	public static void init() throws Exception {
 		parseMatrices(mat1, mat2);
 		
 		ExecutorService executor = Executors.newFixedThreadPool(mat1.length);
@@ -19,9 +29,7 @@ public class Main() {
 			while(!executor.isTerminated()) {}
 		}
 		
-	}		
-	
-	
+	}
 	
 	
 	public static int[][] mult(int[][] mat1, int[][] mat2) {
