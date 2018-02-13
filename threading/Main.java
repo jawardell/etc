@@ -16,7 +16,7 @@ public class Main {
 	
 	
 	public static void init() throws Exception {
-			parseMatrices(mat1, mat2);
+			parseMatrices();
 		
 			ExecutorService executor = Executors.newFixedThreadPool(mat1.length);
 			
@@ -29,7 +29,7 @@ public class Main {
 	
 	
 	
-	public static int[][] mult(int[][] mat1, int[][] mat2) {
+	public static int[][] mult() {
 		int[][] mat3 = new int[mat1.length][mat2[0].length];
 		
 		boolean areConformable = mat1[0].length == mat1.length;
@@ -63,10 +63,10 @@ public class Main {
 	
 	
 
-	public static void parseMatrices(int[][] mat1, int[][] mat2) throws Exception {
+	public static void parseMatrices() throws Exception {
 		File file = null;
 		try {
-			file = new File("C:/Users/jawardell_admin/Desktop/joanne/code/etc/threading/file.txt");
+			file = new File("C:/Users/jawardell_admin/etc/threading/file.txt");
 		} catch(Exception e) {
 			System.out.print("\n\n\tthe file was not found. please check the path...\ntry again please.");
 		}
@@ -91,7 +91,6 @@ public class Main {
 			row++;
 		}
 		row = 0;
-		scanner.nextLine();
 		scanner.nextLine();
 		for(int i = 0; i < mat2.length; i++) {
 			String[] array = scanner.nextLine().split("  ");
@@ -129,7 +128,7 @@ public class Main {
 		}
 	
 		public void run() {
-			int[][] resRow = mult(A,B);
+			int[][] resRow = mult();
 			for(int i = 0; i < resRow.length; i++) {
 				finmat[id][i] = resRow[0][i];
 			}
