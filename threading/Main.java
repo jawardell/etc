@@ -15,8 +15,8 @@ public class Main() {
 		ExecutorService executor = Executors.newFixedThreadPool(mat1.length);
 		
 		for(int i = 0; i < mat1.length; i++) {
-			executor.execute(new Task())
-			
+			executor.execute(new Task(mat1[i], mat2, i));
+			while(!executor.isTerminated()) {}
 		}
 		
 	}		
@@ -113,7 +113,11 @@ public class Main() {
 	
 		public void run() {
 			try {
-				System.out.print(mult(A,B));
+				int[][] resRow = mult(A,B);
+				for(int i = 0; i < resRow.length; i++) {
+					finMat[id][i] = resRow[i];
+				}
+				System.out.print("\nthread " + id + " successfully ran.\n");
 			} catch(InterruptedException e) {
 				System.out.print("\n\tthe thread was interrupted.\n");
 			}
