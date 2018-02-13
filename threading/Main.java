@@ -1,13 +1,14 @@
 import java.util.*;
 import java.io.*;
 
-public class Main() {
+
+public class Main {
 	public static int[][] mat1;
 	public static int[][] mat2;
 	public static int[][] finmat;
 	
 	
-	public static void Main(String[] args) {
+	public static void main(String[] args) {
 		
 		try {
 			init();
@@ -66,7 +67,7 @@ public class Main() {
 	
 	
 
-	public static void parseMatrices(mat1, mat2) throws Exception {
+	public static void parseMatrices(int[][] mat1, int[][] mat2) throws Exception {
 		File file = new File("file");
 		Scanner scanner = new Scanner(file);
 		mat1 = new int[scanner.nextInt()][scanner.nextInt()];
