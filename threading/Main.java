@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-
+import java.util.concurrent.*;
 
 public class Main {
 	public static int[][] mat1;
@@ -12,6 +12,8 @@ public class Main {
 		
 		try {
 			init();
+			
+			
 		} catch(Exception e) {
 			System.out.print("\nwe threw an exception.\n\texiting gracefully..");
 			
@@ -20,17 +22,19 @@ public class Main {
 		
 	}		
 	
+	
 	public static void init() throws Exception {
-		parseMatrices(mat1, mat2);
+			parseMatrices(mat1, mat2);
 		
-		ExecutorService executor = Executors.newFixedThreadPool(mat1.length);
-		
-		for(int i = 0; i < mat1.length; i++) {
-			executor.execute(new Task(mat1[i], mat2, i));
-			while(!executor.isTerminated()) {}
-		}
-		
+			ExecutorService executor = Executors.newFixedThreadPool(mat1.length);
+			
+			for(int i = 0; i < mat1.length; i++) {
+				Matrix matrix = new Matrix(mat1);
+				executor.execute(new Task(matrix.getRow(i), mat2, i));
+				while(!executor.isTerminated()) {}
+			}
 	}
+	
 	
 	
 	public static int[][] mult(int[][] mat1, int[][] mat2) {
@@ -39,9 +43,9 @@ public class Main {
 		boolean areConformable = mat1[0].length == mat1.length;
 		
 		if(areConformable) {
-			for(int x = 0; x < mat.length; x++) {
+			for(int x = 0; x < mat1.length; x++) {
 				for(int y = 0; y < mat2[0].length; y++) {
-					for(int z = 0; z < mat2[0].length; z++) {
+					for(int z = 0; z < mat1[0].length; z++) {
 						mat3[x][y] += mat1[x][z] * mat2[z][y];
 					}
 					
@@ -77,19 +81,19 @@ public class Main {
 		}
 		int row = 0;
 		for(int i = 0; i < mat1.length; i++) {
-			char[] array = scanner.nextLine().split(" ");
-			int nums = new int[array.length];
-			for(int i = 0; i < array.length; i++) {
-				mat1[row][i] = Character.getNumericValue(array[i]);
+			String[] array = scanner.nextLine().split(" ");
+			int[] nums = new int[array.length];
+			for(int j = 0; j < array.length; j++) {
+				mat1[row][j] = Integer.parseInt(array[j]);
 			}
 			row++;
 		}
 		row = 0;
 		for(int i = 0; i < mat2.length; i++) {
-			char array = scanner.nextLine();
-			int nums = new int[array.length];
-			for(int i = 0; i < array.length; i++) {
-				mat1[row][i] = Character.getNumericValue(array[i]);
+			String[] array = scanner.nextLine().split(" ");
+			int[] nums = new int[array.length];
+			for(int j = 0; j < array.length; j++) {
+				mat1[row][j] = Integer.parseInt(array[j]);
 			}
 			row++;
 		}
@@ -98,7 +102,7 @@ public class Main {
 
 
 
-	public class Task implements Runnable {
+	public static class Task implements Runnable {
 		int[][] A, B;
 		int id;
 
@@ -121,24 +125,18 @@ public class Main {
 		}
 	
 		public void run() {
-			try {
-				int[][] resRow = mult(A,B);
-				for(int i = 0; i < resRow.length; i++) {
-					finMat[id][i] = resRow[i];
-				}
-				System.out.print("\nthread " + id + " successfully ran.\n");
-			} catch(InterruptedException e) {
-				System.out.print("\n\tthe thread was interrupted.\n");
+			int[][] resRow = mult(A,B);
+			for(int i = 0; i < resRow.length; i++) {
+				finmat[id][i] = resRow[0][i];
 			}
-		
-		
+			System.out.print("\nthread " + id + " successfully ran.\n");
 		}
 		
 	}
 	
 	
 	
-	public class Matrix {
+	public static class Matrix {
 		int numRows, numCols;
 		int[][] data;
 		
@@ -160,6 +158,14 @@ public class Main {
 			int[][] res = new int[numRows][1];
 			for(int i = 0; i < numRows; i++) {
 				res[i][colInd] = data[i][colInd];
+			}
+			return res;
+		}
+		
+		public int[][] getRow(int rowInd) {
+			int[][] res = new int[1][numCols];
+			for(int i = 0; i < numCols; i++) {
+				res[rowInd][i] = data[rowInd][i];
 			}
 			return res;
 		}
