@@ -1,4 +1,5 @@
 *.class
+*jgrasp_canvas.xml
 *.~
 *log
 a.out
