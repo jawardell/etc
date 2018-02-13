@@ -52,33 +52,9 @@ public class Main() {
 		
 	}
 	
-	public class Matrix {
-		int numRows, numCols;
-		int[][] data;
-		
-		
-		public Matrix(int[][] data) {
-			this.data = new int[data.length][data[0].length];
-			for(int i = 0; i < data.length; i++) {
-				for(int j = 0; j < data[0].length; j++) {
-					this.data[i][j] = data[i][j];
-				}
-			}
-			
-			numRows = this.data.length;
-			numCols = this.data[0].length;
-		}
-		
-		
-		public int[][] getCol(int colInd) {
-			int[][] res = new int[numRows][1];
-			for(int i = 0; i < numRows; i++) {
-				res[i][colInd] = data[i][colInd];
-			}
-			return res;
-		}
-		
-	}
+	
+	
+
 	
 	
 
@@ -113,7 +89,7 @@ public class Main() {
 
 
 
-	public static class Task implements Runnable {
+	public class Task implements Runnable {
 		int[][] A, B;
 		int id;
 
@@ -147,4 +123,33 @@ public class Main() {
 		
 	}
 	
+	
+	
+		public class Matrix {
+		int numRows, numCols;
+		int[][] data;
+		
+		
+		public Matrix(int[][] data) {
+			this.data = new int[data.length][data[0].length];
+			for(int i = 0; i < data.length; i++) {
+				for(int j = 0; j < data[0].length; j++) {
+					this.data[i][j] = data[i][j];
+				}
+			}
+			
+			numRows = this.data.length;
+			numCols = this.data[0].length;
+		}
+		
+		
+		public int[][] getCol(int colInd) {
+			int[][] res = new int[numRows][1];
+			for(int i = 0; i < numRows; i++) {
+				res[i][colInd] = data[i][colInd];
+			}
+			return res;
+		}
+		
+	}
 }
