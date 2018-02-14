@@ -190,7 +190,14 @@ function setPixel(x, y, depth) {
 function display()
 {
 
-	context.fillRect(-1,-1,2,2); // clear the viewport
+	
+	
+	// for all stars (objects), apply rotation, perspective transformation, normalize by w and draw
+	
+	// matrix multiplication to be done with Mathjs  (e.g.: p_prime = math.multiply(M, p), where M is a 4x4 matrix and p is a 4x1 vector
+	
+
+	context.fillRect(-1,-1,2,2); // clear the view-port
 	
 	for(var i = 0; i<objects.length; i++) {
 	
@@ -240,16 +247,6 @@ function display()
 	
 	
 
-	
-	
-	// for all stars (objects), apply rotation, perspective transformation, normalize by w and draw
-	
-	
-	
-	
-	
-	// matrix multiplication to be done with Mathjs  (e.g.: p_prime = math.multiply(M, p), where M is a 4x4 matrix and p is a 4x1 vector
-	
 	
 
 
