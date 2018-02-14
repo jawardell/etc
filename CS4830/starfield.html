@@ -18,12 +18,16 @@ var context = canvas.getContext("2d");
 context.fillStyle = '#000000';
 var width = canvas.width;
 var height = canvas.height;
+var direction;
+var inc = 0;
+
+
 
 
 applyWindowToViewportTransformation(-1,1,-1,1,true);
     /**	Textbook function
      *
-     * Sets up a transformation in the graphics context so that the canvas will
+     * Sets up a transformation in the graphics context so that th54,e canvas will
      * show x-values in the range from left to right, and y-values in the range
      * from bottom to top.  If preserveAspect is true, then one of the ranges
      * will be increased, if necessary, to account for the aspect ratio of the
@@ -31,6 +35,7 @@ applyWindowToViewportTransformation(-1,1,-1,1,true);
      * size of a pixel in the new coordinate system.  (If preseverAspect is
      * true, pixelSize is the maximum of its horizontal and vertical sizes.)
      */
+	 
     function applyWindowToViewportTransformation(left,right,bottom,top,preserveAspect) {
         var displayAspect, windowAspect;
         var excess;
@@ -105,13 +110,9 @@ var objects, T;
 function init() {
 
 
+
 	//create perspective projection matrix
 	T = perspective(1);
-	
-	
-	//create rotation matrix
-	r = rotateZ(100);
-	
 	
 	
 	//create objects
@@ -127,6 +128,8 @@ function init() {
 
     document.getElementById('myslider').oninput = function() {
 		var newFocal = this.value; // TODO: implement logic that updates the projection matrix
+			T = perspective(newFocal);
+
 	}
 
 	// start clock
@@ -145,9 +148,10 @@ function doKeyUp(evt) {
 
 function doKeyDown(evt) {
         var code = evt.keyCode;  // Numerical code for key that was pressed.
+		direction = code;
         switch (code) {
 		case 37:  // left arrow key
-		    break;
+			break;
 		case 39:  // right arrow key
 		    break;
 		case 38:  // up arrow key
@@ -191,7 +195,24 @@ function display()
 	context.fillRect(-1,-1,2,2); // clear the viewport
 	
 	for(var i = 0; i<objects.length; i++) {
+	
+	
+		//create rotation matrix
+		
+		r = rotateZ(0);
+		
+		if(i % 5 == 0) inc++;
+		
+		if(direction == 37) {
+			r = rotateZ(-inc);
+		}
+	
+		if(direction == 39) {
+			r = rotateZ(inc);
 
+		}
+
+		
 		objects[i] = math.add(objects[i], math.matrix([0, 0, -1, 0]));
 		if(objects[i].subset(math.index([2]))<1) {
 			objects[i] = math.add(objects[i], math.matrix([0, 0, 255, 0]))	
@@ -213,7 +234,8 @@ function display()
 		var z = objects[i].subset(math.index([2]));
 		
 		setPixel(x, y, z);
-	}
+		
+}
 	
 	
 
