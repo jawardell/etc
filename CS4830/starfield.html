@@ -186,11 +186,9 @@ function setPixel(x, y, depth) {
 }
 
 
-
 // game loop function 
 function display()
 {
-
 
 	context.fillRect(-1,-1,2,2); // clear the viewport
 	
@@ -201,14 +199,17 @@ function display()
 		
 		r = rotateZ(0);
 		
-		if(i % 5 == 0) inc++;
 		
-		if(direction == 37) {
-			r = rotateZ(-inc);
+		inc += .00003;
+		
+		
+		if(direction == 37){
+		
+			r = rotateZ(inc);
 		}
 	
 		if(direction == 39) {
-			r = rotateZ(inc);
+			r = rotateZ(-inc);
 
 		}
 
