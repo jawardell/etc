@@ -176,7 +176,8 @@ function setPixel(x, y, depth) {
 	context.fillStyle = "#00000";
 	
 	var red = 255 - (depth); //TODO: adjust red as a function of depth (closer stars are brighter) 
-
+	
+	
 	context.beginPath();
 	context.strokeStyle = rgbToHex(red, 0, 0);
 	context.lineWidth = 0.004;
@@ -208,7 +209,6 @@ function display()
 		
 		
 		inc += .00003;
-		
 		
 		if(direction == 37){
 		
