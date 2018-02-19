@@ -14,7 +14,8 @@ var pers_mat,
 	canvas,
 	score,
 	keys,
-	time;
+	time,
+	houseCoords;
 	
 window.onload = function init() {
 	//init transformation values
@@ -24,8 +25,8 @@ window.onload = function init() {
 	sx = 1;
 	sy = 1;
 	sz = 1;
-	tx  0; 
-	ty = 0; 
+	tx  0;
+	ty = 0;
 	tz = 0; 
 	
 	
@@ -101,6 +102,7 @@ window.onload = function init() {
 	canvas = document.getElementById("thecanvas");
 	score = document.getElementById("score");
 	keys = [];
+	houseCoords = [];
 	
 	//listen for key inputs
 	window.addEventListener('keydown', function(event) {
@@ -122,6 +124,7 @@ function initGame() {
 	score.innerHTML = '0';
 	trans_mat = [];
 	rot_mat = [];
+	houseCoords = [];//put random coords of houses in here
 	
 }
 
@@ -171,6 +174,24 @@ function loadImage(url, height, width) {
 	}
 	console.log("\n\timage loaded successfully.\n");
 	return image;
+}
+
+
+function drawScenery() {}
+
+function handleKeys() {}
+
+function checkHouseCollisions() {}
+
+function drawHouses() {}
+
+function render() {
+	time += 1;
+	drawScenery();
+	handleKeys();
+	checkHouseCollisions();
+	drawHouses();
+	requestAnimationFrame(render);
 }
 
 
