@@ -10,7 +10,10 @@ var pers_mat,
 	sz,
 	tx,
 	ty,
-	tz;
+	tz,
+	canvas,
+	score,
+	keys;
 	
 window.onload = function init() {
 	//init transformation values
@@ -23,6 +26,7 @@ window.onload = function init() {
 	tx  0; 
 	ty = 0; 
 	tz = 0; 
+	
 	
 	
 	
@@ -92,8 +96,20 @@ window.onload = function init() {
 	trans_mat[3][3] = 1;
 	
 	
+	//init other values
+	canvas = document.getElementById("thecanvas");
+	score = document.getElementById("score");
+	keys = [];
 	
+	//listen for key inputs
+	window.addEventListener('keydown', function(event) {
+		keys[event.keyCode] = true;
+		
+	});
 	
+	window.addEventListener('keyup', function(event) {
+		keys[event.keyCode] = false;
+	});
 }
 
 
