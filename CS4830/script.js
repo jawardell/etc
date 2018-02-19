@@ -26,7 +26,7 @@ window.onload = function init() {
 	
 	
 	
-	//init matrices
+	//INIT MATRICES
 	
 	
 	//init perspective matrix
@@ -83,9 +83,13 @@ window.onload = function init() {
 			trans_mat[i][j] = 0;
 		}
 	}
-	
-	
-	//fill translation matrix
+	trans_mat[0][3] = tx;
+	trans_mat[1][3] = ty;
+	trans_mat[2][3] = tz;
+	trans_mat[0][0] = 1;
+	trans_mat[1][1] = 1;
+	trans_mat[2][2] = 1;
+	trans_mat[3][3] = 1;
 	
 	
 	
@@ -99,24 +103,36 @@ function initGame() {
 }
 
 
-function updatePerspective(fov) {
-	
-	
-}
-
-function updateRotation(angle) {
-	
+function updatePerspective(new_fov) {
+	fov = new_fov;
+	pers_mat[3][2] = fov;
 	
 }
 
-function updateScale(sx, sy, sz) {
-	
-	
+function updateRotation(new_angle) {
+	angle = new_angle;
+	rot_mat[0][0] = Math.cos(angle);
+	rot_mat[0][1] = -Math.sin(angle);
+	rot_mat[1][0] = Math.sin(angle);
+	rot_mat[1][1] = Math.cos(angle);
 }
 
-function updateTranslation(tx, ty, tz) {
-	
-	
+function updateScale(new_sx, new_sy, new_sz) {
+	sx = new_sx;
+	sy = new_sy;
+	sz = new_sz;
+	scale_mat[0][0]	= sx;
+	scale_mat[1][1] = sy;
+	scale_mat[2][2] = sz;
+}
+
+function updateTranslation(new_tx, new_ty, new_tz) {
+	tx = new_tx;
+	ty = new_ty;
+	tz = new_tz;
+	trans_mat[0][3] = tx;
+	trans_mat[1][3] = ty;
+	trans_mat[2][3] = tz;
 }
 
 
