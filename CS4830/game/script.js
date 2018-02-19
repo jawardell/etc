@@ -13,7 +13,8 @@ var pers_mat,
 	tz,
 	canvas,
 	score,
-	keys;
+	keys,
+	time;
 	
 window.onload = function init() {
 	//init transformation values
@@ -114,7 +115,13 @@ window.onload = function init() {
 
 
 function initGame() {
+	//initialize game features
 	
+	keys = [];
+	time = 0;
+	score.innerHTML = '0';
+	trans_mat = [];
+	rot_mat = [];
 	
 }
 
@@ -151,7 +158,20 @@ function updateTranslation(new_tx, new_ty, new_tz) {
 	trans_mat[2][3] = tz;
 }
 
+function imageLooaded() {
+	return true;
+}
 
+function loadImage(url, height, width) {
+	var image = new Image(height, width);
+	image.src = url;
+	image.onload = imageLoaded();
+	while(!imageLoaded()) {
+		console.log("\nloading image\n");
+	}
+	console.log("\n\timage loaded successfully.\n");
+	return image;
+}
 
 
 
