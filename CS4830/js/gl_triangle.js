@@ -69,7 +69,7 @@ function createProgram(gl, vertexShaderSource, fragmentShaderSource) {
 }
 
 function initGL() {
-	var prog = createProgram(gl, vertexShaderSourcee, fragmentShaderSource);
+	var prog = createProgram(gl, vertexShaderSource, fragmentShaderSource);
 	gl.useProgram(prog);
 	attributeCoords = gl.getAttribLocation(prog, "a_coords");
 	bufferCoords = gl.createBuffer();
