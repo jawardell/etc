@@ -1,35 +1,3 @@
-<!DOCTYPE html>
-<html>
-<!--
-   This web page shows how to do a simple animation using 2D canvas graphics.
-   It also defines functions applyWindowtoViewportTransformation, for setting
-   up a coordinate system on the canvas, and addGraphicsContextExtras, for adding
-   some extra drawing functions to a graphics context, such as functions for drawing
-   lines and ovals.  Use this page as a basis for experimenting with animation.
--->
-<head>
-<meta charset="UTF-8">
-<title>dankery~`*/</title><br>
-score
-<p id="score"></p>
-<p id="report"></p>
-<style>
-    /* This style section is here to make the canvas more obvious on the
-       page.  It is white on a light gray page background, with a thin
-       black border. */
-    body {
-        background-color: #DDDDDD;
-    }
-    canvas {
-        background-color: white;
-        display: block;
-    }
-    #canvasholder {
-        border:2px solid black;
-        float: left; /* This makes the border exactly fit the canvas. */
-    }
-</style>
-<script>
 	var score = 0; 
 
 	var food_x;
@@ -348,23 +316,3 @@ score
 		console.log(res);
 	}
     
-</script>
-</head>
-<body onload="init()"> <!-- the onload attribute here is what calls the init() function -->
-
-<h2>Dank Ant</h2>
-<p id='score'></p>
-<noscript>
-    <!-- This message will be shown in the page if JavaScript is not available. -->
-<p>JavaScript is required to use this page.</p>
-</noscript>
-
-<div id="canvasholder">
-<canvas id="canvas" width="800" height="600">
-    <!-- This message is shown on the page if the browser doesn't support the canvas element. -->
-Canvas not supported.
-</canvas>
-</div>
-
-</body>
-</html>

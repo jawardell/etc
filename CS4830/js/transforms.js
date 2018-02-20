@@ -1,42 +1,3 @@
-
-<HTML>
-<meta charset="utf-8"/>
-<head></head>
-
-<body>
-
-<table>
-<tr><td>Translation</td></tr>
-<tr>
-    <td></td><td>t<small>x</small>: </td><td><input type='text' size=1 id='tx' value='0'> <td> 
-    <td></td><td>t<small>y</small>: </td><td><input type='text' size=1 id='ty' value='0'> <td> 
-</tr>
-
-<tr><td>Scale</td></tr>
-<tr>
-    <td></td><td>s<small>x</small>: </td><td><input type='text' size=1 id='sx' value='1'> <td> 
-    <td></td><td>s<small>y</small>: </td><td><input type='text' size=1 id='sy' value='1'> <td> 
-</tr>
-
-<tr><td>Rotation</td></tr>
-<tr>
-    <td></td><td>theta: </td><td><input type='text' size=1 id='theta' value='0'> <td> 
-</tr>
-<tr><td>
-<input type=button value="transform" onclick="refresh()">
-</td></tr>
-
-</table>
-
-
-<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
-
-
-
-
-<script>
-
-
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 
@@ -362,11 +323,3 @@ function printMatrix(matrix) {
 	console.log(res);
 }
 
-
-</script>
-
-
-
-</body>
-
-</html>

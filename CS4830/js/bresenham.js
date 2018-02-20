@@ -1,12 +1,3 @@
-<HTML>
-<meta charset="utf-8"/>
-<head></head>
-
-<body>
-
-<canvas id="canvas" width="500" height="500" style="border: 1px solid black"></canvas>
-
-<script>
 
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
@@ -63,44 +54,6 @@ function handleMouseMove(event)
 
 	display();
 }
-
-
-/*
-	Design:
-	* determine if the gradient is vertical or horizontal
-		-- if the dx component of the slope ratio is larger, 
-			that means that the run of the slope is larger
-			meaning that the line consists of more horizonal change
-			than veritcal. when dx > dy, the slope is smaller and 
-			results in a line with slope closer to that of a horizontal line
-			x = m
-			I refer colloquially to this situation as HORIZONTAL GRADIANT
-		-- if the dy component of the slope ration is larger, 
-			that implies that the rise of the slope is dominant
-			meaning that the line consists of more vertical change than 
-			horizontal. when dy > dx, the slope is larger and results
-			in a line that is closer to a verical line
-			y = m
-			I refer to this situation as VERTICAL GRADIANT
-	* determine whether or not to invert coordinates
-		-- if the starting point is drawn to the left of the ending point, 
-			then the coordinates will be moving from left to right. 
-			the coordinates should not be inverted  
-		-- if the starting point is to the right of the ending point, 
-			then the coordinates will be moving from right to left.
-			the coordinates should be inverted
-	* use bresenham's algorithm, depending on vertical or horizontal gradient, 
-		determine how to design the line's stairstep
-		-- as the independent variable increases by one every iteration, 
-			y increases by one every time in the vertical gradient case
-			x increases by one every time in the horizontal case
-		there are two feasible points to choose from which lie away from the infeasible 
-		point on the true line. which point we choose depends on the distance from the true line
-		-- look at the difference between the  distance that each point lies from true line
-		-- if the difference is greater than zero,  increase the dependent variable by one
-		-- if the difference is less than zero, leave the dependent variable at the same value
-		-- color the pixel of the 'point' that we choose
-*/
 
 //implemented from pseudocode on wikipedia page
 function bresenham(p0, p1)
@@ -231,11 +184,3 @@ function display()
 }
 
   
-
-</script>
-
-<p id='quadrant'></p>
-
-</body>
-
-</html>

@@ -1,14 +1,3 @@
-
-<HTML>
-<meta charset="utf-8"/>
-<head></head>
-
-<body>
-
-<canvas id="canvas" width="500" height="500" style="border: 1px solid black" backgroundcolor=#000000></canvas>
-<p>Focal length: 0.1 <input type="range" id="myslider" min="0.1" max="2" value="1" step=0.01 class="slider" id="myRange">2</p>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.18.0/math.min.js"></script>
-<script>
 "use strict"; 
 
 var NRSTARS = 200;
@@ -252,17 +241,3 @@ function display()
 
 	requestAnimationFrame(display);
 }
-
-
-
-
-
-
-
-  
-
-</script>
-
-</body>
-
-</html>
