@@ -8,8 +8,8 @@ Make sure that the [Java Runtime Environment](https://java.com/en/ "Java Runtime
 The files in CS3335 are for the C Programming Language couse that I took and require the gcc compiler and other unix functionalities like tar, cut, and uniq. It is best to execute these in a unix environment. 
 <br><br>
 The esoteric programming langues require online compilers: <br>
-[LOLCODE compiler](https://repl.it/repls/FuzzyLowestServerapplication"LOLCODE")<br>
-[BF compiler](http://copy.sh/brainfuck/"brainfuck")
+[LOLCODE compiler](https://repl.it/repls/FuzzyLowestServerapplication)<br>
+[BF compiler](http://copy.sh/brainfuck/)
 <br><br><br>
 **Clone this repository to get started:**
 <br>
