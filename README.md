@@ -10,11 +10,16 @@ The files in CS3335 are for the C Programming Language couse that I took and req
 The esoteric programming langues require online compilers: 
 [LOLCODE compiler](https://repl.it/repls/FuzzyLowestServerapplication"LOLCODE")
 [BF compiler](http://copy.sh/brainfuck/"brainfuck")
-
-
+<br><br>
+Clone this repository to get started:
+<br>
 `git clone https://github.com/jawardell/etc`
+<br>
+Move into the cloned repo: 
+<br>
+`cd etc`
+<br>
 <br><br><br><br>
-
 
 ### Viewing/Editing Course Work Files
 *Move into the coursework directory:*<br>
