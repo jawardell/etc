@@ -4,24 +4,24 @@ I have organized course work and recreational projects into this repository for 
 
 ### Setup
 Make sure that the [Java Runtime Environment](https://java.com/en/ "Java Runtime Environment") and the [Java Development Kit](http://www.oracle.c    om/technetwork/java/javase/downloads/jdk8-downloads-2133151.html "Java Development Kit") are installed and configured in the PATH environment var    iable.
-
+<br><br>
 The files in CS3335 are for the C Programming Language couse that I took and require the gcc compiler and other unix functionalities like tar, cut, and uniq. It is best to execute these in a unix environment. 
-
+<br><br>
 The esoteric programming langues require online compilers: 
 [LOLCODE compiler](https://repl.it/repls/FuzzyLowestServerapplication"LOLCODE")
 [BF compiler](http://copy.sh/brainfuck/"brainfuck")
 
 <br>
 Clone this repositiory to get started:<br>
-` git clone https://github.com/jawardell/etc`
+`git clone https://github.com/jawardell/etc`
 
 Move into the cloned directory: <br>
 `cd etc`
 <br><br><br>
 
-###Viewing/Editing Course Work Files
+### Viewing/Editing Course Work Files
 ------------
-***Move into the coursework directory:***
+***Move into the coursework directory:***<br>
 `cd coursework`
 <br><br>
 preview compressed tar files in CS3335<br>
@@ -49,7 +49,7 @@ save changes and quit editing a source code file<br>
 
 
 
-###Viewing/Editing Recreational Files
+### Viewing/Editing Recreational Files
 ------------
 ***Move into the recreation directory:***<br>
 `cd recreation`
