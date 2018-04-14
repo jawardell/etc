@@ -1,6 +1,66 @@
-# etc
-...gathering my wandering source code into one directory. Take a peek...?
+# et cetera
+
+I have organized course work and recreational projects into this repository for version control and testing purposes.
+
+### Setup
+Make sure that the [Java Runtime Environment](https://java.com/en/ "Java Runtime Environment") and the [Java Development Kit](http://www.oracle.c    om/technetwork/java/javase/downloads/jdk8-downloads-2133151.html "Java Development Kit") are installed and configured in the PATH environment var    iable.
+
+The files in CS3335 are for the C Programming Language couse that I took and require the gcc compiler and other unix functionalities like tar, cut, and uniq. It is best to execute these in a unix environment. 
+
+The esoteric programming langues require online compilers: 
+[LOLCODE compiler](https://repl.it/repls/FuzzyLowestServerapplication"LOLCODE")
+[BF compiler](http://copy.sh/brainfuck/"brainfuck")
+
+<br>
+Clone this repositiory to get started:
+` git clone https://github.com/jawardell/etc`
+
+Move into the cloned directory: 
+`cd etc`
+<br><br><br>
+
+####Viewing/Editing Course Work Files
+------------
+***Move into the coursework directory:***
+`cd coursework`
+<br>
+preview compressed tar files in CS3335
+`tar tvf filename.tar`
+<br>
+untar a files in CS3335
+`tar xvf filename.tar`
+<br>
+compress files in CS3335
+`tar cvf filename.tar`
+<br>
+compile and execute files in CS3335 using gcc
+`gcc filename.c -o filename &&  ./filename`
+<br>
+build/run apps in CS3335 with specified makefiles
+`make`
+<br>
+edit a file using the visual editor
+`vi filename.c`
+<br>
+save chages and quit editing a source code file
+`esc + :wq + enter`
+<br><br><br>
 
 
-Hi there. Thanks for stopping by. Take a look at the sub dirs. They contain some code. Each directory contains a 
-small description of the data contained inside.
+
+
+####Viewing/Editing Recreational Files
+------------
+***Move into the recreation directory:***
+`cd recreation`
+<br>
+build and execute java files
+`javac Filename.java`
+`java Filename`
+<br>
+edit a file using the visual editor
+`vi filename.c`
+<br>
+save chages and quit editing a source code file
+`esc + :wq + enter`
+<br><br><br>
