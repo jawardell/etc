@@ -12,9 +12,8 @@ The esoteric programming langues require online compilers:
 [BF compiler](http://copy.sh/brainfuck/"brainfuck")
 
 <br>
-Clone this repositiory to get started:<br>
-`git clone https://github.com/jawardell`<br>
-
+Clone this repositiory:<br> 
+`git clone https://github.com/jawardell/etc`<br><br>
 Move into the cloned directory: <br>
 `cd etc`
 
