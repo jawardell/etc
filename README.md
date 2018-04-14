@@ -64,4 +64,3 @@ edit a file using the visual editor<br>
 <br><br>
 save chages and quit editing a source code file<br>
 `esc + :wq + enter`
-<br><br><br>
