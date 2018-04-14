@@ -19,48 +19,48 @@ Move into the cloned directory: <br>
 `cd etc`
 <br><br><br>
 
-####Viewing/Editing Course Work Files
+###Viewing/Editing Course Work Files
 ------------
 ***Move into the coursework directory:***
 `cd coursework`
-<br>
+<br><br>
 preview compressed tar files in CS3335<br>
 `tar tvf filename.tar`
-<br>
+<br><br>
 untar a files in CS3335<br>
 `tar xvf filename.tar`
-<br>
+<br><br>
 compress files in CS3335<br>
 `tar cvf filename.tar`
-<br>
+<br><br>
 compile and execute files in CS3335 using gcc<br>
 `gcc filename.c -o filename &&  ./filename`
-<br>
+<br><br>
 build/run apps in CS3335 with specified makefiles<br>
 `make`
-<br>
+<br><br>
 edit a file using the visual editor<br>
 `vi filename.c`
-<br>
-save chages and quit editing a source code file<br>
+<br><br>
+save changes and quit editing a source code file<br>
 `esc + :wq + enter`
 <br><br><br>
 
 
 
 
-####Viewing/Editing Recreational Files
+###Viewing/Editing Recreational Files
 ------------
 ***Move into the recreation directory:***<br>
 `cd recreation`
-<br>
+<br><br>
 build and execute java files<br>
 `javac Filename.java`<br>
-`java Filename`
-<br>
+`java Filename`<br>
+<br><br>
 edit a file using the visual editor<br>
 `vi filename.c`
-<br>
+<br><br>
 save chages and quit editing a source code file<br>
 `esc + :wq + enter`
 <br><br><br>
