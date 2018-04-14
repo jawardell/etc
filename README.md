@@ -17,7 +17,7 @@ Clone this repositiory to get started:<br>
 
 Move into the cloned directory: <br>
 `cd etc`
-------------
+
 <br><br><br>
 
 
@@ -45,7 +45,7 @@ edit a file using the visual editor<br>
 <br><br>
 save changes and quit editing a source code file<br>
 `esc + :wq + enter`
-------------
+
 <br><br><br>
 
 
