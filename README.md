@@ -13,7 +13,7 @@ The esoteric programming langues require online compilers:
 
 <br>
 Clone this repositiory to get started:<br>
-`git clone https://github.com/jawardell/etc`
+`git clone https://github.com/jawardell`
 <br>
 
 Move into the cloned directory: <br>
@@ -23,7 +23,7 @@ Move into the cloned directory: <br>
 
 
 ### Viewing/Editing Course Work Files
-***Move into the coursework directory:***<br>
+*Move into the coursework directory:*<br>
 `cd coursework`
 <br><br>
 preview compressed tar files in CS3335<br>
@@ -53,7 +53,7 @@ save changes and quit editing a source code file<br>
 
 
 ### Viewing/Editing Recreational Files
-***Move into the recreation directory:***<br>
+*Move into the recreation directory:*<br>
 `cd recreation`
 <br><br>
 build and execute java files<br>
