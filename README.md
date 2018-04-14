@@ -13,8 +13,7 @@ The esoteric programming langues require online compilers:
 
 <br>
 Clone this repositiory to get started:<br>
-`git clone https://github.com/jawardell`
-<br>
+`git clone https://github.com/jawardell`<br>
 
 Move into the cloned directory: <br>
 `cd etc`
