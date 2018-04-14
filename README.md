@@ -17,10 +17,11 @@ Clone this repositiory to get started:<br>
 
 Move into the cloned directory: <br>
 `cd etc`
+------------
 <br><br><br>
 
+
 ### Viewing/Editing Course Work Files
-------------
 ***Move into the coursework directory:***<br>
 `cd coursework`
 <br><br>
@@ -44,13 +45,13 @@ edit a file using the visual editor<br>
 <br><br>
 save changes and quit editing a source code file<br>
 `esc + :wq + enter`
+------------
 <br><br><br>
 
 
 
 
 ### Viewing/Editing Recreational Files
-------------
 ***Move into the recreation directory:***<br>
 `cd recreation`
 <br><br>
