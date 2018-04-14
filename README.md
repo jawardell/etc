@@ -28,7 +28,7 @@ Move into the cloned repo:
 preview compressed tar files in CS3335<br>
 `tar tvf filename.tar`
 <br><br>
-untar a files in CS3335<br>
+untar files in CS3335<br>
 `tar xvf filename.tar`
 <br><br>
 compress files in CS3335<br>
@@ -43,7 +43,7 @@ build/run apps in CS3335 with specified makefiles<br>
 edit a file using the visual editor<br>
 `vi filename.c`
 <br><br>
-save changes and quit editing a source code file<br>
+save changes and quit editing a file<br>
 `esc + :wq + enter`
 
 <br><br><br>
@@ -62,5 +62,5 @@ build and execute java files<br>
 edit a file using the visual editor<br>
 `vi filename.c`
 <br><br>
-save chages and quit editing a source code file<br>
+save chages and quit editing a file<br>
 `esc + :wq + enter`
