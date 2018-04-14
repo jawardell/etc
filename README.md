@@ -11,12 +11,8 @@ The esoteric programming langues require online compilers:
 [LOLCODE compiler](https://repl.it/repls/FuzzyLowestServerapplication"LOLCODE")
 [BF compiler](http://copy.sh/brainfuck/"brainfuck")
 
-<br>
-Clone this repositiory:<br> 
-`git clone https://github.com/jawardell/etc`<br><br>
-Move into the cloned directory: <br>
-`cd etc`
 
+`git clone https://github.com/jawardell/etc`
 <br><br><br><br>
 
 
