@@ -12,10 +12,10 @@ The esoteric programming langues require online compilers:
 [BF compiler](http://copy.sh/brainfuck/"brainfuck")
 
 <br>
-Clone this repositiory to get started:
+Clone this repositiory to get started:<br>
 ` git clone https://github.com/jawardell/etc`
 
-Move into the cloned directory: 
+Move into the cloned directory: <br>
 `cd etc`
 <br><br><br>
 
@@ -24,25 +24,25 @@ Move into the cloned directory:
 ***Move into the coursework directory:***
 `cd coursework`
 <br>
-preview compressed tar files in CS3335
+preview compressed tar files in CS3335<br>
 `tar tvf filename.tar`
 <br>
-untar a files in CS3335
+untar a files in CS3335<br>
 `tar xvf filename.tar`
 <br>
-compress files in CS3335
+compress files in CS3335<br>
 `tar cvf filename.tar`
 <br>
-compile and execute files in CS3335 using gcc
+compile and execute files in CS3335 using gcc<br>
 `gcc filename.c -o filename &&  ./filename`
 <br>
-build/run apps in CS3335 with specified makefiles
+build/run apps in CS3335 with specified makefiles<br>
 `make`
 <br>
-edit a file using the visual editor
+edit a file using the visual editor<br>
 `vi filename.c`
 <br>
-save chages and quit editing a source code file
+save chages and quit editing a source code file<br>
 `esc + :wq + enter`
 <br><br><br>
 
@@ -51,16 +51,16 @@ save chages and quit editing a source code file
 
 ####Viewing/Editing Recreational Files
 ------------
-***Move into the recreation directory:***
+***Move into the recreation directory:***<br>
 `cd recreation`
 <br>
-build and execute java files
-`javac Filename.java`
+build and execute java files<br>
+`javac Filename.java`<br>
 `java Filename`
 <br>
-edit a file using the visual editor
+edit a file using the visual editor<br>
 `vi filename.c`
 <br>
-save chages and quit editing a source code file
+save chages and quit editing a source code file<br>
 `esc + :wq + enter`
 <br><br><br>
