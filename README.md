@@ -62,5 +62,5 @@ build and execute java files<br>
 edit a file using the visual editor<br>
 `vi filename.c`
 <br><br>
-save chages and quit editing a file<br>
+save changes and quit editing a file<br>
 `esc + :wq + enter`
