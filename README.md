@@ -37,7 +37,7 @@ compress files in CS3335<br>
 compile and execute files in CS3335 using gcc<br>
 `gcc filename.c -o filename &&  ./filename`
 <br><br>
-build/run apps in CS3335 with specified makefiles<br>
+build apps in CS3335 with specified makefiles<br>
 `make`
 <br><br>
 edit a file using the visual editor<br>
