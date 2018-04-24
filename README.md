@@ -5,7 +5,7 @@ I have organized course work and recreational projects into this repository for 
 ### Setup
 Make sure that the [Java Runtime Environment](https://java.com/en/ "Java Runtime Environment") and the [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html "Java Development Kit") are installed and configured in the PATH environment variable.
 <br><br>
-The files in CS3335 are for the C Programming Language couse that I took and require the gcc compiler and other unix functionalities like tar, cut, and uniq. It is best to execute these in a unix environment. 
+The files in CS3335 are for the C Programming Language course that I took and require the gcc compiler and other unix functionalities like tar, cut, and uniq. It is best to execute these in a unix environment. 
 <br><br>
 The esoteric programming langues require online compilers: <br>
 [LOLCODE compiler](https://repl.it/repls/FuzzyLowestServerapplication)<br>
