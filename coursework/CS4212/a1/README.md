@@ -21,3 +21,7 @@ Plotting the data reveals a spike in delay times as the number of packets grows 
 
 If we use logarithmic scaling to express the packet sizes (since they cut in half every iteration), the graph becomes easier to interpret.<br><img src="https://gist.githubusercontent.com/jawardell/58b723cdc0451ac4e9eb2ba577643a8a/raw/7ae81e7efae754d52157da0a60b04dbce25537e2/img1.png"><br><br>
 
+
+
+Of course, this system is completely hypothetical and is not realistic because we ignored three of the four nodal delays. 
+The purpose of this was to see how end to end delay depends on transmission delay and message segmentation.
