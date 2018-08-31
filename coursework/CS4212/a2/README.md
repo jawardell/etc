@@ -13,4 +13,4 @@ Also, we devised an expression for the total end to end delay which considers pr
 and transmission delay for an arbitrary number of packets and routers. Here is the formula, 
 as a function of number of routers and packets, listed below coupled with a time table justification.
 
-
+*i'll add this soon, i just need to fix 2 small things on the diagram and render the formula in latex.*
