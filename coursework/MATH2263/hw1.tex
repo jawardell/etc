@@ -1,0 +1,490 @@
+\documentclass[12pt]{article}
+%\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepgfplotslibrary{fillbetween}
+
+\usepgfplotslibrary{polar}
+
+
+
+\usepackage{xfrac}
+%\usepackage[demo]{graphicx}
+\pgfplotsset{compat=1.11}
+\usetikzlibrary{calc}
+
+\usepackage{setspace}
+\usepackage{extsizes}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb}    
+\usepackage[margin=.5in]{geometry}
+\title{\vspace{-2.0cm}Homework 1}
+\author{Joanne Wardell}
+\date{Thursday, August 16, 2018}
+\begin{document}
+\maketitle
+
+\subsection*{Section 11.1}
+\noindent2.)$x=-\sqrt{t}$,\hspace{10pt}$y=t$,\hspace{10pt}$t \geq 0$\\\\
+$x=-\sqrt{t}$\\
+$-x=\sqrt{t}$\\
+$(-x)^{2}=(\sqrt{t})^{2}$\\
+$x^{2}=t$\\\\
+
+\noindent$y = t = x^{2}$\\\\
+The Cartesian equation is a parabola centered about the origin.
+Enforcing the parameter boundary yeilds only the left side of the parabola.
+The particle begins at the origin and moves rightward to $-\infty$ in the $x$ direction 
+and $\infty$ in the $y$ direction.
+The particle's starting point is the origin and the particle does not have a 
+terminal point.\\
+\begin{minipage}{\linewidth}
+      \centering
+      \begin{minipage}{0.45\linewidth}
+          \begin{figure}[H]
+
+\begin{tikzpicture}
+\begin{axis}[
+    xmin=-3,xmax=0,
+    ymin=-1,ymax=8,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis lines=middle,
+    minor tick num=5,
+    enlargelimits={abs=0.5},
+    axis line style={latex-latex},
+    ticklabel style={font=\tiny,fill=white},
+    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+    ylabel style={at={(ticklabel* cs:1)},anchor=south west},
+    restrict x to domain=-inf:0
+]
+	\addplot[mark=none, ultra thick]{x^2};
+
+%\coordinate (O) at (0,0);
+%\node[fill=white,circle,inner sep=0pt] (O-label) at ($(O)+(-135:10pt)$) {$O$};
+\end{axis}
+\end{tikzpicture}
+
+
+
+          \end{figure}
+      \end{minipage}
+      \hspace{0.05\linewidth}
+      \begin{minipage}{0.45\linewidth}
+          \begin{figure}[H]
+
+
+
+\noindent\begin{tabular}{c|c|c}
+\textbf{t} & \textbf{x} & \textbf{y} \\ \hline
+	0&0&0\\
+	1&-1&1\\
+	2&-$\sqrt{2}$&2\\
+	3&-$\sqrt{3}$&3\\
+	4&-$2$&4\\
+	5&-$\sqrt{5}$&5\\
+	6&-$\sqrt{6}$&6\\
+\end{tabular}\\
+
+          \end{figure}
+      \end{minipage}
+  \end{minipage}\pagebreak
+
+
+\noindent2.)$x=4sin{t}$, $y=4cos{t}$, $0 \leq t \leq 2\pi$ \\\\
+Squaring and adding both parametric equations lead the way to the Cartesian equation.\\\\
+$(sin{t}=\frac{x}{4})^{2}$ $+$ $(cos{t}=\frac{y}{5})^2$\\\\
+$=sin^{2}{t} + cos^{2}{t} = \frac{x^{2}}{4^{2}} + \frac{y^{2}}{5^{2}}$\\\\
+$=1 = \frac{x^{2}}{16} + \frac{y^{2}}{25}$\\\\
+$=1 = \frac{25x^{2}}{400} + \frac{16y^{2}}{25}$\\\\
+$=1 = \frac{25x^{2} + 16y^{2}}{400}$\\\\
+$=400 = \frac{25x^{2} + 16y^{2}}{400}$\\\\
+$=1 = \frac{x^{2}}{16} + \frac{y^{2}}{25}$\\\\
+The Cartesian equation is an ellipse centered at the origin with minor axis 10 and major axis 8. 
+The particle begins at position $(0,5)$ and moves in a clock-wise direction. The terminal point for 
+the particle is at position $(0,5)$, back at where it started.\\\\
+\begin{minipage}{\linewidth}
+      \centering
+      \begin{minipage}{0.45\linewidth}
+          \begin{figure}[H]
+
+\begin{tikzpicture}
+\begin{axis}[
+    xmin=-6,xmax=6,
+    ymin=-5,ymax=5,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis lines=middle,
+    minor tick num=5,
+    enlargelimits={abs=0.5},
+    axis line style={latex-latex},
+    ticklabel style={font=\tiny,fill=white},
+    xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+    ylabel style={at={(ticklabel* cs:1)},anchor=south west},
+    %restrict x to domain=-inf:0
+]
+\draw[black] (axis cs:0,0)ellipse [x radius=4, y radius=5];
+
+%\coordinate (O) at (0,0);
+%\node[fill=white,circle,inner sep=0pt] (O-label) at ($(O)+(-135:10pt)$) {$O$};
+\end{axis}
+\end{tikzpicture}
+
+
+          \end{figure}
+      \end{minipage}
+      \hspace{0.05\linewidth}
+      \begin{minipage}{0.45\linewidth}
+          \begin{figure}[H]
+
+
+
+\noindent\begin{tabular}{c|c|c}
+\textbf{t} & \textbf{x} & \textbf{y} \\ \hline
+	0		&0	&5\\
+	$\frac{\pi}{2}$	&4	&0\\
+	$\pi$		&0	&-5\\
+	$\frac{3\pi}{2}$	&-4	&0\\
+	$2\pi$		&0	&5\\
+\end{tabular}
+
+          \end{figure}
+      \end{minipage}
+  \end{minipage}\pagebreak
+
+
+
+\noindent20.)$x = cos{t}$, \hspace{10pt} $y=2sin{t}$\\\\
+The parametric equations trace the curve of an ellipse. \textbf{D.}\\\\\\
+\noindent22.)$x = \sqrt{t}$, \hspace{10pt} $y=\sqrt{t}cos{t}$\\\\
+Let's choose $t=0$. Then $x = \sqrt{t} = \sqrt{0} = 0$ and $y = \sqrt{t}cos{t} = (\sqrt{0})cos{0} = 0$.\\\\
+So, at $t=0$, the parametric curve passes through the origin. That leaves us with choices A or E.\\\\
+The graph of $\sqrt{x}$ is always positive, so the particle's $x$ position is never negative.\\\\
+Thus, the correct choice is \textbf{A}.\pagebreak
+
+\subsection*{Section 11.2}
+\noindent4.)$x=cos{t}$, \hspace{10pt} $y=\sqrt{3}cos{t}$, \hspace{10pt} $t=\frac{2\pi}{3}$\\\\
+Start by finding the slope of the tangent line at time $t=\frac{2\pi}{3}$.\\\\
+$\frac{dy}{dt} = \frac{dy}{dx}\frac{dx}{dt}$\\\\
+$\frac{dy}{dx} = \frac{\sfrac{dx}{dt}}{\sfrac{dy}{dt}}$\\\\
+$\frac{\sfrac{dcos{t}}{dt}}{\sfrac{d\sqrt{3}cos{t}}{dt}}$\\\\
+$\frac{-\sqrt{3}sin{t}}{-sin{t}} = \sqrt{3}$\\\\
+Evaluate the parametric equations at time $t=\frac{2\pi}{3}$\\\\
+$x=cos{\frac{2\pi}{3}} = -1$\\
+$y=\sqrt{3}cos{\frac{2\pi}{3}} = -\sqrt{3}$\\\\
+
+\noindent Assume the point slope form of a line.\\\\
+$y-y_{1} = (x-x_{1})m$\\
+$y+\sqrt{3} = (x+1)\sqrt{3}$\\
+$y=\sqrt{3} + x\sqrt{3} -\sqrt{3}$\\
+$y=  x\sqrt{3} $\\\\
+
+\noindent Take the second derivative of the curve at time $t=\frac{3\pi}{2}$.\\\\
+$\frac{d^{2}y}{dx^{2}} = \frac{dy'}{dx} = \frac{d\sqrt{3}}{dx} = 0$\pagebreak
+
+
+\noindent26.)$x=t^{3}$, \hspace{10pt} $y=\frac{3t^{2}}{2}$, \hspace{10pt} $0 \leq t \leq \sqrt{3}$\\\\
+$L=\int\limits_{a}^{b}\sqrt{(\frac{dx}{dt})^{2} + (\frac{dy}{dt})^{2}}dt$\\\\
+$=\int\limits_{0}^{\sqrt{3}}\sqrt{(\frac{dx}{dt})^{2} + (\frac{dy}{dt})^{2}}dt$\\\\
+$=\int\limits_{0}^{\sqrt{3}}\sqrt{(3t^{2})^{2} + (3t)^{2}}dt$\\\\
+$=\int\limits_{0}^{\sqrt{3}}\sqrt{9t^{4} + 9t^{2}}dt$\\\\
+$=3\int\limits_{0}^{\sqrt{3}}t\sqrt{t^{2} + 1}dt$\\\\
+Let $u=t^{2}+1$. Then $du = 2t$ $dt$ and $dt = \frac{du}{2t}$. The bounds of integration are adjusted. \\\\
+$=\frac{3}{2}\int\limits_{1}^{4}\sqrt{u}du$
+$=\frac{3}{2}\frac{u^{\frac{3}{2}}}{\sfrac{3}{2}}\Big|_1^4$
+$=u^{\frac{3}{2}}\Big|_1^4$
+$=(\sqrt{4})^{3} - (\sqrt{1})^{2} =$ \textbf{7}\\\pagebreak
+
+\subsection*{Section 11.3}
+\noindent4.)
+
+
+
+
+\pgfplotsset{mypolarplot/.style={%
+  clip=false, % needed for double line (last \addplot command)
+  domain=0:360, % plot full cycle
+  samples=180, % number of samples; can be locally adjusted
+  grid=both, % display major and minor grids
+  major grid style={black},
+  minor x tick num=3, % 3 minor x ticks between majors
+  minor y tick num=1, % 1 minor y tick between majors
+  xtick={0,45,...,359},
+  xticklabels={%
+    $0$,
+    $\frac{ \pi}{4}$,
+    $\frac{ \pi}{2}$,
+    $\frac{3\pi}{4}$,
+    $\pi$,
+    $\frac{5\pi}{4}$,
+    $\frac{3\pi}{2}$,
+    $\frac{7\pi}{4}$
+  },
+  yticklabel style={anchor=north}, % move label position
+}}
+
+\begin{tikzpicture}
+\begin{polaraxis}[%
+  ymax=4,
+  ytick={0,1,2,3},
+	  mypolarplot
+]
+%\addplot[mark=*] coordinates{ (45:3) (45:-3) (-45:3) (-45:-3) };
+	\node[circle,draw=black, fill=black, inner sep=0pt,minimum size=5pt] at (45:2.58cm){};
+	\node[circle,draw=black, fill=black, inner sep=0pt,minimum size=5pt] at (45:-2.58cm){};
+	\node[circle,draw=black, fill=black, inner sep=0pt,minimum size=5pt] at (-45:2.58cm){};
+	\node[circle,draw=black, fill=black, inner sep=0pt,minimum size=5pt] at (-45:-2.58cm){};
+%\pgfpathcircle{\pgfpointpolar{45}{4.25}}{2pt}
+%\tikz \draw   (45:3) (45:-3) (-45:3) (-45:-3); 
+\end{polaraxis}
+\end{tikzpicture}\\
+
+\noindent(a.)polar coordinate $(3, \frac{\pi}{4})$\\\\
+If $(r, \theta)$ is the same point as $(-r, \theta \pm \pi)$, then $(-3, \frac{5\pi}{4})$, $(-3, -\frac{3\pi}{4})$, and $(3, \frac{\pi}{4})$ are the same point. \\
+When $r=-3$, the polar coordinates are of the form $(-3, \frac{5\pi}{4}+ 2\pi n)$ where $n$ is an integer.\\
+When $r=3$, the polar coordinates are of the form $(3,\frac{\pi}{4}+ 2\pi n)$ where $n$ is an integer.\\\\
+
+
+\noindent(b.)polar coordinate $(-3, \frac{\pi}{4})$\\\\
+The point is equally described using polar coordinates $(3, \frac{5\pi}{4})$ and $(3, -\frac{3\pi}{4})$.\\
+When $r=-3$, the polar coordinates are of the form $(-3, \frac{\pi}{4}+ 2\pi n)$ where $n$ is an integer.\\
+When $r=3$, the polar coordinates are of the form $(3,\frac{5\pi}{4}+ 2\pi n)$ where $n$ is an integer.\\\\
+
+
+
+\noindent(c.)polar coordinate $(3, -\frac{\pi}{4})$\\\\
+The point is equally described using polar coordinates $(-3, \frac{3\pi}{4})$ and $(-3, -\frac{5\pi}{4})$.\\
+When $r=-3$, the polar coordinates are of the form $(-3, \frac{3\pi}{4}+ 2\pi n)$ where $n$ is an integer.\\
+When $r=3$, the polar coordinates are of the form $(3,-\frac{\pi}{4} + 2\pi n)$ where $n$ is an integer.\\\\
+
+
+
+\noindent(d.)polar coordinate $(-3, -\frac{\pi}{4})$\\\\
+The point is equally described using polar coordinates $(3, \frac{3\pi}{4})$ and $(3, -\frac{5\pi}{4})$.\\
+When $r=-3$, the polar coordinates are of the form $(-3, -\frac{\pi}{4}+ 2\pi n)$ where $n$ is an integer.\\
+When $r=3$, the polar coordinates are of the form $(3,\frac{3\pi}{4}+ 2\pi n)$ where $n$ is an integer.\\\\
+
+
+\pagebreak
+
+\noindent12.)The set of points that satisfy $0 \leq r \leq 2$ are those that lie within circles of radii $0$ to $2$ inclusive.
+This also includes the points on the exterior of the disk of radius $2$.\\
+\pgfplotsset{mypolarplot/.style={%
+  clip=false, % needed for double line (last \addplot command)
+  domain=0:360, % plot full cycle
+  samples=180, % number of samples; can be locally adjusted
+  grid=both, % display major and minor grids
+  major grid style={black}, 
+  minor x tick num=3, % 3 minor x ticks between majors
+  minor y tick num=1, % 1 minor y tick between majors
+  xtick={0,45,...,359},
+  xticklabels={%
+    $0$,
+    $\frac{ \pi}{4}$,
+    $\frac{ \pi}{2}$,
+    $\frac{3\pi}{4}$,
+    $\pi$,
+    $\frac{5\pi}{4}$,
+    $\frac{3\pi}{2}$,
+    $\frac{7\pi}{4}$
+  },
+  yticklabel style={anchor=north}, % move label position
+}}
+
+\begin{tikzpicture}
+\begin{polaraxis}[%
+  ymax=4,
+  ytick={0,1,2,3},
+  mypolarplot,
+]
+	\addplot[mark=none,fill=red!70!black,opacity=0.5,domain=0:360] {2};
+	\addplot[mark=none,thick,red!70!black] {2};
+  \addplot[black] {4.05}; % there is likely a better way to do this
+\end{polaraxis}
+\end{tikzpicture}\\\\
+
+
+
+
+
+
+\noindent14.)The set of points that satisfy $1 \leq r \leq 2$ are those that lie within circles of radii $1$ to $2$ inclusive.
+Since points $1 < r <  2$ are omitted, the points are enclosed in a washer.
+The points on the interior and exterior edges of the washer also satisfy the inequality.\\
+\pgfplotsset{mypolarplot/.style={%
+  clip=false, % needed for double line (last \addplot command)
+  domain=0:360, % plot full cycle
+  samples=180, % number of samples; can be locally adjusted
+  grid=both, % display major and minor grids
+  major grid style={black}, 
+  minor x tick num=3, % 3 minor x ticks between majors
+  minor y tick num=1, % 1 minor y tick between majors
+  xtick={0,45,...,359},
+  xticklabels={%
+    $0$,
+    $\frac{ \pi}{4}$,
+    $\frac{ \pi}{2}$,
+    $\frac{3\pi}{4}$,
+    $\pi$,
+    $\frac{5\pi}{4}$,
+    $\frac{3\pi}{2}$,
+    $\frac{7\pi}{4}$
+  },
+  yticklabel style={anchor=north}, % move label position
+}}
+
+\begin{tikzpicture}
+\begin{polaraxis}[%
+  ymax=4,
+  ytick={0,1,2,3},
+  mypolarplot
+]
+	\addplot[name path=outer,mark=none,thick,red!70!black] {2};
+	\addplot[name path=inner,mark=none,thick,red!70!black] {1};
+	%\addplot[mark=none,fill=red!70!black,opacity=0.5] fill between[of=f and g,soft clip={domain=1:4}] {2};
+	\pgfsetlayers{axis background}
+	\pgfdeclarelayer{axis background}
+	    \begin{pgfonlayer}{axis background}
+		    \fill[red!70!black,opacity=0.5, intersection segments={of=inner and outer}];
+	    \end{pgfonlayer}
+
+
+
+  \addplot[black] {4.05}; % there is likely a better way to do this
+\end{polaraxis}
+\end{tikzpicture}
+
+
+
+\pagebreak
+
+\noindent18.)$\theta=\frac{11\pi}{4}$, \hspace{10pt} $r \leq -1$\\\\
+The points that satisfy this inequality exist on a ray with starting point one unit away from the 
+origin. The ray is oriented at an angle of $\frac{3\pi}{4}$ from the positive $x$ axis and its tip extends 
+away from the origin.\\
+\pgfplotsset{mypolarplot/.style={%
+  clip=false, % needed for double line (last \addplot command)
+  domain=0:360, % plot full cycle
+  samples=180, % number of samples; can be locally adjusted
+  grid=both, % display major and minor grids
+  major grid style={black}, 
+  minor x tick num=3, % 3 minor x ticks between majors
+  minor y tick num=1, % 1 minor y tick between majors
+  xtick={0,45,...,359},
+  xticklabels={%
+    $0$,
+    $\frac{ \pi}{4}$,
+    $\frac{ \pi}{2}$,
+    $\frac{3\pi}{4}$,
+    $\pi$,
+    $\frac{5\pi}{4}$,
+    $\frac{3\pi}{2}$,
+    $\frac{7\pi}{4}$
+  },
+  yticklabel style={anchor=north}, % move label position
+}}
+
+\begin{tikzpicture}
+\begin{polaraxis}[%
+  ymax=4,
+  ytick={0,1,2,3},
+  mypolarplot,
+]
+  \addplot[black] {4.05}; % there is likely a better way to do this
+	\node[circle,draw=red, fill=red, inner sep=0pt,minimum size=5pt] at (135:-.85cm){};
+	\draw[red,very thick,->] (135:-.85cm) -- (135:3.5cm);
+\end{polaraxis}
+\end{tikzpicture}
+
+\noindent24.)$-\frac{\pi}{4} \leq \theta \leq \frac{\pi}{4}$, \hspace{10pt} $-1 \leq r \leq 1$\\\\
+The points that satisfy the inequalities lie within a washer segment partially in quadrants $I$ and $IV$.\\
+\pgfplotsset{mypolarplot/.style={%
+  clip=false, % needed for double line (last \addplot command)
+  domain=0:360, % plot full cycle
+  samples=180, % number of samples; can be locally adjusted
+  grid=both, % display major and minor grids
+  major grid style={black}, 
+  minor x tick num=3, % 3 minor x ticks between majors
+  minor y tick num=1, % 1 minor y tick between majors
+  xtick={0,45,...,359},
+  xticklabels={%
+    $0$,
+    $\frac{ \pi}{4}$,
+    $\frac{ \pi}{2}$,
+    $\frac{3\pi}{4}$,
+    $\pi$,
+    $\frac{5\pi}{4}$,
+    $\frac{3\pi}{2}$,
+    $\frac{7\pi}{4}$
+  },
+  yticklabel style={anchor=north}, % move label position
+}}
+
+\begin{tikzpicture}
+\begin{polaraxis}[%
+  ymax=4,
+  ytick={0,1,2,3},
+  mypolarplot,
+]
+  \addplot[black] {4.05}; % there is likely a better way to do this
+  \addplot[mark=none,fill=red!70!black,opacity=0.5,domain=-45:45] {1};
+  \addplot[mark=none,fill=blue!70!black,opacity=0.5,domain=-45:45] {-1};
+
+\end{polaraxis}
+\end{tikzpicture}
+
+
+
+\noindent32.) $r=-3sec{\theta}$\\\\
+$(r=-3sec{\theta})\frac{1}{sec{\theta}}$\\
+$rcos{\theta} = -3$\\
+$x=-3$\\\\
+
+\noindent The Cartesian equation $x=-3$ is a vertical line that passes through the point $(-3,0)$.\\\\\\
+
+
+\subsection*{Section 11.6}
+
+\noindent56.)$x-y=3$\\\\
+$x - y = 3$\\\\
+$rcos{\theta} - rsin{\theta} = 3$\\\\
+$r(cos{\theta} - sin{\theta}) = 3$\\\\
+$r = \frac{3}{cos{\theta} - sin{\theta}}$\\\\\\
+
+\noindent58.)$2x^{2}+2y^{2}-28x+12y+114 = 0$\\\\
+$2x^{2}-28x+2y^{2}+12y+114=0$\\
+$x^{2}-14x+y^{2}+6y+57=0$\\
+$x^{2}-14x+48+y^{2}+6y+9=0$\\
+$x^{2}-14x+49+y^{2}+6y+9=1$\\\\
+$(x-7)^{2} + (y+3)^{2} = 1$\\\\
+The conic section is a circle centered about $(7,3)$ with radius $1$.\\\\
+
+
+
+\noindent66.)$x^{2}-y^{2}+4x-6y = 6$\\\\
+$x^{2}+4x-y^{2}-6y=6$\\
+$x^{2}+4x+4-y^{2}-6y-9=6+4-9$\\\\
+$(x+2)^{2}-(y+3)^{2}=1$\\
+
+\noindent The conic section is a hyperbola with foci on the x-axis. It is of the form $\frac{x-h}{a^{2}} - \frac{y-k}{b^{2}} = 1$.\\\\
+\textbf{center:} $(h, k) = (-2, -3)$\\
+\textbf{vertices:}$(h\pm a, k)=(-1,-3)$ and $(-3,-3)$\\
+\textbf{center to focus distance:} $c=\sqrt{a^{2}+b^{2}} = \sqrt{2}$\\
+\textbf{foci:} $(h\pm c, k) = (-2+\sqrt{2}, -3)$ and $(-2-\sqrt{2},-3)$\\
+\textbf{assymptotes:} $y-k=\frac{b}{a}(x-h)$\hspace{10pt} $y = -x -5$ and $y = x-1$
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

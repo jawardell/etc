@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+%\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{harpoon}% <---
+\usepackage[inline]{asymptote}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{polar}
+\newcommand*{\QEDA}{\hfill\ensuremath{\blacksquare}}%
+\usepackage{xfrac}
+%\usepackage[demo]{graphicx}
+\pgfplotsset{compat=1.11}
+\usetikzlibrary{calc}
+\usepackage{setspace}
+\usepackage{extsizes}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb}    
+\usepackage[margin=.5in]{geometry}
+
+
+\pgfplotsset{width=7cm,compat=1.10}
+%\pgfplotsset{
+%  /pgfplots/colormap={pink}{%
+%    color(0cm) = (purple);
+%    color(1cm) = (pink!80!purple);
+%    color(2cm) = (pink!90);
+%    color(3cm) = (pink) }
+%}
+
+\title{\vspace{-2.0cm}Homework 2}
+\author{Joanne Wardell}
+\date{Thursday, August 28, 2018}
+\begin{document}
+\maketitle
+
+
+\subsection*{Section 12.5}
+\noindent 2.) The parametric equations for the line passing through $P(1, 2, -1)$ and $Q(-1, 0, 1)$  \\\\
+\noindent $\overrightharp{PQ} = \langle -1-1, 0-2, 1+1\rangle = \langle -2, -2, 2\rangle$\\\\
+\noindent $\vec{r}(t) = \langle 1, 2, -1\rangle + t\langle -2, -2, 2\rangle$\\\\
+\noindent $x = -2t +1$, \hspace{10pt} $y = -2t + 2$, \hspace{10pt} $z = 2t -1$\\\\
+
+\noindent 6.) The parametric equations for the line through the point $(3, -2, 1)$ parallel to the line $x = 1 + 2t$,
+\hspace{10pt} $y = 2-t$, \hspace{10pt} $z = 3t$ \\\\
+\noindent $\vec{r}_{1} = \langle 1, 2, 0\rangle + t\langle 2,-1, 3\rangle$\\\\
+\noindent $\vec{r}_{2} = \langle 3, -2, 1\rangle + t\langle 2, -1, 3\rangle$\\\\
+\noindent $x = 2t - 3$, \hspace{10pt} $y = -t -2$, \hspace{10pt} $z = 3t + 1$\\\\
+
+\noindent 8.) The parametric equations for the line through $(2, 4, 5)$ perpindicular  to the plane $3x + 7y -5z = 21$ \\\\
+\noindent $\vec{n} = 3\mathbf{i} + 7\mathbf{j} -5\mathbf{z}$\\\\
+\noindent $\vec{r} = \langle 2, 4, 5\rangle + t \langle 3, 7, -5\rangle$\\\\
+\noindent $x = 3t +2$, \hspace{10pt} $y = 7t + 4$, \hspace{10pt} $z = -5t +5$\\\\
+\noindent 10.) The parametric equations for the line through $(2, 3, 0)$ perpindicular to the vectors 
+$\mathbf{u} = \mathbf{i} + 2\mathbf{j} + 3\mathbf{k}$ and $\mathbf{v} = 3\mathbf{i} + 4\mathbf{j} + 5\mathbf{k}$ \\\\
+\noindent $\mathbf{u \times v} = -2\mathbf{i} + 4\mathbf{j} -2\mathbf{k}$\\\\
+\noindent $\langle 2, 3, 0\rangle + t\langle -2, 4, -2\rangle$\\\\
+\noindent $x = -2t + 2$, \hspace{10pt} $y = 4t + 3$, \hspace{10pt} $z = -2t$\\\\
+\noindent 20.) Parametrizations for the line segments joining the points $P(1, 0, -1)$ and $Q(0, 3, 0)$ \\\\
+\noindent $\overrightharp{PQ} = \langle 0-1, 3-0, 0+1\rangle = \langle -1, 3, 1\rangle$\\\\
+\noindent $\vec{r}(t) = \langle 1, 0, -1\rangle + t\langle -1, 3, 1\rangle$\\\\
+\noindent $x = -t + 1$, \hspace{10pt} $y = 3t$, \hspace{10pt} $z = t - 1$\\\\
+Below is a sketch of each segment, indicating the direction of increasing $t$ for the parametrizations: \\\\
+\noindent 24.) Equations for the plane through $(1, 1, -1)$, \hspace{10pt} $(2, 0, 0)$, \hspace{10pt} $(0, -2, 1)$\\\\
+\noindnet 
+\noindent 28.) The point of intersection of the lines $x = t$, \hspace{10pt} $y = -t+2$, \hspace{10pt} $z = t + 1$, \hspace{10pt}
+and $x = 2s+2$, \hspace{10pt} $y = s+3$, \hspace{10pt} $z = 5s+6$ is:\\\\
+The plane determined by these lines is:\\\\
+\noindent 72.) How can you tell when two planes are parallel or perpindicular? \\\\
+\noindent 
+\subsection*{Section 12.6}
+\noindent 2.) $z^{2}+4y^{2}-4x^{2}=10$\\\\
+\noindent $\frac{y^{2}}{1^{2}} - \frac{x^{2}}{1^{2}} + \frac{z^{2}}{2^{2}} = 1$\\\\
+\noindent This is the form of a hyperboloid of one sheet opening upward and downward on the
+ x-axis. \textbf{i}.\\\\
+\noindent 6.) $x=-y^{2}-z^{2}$\\\\
+\noindent $\frac{x}{(-1)} = y^{2} + z^{2}$\\\\
+\noindent This is the form of an elliptical paraboloid opening downward on the x-axis. There isn't a graph in the book that corresponds to this.\\\\
+\noindent 8.) $z^{2}+x^{2}-y^{2}=1$\\\\
+This is of the form of a hyperboloid of one sheet opening in the positive and negative y-axis. \textbf{j}.\\\\
+\noindent 10.) $z=-4x^{2} -y^{2}$\\\\
+\noindent $\frac{z}{-4} = \frac{x^{2}}{1^{2}} + \frac{y^{2}}{1^{2}}$\\\\
+\noindent This is of the form of an elliptical paraboloid opening in the negative z-axis. \textbf{f}.\\\\
+
+\noindent 12.) $9x^{2}+4y^{2}+2z^{2}=36$\\\\
+\noindent $\frac{x^{2}}{2^{2}} + \frac{y^{2}}{3^{2}} + \frac{z^{2}}{(2\sqrt{3})^{2}} = 1$ \\\\
+\noindent This is the form of an ellipsoid with the major axis along the z-axis. \textbf{c}.\\\\
+
+%sketch
+\noindent 36.) $16^{2} + 4y^{2} = 1$\\
+\noindent This is an elliptical cylinder.\\\\\\\\
+\noindent 38.) $x^{2}+z^{2}=y$\\
+\noindent This is a paraboloid.\\\\\\\\
+\noindent 42.) $y^{2}-x^{2}-z^{2}=1$\\
+\noindent This is a hyperboloid.\\\\\\\\
+
+\end{document}
