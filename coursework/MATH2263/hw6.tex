@@ -55,20 +55,52 @@ by using the equation of the circle $\vec{r}(t) = \langle Rcos(t) + h, Rsin(t) +
 
 \subsection*{Section 13.5}
 \noindent 2.)$\vec{r}(t) = (1 + 3t)\mathbf{i} + (t - 2)\mathbf{j} - 3t\mathbf{k}$\\\\
-\noindent $\vec{T} = \langle \frac{3}{\sqrt{19}}, \frac{1}{\sqrt{19}}, \frac{-3}{\sqrt{19}}\rangle$\\\\
-\noindent $\vec{N} = \langle 0, 0, 0\rangle$\\\\
-\noindent $a_{T} = \frac{d\|\vec{v} \|}{dt}$\\\\
-\noindent $a_{N} = \kappa \| \vec{v} \|^{2}$\\\\
-\noindent $\vec{a} = a_{T}\vec{T} + a_{N}\vec{N}$\\\\
+\noindent $\vec{v} = \langle 3, 1, 3\rangle$, \hspace{10pt} $\| \vec{v} \| = \sqrt{19}$\\\\
+\noindent $a_{T} = \frac{d\|\vec{v} \|}{dt} = \frac{d0}{dt} = 0$\\\\
+\noindent $a_{N} = \kappa \| \vec{v} \|^{2} = \kappa 0^{2} = 0$\\\\
+\noindent $\vec{a} = a_{T}\vec{T} + a_{N}\vec{N} = 0\vec{T} + 0\vec{N}$\\\\
+
 \noindent 4.) $\vec{r}(t) = (tcos{t})\mathbf{i} + (tsin{t})\mathbf{j} + t^{2}\mathbf{k}$, \hspace{10pt} $t = 0$\\\\
+\noindent $\vec{v} = \langle cos{t} - tsin{t}, sin{t} + tcos{t}\rangle$, \hspace{10pt} $\| v\| = \sqrt{1+5t^{2}}$\\\\
+\noindent $a_{T} = \frac{d\|\vec{v} \| }{dt} = \frac{5t}{\sqrt{1+5t^{2}}}$, \hspace{10pt} $a_{T}\Big|_{0} = 0$\\\\
+\noindent $\vec{a} = \frac{d\vec{v}}{dt} = \langle 0, 2, 2\rangle$, \hspace{10pt} $\| \vec{a}\|  =2\sqrt{2}$\\\\
+\noindent $a_{N} = \sqrt{\| a \| ^{2} - (a_{T})^{2}} = \sqrt{8 - 0} = 2\sqrt{2}$\\\\
+\noindent $\vec{a} = 0\vec{T} + 2\sqrt{2}\vec{N}$\\\\
+
+
 \noindent 8.) $\vec{r}(t) = (cos{t})\mathbf{i} + (sin{t})\mathbf{j} + t\mathbf{k}$, \hspace{10pt} $t = 0$\\\\
-\noindent The equation for the \textbf{osculating plane} at $t = 0$ is $\| \vec{N} \times \vec{T}\|_{t = 0} = $\\\\
-\noindent The equation for the \textbf{normal plane} at $t = 0$ is $ \| \vec{B} \times \vec{N}\|_{t = 0} = $\\\\
-\noindent The equation for the \textbf{rectifying plane} at $t = 0$ is $ \| \vec{B} \times \vec{T}\|_{t = 0} = $\\\\
+\noindent $\frac{d\vec{r}}{dt} = \langle -sin{t}, cos{t}, 1\rangle$,
+ \hspace{10pt} $\langle -sin{t}, cos{t}, 1\rangle \Big|_{0} = \langle 1, 0, 1\rangle$\\\\
+\noindent $\| \vec{v} \| = \langle \sqrt{2}\rangle$, \hspace{10pt} $\| v \| \Big|_{0} = \langle \sqrt{2} \rangle$\\\\
+\noindent $\vec{T} = \langle -\frac{sin{t}}{\sqrt{2}}, \frac{cos{t}}{\sqrt{2}}, \frac{1}{\sqrt{2}}\rangle$,
+ \hspace{10pt} $\vec{T}\Big|_{0} = \langle \frac{1}{\sqrt{2}}, 0, \frac{1}{\sqrt{2}}\rangle$\\\\
+\noindent $\frac{d\vec{T}}{dt} = \langle -\frac{cos{t}}{\sqrt{2}}, -\frac{sin{t}}{\sqrt{2}}, 0 \rangle$\\\\
+\noindent $\vec{N} = \hat{\frac{d\vec{T}}{dt}} = \langle -cos{t}, -sin{t}\rangle$, \hspace{10pt}
+ $\vec{N}\Big|_{0} = \langle -1, 0, 0\rangle$\\\\
+\noindent $\vec{B} = \vec{T} \times \vec{N} = \langle 0, -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\rangle$\\\\
+\noindent The equation for the \textbf{osculating plane} at $t = 0$ is $Ax + Bx + Cx  = d$...
+$0(x - 1) - \frac{1}{\sqrt{2}}(y - 0) + \frac{1}{\sqrt{2}} (z - 0) = 0$\\\\
+\noindent $\Rightarrow -y+z = 0$ or $y - z = 0$\\\\ 
+\noindent The equation for the \textbf{normal plane} at $t = 0$ is $ Ax + Bx + Cx  = d$...
+$0(x - 1)  \frac{1}{\sqrt{2}}(y - 0) + \frac{1}{\sqrt{2}} (z - 0) = 0$\\\\
+\noindent $\Rightarrow y+z = 0$\\\\ 
+\noindent The equation for the \textbf{rectifying plane} at $t = 0$ is $ Ax + Bx + Cx  = d$...
+$-(x - 1) + 0(y - 0) + 0(z - 0) = 0$\\\\
+\noindent $\Rightarrow x = 1$\\\\ 
+
 
 \noindent 12.) $\vec{r}(t) = (6sin{2t})\mathbf{i} + (6cos{2t})\mathbf{j} + 5t\mathbf{k}$\\\\
-\noindent $\vec{B} = \vec{T} \times \vec{N} = $\\\\
-\noindent $\tau = -\frac{1}{\| \vec{v} \| }(\frac{d\vec{B}}{dt}\cdot \vec{N})$\\\\
+\noindent $\frac{d\vec{r}}{dt} = 6\frac{dsin{2t}}{dt}\mathbf{i} + 6\frac{dcos{2t}}{dt}\mathbf{j} + 5\frac{dt}{dt}\mathbf{k} =
+12cos{2t}\mathbf{i} - 12sin{2t}\mathbf{j} + 5\mathbf{k}$\\\\
+\noindent $\| \vec{v} \| = \sqrt{144 + 25} = 13 $\\\\
+\noindent $\vec{T} = \frac{\vec{v}}{\| \vec{v} \|} = \langle \frac{12cos{2t}}{13}, -\frac{12sin{2t}}{13}, \frac{5}{13}\rangle$\\\\
+\noindent $\frac{d\vec{T}}{dt} = \langle \frac{12}{13}\frac{dcos{2t}}{dt} , -\frac{12}{13}\frac{dsin{2t}}{dt} + \frac{5}{13}\frac{d}{dt}\rangle
+= \langle -\frac{24sin{2t}}{13}, -\frac{24cos{2t}}{13}, 0 \rangle$\\\\
+\noindent $\| \frac{d\vec{T}}{dt} \|  = \frac{24}{13}$\\\\
+\noindent $\kappa = \frac{1}{\| \vec{v} \| }\frac{d\vec{T}}{dt} = \frac{1}{13}\frac{24}{13} =\frac{24}{169}$\\\\
+\noindent $\vec{N} = \frac{1}{\kappa}\frac{d\vec{T}}{dt} = \frac{169}{24}\langle -\frac{24sin{2t}}{13}, -\frac{24cos{2t}}{13}, 0\rangle $\\\\
+\noindent $\vec{B} = \vec{T} \times \vec{N} = \langle \frac{5}{13}cos{2t}, -\frac{5}{13}sin{2t}, -\frac{12}{13}\rangle$\\\\
+\noindent $\tau = -\frac{1}{\| \vec{v} \| }(\frac{d\vec{B}}{dt}\cdot \vec{N}) = 13(\langle -\frac{10sin{2t}}{13}, -\frac{10cos{2t}}{13}, 0\rangle \cdot \langle -\frac{24sin{2t}}{13}, -\frac{24cos{2t}}{13}, 0\rangle) = 13\frac{240}{169} = \frac{240}{13}$ wrong\\\\
 \noindent 24.) The following can be said about the torsion of a smooth plane curve $\vec{r}(t) = f(t)\mathbf{i} + g(t)\mathbf{j}$, \hspace{10pt} $t > 0$\\\\
 \noindent 26.) Using the formula $\tau = -\frac{1}{\| \vec{v} \|}(\frac{d\vec{B}}{dt} \cdot \vec{N})$, the torsion of the helix in Example 2 is:\\\\
 
