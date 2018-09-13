@@ -75,17 +75,17 @@ by using the equation of the circle $\vec{r}(t) = \langle Rcos(t) + h, Rsin(t) +
 \noindent $\vec{T} = \langle -\frac{sin{t}}{\sqrt{2}}, \frac{cos{t}}{\sqrt{2}}, \frac{1}{\sqrt{2}}\rangle$,
  \hspace{10pt} $\vec{T}\Big|_{0} = \langle \frac{1}{\sqrt{2}}, 0, \frac{1}{\sqrt{2}}\rangle$\\\\
 \noindent $\frac{d\vec{T}}{dt} = \langle -\frac{cos{t}}{\sqrt{2}}, -\frac{sin{t}}{\sqrt{2}}, 0 \rangle$\\\\
-\noindent $\vec{N} = \hat{\frac{d\vec{T}}{dt}} = \langle -cos{t}, -sin{t}\rangle$, \hspace{10pt}
+\noindent $\vec{N} = \frac{d\vec{T}}{dt}\frac{1}{\| \frac{d\vec{T}}{dt}\| } = \langle -cos{t}, -sin{t}\rangle$, \hspace{10pt}
  $\vec{N}\Big|_{0} = \langle -1, 0, 0\rangle$\\\\
 \noindent $\vec{B} = \vec{T} \times \vec{N} = \langle 0, -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\rangle$\\\\
-\noindent The equation for the \textbf{osculating plane} at $t = 0$ is \\$Ax + Bx + Cx  = d$...
-$0(x - 1) - \frac{1}{\sqrt{2}}(y - 0) + \frac{1}{\sqrt{2}} (z - 0) = 0$\\\\
-\noindent $\Rightarrow -y+z = 0$ or $y - z = 0$\\\\ 
-\noindent The equation for the \textbf{normal plane} at $t = 0$ is \\$ Ax + Bx + Cx  = d$...
-$0(x - 1)  \frac{1}{\sqrt{2}}(y - 0) + \frac{1}{\sqrt{2}} (z - 0) = 0$\\\\
+\noindent The equation for the \textbf{osculating plane} at $t = 0$ is \\$Ax + Bx + Cx  = d$...\\
+$0(x - 1) - \frac{1}{\sqrt{2}}(y - 0) + \frac{1}{\sqrt{2}} (z - 0) = 0$\\
+\noindent $\Rightarrow -y+z = 0$ or $y - z = 0$\\\\
+\noindent The equation for the \textbf{normal plane} at $t = 0$ is \\$ Ax + Bx + Cx  = d$...\\
+$0(x - 1)  \frac{1}{\sqrt{2}}(y - 0) + \frac{1}{\sqrt{2}} (z - 0) = 0$\\
 \noindent $\Rightarrow y+z = 0$\\\\ 
-\noindent The equation for the \textbf{rectifying plane} at $t = 0$ is \\$ Ax + Bx + Cx  = d$...
-$-(x - 1) + 0(y - 0) + 0(z - 0) = 0$\\\\
+\noindent The equation for the \textbf{rectifying plane} at $t = 0$ is \\$ Ax + Bx + Cx  = d$...\\
+$-(x - 1) + 0(y - 0) + 0(z - 0) = 0$\\
 \noindent $\Rightarrow x = 1$\\\\ 
 
 
@@ -100,20 +100,20 @@ $-(x - 1) + 0(y - 0) + 0(z - 0) = 0$\\\\
 \noindent $\kappa = \frac{1}{\| \vec{v} \| }\frac{d\vec{T}}{dt} = \frac{1}{13}\frac{24}{13} =\frac{24}{169}$\\\\
 \noindent $\vec{N} = \frac{1}{\kappa}\frac{d\vec{T}}{dt} = \frac{169}{24}\langle -\frac{24sin{2t}}{13}, -\frac{24cos{2t}}{13}, 0\rangle $\\\\
 \noindent $\vec{B} = \vec{T} \times \vec{N} = \langle \frac{5}{13}cos{2t}, -\frac{5}{13}sin{2t}, -\frac{12}{13}\rangle$\\\\
-\noindent $\tau = -\frac{1}{\| \vec{v} \| }(\frac{d\vec{B}}{dt}\cdot \vec{N}) = 13(\langle -\frac{10sin{2t}}{13}, -\frac{10cos{2t}}{13}, 0\rangle \cdot \langle -\frac{24sin{2t}}{13}, -\frac{24cos{2t}}{13}, 0\rangle) = 13\frac{240}{169} = \frac{240}{13}$ wrong\\\\
+\noindent $\tau = -\frac{1}{\| \vec{v} \| }(\frac{d\vec{B}}{dt}\cdot \vec{N}) = \frac{1}{13}(\langle -\frac{10sin{2t}}{13}, -\frac{10cos{2t}}{13}, 0\rangle \cdot \langle -\frac{24sin{2t}}{13}, -\frac{24cos{2t}}{13}, 0\rangle) = \frac{1}{13}\frac{240}{13} = \frac{240}{169}$\\\\
 \noindent 24.) The following can be said about the torsion of a smooth plane curve $\vec{r}(t) = f(t)\mathbf{i} + g(t)\mathbf{j}$, \hspace{10pt} $t > 0$\\\\
-\noindent $\vec{v} = $\\\\
-\noindent $\vec{T} = $\\\\
-\noindent $\vec{N} = $\\\\
-\noindent $\vec{B} = \vec{T} \times \vec{N} = $\\\\
-\noindent $\frac{d\vec{B}}{dt} = \langle \rangle$\\\\
-\noindent $\tau = -\frac{1}{\| \vec{v} \|}(\frac{d\vec{B}}{dt} \cdot \vec{N}) = -\frac{1}{\| \vec{v} \| } () = $
+\noindent The torsion is zero because the $\mathbf{k}$ component of $\vec{r}$ is zero. The Wronskian of $f(t)$, $g(t)$, and $h(t) = 0$ is zero. Since the Wroskian is in the numerator of the $\tau$ calulation, the whole fraction is zero. Thus, the torsion of the smooth plane is zero. This makes sense because a plane doesn't have curavature and doesn't have torsion.\\\\
 \noindent 26.) Using the formula $\tau = -\frac{1}{\| \vec{v} \|}(\frac{d\vec{B}}{dt} \cdot \vec{N})$, the torsion of the helix in Example 2 is:\\\\
-\noindent $\vec{v} = $\\\\
-\noindent $\vec{T} = $\\\\
-\noindent $\vec{N} = $\\\\
-\noindent $\vec{B} = \vec{T} \times \vec{N} = $\\\\
-\noindent $\frac{d\vec{B}}{dt} = \langle \rangle$\\\\
-\noindent $\tau = -\frac{1}{\| \vec{v} \|}(\frac{d\vec{B}}{dt} \cdot \vec{N}) = -\frac{1}{\| \vec{v} \| } () = $
+\noindent $\vec{r} = (acos{t})\mathbf{i} + (asin{t})\mathbf{j} + bt\mathbf{k}$
+\noindent $\vec{v} = (-asin{t})\mathbf{i} + (acos{t})\mathbf{j} + b\mathbf{k}$\\\\
+\noindent $\| \vec{v} \| = \sqrt{a^{2} + b^{2}}$\\\\
+\noindent $\vec{T} = \langle \frac{(-asin{t})}{\sqrt{a^{2} + b^{2}}}, \frac{(acos{t})}{\sqrt{a^{2} + b^{2}}}, 
+	\frac{b}{\sqrt{a^{2} + b^{2}}} \rangle$\\\\
+\noindent $\frac{d\vec{T}}{dt} = \frac{1}{\sqrt{a^{2} + b^{2}}}\langle -acos{t}, -asin{t}, 0\rangle$
+\noindent $\vec{N} = \frac{d\vec{T}}{dt}\frac{1}{\| \frac{d\vec{T}}{dt}\| } = \frac{1}{\sqrt{a^{2} + b^{2}}}\langle -acos{t}, -asin{t}, 0\rangle =\frac{a^{2} + b^{2}}{a} \langle -cos{t}, -sin{t}, 0\rangle$\\\\
+\noindent $\vec{B} = \vec{T} \times \vec{N} = \frac{1}{\sqrt{a^{2}+ b^{2}}}\langle bsin{t}, -bcos{t}, \frac{a}{\sqrt{a^{2} + b^{2}}} \rangle$\\\\
+\noindent $\frac{d\vec{B}}{dt} =  \frac{1}{a^{2}+b^{2}} \langle bcos{t} , bsin{t}, 0\rangle$\\\\
+\noindent $\frac{d\vec{B}}{dt}\cdot \vec{N} = \frac{1}{\sqrt{a^{2} + b^{2}} } \langle bcos{t}, bsin{t}, 0 \rangle \cdot \langle -cos{t}, -sin{t}, 0\rangle = -\frac{b}{\sqrt{a^{2} + b^{2}}}$
+\noindent $\tau = -\frac{1}{\| \vec{v} \|}(\frac{d\vec{B}}{dt} \cdot \vec{N}) = -\frac{1}{\sqrt{a^{2} + b^{2}} } (-\frac{b}{\sqrt{a^{2} + b^{2}}}) = \frac{b}{a^{2} + b^{2}}$\\\\
 
 \end{document}
