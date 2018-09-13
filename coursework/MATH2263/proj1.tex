@@ -18,7 +18,7 @@
 \noindent 2.) $\| \vec{v}\|  = \sqrt{(cos(t) - tsin(t))^{2} + (sin(t) + tcos(t)) + 1^{2}}
 \\\\= \sqrt{cos^{2}(t) + 2tcos(t)sin(t) + t^{2}sin^{2} + sin^{2}(t) -2tcos(t)sin(t) + t^{2}cos^{2}(t) + 1} 
 \\\\ = \sqrt{t^{2} + 2}$\\\\
-\noindent the plot of speed\\\\
+\noindent the plot of speed\\
 \begin{tikzpicture}
   \begin{axis}[
       xmin=1,xmax=3,
@@ -48,10 +48,10 @@ A particle in the tornado moves faster as time progresses.\\\\
 $\frac{\vec{v}}{\| \vec{v} \|} = \frac{1}{\sqrt{t^{2}+ 2}}\langle cos(t) -tsin(t), sin(t) + tcos(t), 1\rangle$\\\\
 \noindent 3.) $\vec{a} = \frac{d\vec{v}}{dt} = \langle - 2sin(t) -tcos(t), 2cos(t) - tsin(t), 0\rangle$\\\\
 \noindent $\| \vec{a} \| = \sqrt{(-2sin(t)-tcos(t))^{2} + (2cos(t) - tsin(t))^{2} + 0^{2}} \\\\= 
-\sqrt{4sin^{2}(t)+4tcos(t)sin(t)+t^{2}cos^{2}(t) + 4cos^{2}(t)-4tcos(t)sin(t)+t^{2}sin^{2}(t)} \\\\= \sqrt{t^{2} + 4}$\\\\
+\sqrt{4sin^{2}(t)+4tcos(t)sin(t)+t^{2}cos^{2}(t) + 4cos^{2}(t)-4tcos(t)sin(t)+t^{2}sin^{2}(t)} \\\\= \sqrt{t^{2} + 4}$\clearpage
 
 
-\noindent the plot of acceleration's magnitude\\\\
+\noindent the plot of acceleration's magnitude\\
 \begin{tikzpicture}
   \begin{axis}[
       xmin=1,xmax=3,
@@ -75,16 +75,41 @@ $\frac{\vec{v}}{\| \vec{v} \|} = \frac{1}{\sqrt{t^{2}+ 2}}\langle cos(t) -tsin(t
 
 \noindent From the previous example, we noticed that the speed was not constant but always 
 increasing. It was increasing non-linearly as well, so the acceleration is expected to be variable, that is, 
-not a constant, as time progresses. As expected, the acceleration is not constant and it's magnitude is also 
-not constant. The acceleration is also increasing. All of the remaining derivatives will be non-constant 
-because of the sqaure root in the functions.
+not a constant as time progresses. As expected, the acceleration is not constant and it's magnitude is also 
+not constant. In fact, acceleration's magnitude is increasing. All of the remaining derivatives will be non-constant 
+because of the sqaure root in the functions.\\\\
 
 
-\noindent 4.) $a_{T} = \frac{d}{dt}[\| \vec{v} \|] = \frac{d}{dt}[\sqrt{t^{2} + 2}] = \frac{1}{\sqrt{t^{2} + 2}}$\\\\
-\noindent $a_{N} = \sqrt{\| a \| ^{2} + a_{T}^{2}} 
-\\= \sqrt{(\sqrt{t^{2} + 4})^{2} + (\frac{1}{\sqrt{t^{2} + 2}})^{2}}
-\\= \sqrt{\frac{(t^{2} + 4)((t^{2} + 2))}{(t^{2} + 2)} + \frac{1}{t^{2} + 2}}
-\\ = \sqrt{\frac{t^{4} + 6t^{2} + 9}{t^{2} + 2}}\\\\ t \to \infty \approx \sqrt{\frac{t^{4}}{t^{2}}} = t $\\\\
+\noindent 4.) $a_{T} = \frac{d}{dt}[\| \vec{v} \|] = \frac{d}{dt}[\sqrt{t^{2} + 2}] = \frac{t}{\sqrt{t^{2} + 2}}$\\\\
+\noindent as $t \to \infty$, $\frac{t}{t^{2} + 2} \approx 1$\\\\
+\noindent $a_{N} = \sqrt{\| a \| ^{2} + a_{T}^{2}}\\ 
+\\= \sqrt{(\sqrt{t^{2} + 4})^{2} + (\frac{1}{\sqrt{t^{2} + 2}})^{2}}\\
+\\= \sqrt{\frac{(t^{2} + 4)(t^{2} + 2)}{(t^{2} + 2)} + \frac{1}{t^{2} + 2}}\\
+\\ = \sqrt{\frac{t^{4} + 6t^{2} + 9}{t^{2} + 2}}\\\\ $ as $t \to \infty$, $\sqrt{\frac{(t^{2} + 4)(t^{2} + 2)}{(t^{2} + 2)} + \frac{1}{t^{2} + 2}}\approx \sqrt{\frac{t^{4}}{t^{2}}} = t $\\\\
+\noindent graphs of the tangential and normal components\\\\
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=1,xmax=3,
+      ymin=-1,ymax=8,
+      grid=both,
+      grid style={line width=.1pt, draw=gray!10},
+      major grid style={line width=.2pt,draw=gray!50},
+      axis lines=middle,
+      minor tick num=5,
+      enlargelimits={abs=0.5},
+      axis line style={latex-latex},
+      ticklabel style={font=\tiny,fill=white},
+      xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+      ylabel style={at={(ticklabel* cs:1)},anchor=south west},
+      restrict x to domain=-1:inf
+  ]
+	  \addplot[mark=none, ultra thick, label=woo1]{sqrt((x^4 + 6*x^2 + 9)/(x^2 + 2))};
+	  \addplot[mark=none, ultra thick, label=woo2]{sqrt(1/(x^2 + 2))};
+ 
+\end{axis}
+\end{tikzpicture}
+
+
 \noindent 5.) $\kappa = \frac{a_{N}}{\| \vec{v} \| ^{2}} = \frac{}{} = $\\\\
 \noindent 6.)  $\vec{v} \times \vec{a} = $\\\\
 \noindent $\| \vec{v} \times \vec{a} \| = $
