@@ -107,14 +107,44 @@ because of the sqaure root in the functions.\\\\
 	  \addplot[mark=none, ultra thick, label=woo2]{sqrt(1/(x^2 + 2))};
  
 \end{axis}
-\end{tikzpicture}
+\end{tikzpicture} \clearpage
 
 
-\noindent 5.) $\kappa = \frac{a_{N}}{\| \vec{v} \| ^{2}} = \frac{}{} = $\\\\
-\noindent 6.)  $\vec{v} \times \vec{a} = $\\\\
-\noindent $\| \vec{v} \times \vec{a} \| = $
+\noindent 5.) $\kappa = \frac{a_{N}}{\| \vec{v} \| ^{2}} 
+= \frac{\sqrt{\frac{t^{4} + 6t^{2} + 9}{t^{2} + 2}}}{(\sqrt{t^{2} + 2})^{2}} 
+= \sqrt{\frac{t^{4} + 6t^{2} + 9}{t^{2} + 2}}\frac{1}{t^{2} + 2} 
+= \frac{\sqrt{t^{4} + 6t^{2} + 9}}{t^{2} + 2}$\\\\
+\noindent graph of $\kappa$\\ 
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=1,xmax=3,
+      ymin=-1,ymax=8,
+      grid=both,
+      grid style={line width=.1pt, draw=gray!10},
+      major grid style={line width=.2pt,draw=gray!50},
+      axis lines=middle,
+      minor tick num=5,
+      enlargelimits={abs=0.5},
+      axis line style={latex-latex},
+      ticklabel style={font=\tiny,fill=white},
+      xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+      ylabel style={at={(ticklabel* cs:1)},anchor=south west},
+      restrict x to domain=-1:inf
+  ]
+	  \addplot[mark=none, ultra thick]{sqrt((x^4 + 6*x^2 + 9))/(x^2 + 2)};
+\end{axis}
+\end{tikzpicture} \clearpage
+\noindent $\kappa$ slowly stablizes to $1$ as $t \to \infty$.\\\\
+\clearpage
 
-\noindent 7.)$\tau = \begin{vmatrix}
+\noindent 6.)  $\vec{v} \times \vec{a} 
+\\\\= \langle cos(t) -tsin(t), sin(t) + tcos(t), 1 \rangle \times \langle- 2sin(t) -tcos(t), 2cos(t) - tsin(t), 0 \rangle
+\\\\ = \langle \rangle$\\\\
+\noindent $\| \vec{v} \times \vec{a} \| 
+\\\\= $
+
+\noindent 7.)$\tau = 
+\begin{vmatrix}
       x    &  y   &z \\ 
       x''  &  y'' &z'' \\
       x''' &  y'''&z''' \\ 
