@@ -144,11 +144,11 @@ because of the sqaure root in the functions.\\\\
 \\\\= \langle -2cos(t)+tsin(t) , -2sin(t)-tcos(t), 2 + t^{2}\rangle$\\\\
 \noindent $\| \vec{v} \times \vec{a} \| 
 \\\\= \sqrt{4cos^{2}(t) + 4sin^{2}(t) - 4tcos(t)sin(t) + 4tcos(t)sin(t) + t^{2}cos(t) + t^{2}sin(t) + t^{4} + 4t + 4}
-\\\\= \sqrt{4 + t^{2} + 4 + 4t + t^{4}} = \sqrt{t^{4} + t^{2} + 4t + 8}$\\\\
+\\\\= \sqrt{4 + t^{2} + 4 + 4t^{2} + t^{4}} = \sqrt{t^{4} + 5t^{2} + 8}$\\\\
 
 \noindent 7.) $\tau = 
 \begin{vmatrix}
-      x    &  y   &z \\ 
+      x'    &  y'   &z' \\ 
       x''  &  y'' &z'' \\
       x''' &  y'''&z''' \\ 
 \end{vmatrix}
@@ -157,9 +157,9 @@ because of the sqaure root in the functions.\\\\
       -2sin(t)-tcos(t)  &  2cos(t)-tsin(t) & 0\\
       -3cos(t) + tsin(t) &  -3sin(t)-cos(t)& 0  \\ 
 \end{vmatrix}
-\frac{1}{\sqrt{t^{4} + t^{2} + 4t + 8}^{2}}\\\\ $
-$\\\\=[(-2sin(t)-tcos(t))(-3sin(t) - tcos(t))] - [(-3cos(t)+tsin(t))(2cos(t)-tsin(t))] \frac{1}{t^{4} + t^{2} + 4t + 8}
-\\\\=\frac{t^{2} + 6}{t^{4} + t^{2} + 4t + 8} $\\\\
+\frac{1}{\sqrt{t^{4} + 5t^{2} + 8}^{2}}\\\\ $
+$\\\\=[(-2sin(t)-tcos(t))(-3sin(t) - tcos(t))] - [(-3cos(t)+tsin(t))(2cos(t)-tsin(t))] \frac{1}{t^{4} + 5t^{2} + 8}
+\\\\=\frac{t^{2} + 6}{t^{4} + 5t^{2} + 8} $\\\\
 
 
 
@@ -181,7 +181,7 @@ $\\\\=[(-2sin(t)-tcos(t))(-3sin(t) - tcos(t))] - [(-3cos(t)+tsin(t))(2cos(t)-tsi
       ylabel style={at={(ticklabel* cs:1)},anchor=south west},
       restrict x to domain=-1:inf
   ]
-	  \addplot[mark=none, ultra thick]{(x^2+6)/(x^4+x^2+4*x^2+8)};
+	  \addplot[mark=none, ultra thick]{(x^2+6)/(x^4+5*x^2+8)};
 \end{axis}
 \end{tikzpicture}
 
