@@ -14,6 +14,13 @@
 \usepackage[margin=.5in]{geometry}
 \usepackage[margin=.5in]{geometry}
 
+
+
+\newcommand{\asa}{2}
+\newcommand{\bsa}{0.5}
+\newcommand{\csa}{0.5}
+
+
 \title{\vspace{-2.0cm}Homework 7}
 \author{Joanne Wardell}
 \date{Thursday, September 20, 2018}
@@ -149,7 +156,7 @@
 \noindent 48.) $f(x, y) = \sqrt{x^{2} +y^{2} -4}$\\
 \noindent a.) Below is a sketch of the surface.\\
 \begin{figure}[!h]
-\includegraphics{graph.png}
+\includegraphics{graph1.png}
 \end{figure}
 
 \noindent b.) Below is an assortment of level curves in the function's domain.\\
@@ -187,26 +194,64 @@
 \noindent 60.) $f(x, y, z) = \frac{x^{2}}{25} + \frac{y^{2}}{16} + \frac{z^{2}}{9}$\\
 \noindent Below is a typical level surface for the function.\\
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{tikzpicture}
 \begin{axis}
-[colormap/cool,]
-\addplot3 [
-	surf,
-	opacity=0.4,
-	domain=-1:0,
-	domain y=0:360
-] ({sin(y)*sqrt(1-x^2)},{2*cos(y)*sqrt(1-x^2)},{x});
-\addplot3 [
-        surf,
-        opacity=0.4,
-        domain=0:1,
-        domain y=0:360,
-        on layer=axis foreground
-] ({sin(y)*sqrt(1-x^2)},{2*cos(y)*sqrt(1-x^2)},{x});
-
+[view={135}{20},%colormap/blackwhite,
+axis lines=center, axis on top,ticks=none,
+set layers=default,axis equal,
+xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+xlabel style={anchor=south east},
+ylabel style={anchor=south west},
+zlabel style={anchor=south west},
+enlargelimits,
+tick align=inside,
+domain=0:2.00,
+samples=20, 
+z buffer=sort,
+]
+\addplot3 [surf,opacity=0.4,domain=-1:0,
+domain y=0:360] ({sin(y)*sqrt(1-x^2)},{2*cos(y)*sqrt(1-x^2)},{x});
+\addplot3 [surf,opacity=0.4,domain=0:1,
+domain y=0:360,on layer=axis foreground] ({sin(y)*sqrt(1-x^2)},{2*cos(y)*sqrt(1-x^2)},{x});
 \end{axis}
-
 \end{tikzpicture}
+
 
 
 \subsection*{Section 14.2}
