@@ -33,7 +33,7 @@
 \noindent a.) $f(2, \frac{\pi}{6}) = \sin(\frac{2\pi}{6}) = \sin(\frac{\pi}{3}) = \frac{\sqrt{3}}{2}$\\\\
 \noindent b.) $f(-3, \frac{\pi}{12}) = \sin(-\frac{3\pi}{12}) = -\sin(\frac{\pi}{4}) = -\frac{\sqrt{2}}{2}$\\\\
 \noindent c.) $f(\pi, \frac{1}{4}) = \sin(\frac{\pi}{4}) = \frac{\sqrt{2}}{2}$\\\\
-\noindent d.) $f(-\frac{\pi}{2}, -7) = \sin(\frac{7\pi}{2}) = -\sin(\frac{3\pi}{2}) = 1$\\\\
+\noindent d.) $f(-\frac{\pi}{2}, -7) = \sin(\frac{7\pi}{2}) = -\sin(\frac{3\pi}{2}) = 1$\\\\\\\\
 
 \noindent 6.) $f(x, y) = \ln{x^{2} + y^{2} - 4}$\\\\
 \noindent $domain: \{ (x,y) \in \mathbb{R}^{2} | x^{2} + y^{2} > 4\}$\\
@@ -194,42 +194,6 @@
 \noindent 60.) $f(x, y, z) = \frac{x^{2}}{25} + \frac{y^{2}}{16} + \frac{z^{2}}{9}$\\
 \noindent Below is a typical level surface for the function.\\
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \begin{tikzpicture}
 \begin{axis}
 [view={135}{20},%colormap/blackwhite,
@@ -256,16 +220,28 @@ domain y=0:360,on layer=axis foreground] ({sin(y)*sqrt(1-x^2)},{2*cos(y)*sqrt(1-
 
 \subsection*{Section 14.2}
 
-\noindent 4.) $\lim\limits_{(x,y) \to (3,4)} \sqrt{x^{2} + y^{2} - 1}$\\\\
-\noindent 16.) $\lim\limits_{(x,y) \to (2,2)} \frac{y+4}{x^{2}y -xy + 4x^{2} - 4x}$\\\\
-\noindent 26.) $\lim\limits_{P \to (1, -1, -1)}\frac{2xy+yz}{x^{2}+z^{2}}$\\\\
+\noindent 4.) $\lim\limits_{(x,y) \to (3,4)} \sqrt{x^{2} + y^{2} - 1} = \sqrt{(3)^{2} + (4)^{2} -1} = \sqrt{24}$\\\\
+\noindent 16.) $\lim\limits_{(x,y) \to (2,-4)} \frac{y+4}{x^{2}y -xy + 4x^{2} - 4x} 
+\\\\= \lim\limits_{(x,y) \to (2,-4)} \frac{y+4}{xy(x-1)+4x(x-1)}
+\\\\=\lim\limits_{(x,y) \to (2,-4)} \frac{y+4}{(x-1)(xy +4x)} 
+\\\\=\lim\limits_{(x,y) \to (2,-4)} \frac{y+4}{(x-1)x(y +4)}
+\\\\= \lim\limits_{(x,y) \to (2,-4)} \frac{1}{x(x-1)} = \frac{1}{2(2-1)} = \frac{1}{2}$\\\\\\
+
+\noindent 26.) $\lim\limits_{P \to (1, -1, -1)}\frac{2xy+yz}{x^{2}+z^{2}} = \frac{2(-1)(-1) + (-1)(-1)}{(-1)^{2} + (-1)^{2}} = -\frac{1}{2}$
+\clearpage
 \noindent 32.) \\
 \noindent a.) $f(x, y) = \frac{x+y}{x-y}$\\\\
+\noindent The function is continuous for $\{ (x,y) \in \mathbb{R}^{2} | x \neq y$\\\\
 \noindent b.) $f(x,y) = \frac{y}{x^{2} + 1}$\\\\
+\noindent The function is continuous for all $ (x,y) \in \mathbb{R}^{2}$.\\\\
 \noindent 36.) \\
 \noindent a.) $f(x, y,z) = \ln(xyz)$\\\\
+\noindent The function is continuous for $\{ (x,y,z) \in \mathbb{R}^{3} | xyz > 0\}$\\\\
 \noindent b.) $f(x, y,z) = e^{x+y}\cos(z)$\\\\
+\noindent The function is continuous for all $(x,y,z) \in \mathbb{R}^3$\\\\
+
 \noindent 46.)$g(x,y) = \frac{x^{2}-y}{x -y}$\\\\
+\noindent Using the two-path test for non-exsistence of a limit, we will show that the function has different limits along different paths as $(x,y)$ approaches a point.\\\\
 
 
 \end{document}
