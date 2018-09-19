@@ -99,6 +99,9 @@
 \draw[black] (axis cs:0,0)circle [radius=3];
 \draw[black] (axis cs:0,0)circle [radius=4];
 \draw[black] (axis cs:0,0)circle [radius=5];
+\draw[black] (axis cs:0,0)circle [radius=6];
+\draw[black] (axis cs:0,0)circle [radius=7];
+\draw[black] (axis cs:0,0)circle [radius=8];
 \end{axis}
 \end{tikzpicture}\\\\
 
@@ -140,7 +143,7 @@
 \addplot[color=black]{(-2/3)*x+1};
 
 \end{axis}
-\end{tikzpicture}\clearpage
+\end{tikzpicture}\\
 
 
 \noindent 48.) $f(x, y) = \sqrt{x^{2} +y^{2} -4}$\\
@@ -175,16 +178,35 @@
 
 
 \end{axis}
-\end{tikzpicture}
+\end{tikzpicture}\\\\
 
 
 
 
 
 \noindent 60.) $f(x, y, z) = \frac{x^{2}}{25} + \frac{y^{2}}{16} + \frac{z^{2}}{9}$\\
-\noindent Below is a typical level surface for the function.\vspace{4cm}
+\noindent Below is a typical level surface for the function.\\
 
+\begin{tikzpicture}
+\begin{axis}
+[colormap/cool,]
+\addplot3 [
+	surf,
+	opacity=0.4,
+	domain=-1:0,
+	domain y=0:360
+] ({sin(y)*sqrt(1-x^2)},{2*cos(y)*sqrt(1-x^2)},{x});
+\addplot3 [
+        surf,
+        opacity=0.4,
+        domain=0:1,
+        domain y=0:360,
+        on layer=axis foreground
+] ({sin(y)*sqrt(1-x^2)},{2*cos(y)*sqrt(1-x^2)},{x});
 
+\end{axis}
+
+\end{tikzpicture}
 
 
 \subsection*{Section 14.2}
