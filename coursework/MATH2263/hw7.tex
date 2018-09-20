@@ -242,6 +242,13 @@ domain y=0:360,on layer=axis foreground] ({sin(y)*sqrt(1-x^2)},{2*cos(y)*sqrt(1-
 
 \noindent 46.)$g(x,y) = \frac{x^{2}-y}{x -y}$\\\\
 \noindent Using the two-path test for non-exsistence of a limit, we will show that the function has different limits along different paths as $(x,y)$ approaches a point.\\\\
-
+\noindent Let $(x, y) \to (0,0)$ along any non-vertical line through the origin. 
+\noindent Then, $y = mx$, where $m$ is the slope and $g(x,y)$ is:\\\\
+$g(x,y) = g(x,mx)
+\\\\\frac{x^{2} - mx}{x-mx}
+\\\\\frac{x(x-m)}{x(1-m)}
+\\\\\frac{x-m}{1-m}$\\\\
+\noindent Thus, $g(x,y) \to \frac{-m}{1-m}$ as $(x,y)\to(0,0)$ along $y = mx$.\\\\
+\noindent Since $m$ is any constant, the limit can approach different values along different paths. So, the limit doesn't exist.\\\\
 
 \end{document}
