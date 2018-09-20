@@ -1,0 +1,222 @@
+\documentclass[12pt]{article}
+%\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{harpoon}% <---
+
+
+\usepgfplotslibrary{fillbetween}
+
+\usepgfplotslibrary{polar}
+\newcommand*{\QEDA}{\hfill\ensuremath{\blacksquare}}%
+
+
+
+\usepackage{xfrac}
+%\usepackage[demo]{graphicx}
+\pgfplotsset{compat=1.11}
+\usetikzlibrary{calc}
+
+\usepackage{setspace}
+\usepackage{extsizes}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb}    
+\usepackage[margin=.5in]{geometry}
+\title{\vspace{-2.0cm}Homework 2}
+\author{Joanne Wardell}
+\date{Thursday, August 23, 2018}
+\begin{document}
+\maketitle
+\begin{footnotesize}
+\noindent Note: In $\mathbb{R}^{3}$, I will sometimes refer to the $x$-axis as the longitudinal axis, 
+the $y$-axis as the lateral axis, and the $z$-axis as the vertical axis.\
+\end{footnotesize}
+\subsection*{Section 12.1}
+\noindent2.)$x = -1$, \hspace{10pt}$z = 0$\\\\
+The points that satisfy the equations exist on a line that passes through the point $(-1, 0, 0)$. This line is parallel to the $y$-axis.\\\\
+
+\noindent6.) $x^{2} + y^{2} = 4$, \hspace{10pt} $z = -2$\\\\
+The set of satisfying points lie on the circumference of a circle. The circle's radius is 
+2 and its center is $(0, 0, -2)$.\\\\
+
+\noindent12.) $x^{2} + (y-1)^{2} + z^{2} = 4$, \hspace{10pt} y = 0\\\\
+
+\noindent Plugging in $y$ yeilds $x^{2} + z^{2} = 3$.\\
+
+\noindent This is a circle in the $xz$ plane with a radius $\sqrt{3}$. The circle is centered at the origin 
+and is normal to the $y$ axis. \\\\
+
+
+\noindent18.)\\
+\noindent a.) $0 \leq x \leq 1$\\
+The satisfying points are $(x,y,z)$ where $y,z \in \mathbb{R}$. The set of points exist between 
+the two planes $x = 0$ and $x = 1$ because the $x$ values are fixed while the $y$ and $z$ values 
+vary from $-\infty$ to $\infty$.\\\\
+\noindent b.) $0 \leq x \leq 1$, \hspace{10pt} $0 \leq y \leq 1$.\\
+\noindent The satisfying points are $(x,y,z)$ where $z \in \mathbb{R}$. The set of points are bounded between 
+four equations, namely: $x = 0$, $x = 1$, $y = 0$, and $y = 1$. The points form a rectangular-prism-like 
+shape with infinitely long vertical length.\\\\
+
+
+\noindent c.) $0 \leq x \leq 1$, \hspace{10pt} $0 \leq y \leq 1$, \hspace{10pt} $0 \leq z \leq 1$\\
+The satisfying points exist on the interior and exterior of a unit cube in the first octant.\\\\ \pagebreak
+
+\noindent20.)
+
+\noindent a.)$x^{2} + y^{2} \leq 1$, \hspace{10pt} $z = 0$\\
+The satisfying points are on the circumfirence and compose the area of a unit circle centered at 
+the origin and orthogonal to the $z$ axis.\\\\
+
+\noindent b.)$x^{2} + y^{2} \leq 1$, \hspace{10pt} $x = 3$\\
+The satisfying points are on the circumfirence and compose the area of a unit circle centered at the
+$xy$ origin, orthogonal to the z-axis, and with vertical postion $3$.\\\\
+
+\noindent c.) $x^{2} + y^{2} \leq 1$\\
+The set of satisfying points form a "cylindrical" shape with an infinite veritcal length. The shape 
+is centered about the $xy$ origin. The points exist on the surface of the shape as well as on its 
+interior. The shape has a radius of 1. \\\\
+
+\noindent26.)$P_{1}(-1, 1, 5)$, \hspace{10pt} $P_{2}(2, 5, 0)$\\\\
+$d = \sqrt{(x_{2} - x_{1})^{2} + (y_{2} - y_{1})^{2} + (z_{2} - z_{1})^{2}}$\\\\
+$d = \sqrt{(2 + 1)^{2} + (5 - 1)^{2} + (0 - 5)^{2}}$\\\\
+$d = \sqrt{3^{2} + 4^{2} + 5^{2}}$\\\\
+$d = \sqrt{9 + 16 + 25}$\\\\
+$d = \sqrt{50} = 2\sqrt{5}$\\\\
+
+\noindent36.) 
+
+
+\noindent a.) The plane through point $(3, -1, 2)$ perpindicular to the  $x$-axis can be expressed with 
+the equation $x = 3$, where $z,y \in \mathbb{R}$.\\
+
+\noindent b.) The plane through point $(3, -1, 2)$ perpindicular to the $y$-axis can be expressed with
+the equation $y = -1$, where $x, z \in \mathbb{R}$.\\\\
+\noindent c.) The plane through point $(3, -1, 2)$ perpindicular to the $z$-axis can be expressed with 
+the eqauation $z = 2$, where $x, y \in \mathbb{R}$.\\\\
+
+\noindent40.)
+
+\noindent a.) The circle of radius 1 centered at $(- 3, 4, 1)$ and lying in a plane perpindicular to 
+the $xy$ plane can be expressed with the equation $(x+3)^{2} + (y-4)^{2} = 1$, $z=1$.\\\\
+
+
+\noindent b.) The circle of radius 1 centered at $(- 3, 4, 1)$ and lying in a plane perpindicular to 
+the $yz$ plane can be expressed with the equation $(y-4)^{2} + (z-1)^{2} = 1$, $x=-3$.\\\\
+
+
+\noindent c.) The circle of radius 1 centered at $(- 3, 4, 1)$ and lying in a plane perpindicular to 
+the $xy$ plane can be expressed with the equation $(x+3)^{2} + (z-1)^{2} = 1$, $y=4$.\\\\
+
+\noindent48.) The upper hemisphere of the sphere of radius 1 centered about the origin can be expressed 
+with the equation $x^{2} + y^{2} + z^{2} = 1$, where $z \geq 1$.\\\\
+
+\noindent 56.) $x^{2} + y^{2} + z^{2} - 6y + 8z = 0$\\\\
+
+\noindent $x^{2} + y^{2} - 6y + 9 + z^{2} + 8z  + 16= 16 + 9$\\
+\noindent $x^{2} + (y - 3)^{2} (z + 4)^{2} = 25$\\\\
+
+\noindent center $c = (0, 3, -4)$\\
+\noindent radius $a = 5$ \pagebreak
+
+\subsection*{Section 12.2}
+
+\noindent 8.) $V = -\frac{5}{13}u + \frac{12}{13}v$, 
+\hspace{10pt} $u = \langle3, 2\rangle$, \hspace{10pt} $v = \langle-2, 5\rangle$\\\\
+$-\frac{5}{13}\langle3, -2\rangle = \langle-\frac{15}{13}, \frac{10}{13}\rangle$\\\\
+$\frac{12}{13}\langle-2, 5\rangle = \langle-\frac{24}{13}, \frac{60}{13}\rangle$\\\\
+$V = \langle-\frac{15}{13} - \frac{24}{13} , \frac{10}{13} + \frac{60}{13}\rangle$\\\\
+$V = \langle-3, \frac{70}{13}\rangle = -3\hat{i}, \frac{70}{13}\hat{j}$\\\\
+
+\noindent$||V|| = \sqrt{(-3)^{2} + (\frac{70}{13})^{2}}$
+$=\sqrt{9 + \frac{4900}{169}}$
+$=\sqrt{\frac{1521}{169} + \frac{4900}{169}} = \sqrt{\frac{6421}{169}} = \frac{\sqrt{6421}}{13}$\\\\
+
+\noindent 12.) $\overrightharp{AB} + \overrightharp{CD}$\\
+$A = (1,-1)$, \hspace{10pt} $B = (2, 0)$, \hspace{10pt} $C = (-1, 3)$, \hspace{10pt} $D = (-2, 2)$\\\\
+
+\noindent The vector $\overrightharp{AB}$ is not in standard position. To express it as a vector, subtract 
+$A$ from $B$.\\\\ $\overrightharp{AB} = \langle 2-1, 0+1\rangle = \langle 1, 1 \rangle$\\\\
+Similarly, $\overrightharp{CD} = \langle -2+1, 2-3\rangle = \langle -1, -1\rangle$.\\\\
+The sum of $\overrightharp{AB}$ and $\overrightharp{CD}$ is the zero vector since \\\\
+$\overrightharp{AB} + \overrightharp{CD} = \langle 1-1, 1-1\rangle = \langle 0, 0\rangle$.\\\\
+
+\noindent 20.) $\overrightharp{AB}$, \hspace{10pt} $A = \langle 1, 0, 3 \rangle$, \hspace{10pt} 
+$B = \langle -1, 4, 5 \rangle$\\
+$\overrightharp{AB} = B - A = \langle -1-1,4-0 ,5-3 \rangle = \langle -2, 4, 2 \rangle = -2\hat{i} + 4\hat{j} + 2\hat{k}$ \\\\
+
+\noindent 22.) $-2$\textbf{u}$+3$\textbf{v} if \textbf{u} $ = \langle -1, 0, 2\rangle$ and \textbf{v} $= \langle 1, 1, 1 \rangle$.\\
+$v = -2$\textbf{u}$+3$\textbf{v} $ = \langle 2, 0, -4\rangle + \langle 3, 3, 3\rangle = \langle 5, 3, -1  \rangle = 5\hat{i} + 3\hat{j} - \hat{k}$\\\\
+\pagebreak
+
+\noindent 24.)\\
+
+
+
+\begin{tikzpicture}
+	\draw[line width=1pt,black,-stealth](0,0)--(2,0) node[anchor=south west]{$\boldsymbol{u}$};
+	\draw[line width=1pt,black,-stealth](0,0)--(-1.5,1.866) node[anchor=north east]{$\boldsymbol{v}$};
+	\draw[line width=1pt,black,-stealth](0,0)--(-1.5,-1.866) node[anchor=south east]{$\boldsymbol{w}$};
+\end{tikzpicture}\\\\
+
+
+\noindent a.) \textbf{u}-\textbf{v}\\
+\begin{tikzpicture}
+	\draw[line width=1pt,black,-stealth](0,0)--(2,0) node[anchor=south west]{};
+	\draw[line width=1pt,black,-stealth](2,0)--(3.5,-1.866) node[anchor=north east]{};
+\end{tikzpicture}\\\\
+\noindent b.) \textbf{u} - \textbf{v} + \textbf{w}\\
+\begin{tikzpicture}
+	\draw[line width=1pt,black,-stealth](0,0)--(2,0) node[anchor=south west]{};
+	\draw[line width=1pt,black,-stealth](2,0)--(3.5,-1.866) node[anchor=north east]{};
+	\draw[line width=1pt,black,-stealth](3.5,-1.866)--(2,-3.72) node[anchor=south east]{};
+\end{tikzpicture} \\\\ 
+\noindent c.) 2\textbf{u} - \textbf{v}\\
+\begin{tikzpicture}
+	\draw[line width=1pt,black,-stealth](0,0)--(2,0) node[anchor=south west]{};
+	\draw[line width=1pt,black,-stealth](2,0)--(4,0) node[anchor=south west]{};
+	\draw[line width=1pt,black,-stealth](4,0)--(5.5,-1.866) node[anchor=north east]{};
+\end{tikzpicture}\\\\
+\noindent d.) \textbf{u} + \textbf{v} + \textbf{w}\\
+\begin{tikzpicture}
+	\draw[line width=1pt,black,-stealth](0,0)--(2,0) node[anchor=south west]{};
+	\draw[line width=1pt,black,-stealth](2,0)--(.5,1.866) node[anchor=north east]{};
+	\draw[line width=1pt,black,-stealth](.5,1.866)--(-1,0) node[anchor=south east]{};
+\end{tikzpicture}\\\\\\\\\\\\\\\\\\\\\\
+
+\noindent 26.) $V = 9i - 2j + 6k$\\\\
+$||V|| = \sqrt{81 + 4 + 6} = 11$\\\\
+\textbf{u} $ =\frac{V}{||V||}  = \langle \frac{9}{11}, -\frac{2}{11}, \frac{6}{11} \rangle = \frac{9}{11}\hat{i}, -\frac{2}{11}\hat{j}, \frac{6}{11}\hat{k}$\\\\\\
+
+\noindent 34.) Find a vector of magnitude 3 in the direction opposite to the diretion of $v = \frac{1}{2}\hat{i} - \frac{1}{2}\hat{j} -\frac{1}{2}\hat{k}$.\\
+The vector in question does not have the same magnitude as $V$, so we cannot simply negate $V$. \\\\
+First, normalize $V$.\\ $u = \langle \frac{1}{2} , -\frac{1}{2} , -\frac{1}{2} \rangle \frac{\sqrt{4}}{\sqrt{3}} = \langle \frac{\sqrt{3}}{3}, -\frac{\sqrt{3}}{3}, -\frac{\sqrt{3}}{3} \rangle$.\\\\
+Next, scale the unit vector representation of $V$ by the magnitude of the desired vector.\\
+$3\langle \frac{\sqrt{3}}{3}, -\frac{\sqrt{3}}{3}, -\frac{\sqrt{3}}{3} \rangle =  \langle \sqrt{3}, -\sqrt{3}, -\sqrt{3} \rangle =  \sqrt{3}\hat{i} -\sqrt{3} \hat{j}-\sqrt{3}\hat{k} $\\\\\\
+
+\noindent 36.) Find the direction of $\vec{P_{1}P_{2}}$ and the midpoint of the line segment $P_{1}P_{2}$.\\
+$P_{1}(1, 4, 5)$, \hspace{10pt} $P_{2}(4, -2,  7)$\\\\
+$M = (\frac{x_{1} + x_{2}}{2} , \frac{y_{1}+y_{2}}{2} , \frac{z_{1}+z_{2}}{2})$\\\\
+$M = (\frac{1 + 4}{2} , \frac{4-2}{2} , \frac{5+7}{2})$\\\\
+$M = (\frac{5}{2} + 1 , 6)$\\
+\noindent $u = \frac{V}{||V||} = \frac{\langle 3, -6, 2 \rangle}{\sqrt{9 + 36 + 4}} = \langle \frac{3}{7}, -\frac{6}{7}, -\frac{2}{7} \rangle = \hat{i}\frac{9}{7}, -\hat{j}\frac{6}{7}, -\hat{k}\frac{2}{7}$\\\\
+The vector is composed of $\frac{3}{7}$ $\hat{i}$ units, $-\frac{6}{7}$ $\hat{j}$ units, and $-\frac{2}{7}\hat{k}$units. The vector's tip rests on a point in the III octant.\\\\\\
+
+
+\noindent 58.) Show that a unit vector in the plane can be expressed as \textbf{u} $= (cos(\theta))\hat{i} + (sin(\theta))\hat{j}$, obtained by 
+rotating $\hat{i}$ through an angle $\theta$ in the counterclockwise direction. Explain why this form gives you every unit vector in the plane.\\\\
+
+\noindent A vector begins by pointing at $(1, 0)$ and is rotated $\theta$ radians in the CCW direction. The vector that points to $(1, 0)$ 
+has a magnitude of 1 because $\sqrt{1^{2} + 0^{2}} = 1$. We didn't change the vector's magnitude at all when we rotated it, so the 
+rotated vector's length is still 1. Let's call the rotated vector \textbf{u'}. \textbf{u'}'s tip rests at a new point, let's call this new point $(x, y)$ and has
+x units of horizontal direction and y units of vertical direction. 
+If we project \textbf{u} onto the x-axis, this forms a right triangle with 
+side adjacent to $\theta$ having a length of $cos(\theta)$ and side opposite to $\theta$ having a length of $sin(\theta)$.
+To find the length of the hypotenuse of this triangle, we can use the pythagorean theorem $\sqrt{(cos(\theta))^{2} + (sin(\theta))^{2}} = 1$.
+This makes sense because 1.) the length of \textbf{u} is one 2.) the point $(x,y) = (cos(\theta), sin(\theta))$ describes a circle with radius 1 when $\theta$ varies.
+If we define $\theta \in \mathbb{R}$, then $\theta$ can take infinitely many values.
+For each $\theta$ from $-2\pi n$ to $2\pi n , n \in \mathbb{N}$, there is a unique $(x, y)$ point.
+Hence this represents every possible orientation of the unit vector centered about the origin.\\\\
+
+
+
+\end{document}

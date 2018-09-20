@@ -1,0 +1,256 @@
+\documentclass[12pt]{article}
+\usepackage{pgfplots}
+\usepackage{harpoon}% <---
+\usepackage{setspace}
+\usepackage{extsizes}
+\usepackage{pgfplots}
+\usepackage{float}
+
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\usetikzlibrary{quotes,angles,positioning}
+
+\usepackage{amsmath, amsthm, amssymb}    
+\usepackage[margin=.5in]{geometry}
+\usepackage{xfrac}
+\usetikzlibrary{calc}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=1.11}
+\newcommand*{\QEDA}{\hfill\ensuremath{\blacksquare}}%
+\title{\vspace{-2.0cm}Homework 3}
+\author{Joanne Wardell}
+\date{Tuesday, August 28, 2018}
+
+
+\begin{document}
+\maketitle
+
+\subsection*{Section 12.3}
+
+\noindent2.)\\
+\noindent a.) $\mathbf{v} \cdot \mathbf{u}$, \hspace{10pt} 
+$\mathbf{v} = \frac{3}{5} \mathbf{i} + \frac{4}{5} \mathbf{k} $, \hspace{10pt}
+$\mathbf{u} = 5\mathbf{i} + 12\mathbf{j}$\\\\
+$\mathbf{u} \cdot \mathbf{v} = (\frac{3}{5})(5) + (0)(12) +  (\frac{4}{5})(0) = 3$\\\\
+\noindent b.)$cos(\theta_{\mathbf{vu}})$\\
+$ \| \mathbf{v} \| = \sqrt{(\frac{3}{5})^{2} + (\frac{4}{5})^{2}} = \sqrt{\frac{9}{25} + \frac{16}{25}} = \sqrt{\frac{25}{25}} = 1$\\\\
+$\| \mathbf{u} \| = \sqrt{(5)^{2} + (12)^{2}} = \sqrt{25 + 144} = \sqrt{169} = 13$\\\\
+$cos(\theta_{\mathbf{vu}}) = \frac{\mathbf{v} \cdot \mathbf{u}}{\| \mathbf{v} \| \| \mathbf{u} \|} = \frac{3}{(1)(13)} = \frac{3}{13}$ \\\\
+\noindent c.) the scalar component of \textbf{u} in the direction of \textbf{v}\\
+$\|\mathbf{v} \| = 1$, \hspace{10pt} $\mathbf{v} = \hat{\mathbf{v}}$\\\\
+$\|\mathbf{u} \| \hat{\mathbf{v}} = \frac{13}{3}\hat{\mathbf{v}}$\\\\
+$\mathbf{\frac{13}{3}}$\\\\
+
+\noindent d.)proj$_{\mathbf{v}}(\mathbf{u})$\\\\
+proj$_{\mathbf{v}}(\mathbf{u}) = \frac{\mathbf{v \cdot u}}{\mathbf{v \cdot v}}\mathbf{u} = \frac{\mathbf{v \cdot u}}{\|\mathbf{v} \|^{2}}\mathbf{u} = 3\mathbf{u}  = 15\mathbf{i} + 36\mathbf{j}$\\
+
+
+\noindent12.)find the angle between the two vectors to the nearest 100$^{th}$ of a radian\\\\
+$\mathbf{u} = \mathbf{i} + \sqrt{2}\mathbf{j}-\sqrt{2}\mathbf{k}$, \hspace{10pt} 
+$\mathbf{v} = -\mathbf{i}+\mathbf{j} + \mathbf{k}$\\\\
+$\mathbf{u \cdot v} = (1)(-1) + (\sqrt{2})(1) + (-\sqrt{2})(1) = -1$\\\\
+$\|  \mathbf{u} \| = \sqrt{1 + 2 + 2} = \sqrt{5}$\\\\
+$\|  \mathbf{v} \| = \sqrt{1 + 1 + 1} = \sqrt{3}$\\\\
+$\theta_{\mathbf{uv}} = arccos(\frac{\mathbf{u \cdot v}}{\|u\| \|v\|}) = arccos(\frac{-1}{\sqrt{3}\sqrt{5}}) \approx 1.83$\\\\\\ \clearpage
+\noindent14.) Find the measures of the angles between the diagonals of the rectangle whose vertices are $A = (1,0)$, \hspace{10pt} $B=(0,3)$, \hspace{10pt} $C=(3,4)$, \hspace{10pt} and $D=(4,1)$.\\\\
+$\mathbf{AC} = \langle 3 - 1 , 4-0\rangle = \langle 2, 4 \rangle$\\
+$\mathbf{BD} = \langle 4 - 0, 1 - 3\rangle = \langle 4, -2\rangle$\\\\
+$\| \mathbf{AC} \| = \sqrt{4 + 16} = \sqrt{20}$\\\\
+$\| \mathbf{BD} \| = \sqrt{16 + 4} = \sqrt{20}$\\\\
+$\mathbf{AB \cdot CD} = (2)(4) + (4)(-2) = 0$\\\\
+$\theta_{\mathbf{AC}\mathbf{BD}} = arccos(\frac{\mathbf{AB} \cdot \mathbf{CD}}{\|\mathbf{AB} \| \| \mathbf{BD} \|}) = arccos(\frac{0}{\sqrt{40}}) = arccos(0) = \frac{\pi}{2} = 90$ degrees\\\\
+
+
+\noindent20.)Suppose that $AB$ is the diameter of a circle with center $O$ and that $C$ is a point on one of the two arcs joining $A$ and $B$. Show that $\mathbf{CA}$ and $\mathbf{CB}$ are orthogonal.\\\\
+$\mathbf{A} = \langle -\frac{AB}{2}, 0\rangle$, \hspace{10pt}
+$\mathbf{B} = \langle \frac{AB}{2}, 0\rangle$, \hspace{10pt}
+$\mathbf{C} = \langle \frac{AB}{2}cos(\theta), \frac{AB}{2}sin(\theta) \rangle$\\\\
+$\mathbf{CA} = \langle \frac{AB}{2}cos(\theta) + \frac{AB}{2}, \frac{AB}{2}sin(\theta)\rangle$\\\\
+$\mathbf{CB} = \langle \frac{AB}{2}cos(\theta) - \frac{AB}{2}, \frac{AB}{2}sin(\theta)\rangle$\\\\
+$\mathbf{CA \cdot CB} = (\frac{AB}{2}cos(\theta) + \frac{AB}{2})(\frac{AB}{2}cos(\theta) - \frac{AB}{2}) + (\frac{AB}{2}sin(\theta))(\frac{AB}{2}sin(\theta))$\\\\
+$=(\frac{AB}{2})^{2}cos^{2}(\theta)-(\frac{AB}{2})^{2}cos(\theta) - (\frac{AB}{2})^{2}cos(\theta)-(\frac{AB}{2})^{2} + (\frac{AB}{2})^{2}sin^{2}(\theta)$\\\\
+$=(\frac{AB}{2})^{2}[cos^{2}(\theta)+sin^{2}(\theta)] - (\frac{AB}{2})^{2}$\\\\
+$= (\frac{AB}{2})^{2} - (\frac{AB}{2})^{2} = 0$\\\\
+$\therefore \mathbf{CA} \bot \mathbf{CB}$\\\\ 
+
+\noindent30.) 
+It is not always true that if $\mathbf{v_{1}\cdot u} = \mathbf{v_{2} \cdot u}$ then $\mathbf{v_{1}} = \mathbf{v_{2}}$. One counter example to this would be if $\mathbf{u} = \langle 1, 0\rangle$, $\mathbf{v_{1}} = \langle 0, 1\rangle$ and $\mathbf{v_{2}} = \langle 0, 0\rangle$. Even though $\mathbf{v_{1} \cdot u} = 0$ and $\mathbf{v_{2} \cdot u} = 0$, $\mathbf{v_{1}} \neq \mathbf{v_{2}}$. \\\\
+
+\pagebreak
+\subsection*{Section 12.4}
+
+\noindent2.) $\mathbf{u} = 2\mathbf{i} + 3\mathbf{j}$, \hspace{10pt} $\mathbf{v} = -\mathbf{i} + \mathbf{j}$\\\\
+$\mathbf{u \times v } = (\mathbf{u_{y}v_{z}})\mathbf{i} + (\mathbf{u_{z}v_{x}})\mathbf{j} + (\mathbf{u_{x}v_{y}})\mathbf{k} -(\mathbf{u_{z}v_{y}})\mathbf{i} - (\mathbf{u_{x}v_{z}})\mathbf{j}-(\mathbf{u_{y}v_{x}})\mathbf{k}$\\\\
+$=0\mathbf{i} + 0\mathbf{j} + 2\mathbf{k} - 0\mathbf{i} -0\mathbf{j} + 3\mathbf{k} = 5\mathbf{k}$\\\\
+$\| \mathbf{u \times u} \| = \sqrt{5^{2}} = 5$\\\\
+$\frac{\mathbf{u \times v}}{\| \mathbf{u \times v} \|} = \frac{5}{5}\mathbf{k} = \mathbf{k}$\\\\
+
+\noindent$\mathbf{v \times u } = (\mathbf{v_{y}u_{z}})\mathbf{i} + (\mathbf{v_{z}u_{x}})\mathbf{j} + (\mathbf{v_{x}u_{y}})\mathbf{k} -(\mathbf{v_{z}u_{y}})\mathbf{i} - (\mathbf{v_{x}u_{z}})\mathbf{j}-(\mathbf{v_{y}u_{x}})\mathbf{k}$\\\\
+$=0\mathbf{i} + 0\mathbf{j} - 3\mathbf{k} - 0\mathbf{i} -0\mathbf{j} -2\mathbf{k} = -5\mathbf{k}$\\\\
+$\| \mathbf{v \times u} \| = \sqrt{(-5)^{2}} = 5$\\\\
+$\frac{\mathbf{v \times u}}{\| \mathbf{v \times u} \|} = \frac{-5}{5}\mathbf{k} = -\mathbf{k}$\\\\
+
+
+\noindent4.) $\mathbf{u} = \mathbf{i} + \mathbf{j} - \mathbf{k}$, \hspace{10pt} $\mathbf{v} = 0$\\\\
+\noindent $\mathbf{u \times v } = (\mathbf{u_{y}v_{z}})\mathbf{i} + (\mathbf{u_{z}v_{x}})\mathbf{j} + (\mathbf{u_{x}v_{y}})\mathbf{k} -(\mathbf{u_{z}v_{y}})\mathbf{i} - (\mathbf{u_{x}v_{z}})\mathbf{j}-(\mathbf{u_{y}v_{x}})\mathbf{k}$\\\\
+$= 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} - 0\mathbf{i} - 0\mathbf{i} - 0\mathbf{j} - 0\mathbf{k} = 0$\\\\
+$\| \mathbf{u \times v} \| = \sqrt{0^{2}} = 0$\\\\
+$\frac{\mathbf{u \times v}}{\| \mathbf{u \times v} \|} = \frac{0}{0} = $?\\\\
+\noindent By definition, the zero vector has no length and points in any arbitrary direction.\\\\
+\noindent$\mathbf{v \times u } = (\mathbf{v_{y}u_{z}})\mathbf{i} + (\mathbf{v_{z}u_{x}})\mathbf{j} + (\mathbf{v_{x}u_{y}})\mathbf{k} -(\mathbf{v_{z}u_{y}})\mathbf{i} - (\mathbf{v_{x}u_{z}})\mathbf{j}-(\mathbf{v_{y}u_{x}})\mathbf{k}$\\\\
+$= 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} - 0\mathbf{i} - 0\mathbf{i} - 0\mathbf{j} - 0\mathbf{k} = 0$\\\\
+$\| \mathbf{v \times u} \| = \sqrt{0^{2}} = 0$\\\\
+$\frac{\mathbf{v \times u}}{\| \mathbf{u \times v} \|} = \frac{0}{0} = $?\\\\
+By definition, the zero vector has no length and points in any arbitrary direction.\\\\
+
+\noindent6.)$\mathbf{u} = \mathbf{i} \times \mathbf{j}$, \hspace{10pt} $\mathbf{v} =  \mathbf{j} \times \mathbf{k}$\\\\
+$\mathbf{u} = \mathbf{i \times j} = \mathbf{k}$\\\\
+$\mathbf{v} = \mathbf{j \times k} = \mathbf{i}$\\\\
+$\mathbf{u \times v} = \mathbf{k\times i} = \mathbf{j}$\\\\
+$\| \mathbf{u \times v} \| = \sqrt{1^{2}} = 1$\\\\
+$\mathbf{v \times u} = \mathbf{i\times k} = -\mathbf{j}$\\\\
+$\| \mathbf{v \times u} \| = \sqrt{(-1)^{2}} = 1$\\\\
+$\frac{\mathbf{u \times v}}{\| \mathbf{u \times v} \| } = \mathbf{j}$\\\\
+$\frac{\mathbf{v \times u}}{\| \mathbf{v \times u} \| } = -\mathbf{j}$\\\\
+
+
+\noindent8.)$\mathbf{u} = \frac{3}{2}\mathbf{i} - \frac{1}{2}\mathbf{j} + \mathbf{k}$, \hspace{10pt} $\mathbf{v} = \mathbf{i} + \mathbf{j} + 2\mathbf{k}$\\\\
+
+\noindent $\mathbf{u \times v } = (\mathbf{u_{y}v_{z}})\mathbf{i} + (\mathbf{u_{z}v_{x}})\mathbf{j} + (\mathbf{u_{x}v_{y}})\mathbf{k} -(\mathbf{u_{z}v_{y}})\mathbf{i} - (\mathbf{u_{x}v_{z}})\mathbf{j}-(\mathbf{u_{y}v_{x}})\mathbf{k}$\\\\
+$-\mathbf{i} + \mathbf{j} + \frac{3}{2}\mathbf{k} -\mathbf{i} -3\mathbf{j}+\frac{1}{2}\mathbf{k}$\\\\
+$-2\mathbf{i}-2\mathbf{j}+2\mathbf{k}$\\\\
+$\| \mathbf{u \times v} \| = \sqrt{(-2)^{2} + (-2)^{2} + 2^{2}} = \sqrt{12} = 2\sqrt{3}$\\\\
+$\frac{\mathbf{u \times v}}{\| \mathbf{u \times v} \|} = -\frac{2\mathbf{i}}{2\sqrt{13}} -\frac{2\mathbf{j}}{2\sqrt{13}} + \frac{2\mathbf{k}}{2\sqrt{13}} = -\frac{\mathbf{i}}{\sqrt{13}} -\frac{\mathbf{j}}{\sqrt{13}} + \frac{\mathbf{k}}{\sqrt{13}}$\\\\
+
+
+\noindent$\mathbf{v \times u } = (\mathbf{v_{y}u_{z}})\mathbf{i} + (\mathbf{v_{z}u_{x}})\mathbf{j} + (\mathbf{v_{x}u_{y}})\mathbf{k} -(\mathbf{v_{z}u_{y}})\mathbf{i} - (\mathbf{v_{x}u_{z}})\mathbf{j}-(\mathbf{v_{y}u_{x}})\mathbf{k}$\\\\
+\noindent$\mathbf{i} + 3\mathbf{j} -\frac{1}{2}\mathbf{k} + \mathbf{i} - \mathbf{j} -\frac{3}{2}\mathbf{k} = 2\mathbf{i} + 2\mathbf{j} - 2\mathbf{k}$\\\\
+$\| \mathbf{v \times u} \| = \sqrt{2^{2} + 2^{2} + (-2)^{2}} = \sqrt{12} = 2\sqrt{3}$\\\\
+$\frac{\mathbf{v \times u}}{\| \mathbf{v \times u} \|} = \frac{2\mathbf{i}}{2\sqrt{13}} +\frac{2\mathbf{j}}{2\sqrt{13}} - \frac{2\mathbf{k}}{2\sqrt{13}} = \frac{1}{\sqrt{13}}\mathbf{i} +\frac{1}{\sqrt{13}}\mathbf{j} - \frac{1}{\sqrt{13}}\mathbf{k}$\\ \clearpage
+\noindent12.)\\
+$\mathbf{u} = 2\mathbf{i} -\mathbf{j} = \langle 2, -1, 0\rangle$, \hspace{10pt} $\mathbf{v} = \mathbf{i} + 2\mathbf{j} = \langle 0, 2, 0\rangle$\\\\
+\noindent $\mathbf{u \times v } = (\mathbf{u_{y}v_{z}})\mathbf{i} + (\mathbf{u_{z}v_{x}})\mathbf{j} + (\mathbf{u_{x}v_{y}})\mathbf{k} -(\mathbf{u_{z}v_{y}})\mathbf{i} - (\mathbf{u_{x}v_{z}})\mathbf{j}-(\mathbf{u_{y}v_{x}})\mathbf{k}$\\\\
+$= 0\mathbf{i} + 0\mathbf{j} + 4\mathbf{k} - 0\mathbf{i} - 0\mathbf{j} + \mathbf{k} = 5\mathbf{k} = \langle 0, 0, 5\rangle$\\\\
+\tdplotsetmaincoords{60}{120} 
+\begin{tikzpicture} [scale=3, tdplot_main_coords, axis/.style={->,blue,thick}, 
+	vector/.style={-stealth,red,very thick}] 
+\coordinate (O) at (0,0,0);
+\coordinate (P) at (2/3.5,-1/3.5,0);
+\coordinate (Q) at (1/3.5,2/3.5,0);
+\coordinate (R) at (0,0,5/3.5);
+\draw[axis] (0,0,0) -- (5/3.5,0,0) node[anchor=north east]{$x$};
+\draw[axis] (0,0,0) -- (0,5/3.5,0) node[anchor=north west]{$y$};
+\draw[axis] (0,0,0) -- (0,0,6/3.5) node[anchor=south]{$z$};
+\draw[vector] (O) -- (P);
+\draw[vector] (O) -- (Q);
+\draw[vector] (O) -- (R);
+\node at (P) [above = 1mm of P] {$\mathbf{u} \langle 2, -1, 0\rangle$};
+\node at (Q) [below = 1mm of Q] {$\mathbf{v}\langle1, 2, 0\rangle$};
+\node at (R) [below right = 1mm of R] {$\mathbf{u \times v}\langle0, 0, 5\rangle$};
+\end{tikzpicture}\\\\
+
+
+\noindent16.)$P(1, 1, 1)$, \hspace{10pt} $Q(2, 1,3)$, \hspace{10pt} $R(3, -1, 1)$\\
+\noindent a.) Find the area of the triangle determined by the points $P$, $Q$, and $R$. \\
+\noindent b.) Find a unit vector perpindicular to the plane $PQR$.\\\\
+\noindent $\mathbf{PQ} = \langle 2-1, 1-1, 3-1\rangle = \langle 1, 0, 2\rangle$\\\\
+\noindent $\mathbf{PR} = \langle 3-1, -1-1, 1-1\rangle = \langle 2, -2, 0\rangle$\\\\
+$\mathbf{PQ \times PR} = 4\mathbf{i} + 4\mathbf{j} - 2\mathbf{k}$\\\\
+$area =\frac{1}{2} \| \mathbf{PQ \times PR} \| = \frac{1}{2}\sqrt{4^{2} + 4^{2} + (-2)^{2}} = \frac{1}{2}\sqrt{36} = \frac{6}{2} = 3$\\\\
+$\frac{\mathbf{PQ \times PR}}{\| \mathbf{PQ \times PR} \|} = \frac{2}{3}\mathbf{i} + \frac{2}{3}\mathbf{j} - \frac{1}{3}\mathbf{k}$\\\\\\\\
+\noindent22.) $\mathbf{u} = \mathbf{i} + \mathbf{j} - 2\mathbf{k}$, \hspace{10pt} $\mathbf{v} =-\mathbf{i} - \mathbf{k} $, \hspace{10pt} $\mathbf{w} = 2\mathbf{i} +4\mathbf{j} - 2\mathbf{k}$\\\\
+proposition: $(\mathbf{u \times v})\cdot \mathbf{w} = (\mathbf{v \times w})\cdot \mathbf{u} = (\mathbf{w \times u})\cdot \mathbf{v}$\\\\
+
+
+\noindent $\mathbf{u \times v} =-\mathbf{i} + 3\mathbf{j} + \mathbf{k}$\\
+\noindent $\mathbf{v \times w} = 4\mathbf{i} -4\mathbf{j} -4\mathbf{k} $\\
+\noindent $\mathbf{w \times u} = -6\mathbf{i} + 2\mathbf{j} -2\mathbf{k}$\\\\
+\noindent $\mathbf{u\times v}\cdot \mathbf{w} = (-1)(2)+ (3)(4) + (1)(-2) = 8$\\
+\noindent $\mathbf{v\times w}\cdot \mathbf{u} = (4)(1)+ (-4)(1) + (-4)(-2) = 8$\\
+\noindent $\mathbf{w\times u}\cdot \mathbf{v} = (-6)(-1)+ (2)(0) + (-2)(-1) = 8$\\\\
+
+
+\noindent24.)\\
+\noindent$\mathbf{u} = \mathbf{i} + 2\mathbf{j} - \mathbf{k}$\\
+\noindent$\mathbf{v} = -\mathbf{i} +\mathbf{j} + \mathbf{k}$\\
+\noindent$\mathbf{w} = \mathbf{i} + \mathbf{k}$\\
+\noindent$\mathbf{r} = -\frac{\pi}{2}\mathbf{i}-\pi\mathbf{j} + \frac{\pi}{2}\mathbf{k}$\\\\
+
+
+\noindent $\mathbf{u \times v} = 3\mathbf{i} + 3\mathbf{j}$\\
+\noindent $\mathbf{u \times r} = 0$ \hspace{10pt} $\mathbf{u} \parallel \mathbf{r}$\\
+\noindent $\mathbf{u \times w} = 2\mathbf{i} - 2\mathbf{j} - 2\mathbf{k}$\\
+\noindent $\mathbf{v \times w} = \mathbf{i} + 2\mathbf{j} - \mathbf{k}$\\
+\noindent $\mathbf{v \times r} = \frac{3\pi}{2}\mathbf{i} + \frac{3\pi}{2}\mathbf{k}$\\
+\noindent $\mathbf{w \times r} =\pi\mathbf{i} - \pi\mathbf{j} -\pi\mathbf{k} $\\
+\noindent $\mathbf{u \cdot v} = (1)(-1)+(2)(1)+(-1)(1)=0$ \hspace{10pt} $\mathbf{u} \bot \mathbf{v}$\\
+\noindent $\mathbf{u \cdot r} = (1)(-\frac{\pi}{2})+(2)(\pi)+(-1)(\frac{\pi}{2})=-3\pi$\\
+\noindent $\mathbf{u \cdot w} = (1)(1)+(2)(0)+(-1)(1)=0$ \hspace{10pt} $\mathbf{u \bot w}$\\
+\noindent $\mathbf{v \cdot w} = (-1)(1)+(1)(0)+(1)(1) = 0$ \hspace{10pt} $\mathbf{v \bot w}$\\
+\noindent $\mathbf{v \cdot r} = (-1)(-\frac{\pi}{2})+(1)(-\pi)+(1)(\frac{\pi}{2})=0$ \hspace{10pt} $\mathbf{v \bot r}$\\
+\noindent $\mathbf{w \cdot r} = (1)(-\frac{\pi}{2})+(0)(-\pi)+(1)(\frac{\pi}{2})= 0 $ \hspace{10pt} $\mathbf{w \bot r}$\\\\\\
+
+
+\noindent28.)\\
+a.)$\mathbf{u \cdot v} = \mathbf{v \cdot u}$\\
+$\mathbf{u} = \mathbf{u_{1}} + \mathbf{u_{2}}$\\
+$\mathbf{v} = \mathbf{v_{1}} + \mathbf{v_{2}}$\\
+$\mathbf{u \cdot v} = \mathbf{v_{1}u_{1}} + \mathbf{v_{2}u_{2}}$(I)\\
+$\mathbf{v \cdot u} = \mathbf{u_{1}v_{1}} + \mathbf{u_{2}v_{2}}$(II)\\
+Since scalar multiplication is commutative, (I) is the same as (II). So, this is always true.\\\\
+b.)$\mathbf{u \times v} = -(\mathbf{v \times u})$\\
+
+\noindent $\mathbf{u} = \mathbf{u_{x}} + \mathbf{u_{y}} + \mathbf{u_{k}}$\\
+$\mathbf{v} = \mathbf{v_{x}} + \mathbf{v_{y}} + \mathbf{v_{k}}$\\
+$\mathbf{u \times v } = (\mathbf{u_{y}v_{z}})\mathbf{i} + (\mathbf{u_{z}v_{x}})\mathbf{j} + (\mathbf{u_{x}v_{y}})\mathbf{k} -(\mathbf{u_{z}v_{y}})\mathbf{i} - (\mathbf{u_{x}v_{z}})\mathbf{j}-(\mathbf{u_{y}v_{x}})\mathbf{k}$\\
+
+\noindent$(-1)\mathbf{v \times u } =- (\mathbf{v_{y}u_{z}})\mathbf{i} - (\mathbf{v_{z}u_{x}})\mathbf{j} - (\mathbf{v_{x}u_{y}})\mathbf{k} +(\mathbf{v_{z}u_{y}})\mathbf{i} + (\mathbf{v_{x}u_{z}})\mathbf{j}+(\mathbf{v_{y}u_{x}})\mathbf{k} = \mathbf{u \times v}$\\
+This is always true.\\\\
+\noindent c.)$(\mathbf{u})\times \mathbf{v} = -(\mathbf{u\times v})$\\
+$-\mathbf{u \times v } = -(\mathbf{u_{y}v_{z}})\mathbf{i} - (\mathbf{u_{z}v_{x}})\mathbf{j} - (\mathbf{u_{x}v_{y}})\mathbf{k} +(\mathbf{u_{z}v_{y}})\mathbf{i} + (\mathbf{u_{x}v_{z}})\mathbf{j}+(\mathbf{u_{y}v_{x}})\mathbf{k}$\\
+$\mathbf{-u \times v } = (\mathbf{-u_{y}v_{z}})\mathbf{i} + (\mathbf{-u_{z}v_{x}})\mathbf{j} + (\mathbf{-u_{x}v_{y}})\mathbf{k} +(\mathbf{-u_{z}v_{y}})\mathbf{i} + (\mathbf{-u_{x}v_{z}})\mathbf{j}+(\mathbf{-u_{y}v_{x}})\mathbf{k}$\\ This is always true.\\\\ 
+\noindent d.)$(c\mathbf{u})\cdot \mathbf{v} = \mathbf{u \cdot} (c\mathbf{v}) = c(\mathbf{u \cdot v})$\\
+\noindent$c \mathbf{u} = c\mathbf{u_{1}} + c\mathbf{u_{2}}$\\
+\noindent$(c\mathbf{u})\cdot \mathbf{v} = (c\mathbf{u_{1}})(\mathbf{v_{1}}) + (c\mathbf{u_{2}})(\mathbf{v_{2}}) = c\mathbf{u_{1}v_{1}} + c\mathbf{u_{2}v_{2}}$\hspace{10pt}(I)\\
+\noindent$ \mathbf{u \cdot} (c\mathbf{v}) = (\mathbf{u_{1}})(c\mathbf{v_{1}}) + (\mathbf{u_{2}})(c\mathbf{v_{2}}) c\mathbf{u_{1}v_{1}} + c\mathbf{u_{2}v_{2}}  $\hspace{10pt}(II)\\
+\noindent$c(\mathbf{u \cdot v}) = c[(\mathbf{u_{1}})(\mathbf{v_{1}}) + (\mathbf{u_{1}})(\mathbf{v_{2}})] c\mathbf{u_{1}v_{1}} + c\mathbf{u_{2}v_{2}} $(III)\\
+\noindent Since scalar multiplication is commutative, (I), (II), and (III) are the same. This is always true.\\\\
+e.)$c \mathbf{u \times v} = (c\mathbf{u})\times \mathbf{v} = \mathbf{u \times }(c\mathbf{v})$\\
+$ \mathbf{u \times }(c\mathbf{v})  =  (\mathbf{u_{y}}c\mathbf{v_{z}})\mathbf{i} + (\mathbf{u_{z}}c\mathbf{v_{x}})\mathbf{j} + (\mathbf{u_{x}}c\mathbf{v_{y}})\mathbf{k} -(\mathbf{u_{z}}c\mathbf{v_{y}})\mathbf{i} - (\mathbf{u_{x}}c\mathbf{v_{z}})\mathbf{j}-(\mathbf{u_{y}}c\mathbf{v_{x}})\mathbf{k} =c[ (\mathbf{u_{y}v_{z}})\mathbf{i} + (\mathbf{u_{z}v_{x}})\mathbf{j} + (\mathbf{u_{x}v_{y}})\mathbf{k} -(\mathbf{u_{z}v_{y}})\mathbf{i} - (\mathbf{u_{x}v_{z}})\mathbf{j}-(\mathbf{u_{y}v_{x}})\mathbf{k}]$\\\\
+$  c \mathbf{u \times v}= c[(\mathbf{u_{y}v_{z}})\mathbf{i} + (\mathbf{u_{z}v_{x}})\mathbf{j} + (\mathbf{u_{x}v_{y}})\mathbf{k} -(\mathbf{u_{z}v_{y}})\mathbf{i} - (\mathbf{u_{x}v_{z}})\mathbf{j}-(\mathbf{u_{y}v_{x}})\mathbf{k}]$\\\\
+$  (c\mathbf{u})\times \mathbf{v}  = (c\mathbf{u_{y}v_{z}})\mathbf{i} + (c\mathbf{u_{z}v_{x}})\mathbf{j} + (c\mathbf{u_{x}v_{y}})\mathbf{k} -(c\mathbf{u_{z}v_{y}})\mathbf{i} - (c\mathbf{u_{x}v_{z}})\mathbf{j}-(c\mathbf{u_{y}v_{x}})\mathbf{k} \\= c[(\mathbf{u_{y}v_{z}})\mathbf{i} + (\mathbf{u_{z}v_{x}})\mathbf{j} + (\mathbf{u_{x}v_{y}})\mathbf{k} -(\mathbf{u_{z}v_{y}})\mathbf{i} - (\mathbf{u_{x}v_{z}})\mathbf{j}-(\mathbf{u_{y}v_{x}})\mathbf{k}]$\\
+Since we can always factor out the $c$, this is always true.\\\\
+f.)$\mathbf{u\cdot u} = \| \mathbf{u}\|^{2} $\\
+$ \mathbf{u\cdot u} = (\mathbf{u_{1}})(\mathbf{u_{1}})+(\mathbf{u_{2}})(\mathbf{u_{2}}) = \mathbf{u_{1}}^{2} + \mathbf{u_{2}}^{2}$\\
+$ \| \mathbf{u}\| ^{2} = (\sqrt{\mathbf{u_{1}}^{2} + \mathbf{u_{2}}^{2}})^{2}= \mathbf{u_{1}}^{2} + \mathbf{u_{2}}^{2} $\\
+This is always true.\\\\
+g.)$(\mathbf{u \times u}) \cdot\mathbf{u} = 0$\\
+$\mathbf{u \times u}  =  (\mathbf{u_{y}u_{z}})\mathbf{i} + (\mathbf{u_{z}u_{x}})\mathbf{j} + (\mathbf{u_{x}u_{y}})\mathbf{k} -(\mathbf{u_{z}u_{y}})\mathbf{i} - (\mathbf{u_{x}u_{z}})\mathbf{j}-(\mathbf{u_{y}u_{x}})\mathbf{k} = 0$\\
+$0 \cdot \mathbf{u} = (0)(\mathbf{u_{1}}) +(0)(\mathbf{u_{2}})= 0$\\
+This is true because $\mathbf{u}$ is parallel to itself and thus it doesn't have a cross product. This is always true.\\\\
+h.)$(\mathbf{u \times v})\cdot \mathbf{u} = \mathbf{v} \cdot (\mathbf{u \times v})$\\\\
+$\mathbf{u \times v }\cdot \mathbf{u} = \mathbf{u_{x}}(\mathbf{u_{y}v_{z}})\mathbf{i} + \mathbf{u_{y}}(\mathbf{u_{z}v_{x}})\mathbf{j} + \mathbf{u_{z}}(\mathbf{u_{x}v_{y}})\mathbf{k} -\mathbf{u_{x}}(\mathbf{u_{z}v_{y}})\mathbf{i} - \mathbf{u_{y}}(\mathbf{u_{x}v_{z}})\mathbf{j}-\mathbf{u_{z}}(\mathbf{u_{y}v_{x}})\mathbf{k}$\\\\
+$\mathbf{u \times v } \cdot \mathbf{v}= \mathbf{v_{x}}(\mathbf{u_{y}v_{z}})\mathbf{i} + \mathbf{v_{y}}(\mathbf{u_{z}v_{x}})\mathbf{j} + \mathbf{v_{z}}(\mathbf{u_{x}v_{y}})\mathbf{k} -\mathbf{v_{x}}(\mathbf{u_{z}v_{y}})\mathbf{i} - \mathbf{v_{y}}(\mathbf{u_{x}v_{z}})\mathbf{j}-\mathbf{v_{z}}(\mathbf{u_{y}v_{x}})\mathbf{k}$\\\\
+Since the two vectors are parallel to eachother, this is always true. (?)\\\\\\
+
+
+\noindent40.)$A(1, 0, -1)$, \hspace{10pt} $B(1, 7, 2)$, \hspace{10pt} $C(2, 4, -1)$, \hspace{10pt} $D(0, 3, 2)$\\
+Find the area of the parallelogram whose vertices are $A$, $B$, $C$, and $D$.\\\\
+$\mathbf{AB} = \langle 1-1, 7-0, 2+1\rangle = \langle 0, 7, 3\rangle$\\\\
+$\mathbf{AC} = \langle 2-1, 4-0, -1+1\rangle = \langle 1, 4, 0\rangle$\\\\
+$\mathbf{AB \times AC} = -12\mathbf{i} +3\mathbf{j} -7\mathbf{k}$\\\\
+area $=\| \mathbf{AB \times AC} \| = \sqrt{(-12)^{2} + 3^{2} + (-7)^{2}} = \sqrt{144 + 9 + 49} = \sqrt{202}$\\\\\\
+
+
+
+\noindent48.)Find the volume of the parallelopiped if four of its eight vertices are $A(0, 0, 0)$, $B(1, 2, 0)$, $C(0, -3, 2)$, and $D(3, -4, 5)$.\\\\
+
+area $=$ det
+$\begin{vmatrix}
+1 & 2 & 0 \\ 
+0 & -3 & 2 \\ 
+3 & -4 & 5 \\ 
+\end{vmatrix} = (1)(-3) - (2)(-6) + (0)(9) = 5$
+
+\end{document}

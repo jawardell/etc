@@ -1,0 +1,174 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage{harpoon}% <---
+\usepackage{setspace}
+\usepackage{extsizes}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb}    
+\usepackage[margin=.5in]{geometry}
+
+
+\title{\vspace{-2.0cm}Homework 5}
+\author{Joanne Wardell}
+\date{Monday, September 10, 2018}
+\begin{document}
+\maketitle
+
+
+\subsection*{Section 13.1}
+\noindent14.) $\vec{r}(t) = (1 + t)\mathbf{i} + \frac{t^{2}}{\sqrt{2}}\mathbf{j} + \frac{t^{3}}{3}\mathbf{k}$, \hspace{10pt} $t = 1$.\\\\
+\noindent $\vec{v} = \frac{d\vec{r}}{dt} = \frac{dx}{dt}\mathbf{i} + \frac{dy}{dt}\mathbf{j} + \frac{dz}{dt}\mathbf{k}$\\\\
+\noindent $=\frac{d(1 + t)}{dt}\mathbf{i} + \frac{1}{\sqrt{2}}\frac{dt^{2}}{dt}\mathbf{j} + \frac{1}{3}\frac{dt^{3}}{dt}\mathbf{k}$\\\\
+\noindent $=t\mathbf{i} + \frac{2t}{\sqrt{2}}\mathbf{j} + t^{2}\mathbf{k}$\\\\
+\noindent $\frac{d\vec{r}}{dt}_{t= 1} =  (1)\mathbf{i} + \frac{2(1)}{\sqrt{2}}\mathbf{j} + (1)^{2}\mathbf{k}$\\\\
+\noindent $= \mathbf{i} + \frac{2}{\sqrt{2}}\mathbf{j} + \mathbf{k}$\\\\
+\noindent $\| \vec{v}_{t = 1} \|  = \sqrt{(1)^{2} + (\frac{2}{\sqrt{2}})^{2} + (1)^{2}} = \sqrt{4} = 2$\\\\
+\noindent $\hat{v}_{t = 1} = \frac{\vec{v}_{t = 1}}{\| \vec{v}_{t = 1} \| } = \frac{1}{2}\mathbf{i} + \sqrt{2}\mathbf{j} + \frac{1}{2}\mathbf{k}$\\\\
+\noindent $\vec{v} = \| \vec{v} \|  \hat{v}= 2 \langle \frac{1}{2} , \sqrt{2},  \frac{1}{2}\rangle$\\\\
+
+
+
+
+\noindent16.) $\vec{r}(t) = (sec{t})\mathbf{i} + (tan{t})\mathbf{j} + \frac{4t}{3}\mathbf{k}$, \hspace{10pt} $t = \frac{\pi}{6}$\\\\
+\noindent $\vec{v} = \frac{d\vec{r}}{dt} = \frac{dx}{dt}\mathbf{i} + \frac{dy}{dt}\mathbf{j} + \frac{dz}{dt}\mathbf{k}$\\\\
+\noindent $= \frac{dsec{t}}{dt}\mathbf{i} + \frac{dtan{t}}{dt}\mathbf{j} + \frac{4}{3}\frac{dt}{dt}$\\\\
+\noindent $= sec(t)tan(t)\mathbf{i} + sec^{2}{t} \mathbf{j} + \frac{4}{3}\mathbf{k}$\\\\
+\noindent $\vec{v}_{t = \frac{\pi}{6}} = sec(\frac{\pi}{6})tan(\frac{\pi}{6})\mathbf{i} + sec^{2}(\frac{\pi}{6}) \mathbf{j} + \frac{4}{3}\mathbf{k} = \mathbf{i} + 3\mathbf{j} + \frac{4}{3}\mathbf{k}$\\\\\\
+\noindent $ \| \vec{v}_{t = \frac{\pi}{6}} \|  = \sqrt{(1)^{2} + (3)^{2} + (\frac{3}{4})^{2}} =\sqrt{\frac{16}{16} + \frac{144}{16} + \frac{9}{16}} = \sqrt{\frac{169}{16}} = \frac{13}{4}$\\\\\\
+\noindent $\hat{v}_{t = \frac{\pi}{6}} = \frac{\vec{v}_{t = \frac{\pi}{6}}}{ \| \vec{v}_{t = \frac{\pi}{6}} \| } = \frac{13}{4}\mathbf{i} + \frac{39}{4}\mathbf{j} + \frac{13}{3}\mathbf{k}$\\\\\\
+\noindent $\vec{v}_{t = \frac{\pi}{6}} = \| \vec{v}_{t = \frac{\pi}{6}} \| \hat{v}_{t = \frac{\pi}{6}} 
+= \frac{4}{13} \langle  \frac{13}{4}, \frac{39}{4}, \frac{13}{3}\rangle$\clearpage
+
+
+\noindent26.) $\vec{r}(t) = (cos{t})\mathbf{i} + (sin{t})\mathbf{j} + (sin{t})\mathbf{j} + (sin{2t})\mathbf{k}$, \hspace{10pt} $t_{0} = \frac{\pi}{2}$\\\\
+\noindent $\frac{d\vec{r}}{dt} = \frac{dx}{dt}\mathbf{i} + \frac{dy}{dt}\mathbf{j} + \frac{dz}{dt}\mathbf{k}$\\\\
+\noindent $ = \frac{dcos{t}}{dt}\mathbf{i} + \frac{dsin{t}}{dt}\mathbf{j} + \frac{dsin{2t}}{dt}$\\\\
+\noindent $ = -sin(t)\mathbf{i} + cos(t)\mathbf{j} + 2cos(2t)\mathbf{k} = \langle -sin{t}, cos{t}, 2sin{2t}\rangle$\\\\
+\noindent $\vec{r}(\frac{\pi}{2}) = cos(\frac{\pi}{2})\mathbf{i} + sin(\frac{\pi}{2})\mathbf{j} + sin(2\frac{\pi}{2})\mathbf{k}= \mathbf{j}  = \langle 0, 1, 0 \rangle$\\\\
+\noindent $\vec{r}(t) = \langle 0, 1, 0\rangle + t\langle -sin(t) , cos(t) , 2sin(2t)\rangle$\\\\
+
+
+
+\noindent40.)$\vec{r}(t) = (t - sin{t})\mathbf{i} + (1- cos{t})\mathbf{j}$\\
+\noindent a.) below is a sketch of the graph\\\\
+\begin{tikzpicture}
+\draw[->] (0,0) -- (0,3);
+\draw[->] (0,0) -- (2.6*pi,0);
+\draw[thick, black,domain=-0.5*pi:2.5*pi,samples=50] plot ({\x - sin(\x r)},{1 - cos(\x r)});
+\end{tikzpicture}\\\\
+
+\noindent b.) find local maxima with the second derivative test\\
+\noindent $\frac{d\vec{r}}{dt} = \frac{dx}{dt}\mathbf{i} + \frac{dy}{dt}\mathbf{j} + \frac{dz}{dt}\mathbf{j}$\\\\
+\noindent $=\frac{d(t - sin{t})}{dt}\mathbf{i} + \frac{d(1 - cos{t})}{dt}\mathbf{j} + \frac{d0}{dt}\mathbf{k}$\\\\
+\noindent $ = (1 - cos{t})\mathbf{i} + sin(t)\mathbf{j}$\\\\
+\noindent $\| \frac{d\vec{r}}{dt} \|  = \sqrt{(1 - cos{t})^{2} + sin^{2}{t}} = \sqrt{2 - 2cos{t}}$\\\\
+\noindent Notice that the speed is the maximum when $t = -1$. So, the maximum value of speed is \\\\
+\noindent $ \sqrt{2 - 2cos(-1)}   = \sqrt{4} = 2$.\\\\
+\noindent $\frac{d^{2}\vec{r}}{dt^{2}} = sin(t)\mathbf{i} - cos(t)\mathbf{j}$\\\\
+\noindent $\| \frac{d^{2}\vec{r}}{dt^{2}} \| = \sqrt{sin^{2}{t} + cos^{2}{t}} = 1$\\\\
+\noindent Since the acceleration is constant, its maximum value is one. \clearpage
+
+
+\subsection*{Section 13.2}
+\noindent2.) $\int_{1}^{2} [t^{3}\mathbf{i} + 7\mathbf{j} + (t + 1)\mathbf{k}]dt$\\\\
+\noindent $\int{1}^{2}t^{3}dt\mathbf{i} + 7\int{1}^{2}dt\mathbf{j} + \int{1}^{2}(t + 1)dt\mathbf{k}$\\\\
+\noindent $\frac{t^{4}}{4}\Big|_1^2\mathbf{i} + 7t\Big|_1^2\mathbf{j} + (\frac{t^{2}}{2} + t)\Big|_1^2\mathbf{k}$\\\\
+\noindent $-3\mathbf{i} + (4\sqrt{2})\mathbf{j} + 2\mathbf{k}$\\\\
+
+
+\noindent8.)$\int_{1}^{ln{3}}[te^{t}\mathbf{i} + e^{t}\mathbf{j} + ln(t)\mathbf{k}]dt$\\\\
+\noindent $\int_{1}^{ln{3}}te^{t}dt\mathbf{i} + \int_{1}^{ln{3}}e^{t}dt\mathbf{j} + \int_{1}^{ln{3}}ln(t)dt\mathbf{k} = (te^{t} - e^{t})\Big|_1^{ln{3}}\mathbf{i} + e^{t}\Big|_1^{ln{3}}\mathbf{j}  + (tln{t} - t)\Big|_1^{ln{3}}\mathbf{k}$\\\\
+\noindent $=(ln(9) - 3)\mathbf{i} + (3 - e)\mathbf{j} + (ln(3)ln(ln(3)) - ln(3)+1)\mathbf{k}$\\\\
+
+
+\noindent14.)$\frac{d\vec{r}}{dt} = (t^{3} + 4t)\mathbf{i} + t\mathbf{j} + 2t^{2}\mathbf{k}$, \hspace{10pt} $\vec{r}(0) = \mathbf{i} + \mathbf{j}$\\\\ 
+\noindent $\int \frac{d\vec{r}}{dt} dt = \int [(t^{3} + 4t)\mathbf{i} + t\mathbf{j} + 2t^{2}\mathbf{k}] dt$\\\\
+\noindent $\vec{r}  + \vec{C}= (\frac{t^{4}}{4} + 2t^{2})\mathbf{i} + \frac{t^{2}}{2}\mathbf{j} + \frac{2t}{3}\mathbf{k} + \vec{C} $\\\\
+\noindent $\vec{r} = (\frac{t^{4}}{4} + 2t^{2})\mathbf{i} + \frac{t^{2}}{2}\mathbf{j} + \frac{2t}{3}\mathbf{k} + \vec{C} $\\\\
+\noindent $\vec{r}(0) = \mathbf{i} + \mathbf{j} = (\frac{(0)^{4}}{4} + 2(0)^{2})\mathbf{i} + \frac{(0)^{2}}{2}\mathbf{j} + \frac{2(0)}{3}\mathbf{k} + \vec{C} $\\\\
+\noindent $\vec{C}  = \mathbf{i} + \mathbf{j} $\\\\
+\noindent $\vec{r} =(\frac{t^{4}}{4} + 2t^{2} + 1)\mathbf{i} + (\frac{t^{2}}{2} + 1)\mathbf{j} + \frac{2t^{3}}{3}\mathbf{k}$\\\\
+
+
+
+\noindent18.) $\frac{d^{2}\vec{r}}{dt^{2}} = -(\mathbf{i} + \mathbf{j} + \mathbf{k})$, \hspace{10pt} $\vec{r}(0) = 10\mathbf{i} + 10 \mathbf{j} + 10 \mathbf{k}$, \hspace{10pt} $\frac{d\vec{r}}{dt}_{t = 0} = \vec{0}$\\\\
+\noindent $\int\frac{d^{2}\vec{r}}{dt^{2}}  dt =   \int  -(\mathbf{i} + \mathbf{j} + \mathbf{k})  dt$\\\\
+\noindent $\frac{d\vec{r}}{dt} + \vec{C} =  -t\mathbf{i} - t\mathbf{j} - t\mathbf{k} + \vec{C}$\\\\
+\noindent $\frac{d\vec{r}}{dt} =  -t\mathbf{i} - t\mathbf{j} - t\mathbf{k} + \vec{C}$\\\\
+\noindent $\frac{d\vec{r}}{dt}_{t = 0} = \vec{0} = -(0)\mathbf{i} - (0)\mathbf{j} - (0)\mathbf{k} + \vec{C}$ \\\\
+\noindent $\vec{C} = \vec{0}$\\\\
+\noindent $\frac{d\vec{r}}{dt}= -t\mathbf{i} - t\mathbf{j} - t\mathbf{k}$\\\\
+
+
+\noindent $\int \frac{d\vec{r}}{dt} dt = \int -t\mathbf{i} - t\mathbf{j} - t\mathbf{k} dt$\\\\
+\noindent $\vec{r} + \vec{C} = -\frac{t^{2}}{2}\mathbf{i} - \frac{t^{2}}{2}\mathbf{j} - \frac{t^{2}}{2}\mathbf{k} + \vec{C}$\\\\
+\noindent $\vec{r} = -\frac{t^{2}}{2}\mathbf{i} - \frac{t^{2}}{2}\mathbf{j} - \frac{t^{2}}{2}\mathbf{k} + \vec{C}$\\\\
+\noindent $\vec{r}(0) =10\mathbf{i} + 10 \mathbf{j} + 10 \mathbf{k}  = -\frac{(0)^{2}}{2}\mathbf{i} - \frac{(0)^{2}}{2}\mathbf{j} - \frac{(0)^{2}}{2}\mathbf{k}$\\\\
+\noindent $\vec{C} = 10\mathbf{i} + 10 \mathbf{j} + 10 \mathbf{k} $\\\\
+\noindent $\vec{r} = (-\frac{t^{2}}{2} + 10)\mathbf{i} + (-\frac{t^{2}}{2} + 10)\mathbf{j} + (-\frac{t^{2}}{2} + 10)\mathbf{k}$\\\\
+
+
+
+
+
+
+
+
+\noindent44.)
+\noindent a.) Assume $u$ and $\vec{r}$ are continuous on $I = [a,b]$ in $\mathbb{R}^{3}$.\\
+\noindent The output of $u$ is a scalar $u(t)$.\\
+\noindent The output of $\vec{r}$ is a vector $\vec{r}(t) = r_{1} + r_{2} + r_{3}$.\\
+\noindent The output of $u\vec{r}$ is a vector. $u\vec{r}$ is a vector function.\\
+\noindent The conditions for a function to be continuous are that it's output exists on the interval $I$ and that the 
+limits exsit on all points between and including the endpoints on $I$. Using the intermediate value theorem, if we 
+find a value that exists between the two endpoints, and the function evaluated at that point is the limit, 
+ then the function $u\vec{r}$ is continuous on the entire interval $I$.\\\\
+\noindent $\lim_{t \to n}u\vec{r} = \lim_{t \to n}(u(t)r_{1} + u(t)r_{2} + u(t)r_{3})$\\\\
+\noindent $\lim_{t \to n} u(t)r_{1} + \lim_{t \to n} u(t)r_{2} + \lim_{t \to n }u(t)r_{3}  = u(n)r_{1} + u(n)r_{2} + u(n)r_{3} = u(n)\vec{r}(n)$\\\\
+\noindent $u(n)\vec{r}(n) = u(n)(r_{1} + r_{2} + r_{3})= u(n)r_{1} + u(n)r_{2} + u(n)r_{3}$\\\\
+\noindent As a collary from the above, $u\vec{r}$ is continuous at the end points $a$ and $b$. Since the limit exists and is the same as the function evaluated at the limit, then the function is continuous
+for all values along the interval $I$.\\\\
+
+\noindent b.) $\vec{R}(t)$ is the antiderivative of $\vec{r}$. From a.), we've shown that $\vec{r}$ scaled by a constant is 
+continuous for every value on the interval $I$ including the endpoints. Let's take an antiderivative from 
+an endpoint to some values $k_{1}$ and $k_{2}$ on $I$.\\\\
+\noindent $\int_{a}^{k_{1}}\vec{R}dt = \lim_{n \to k_{1}} \int_{a}^{n} \vec{R}dt = \lim_{n \to k_{1}} \vec{r}(t) \Big|_a^{k_{1}} = \lim_{n \to k_{1}}[\vec{r}(n) - \vec{r}(a)] = \vec{r}(n) - \vec{r}(a)$\\\\
+\noindent Integrate from some point $k_{2}$ on $I$ to the endpoint $b$.\\\\
+\noindent $\int_{k_{2}}^{b}\vec{R}dt = \lim_{m \to k_{2}} \int_{m}^{b} \vec{R}dt = \lim_{m \to k_{2}} \vec{r}(t) \Big|_{k_{2}}^b = \lim_{m \to k_{2}}[\vec{r}(b) - \vec{r}(m)] = \vec{r}(b) - \vec{r}(k_{2})$\\\\
+\noindent Since the limits $\lim_{n \to k_{1}} \int_{a}^{n} \vec{R}dt$ and $\lim_{m \to k_{2}} \int_{m}^{b} \vec{R}dt$ exist 
+and any value on $I$ is continuous for $\vec{r}(t)$, then any integral on $I$ will be continuous.\\\\ 
+
+
+\subsection*{Section 13.3}
+\noindent2.)$\vec{r}(t) = (6sin{2t})\mathbf{i} + (6cos{2t})\mathbf{j} + 5t\mathbf{k}$, \hspace{10pt} $t \in [0, \pi]$\\\\
+\noindent $\vec{v} = \frac{d\vec{r}}{dt} = 6\frac{dsin{2t}}{dt} \mathbf{i} + 6\frac{dcos{2t}}{dt}\mathbf{j} + 5\frac{d}{dt}\mathbf{k}$\\\\
+\noindent $ = 12cos(2t)\mathbf{i} - 12sin(2t)\mathbf{j} + 5\mathbf{k}$\\\\
+\noindent $\| \vec{v} \|  = \sqrt{(-12cos(2t))^{2} + (12sin(2t))^{2} + 5^{2}} = \sqrt{144 + 25} = 13$\\\\
+\noindent $\hat{v} = \frac{\vec{v}}{\| \vec{v} \|} = \langle \frac{12cos(2t)}{13} , -\frac{12sin(2t)}{13}, \frac{5}{13} \rangle$\\\\
+\noindent $L = \int_{a}^{b} \| \vec{r} \|  dt = 13\int_{0}^{\pi} dt = 13t\Big|_0^{\pi} = 13\pi$\\\\
+
+
+
+
+
+
+\noindent4.) $ \vec{r}(t) = (2 + t)\mathbf{i} - (t + 1)\mathbf{j} + t\mathbf{k}$, \hspace{10pt} $t \in [0, 3]$\\\\
+\noindent $\vec{v} = \frac{d\vec{r}}{dt} = \frac{d(2 + t)}{dt}\mathbf{i} - \frac{d(t + 1)}{dt}\mathbf{j}  + \frac{dt}{dt}\mathbf{k}$\\\\
+\noindent $ = \mathbf{i} -\mathbf{j} + \mathbf{k}$\\\\
+\noindent $\| \vec{v} \|  = \sqrt{1^{2} + 1^{2} + 1^{2}} = \sqrt{3}$\\\\
+\noindent $\hat{v} = \frac{\vec{v}}{\| \vec{v} \| } = \langle \frac{1}{\sqrt{3}}, -\frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}\rangle$\\\\
+\noindent $L = \int_{a}^{b} \| \vec{r} \|  dt = \sqrt{3}\int_{0}^{3} dt = \sqrt{3}t\Big|_0^3 = 3\sqrt{3}$\\\\
+
+
+
+
+
+\noindent12.) $\vec{r}(t) = (cos{t} + tsin{t})\mathbf{i} + (sin(t) - tcos(t))\mathbf{j}$, \hspace{10pt} $t \in [\frac{\pi}{2}, \pi]$\\\\
+\noindent $\vec{v} = \frac{d\vec{r}}{dt} = \frac{d(cos{t} + tsin{t})}{dt}\mathbf{i} + \frac{d(sin{t} - tcos{t})}{dt}$\\\\
+\noindent $ = tcos(t)\mathbf{i} + tsin(t)\mathbf{j}$\\\\
+\noindent $\| \vec{v} \| = \sqrt{(tcos(t))^{2} + (tsin(t))^{2}} = t$\\\\
+\noindent $s(t) = \int_{t_{0}}^{t} \| \vec{v}(\tau) \| d\tau = \int_{0}^{t} \| v(\tau) \| d\tau  = \frac{\tau^{2}}{2} \Big|_0^t= \frac{t^{2}}{2}$\\\\
+\noindent $L = \int_{a}^{b} \| \vec{r} \|  dt = \int_{\frac{\pi}{2}}^{\pi}t  dt = \frac{t^{2}}{2} \Big|_{\frac{\pi}{2}}^{\pi} = -\frac{3\pi^{2}}{8}$\\\\
+
+
+\end{document}
