@@ -12,7 +12,7 @@
 \usepackage{float}
 \usepackage{amsmath, amsthm, amssymb}    
 \usepackage[margin=.5in]{geometry}
-\usepackage[margin=.5in]{geometry}
+\usepackage{forest}
 
 
 
@@ -138,7 +138,11 @@ $\\\\
 \noindent 16.) $\frac{\partial w}{\partial x}$ and $\frac{\partial w}{\partial y}$ for $w = f(r,s,t)$, \hspace{10pt} $r = g(x,y)$, \hspace{10pt} $s = h(x,y)$, \hspace{10pt} $t = k(x,y)$\\\\
 
 \noindent $\frac{\partial w}{\partial x} = \frac{\partial w}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial w}{\partial s}\frac{\partial s}{\partial x} + \frac{\partial w}{\partial t}\frac{\partial t}{\partial x}$ \\\\
-there is a diagram here!\vspace{6cm}\\\\
+
+
+
+
+
 
 \noindent $\frac{\partial w}{\partial y} = \frac{\partial w}{\partial r}\frac{\partial r}{\partial y} + \frac{\partial w}{\partial s}\frac{\partial s}{\partial y} + \frac{\partial w}{\partial t}\frac{\partial t}{\partial y}$ \\\\
 there is a diagram here!\vspace{6cm}\\\\
@@ -146,7 +150,7 @@ there is a diagram here!\vspace{6cm}\\\\
 
 
 \noindent 22.) $\frac{\partial w}{\partial p}$ for $w = f(x,y,z,v)$, \hspace{10pt} $x = g(p,q)$, \hspace{10pt} $y = h(q,p)$, \hspace{10pt} $z = j(p,q)$, \hspace{10pt} $v = k(p,q)$\\\\
-\noindent $\frac{\partial w}{\partial p} = \frac{\partial w}{\partial x}\frac{\partial x}{\partial p} + \frac{\partial w}{\partial y}\frac{\partial y}{\partial p} + \frac{\partial w}{\partial z}\frac{\partial z}{\parital p} + \frac{\partial w}{\partial v}\frac{\partial v}{\partial p}$\\\\
+\noindent $\frac{\partial w}{\partial p} = \frac{\partial w}{\partial x}\frac{\partial x}{\partial p} + \frac{\partial w}{\partial y}\frac{\partial y}{\partial p} + \frac{\partial w}{\partial z}\frac{\partial z}{\partial p} + \frac{\partial w}{\partial v}\frac{\partial v}{\partial p}$\\\\
 there is a diagram here!\vspace{10pt}\\\\
 
 
@@ -174,9 +178,19 @@ there is a diagram here!\vspace{10pt}\\\\
 
 
 
-\noindent 50.) 
+\noindent 50.) $w = f(x,y)$, \hspace{10pt} $x = r\cos{\theta}$, \hspace{10pt} $y = r\sin{\theta}$\\\\
+\noindent $x_{r} = frac{\partial r\cos{\theta}}{\partial r} = \cos{\theta}$\\\\
+\noindent $y_{r} = frac{\partial r\sin{\theta}}{\partial r} = \sin{\theta}$\\\\
+\noindent a.) $\frac{\partial w}{\partial r} = \frac{\partial w}{\partial x}\frac{\partial x}{r} + \frac{\partial w}{\partial y}\frac{\partial y}{\partial r} = x_{r}\frac{\partial f}{\partial x} + y_{r}\frac{\partial f}{\partial y} = \cos{\theta}\frac{\partial f}{\partial x} + \sin{\theta}\frac{\partial f}{\partial y}$
+\\\\$\frac{\partial f}{\partial \theta} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial \theta} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial \theta} = -rf_{x}\sin{\theta} + rf_{y}\cos{\theta} = r[f_{y}\cos{\theta} - f_{x}\sin{\theta}]$\\\\
+\noindent $\therefore \frac{1}{r}\frac{\partial w}{\partial \theta} = f_{y}\cos{\theta} - f_{x}\sin{\theta}$\\\\
+\noindent b.)$f_{x} = (\cos{\theta})\frac{\partial w}{\partial r}-(\frac{\sin{\theta}}{r})\frac{\partial w}{\partial \theta}$\\\\
+$f_{y} = (\sin{\theta})\frac{\partial w}{\partial r} + (\frac{\cos{\theta}}{r})\frac{\partial w}{\partial \theta}$\\\\
 
-
+\noindent c.) $(f_{x})^{2} + (f_{y})^{2} = (\frac{\partial w}{\partial r})^{2} + \frac{1}{r^{2}}(\frac{\partial w}{\partial \theta})^{2}$\\\\
+\noindent $(f_{x})^{2} = (\cos^{2}{\theta})(\frac{\partial w}{\partial r})^{2} + (\frac{\sin^{2}{\theta}}{r^{2}})(\frac{\partial w}{\partial \theta})^{2} - 2(\cos{\theta}\frac{\partial w}{\partial r}\frac{\sin{\theta}}{r}\frac{\partial w}{\partial \theta})$\\\\
+\noindent $(f_{y})^{2} = (\sin^{2}{\theta})(\frac{\partial w}{\partial r})^{2} + (\frac{\cos^{2}{\theta}}{r^{2}})(\frac{\partial w}{\partial \theta})^{2} + 2(\sin{\theta}\frac{\partial w}{\partial r}\frac{\cos{\theta}}{r}\frac{\partial w}{\partial \theta})$\\\\
+\noindent $\therefore (f_{x})^{2} + (f_{y})^{2} = (\frac{\partial w}{\partial r})^{2} + \frac{1}{r^{2}}(\frac{\partial w}{\partial \theta})^{2}$\\\\ 
 
 
 \end{document}
