@@ -66,7 +66,8 @@
 \noindent $w_{yx} = \frac{\partial ^{2}w}{\partial x \partial y} = 1 + \cos{y} + \cos{x}$\\\\
 
 \noindent 84.) $f(x,y,z)=2z^{3}-3(x^{2}+y^{2})z$\\\\
-\noindent The \textbf{Laplace equation} is $\frac{\partial ^{2}f}{\partial x^{2}} + \frac{\partial ^{2}f}{\partial y^{2}} + \frac{\partial^{2} f}{\partial y^{2}} = 0$.\\\\
+\noindent The \textbf{Laplace equation} is $\frac{\partial ^{2}f}{\partial x^{2}} + 
+\frac{\partial ^{2}f}{\partial y^{2}} + \frac{\partial^{2} f}{\partial y^{2}} = 0$.\\\\
 \noindent $\frac{\partial ^{2}f}{\partial x^{2}} = -6z$\\\\
 \noindent $\frac{\partial ^{2}f}{\partial y^{2}} = -6z$\\\\
 \noindent $\frac{\partial ^{2}f}{\partial z^{2}} = 12z$\\\\
@@ -77,19 +78,23 @@
 \subsection*{Section 14.4}
 \noindent 2.) $w = x^{2} + y^{2}$, \hspace{10pt} $x = \cos{t} + \sin{t}$, \hspace{10pt} $y = \cos{t} - \sin{t}$, \hspace{10pt} $t=0$\\\\
 \noindent $\frac{dw}{dt} = \frac{\partial w}{\partial x} \frac{dx}{dt} + \frac{\partial w}{\partial y}\frac{dy}{dt}
-=\frac{\partial (x^{2} + y^{2})}{\partial x}\frac{d(\cos{t} + \sin{t})}{dt} + \frac{\partial (x^{2} + y^{2})}{\partial y}\frac{d(\cos{t}\sin{t})}{dt} = 2\cos^{t}-2\sin^{2}{t}-2\cos^{2}{t}+2\sin^{2}{t} = 0$\\\\
+=\frac{\partial (x^{2} + y^{2})}{\partial x}\frac{d(\cos{t} + \sin{t})}{dt} 
++ \frac{\partial (x^{2} + y^{2})}{\partial y}\frac{d(\cos{t}\sin{t})}{dt} = 2\cos^{t}-2\sin^{2}{t}-2\cos^{2}{t}+2\sin^{2}{t} = 0$\\\\
 
 
 
-\noindent 10.) $w = \ln(x^{2}+y^{2} + z^{2})$, \hspace{10pt} $x = ue^{v}\sin{u}$, \hspace{10pt} $y = ue^{v}\cos{u}$, \hspace{10pt} $z = ue^{v}$; \hspace{10pt} $(u,v) = (-2,0)$\\\\
-\noindent $\frac{\partial w}{\partial u} = \frac{\partial w}{\partial x}\frac{\partial x}{\partial u} +\frac{\partial w}{\partial y}\frac{\partial y}{\partial u}+ \frac{\partial w}{\partial z}\frac{\partial z}{\partial u}$\\\\
+\noindent 10.) $w = \ln(x^{2}+y^{2} + z^{2})$, \hspace{10pt} $x = ue^{v}\sin{u}$, 
+\hspace{10pt} $y = ue^{v}\cos{u}$, \hspace{10pt} $z = ue^{v}$; \hspace{10pt} $(u,v) = (-2,0)$\\\\
+\noindent $\frac{\partial w}{\partial u} = \frac{\partial w}{\partial x}\frac{\partial x}{\partial u} 
++\frac{\partial w}{\partial y}\frac{\partial y}{\partial u}+ \frac{\partial w}{\partial z}\frac{\partial z}{\partial u}$\\\\
 \noindent $\frac{\partial w}{\partial x} = \frac{2x}{x^{2} + y^{2} + z^{2}}$\\\\
 \noindent $\frac{\partial x}{\partial u} = e^{v}\sin{u} + e^{v}u\cos{u}$\\\\
 \noindent $\frac{\partial w}{\partial y} = \frac{2y}{x^{2} + y^{2} +z^{2}}$\\\\
 \noindent $\frac{\partial y}{\partial u} = e^{v}\cos{u} - e^{v}u\sin{u}$\\\\
 \noindent $\frac{\partial w}{\partial z} = \frac{2z}{x^{2} + y^{2} + z^{2}}$\\\\
 \noindent $\frac{\partial z}{\partial u} = e^{v}$\\\\
-\noindent $\frac{\partial w}{\partial u} =[e^{v}\sin{u}+e^{v}u\cos{u}]\frac{2x}{x^{2} + y^{2} +z^{2}} + [e^{v}\cos{u}-e^{v}u\sin{u}]\frac{2y}{x^{2} + y^{2} + z^{2}} + [e^{v}]\frac{2z}{x^{2} + y^{2} + z^{2}}
+\noindent $\frac{\partial w}{\partial u} =[e^{v}\sin{u}+e^{v}u\cos{u}]\frac{2x}{x^{2} + y^{2} +z^{2}} 
++ [e^{v}\cos{u}-e^{v}u\sin{u}]\frac{2y}{x^{2} + y^{2} + z^{2}} + [e^{v}]\frac{2z}{x^{2} + y^{2} + z^{2}}
 \\\\ =  [e^{v}\sin{u}+e^{v}u\cos{u}]\frac{2ue^{v}\sin{u}}{u^{2}e^{2v}\sin^{2}{u}+u^{2}e^{2v}\cos^{2}{u}+u^{2}e^{2v}} 
 \\\\+ [e^{v}cos{u}-ue^{v}u\sin{u}]\frac{2ue^{v}\cos{u}}{u^{2}e^{2v}\sin^{2}{u}+u^{2}e^{2v}\cos^{2}{u}+u^{2}e^{2v}} 
 \\\\+ [e^{2v}]\frac{2ue^{v}}{u^{2}e^{2v}\sin^{2}{u}+u^{2}e^{2v}\cos^{2}{u}+u^{2}e^{2v}} 
@@ -98,14 +103,16 @@
 
 
 
-\noindent $\frac{\partial w}{\partial v} = \frac{\partial w}{\partial x}\frac{\partial x}{\partial v} +\frac{\partial w}{\partial y}\frac{\partial y}{\partial v}+ \frac{\partial w}{\partial z}\frac{\partial z}{\partial v}$\\\\
+\noindent $\frac{\partial w}{\partial v} = \frac{\partial w}{\partial x}\frac{\partial x}{\partial v} 
++\frac{\partial w}{\partial y}\frac{\partial y}{\partial v}+ \frac{\partial w}{\partial z}\frac{\partial z}{\partial v}$\\\\
 \noindent $\frac{\partial w}{\partial x} = \frac{2x}{x^{2} + y^{2} + z^{2}}$\\\\
 \noindent $\frac{\partial x}{\partial v} = e^{v}u\sin{u}$\\\\
 \noindent $\frac{\partial w}{\partial y} = \frac{2y}{x^{2} + y^{2} +z^{2}}$\\\\
 \noindent $\frac{\partial y}{\partial v} = ue^{v}\cos{u}$\\\\
 \noindent $\frac{\partial w}{\partial z} = \frac{2z}{x^{2} + y^{2} + z^{2}}$\\\\
 \noindent $\frac{\partial z}{\partial v} = e^{v}u$\\\\
-\noindent $\frac{\partial w}{\partial v} =[u^{2}e^{v}\cos{u}]\frac{2x}{x^{2} + y^{2} +z^{2}} + [u^{2}e^{v}\cos{u}]\frac{2y}{x^{2} + y^{2} + z^{2}} + [e^{v}u^{2}]\frac{2z}{x^{2} + y^{2} + z^{2}}
+\noindent $\frac{\partial w}{\partial v} =[u^{2}e^{v}\cos{u}]\frac{2x}{x^{2} + y^{2} +z^{2}} 
++ [u^{2}e^{v}\cos{u}]\frac{2y}{x^{2} + y^{2} + z^{2}} + [e^{v}u^{2}]\frac{2z}{x^{2} + y^{2} + z^{2}}
 \\\\ =  [u^{2}e^{v}\cos{u}]\frac{2ue^{v}\sin{u}}{u^{2}e^{2v}\sin^{2}{u}+u^{2}e^{2v}\cos^{2}{u}+u^{2}e^{2v}} 
 \\\\+ [u^{2}e^{v}\cos{u}]\frac{2ue^{v}\cos{u}}{u^{2}e^{2v}\sin^{2}{u}+u^{2}e^{2v}\cos^{2}{u}+u^{2}e^{2v}} 
 \\\\+ [e^{v}u^{2}]\frac{2ue^{v}}{u^{2}e^{2v}\sin^{2}{u}+u^{2}e^{2v}\cos^{2}{u}+u^{2}e^{2v}} 
@@ -122,9 +129,11 @@ $\\\\
 \noindent $\frac{\partial w}{\partial v} = \frac{\partial (\ln{2} + 2\ln{u} + 2v)}{\partial v} = 2$\\\\
 
 
-\noindent 16.) $\frac{\partial w}{\partial x}$ and $\frac{\partial w}{\partial y}$ for $w = f(r,s,t)$, \hspace{10pt} $r = g(x,y)$, \hspace{10pt} $s = h(x,y)$, \hspace{10pt} $t = k(x,y)$\\\\
+\noindent 16.) $\frac{\partial w}{\partial x}$ and $\frac{\partial w}{\partial y}$ for $w = f(r,s,t)$,
+ \hspace{10pt} $r = g(x,y)$, \hspace{10pt} $s = h(x,y)$, \hspace{10pt} $t = k(x,y)$\\\\
 
-\noindent $\frac{\partial w}{\partial x} = \frac{\partial w}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial w}{\partial s}\frac{\partial s}{\partial x} + \frac{\partial w}{\partial t}\frac{\partial t}{\partial x}$ \\\\
+\noindent $\frac{\partial w}{\partial x} = \frac{\partial w}{\partial r}\frac{\partial r}{\partial x} 
++ \frac{\partial w}{\partial s}\frac{\partial s}{\partial x} + \frac{\partial w}{\partial t}\frac{\partial t}{\partial x}$ \\\\
 \vspace{6cm}\\\\
 
 
@@ -134,13 +143,17 @@ $\\\\
 %\end{forest}
 %dont have time for tree even tho i really want to do it >:[
 
-\noindent $\frac{\partial w}{\partial y} = \frac{\partial w}{\partial r}\frac{\partial r}{\partial y} + \frac{\partial w}{\partial s}\frac{\partial s}{\partial y} + \frac{\partial w}{\partial t}\frac{\partial t}{\partial y}$ \\\\
+\noindent $\frac{\partial w}{\partial y} = \frac{\partial w}{\partial r}\frac{\partial r}{\partial y} 
++ \frac{\partial w}{\partial s}\frac{\partial s}{\partial y} + \frac{\partial w}{\partial t}\frac{\partial t}{\partial y}$ \\\\
 \vspace{6cm}\\\\
 
 
 
-\noindent 22.) $\frac{\partial w}{\partial p}$ for $w = f(x,y,z,v)$, \hspace{10pt} $x = g(p,q)$, \hspace{10pt} $y = h(q,p)$, \hspace{10pt} $z = j(p,q)$, \hspace{10pt} $v = k(p,q)$\\\\
-\noindent $\frac{\partial w}{\partial p} = \frac{\partial w}{\partial x}\frac{\partial x}{\partial p} + \frac{\partial w}{\partial y}\frac{\partial y}{\partial p} + \frac{\partial w}{\partial z}\frac{\partial z}{\partial p} + \frac{\partial w}{\partial v}\frac{\partial v}{\partial p}$\\\\
+\noindent 22.) $\frac{\partial w}{\partial p}$ for $w = f(x,y,z,v)$, \hspace{10pt} $x = g(p,q)$, 
+\hspace{10pt} $y = h(q,p)$, \hspace{10pt} $z = j(p,q)$, \hspace{10pt} $v = k(p,q)$\\\\
+\noindent $\frac{\partial w}{\partial p} = \frac{\partial w}{\partial x}\frac{\partial x}{\partial p} 
++ \frac{\partial w}{\partial y}\frac{\partial y}{\partial p} + \frac{\partial w}{\partial z}\frac{\partial z}{\partial p} +
+ \frac{\partial w}{\partial v}\frac{\partial v}{\partial p}$\\\\
 \vspace{6cm}\\\\
 
 
@@ -153,8 +166,10 @@ $\\\\
 \noindent $\frac{\partial z}{\partial y} = -\frac{f_{y}}{f_{z}} = -\frac{xe^{y}+e^{z}}{ye^{z}}$
 \noindent $-\frac{f_{y}}{f_{z}} = -\frac{xe^{y}+e^{z}}{ye^{z}}\Big|_{1, \ln{2}, \ln{3}} = -\frac{5}{3\ln{2}}$\\\\
 
-\noindent 38.)  \hspace{10pt}$z = \sin{xy} + x\sin{y}$, \hspace{10pt} $x = u^{2} + v^{2}$, \hspace{10pt} $y = uv$, \hspace{10pt} $\frac{\partial z}{\partial u} \Big|_{u = 0, v=1}$\\\\
-\noindent $\frac{\partial z}{\partial u} = \frac{\partial z}{\partial x}\frac{\partial x}{u} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial u}$\\\\
+\noindent 38.)  \hspace{10pt}$z = \sin{xy} + x\sin{y}$, \hspace{10pt} $x = u^{2} 
++ v^{2}$, \hspace{10pt} $y = uv$, \hspace{10pt} $\frac{\partial z}{\partial u} \Big|_{u = 0, v=1}$\\\\
+\noindent $\frac{\partial z}{\partial u} = \frac{\partial z}{\partial x}\frac{\partial x}{u} 
++ \frac{\partial z}{\partial y}\frac{\partial y}{\partial u}$\\\\
 \noindent $\frac{\partial z}{\partial x} = y\cos{xy} + \sin{y}$\\\\
 \noindent $\frac{\partial z}{\partial y} = x\cos{xy} + x\cos{y}$\\\\
 \noindent $\frac{\partial x}{\partial u} = 2u$\\\\
@@ -169,18 +184,28 @@ $\\\\
 
 
 \noindent 50.) $w = f(x,y)$, \hspace{10pt} $x = r\cos{\theta}$, \hspace{10pt} $y = r\sin{\theta}$\\\\
-\noindent $x_{r} = frac{\partial r\cos{\theta}}{\partial r} = \cos{\theta}$\\\\
-\noindent $y_{r} = frac{\partial r\sin{\theta}}{\partial r} = \sin{\theta}$\\\\
-\noindent a.) $\frac{\partial w}{\partial r} = \frac{\partial w}{\partial x}\frac{\partial x}{r} + \frac{\partial w}{\partial y}\frac{\partial y}{\partial r} = x_{r}\frac{\partial f}{\partial x} + y_{r}\frac{\partial f}{\partial y} = \cos{\theta}\frac{\partial f}{\partial x} + \sin{\theta}\frac{\partial f}{\partial y}$
-\\\\$\frac{\partial f}{\partial \theta} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial \theta} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial \theta} = -rf_{x}\sin{\theta} + rf_{y}\cos{\theta} = r[f_{y}\cos{\theta} - f_{x}\sin{\theta}]$\\\\
+\noindent $x_{r} = \frac{\partial r\cos{\theta}}{\partial r} = \cos{\theta}$\\\\
+\noindent $y_{r} = \frac{\partial r\sin{\theta}}{\partial r} = \sin{\theta}$\\\\
+\noindent a.) $\frac{\partial w}{\partial r} = \frac{\partial w}{\partial x}\frac{\partial x}{r}
+ + \frac{\partial w}{\partial y}\frac{\partial y}{\partial r} = x_{r}\frac{\partial f}{\partial x} 
++ y_{r}\frac{\partial f}{\partial y} = \cos{\theta}\frac{\partial f}{\partial x} + \sin{\theta}\frac{\partial f}{\partial y}$
+\\\\$\frac{\partial f}{\partial \theta} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial \theta} 
++ \frac{\partial f}{\partial y}\frac{\partial y}{\partial \theta} 
+= -rf_{x}\sin{\theta} + rf_{y}\cos{\theta} = r[f_{y}\cos{\theta} - f_{x}\sin{\theta}]$\\\\
 \noindent $\therefore \frac{1}{r}\frac{\partial w}{\partial \theta} = f_{y}\cos{\theta} - f_{x}\sin{\theta}$\\\\
 \noindent b.)$f_{x} = (\cos{\theta})\frac{\partial w}{\partial r}-(\frac{\sin{\theta}}{r})\frac{\partial w}{\partial \theta}$\\\\
 $f_{y} = (\sin{\theta})\frac{\partial w}{\partial r} + (\frac{\cos{\theta}}{r})\frac{\partial w}{\partial \theta}$\\\\
 
-\noindent c.) $(f_{x})^{2} + (f_{y})^{2} = (\frac{\partial w}{\partial r})^{2} + \frac{1}{r^{2}}(\frac{\partial w}{\partial \theta})^{2}$\\\\
-\noindent $(f_{x})^{2} = (\cos^{2}{\theta})(\frac{\partial w}{\partial r})^{2} + (\frac{\sin^{2}{\theta}}{r^{2}})(\frac{\partial w}{\partial \theta})^{2} - 2(\cos{\theta}\frac{\partial w}{\partial r}\frac{\sin{\theta}}{r}\frac{\partial w}{\partial \theta})$\\\\
-\noindent $(f_{y})^{2} = (\sin^{2}{\theta})(\frac{\partial w}{\partial r})^{2} + (\frac{\cos^{2}{\theta}}{r^{2}})(\frac{\partial w}{\partial \theta})^{2} + 2(\sin{\theta}\frac{\partial w}{\partial r}\frac{\cos{\theta}}{r}\frac{\partial w}{\partial \theta})$\\\\
-\noindent $\therefore (f_{x})^{2} + (f_{y})^{2} = (\frac{\partial w}{\partial r})^{2} + \frac{1}{r^{2}}(\frac{\partial w}{\partial \theta})^{2}$\\\\ 
+\noindent c.) $(f_{x})^{2} + (f_{y})^{2} = (\frac{\partial w}{\partial r})^{2} +
+ \frac{1}{r^{2}}(\frac{\partial w}{\partial \theta})^{2}$\\\\
+\noindent $(f_{x})^{2} = (\cos^{2}{\theta})(\frac{\partial w}{\partial r})^{2} +
+ (\frac{\sin^{2}{\theta}}{r^{2}})(\frac{\partial w}{\partial \theta})^{2} - 
+2(\cos{\theta}\frac{\partial w}{\partial r}\frac{\sin{\theta}}{r}\frac{\partial w}{\partial \theta})$\\\\
+\noindent $(f_{y})^{2} = (\sin^{2}{\theta})(\frac{\partial w}{\partial r})^{2} +
+ (\frac{\cos^{2}{\theta}}{r^{2}})(\frac{\partial w}{\partial \theta})^{2} + 
+2(\sin{\theta}\frac{\partial w}{\partial r}\frac{\cos{\theta}}{r}\frac{\partial w}{\partial \theta})$\\\\
+\noindent $\therefore (f_{x})^{2} + (f_{y})^{2} = (\frac{\partial w}{\partial r})^{2} + 
+\frac{1}{r^{2}}(\frac{\partial w}{\partial \theta})^{2}$\\\\ 
 
 
 \end{document}
