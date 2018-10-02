@@ -5,12 +5,20 @@
 \usepackage{amsmath, amsthm, amssymb}    
 \usepackage[margin=.5in]{geometry}
 \usepackage{tikz}
-\usepackage{forest}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usepackage{tkz-euclide}
 
 
-\title{\vspace{-2.0cm}Homework 8}
+\newcommand{\boundellipse}[3]% center, xdim, ydim
+{(#1) ellipse (#2 and #3)
+}
+
+
+
+\title{\vspace{-2.0cm}Homework 9}
 \author{Joanne Wardell}
-\date{Tuesday, September 25, 2018}
+\date{Tuesday, October 2, 2018}
 \begin{document}
 \maketitle
 
@@ -21,8 +29,25 @@
 = \langle \sqrt{2}, -1\rangle$\\\\
 \noindent $g(\sqrt{2}, 1) = \frac{1}{2}$\\\\
 \noindent $\frac{1}{2} = \frac{x^{2}}{2} - \frac{y^{2}}{2}$\\\\
-\noindent The level curve is $1 = x^{2} - y^{2}$
-\noindent 8.) $f(x, y, z) = 2z^{3} - 3(x^{2} + y^{2})z \arctan{xz}$, \hspace{10pt} $(1,1,1)$\\\\
+\noindent The level curve is $1 = x^{2} - y^{2}$.\\
+
+
+\begin{tikzpicture}[scale=1]
+    \begin{axis}[axis lines=middle]
+    \pgfmathsetmacro{\e}{1.44022}   % eccentricity
+    \pgfmathsetmacro{\a}{1}
+    \pgfmathsetmacro{\b}{(\a*sqrt((\e)^2-1)} 
+    \addplot[domain=-2:2] ({\a*cosh(\x)},{\b*sinh(\x)});
+    \addplot[domain=-2:2] ({-\a*cosh(\x)},{\b*sinh(\x)});
+    \end{axis}
+\end{tikzpicture}\\\\
+
+
+
+
+
+
+\noindent 8.) $f(x, y, z) = 2z^{3} - 3(x^{2} + y^{2})z +\arctan{xz}$, \hspace{10pt} $(1,1,1)$\\\\
 \noindent $\nabla f \Big|_{(1,1,1)} = \langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle \Big|_{(1,1,1)}$\\\\
 \noindent $\frac{\partial f}{\partial x} = 2x + \frac{z}{x}$\\\\
 \noindent $\frac{\partial f}{\partial x}\Big|_{(1, 1, 1)} = 3$\\\\
@@ -33,27 +58,30 @@
 \noindent $\frac{\partial f}{\partial z} = -4z+\ln{x}$\\\\
 \noindent $\frac{\partial f}{\partial z}\Big|_{(1, 1, 1)} = -4$\\\\
 
+\noindent $\nabla f \Big|_{(1,1,1)} = \langle 3, 2, -4\rangle$\\\\
+
 \noindent 12.) $f(x,y) = 2x^{2} + y^{2}$, \hspace{10pt} $p_{0}(-1,1)$, \hspace{10pt} $\mathbf{u} = 4\mathbf{i} + 3\mathbf{j}$\\\\
 \noindent $\hat{u} = \frac{\mathbf{u}}{\| \mathbf{u} \|} = \frac{1}{5} \langle 4, 3\rangle$\\\\
 \noindent $f_{x} = 4x$, \hspace{10pt} $f_{y} = 2y$\\
 \noindent $\nabla f \Big|_{(-1, 1)} = \langle -4, 2\rangle$\\\\
-\noindent $\nabla f \frac{\mathbf{u}}\cdot {\| \mathbf{u} \|} = \langle -4, 2\rangle \cdot \langle \frac{3}{5} , \frac{4}{5}\rangle = -4$\\\\
+\noindent $\nabla f \cdot \frac{\mathbf{u}}{\| \mathbf{u} \|} = \langle -4, 2\rangle \cdot \langle \frac{3}{5} , \frac{4}{5}\rangle = -4$\\\\
 \noindent 16.) $f(x, y, z) = x^{2} + 2y^{2} - 3z^{2}$, \hspace{10pt} $\mathbf{u} = \mathbf{i} + \mathbf{j} + \mathbf{k}$, \hspace{10pt} $P_{0}(1, -1, 2)$\\\\
 \noindent $f_{x} \Big|_{(1, 1, 1)} = 2x \Big|{(1, 1, 1)} = 2$\\
 \noindent $f_{y} \Big|_{(1, 1, 1)} = 4y \Big|{(1, 1, 1)} = 4$\\
 \noindent $f_{z} \Big|_{(1, 1, 1)} = -6z \Big|{(1, 1, 1)} = -6$\\\\
 \noindent $\hat{u} =\frac{\mathbf{u}} {\| \mathbf{u} \| } = \frac{1}{\sqrt{3}} \langle 1, 1, 1 \rangle$\\\\
-\noindent $D_{u}f = \nabla f \cdot \frac{\mathbf{u}}{\| \mathbf{u} \|} = \langle 2, 4, -6\rangle \cdot \langle\frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}} \rangle = 0$\\\\
+\noindent $D_{u}f = \nabla f \cdot \frac{\mathbf{u}}{\| \mathbf{u} \|} = \langle 2, 4, -6\rangle \cdot \langle\frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}} \rangle = 0$\\\\\\
 \noindent 22.) $g(x,y,z) = xe^{y} + z^{2}$, \hspace{10pt} $P_{0}(1,\ln{2}, \frac{1}{2})$\\\\
 \noindent $\nabla g \Big|_{(1, \ln{2}, \frac{1}{2})} = \langle e^{y}, xe^{y}, 2z \rangle \Big|_{(1, \ln{2}, \frac{1}{2})} = \langle 2, 2, 1\rangle$\\\\
 \noindent $\mathbf{u} = \frac{\nabla g}{\| \nabla g \|} = \langle \frac{2}{3}, \frac{2}{3}, \frac{2}{3}\rangle$\\\\
 \noindent $D_{u}g\Big|_{P_{0}} = \nabla g \cdot \mathbf{u} = 3$\\
-\noindent $D_{-u}g\Big|_{P_{0}} = \nabla g \cdot -\mathbf{u} = -3$\\\\
-\noindent 28.) $x^{2} -xy + y^{2} = 7$, \hspace{10pt} $(-1, 2)$ \\\\
+\noindent $D_{-u}g\Big|_{P_{0}} = \nabla g \cdot -\mathbf{u} = -3$\clearpage
+\noindent 28.) $x^{2} -xy + y^{2} = 7$, \hspace{10pt} $(-1, 2)$ \\\\\\
 \noindent $f_{x} = 2x - y$\\
 \noindent $f_{y} = -x + 2y$\\\\
 \noindent $\nabla f \Big|_{(-1, 2)} = \langle 2x-y, -x+2y\rangle \Big|_{(-1, 2)} = \langle -4, 5\rangle$ \\\\
-\noindent $f_{x}(x_{0}, y_{0})(x-x_{0}) + f_{y}(x_{0}, y_{0})(y-y_{0}) = -4x + 5y - 14$\\\\
+\noindent $f_{x}(x_{0}, y_{0})(x-x_{0}) + f_{y}(x_{0}, y_{0})(y-y_{0}) = -4x + 5y - 14$\\\\\\
+
 
 
 
@@ -62,7 +90,7 @@
 \noindent 2.) $x^{2} + y^{2} - z^{2} = 18$, \hspace{10pt} $P_{0}(3, 5, -4)$\\\\
 \noindent a.) $\nabla F \Big|_{(3, 5, -4)}= \langle 2,2, -2\rangle \Big|_{(3, 5, -4)} = \langle 6, 10, 8\rangle$\\\\
 \noindent $f_{x}(x_{0}, y_{0}, z_{0})(x-x_{0}) + f_{y}(x_{0}, y_{0}, z_{0})(y-y_{0}) f_{z}(x_{0}, y_{0}, z_{0})(z - z_{0})= 3x + 5y + 4z = 18$\\\\
-\noindent b.) The line normal to the surface at $P_{0}$ is $x = 3 + 6t$, \hspace{10pt} $y = 5 + 10t$, \hspace{10pt} $z = -4 + 8t$\\\\
+\noindent b.) The line normal to the surface at $P_{0}$ is $x = 3 + 6t$, \hspace{10pt} $y = 5 + 10t$, \hspace{10pt} $z = -4 + 8t$\\\\\\
 \noindent 10.)$ye^{x} -ze^{y^{2}} = z$, \hspace{10pt} $P_{0}(0, 0, 1)$\\\\
 \noindent a.) $\nabla f \Big|_{P_{0}} = \langle ye^{x}, e^{x} - 2yze^{y^{2}} \rangle \Big|_{P_{0}} = \langle0, 1 \rangle$\\\\
 \noindent b.) The line normal to the surface at $P_{0}$ is $x = 0$, \hspace{10pt} $y = 0$, \hspace{10pt} $z = -1$\\\\
@@ -71,14 +99,24 @@
 \noindent $F_{y} (x, y) = -2ye^{-(x^{2} + y^{2})}$\\
 \noindent $F_{x}(0,0) = 0$\\
 \noindent $F_{y}(0,0) = 0$\\\\
-\noindent The tangent plane at $(0,0,1)$ is $0(x-0) + 0(y-y) - (z -1) \leftarrow z = 1$\\\\
+\noindent The tangent plane at $(0,0,1)$ is $0(x-0) + 0(y-y) - (z -1) \leftarrow z = 1$\\\\\\
 \noindent 22.) $\nabla f \Big|_{P_{0}} = \langle e^{x}\cos{yz}, ze^{x}\sin{yz}, -ye^{x}\sin{yz} \rangle \Big|_{P_{0}} = \langle 1, 0, 0\rangle$\\\\
-\noindent $\nabla f \Big|_{P_{0}} \cdot \mathbf{u} = \langle 1, 0, 0\rangle \cdot \langle \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}\rangle  = \frac{1}{sqrt{3}}$ \\\\
+\noindent $\nabla f \Big|_{P_{0}} \cdot \mathbf{u} = \langle 1, 0, 0\rangle \cdot \langle \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}\rangle  = \frac{1}{\sqrt{3}}$ \\\\
 
 
-$df  = (\nabla f\Big|_{P_{0}} \cdot \mathbf{u})ds = \frac{1}{\sqrt{3}}(0.1) \approx 0.0577$\\\\
-\noindent 32.) $$\\\\
-\noindent 42.)
+$df  = (\nabla f\Big|_{P_{0}} \cdot \mathbf{u})ds = \frac{1}{\sqrt{3}}(0.1) \approx 0.0577$\\\\\\
+\noindent 32.) $f(x,y) = e^{2y-x}$ at $a(0, 0)$ and $b(1,2)$\\\\
+\noindent a.) $f(0, 0) = 1$, \hspace{10pt} $f_{x}(0,0) = -1$, \hspace{10pt} $f_{y}(0,0) = 2$\\\\
+\noindent  $L(x, y) = f(x_{0}, y_{0}) + f_{x}(x_{0}, y_{0})(x - x_{0}) + f_{y}(x_{0}, y_{0})(y-y_{0}) = -x+2y + 1$\\\\
+\noindent a.) $f(1, 2) = e^{3}$, \hspace{10pt} $f_{x}(1,2) = -e^{3}$, \hspace{10pt} $f_{y}(1,2) = 2e^{3}$\\\\
+\noindent  $L(x, y) = f(x_{0}, y_{0}) + f_{x}(x_{0}, y_{0})(x - x_{0}) + f_{y}(x_{0}, y_{0})(y-y_{0}) = -xe^{3}+2ye^{3} - 2e^{3}$\clearpage
+\noindent 42.) $f(x, y, z) = x^{2} + y^{2} + z^{2}$, at  $(1,1,1)$, $(0,1,0)$, and $(1,1,1)$ \\\\
+\noindent a.) $f(1, 1, 1) = 3$, \hspace{10pt} $f_{x}(1,1,1) = 2$, \hspace{10pt} $f_{y}(1,1,1) = 2$, \hspace{10pt} $f_{z}(1,1,1) = 2$\\\\
+\noindent  $L(x, y) = f(x_{0}, y_{0}) + f_{x}(x_{0}, y_{0})(x - x_{0}) + f_{y}(x_{0}, y_{0})(y-y_{0})  + f_{z}(x_{0}, y_{0}, z_{0})(z - z_{0})= 2x+2y+2z-3$\\\\
+\noindent b.) $f(0, 1, 0) = 1$, \hspace{10pt} $f_{x}(0,1,0) = 0$, \hspace{10pt} $f_{y}(0,1,0) = 2$, \hspace{10pt} $f_{z}(0,1,0) = 0$\\\\
+\noindent  $L(x, y) = f(x_{0}, y_{0}) + f_{x}(x_{0}, y_{0})(x - x_{0}) + f_{y}(x_{0}, y_{0})(y-y_{0})  + f_{z}(x_{0}, y_{0}, z_{0})(z - z_{0})= 2y-1$\\\\
+\noindent c.) $f(1, 0, 0) = 1$, \hspace{10pt} $f_{x}(0,1,0) = 2$, \hspace{10pt} $f_{y}(0,1,0) = 0$, \hspace{10pt} $f_{z}(0,1,0) = 0$\\\\
+\noindent  $L(x, y) = f(x_{0}, y_{0}) + f_{x}(x_{0}, y_{0})(x - x_{0}) + f_{y}(x_{0}, y_{0})(y-y_{0})  + f_{z}(x_{0}, y_{0}, z_{0})(z - z_{0})= 2x-1$\\\\
 
 
 \end{document}

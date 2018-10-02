@@ -1,0 +1,1 @@
+unset surface; set cntrparam levels discrete 1; set contour; set table "hw9_contourtmp0.table"; splot "hw9_contourtmp0.dat";
