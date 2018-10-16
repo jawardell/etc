@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage{harpoon}
+\usepackage{setspace}
+\usepackage{extsizes}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb}    
+\usepackage[margin=.5in]{geometry}
+\usepackage{pgfplots}
+
+
+\title{\vspace{-2.0cm}Project 2}
+\author{Joanne Wardell}
+\date{Tuesday, October 16, 2018}
+\begin{document}
+\maketitle
+
+\subsection*{Part I }
+\noindent $f(x,y) = 2y^{2} -4xy+2x+5$, \hspace{10pt} $0 \leq x \leq 1$, \hspace{10pt} $0 \leq y \leq 2$\\
+\noindent 1.)
+
+
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=0,xmax=3,
+      ymin=-1,ymax=8,
+      grid=both,
+      grid style={line width=.1pt, draw=gray!10},
+      major grid style={line width=.2pt,draw=gray!50},
+      axis lines=middle,
+      minor tick num=5,
+      enlargelimits={abs=0.5},
+      axis line style={latex-latex},
+      ticklabel style={font=\tiny,fill=white},
+      xlabel style={at={(ticklabel* cs:1)},anchor=north west},
+      ylabel style={at={(ticklabel* cs:1)},anchor=south west},
+      restrict x to domain=-1:inf
+  ]
+      \addplot +[mark=none, ultra thick] coordinates {(1, -1) (1, 8)};
+      \addplot +[mark=none, ultra thick] coordinates {(0, -1) (0, 8)};
+	  \addplot[mark=none, ultra thick]{2};
+	  \addplot[mark=none, ultra thick]{0};
+
+  \node [color=black] at (140,360) {$y=2$};
+  \node [color=black] at (80,170) {$x=0$};
+  \node [color=black] at (180,170) {$x=1$};
+  \node [color=black] at (140,60) {$y=0$};
+
+
+
+
+
+\end{axis}
+\end{tikzpicture}
+
+
+
+
+\noindent 2.)The critical points of $f$ that are interior to the domain are $(\frac{1}{2}, \frac{1}{2})$.\\\\
+\noindent $\frac{\partial f}{\partial x} = -4y + 2$\\
+\noindent $-4y + 2 = 0 \rightarrow y = \frac{1}{2}$\\
+\noindent $\frac{\partial f}{\partial y} = 4y -4x$\\
+\noindent $4y - 4x = 0 \\ 2x - 4x = 0 \rightarrow x = \frac{1}{2}$\\
+
+\noindent 3.) The critical points along the edges of the domain are $(0,0)$ and $(1,1)$\\\\
+\noindent $f(0, y) = 2y^{2} + 5$\\
+\noindent $\frac{df}{dy} = 4y$, \hspace{10pt} $4y = 0 \rightarrow y = 0$\\
+\noindent $\mathbf{(0, 0)}$\\\\
+
+\noindent $f(x, 0) = 2x + 5$\\
+\noindent $\frac{df}{dx} = 2$\\
+\noindent Since $\frac{df}{dx}$ with this edge resitriction is never zero,
+the function does not have a critical point along this edge.\\\\
+
+\noindent $f(x, 2) = -6x + 13$\\
+\noindent $\frac{df}{dx} = -6$\\
+\noindent Since $\frac{df}{dx}$ with this edge resitriction is never zero,
+the function does not have a critical point along this edge.\clearpage
+
+\noindent $f(1, y) = 2y^{2} -4y + 7$\\
+\noindent $\frac{df}{dy} = 4y - 4$, \hspace{10pt} $4y - 4 = 0 \rightarrow y = 1$\\
+\noindent $\mathbf{(1, 1)}$\\\\
+
+
+\noindent 4.) \\\\
+
+
+\begin{table}[h!]
+  \begin{center}
+    \label{tab:table1}
+    \begin{tabular}{l|c|r} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      $(x,y)$ & $f(x,y)$ &  \\
+      \hline
+      $(0, 0)$ & 5 & \\
+      $(1,1)$ & 8  & \\
+      $(\frac{1}{2}, \frac{1}{2})$ & $\frac{11}{2}$ & \\
+      $(2,0)$ & 9  & maximum\\
+      $(1,2)$ & 1  & minimum \\
+      $(1,0)$ & 7  & \\
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\noindent Within its domain restriction,  $f$ has an absolute min at $f(1, 0) = 7$ and an absolute max at $f(2, 0) = 9$.\\\\
+
+
+
+
+\subsection*{Part II} 
+\noindent 1.) The area of the triangle $T$ can be expressed as half the magnitude of the 
+cross product between two vectors.\\\\
+\noindent Let vector $\overrightharp{PA} = \langle a, 0, 0 \rangle - \langle 0, 0, 1\rangle = \langle a, 0, -1\rangle$ and vector $\overrightharp{PB} = \langle 0, b, 0 \rangle - \langle 0, 0, 1 \rangle = \langle 0, b, -1\rangle$. \\\\
+\noindent Let $A$ be the area of $T$. Then $A = \frac{1}{2} \| \overrightharp{PA} \times \overrightharp{PB} \| \\\\
+=\frac{1}{2}\|(0)(-1)\mathbf{i} + (0)(-1)\mathbf{j} + (a)(b)\mathbf{k} - (-1)(b)\mathbf{i} - (-1)(a)\mathbf{j} - (0)(0)\mathbf{k}\| 
+\\\\=  \frac{1}{2}\| \langle b , a , ab\rangle \| 
+\\\\ = \frac{1}{2}\sqrt{a^{2} + b^{2} + (ab)^{2}}$.\\\\
+
+
+\noindent 2.) The goal is to find the extreme points of $A$ with restrictions $a+b = 12$, \hspace{10pt} $a,b \geq 0$\\\\
+\noindent Maximize/Minimize: $f = \frac{1}{2}\sqrt{a^{2} + b^{2} + (ab)^{2}}$\\
+\noindent Constraint: $g = a + b$\\\\
+\noindent The extreme points shared by the two functions are points that exist on the functions simultaneously. Thus, 
+we are seeking the points at which the two functions are touching tangentially. If the fucntions are touching at some point, then $\nabla f \propto \nabla g$ at the point.\\
+\noindent Use $\lambda$ as the proportionality constant to set up an equation involving the gradients.\\\\
+\noindent $\nabla f = \lambda \nabla g$\\\\
+\noindent $\langle \frac{a + ab^{2}}{2\sqrt{a^{2} + b^{2} + a^{2}b^{2}}},\frac{b + ba^{2}}{2\sqrt{a^{2} + b^{2} + a^{2}b^{2}}} \rangle = \lambda \langle 1, 1\rangle$\\\\
+\noindent Equate coefficients and use the constraint equation: \\\\
+\noindent $\frac{a + ab^{2}}{2\sqrt{a^{2} + b^{2} + a^{2}b^{2}}} = \lambda$\\\\
+\noindent $\frac{b + ba^{2}}{2\sqrt{a^{2} + b^{2} + a^{2}b^{2}}} = \lambda$\\\\
+\noindent $a + b = 12 \rightarrow a = 12 - b$\\\\
+\noindent $\frac{a + ab^{2}}{2\sqrt{a^{2} + b^{2} + a^{2}b^{2}}} =\frac{b + ba^{2}}{2\sqrt{a^{2} + b^{2} + a^{2}b^{2}}}$\\\\
+\noindent $\frac{(12-b) + (12-b)^{2}}{2\sqrt{(12-b)^{2} + b^{2} + (12-b)^{2}b^{2}}} =\frac{b + b(12-b)^{2}}{2\sqrt{(12-b)^{2} + b^{2} + (12-b)^{2}b^{2}}}$\\\\
+\noindent $\frac{12-b + b^{2}-24b + 144}{2\sqrt{b^{2}-24b+144 + b^{2} + b^{4}-24b^{3}+144b^{2}}} =\frac{b + b^{3} -24b^{2} + 144b}{2\sqrt{b^{2}-24b + 144 + b^{2} + b^{4}-24b^{3}+144b^{2}}}$\\\\
+\noindent $\frac{b^{2}-25b + 156}{2\sqrt{b^{4} -24b^{3} + 146b^{2}-24b+144}} =\frac{b^{3} -24b^{2} + 145b}{2\sqrt{b^{4} -24b^{3} + 146b^{2}-24b + 144 }}$\\\\
+\noindent $b^{2}-25b + 156 = b^{3} - 24b^{2}+145b$\\\\ 
+\noindent $-b^{3} + 25b^{2} -160b= -156$\\\\ 
+\noindent $b^{3} - 25b^{2} + 160b= 156$\\\\ 
+\noindent $b(b^{2} - 25b + 160)= 156$\\\\\\
+\noindent Using a TI-84 graphing calculator, solve for $b$ using the Newton Raphson method.\\\\
+\noindent $b \approx 1.18349$, \hspace{10pt} $b \approx 8.74706$, $b \approx 15.06945$\\
+\noindent If $b = 1.18349$, then $a = 12 -1.18349 \approx 10.81651$.\\
+\noindent If $b = 8.74706$, then $a = 12 - 8.74706 \approx 3.25294$.\\
+\noindent If $b = 15.06945$, then $a < 0$. This case is not usable because it defies the constraint.\\\\
+\noindent $f(10.81651, 1.18349) \approx 8.40043$\\
+\noindent $f(3.25294, 15.06945) \approx 25.69354$\\\\
+\noindent The area is maximized when  $a = 3.25294 \text{ and } b = 15.06945$.  \\The area is minimized when $a = 10.81651 \text{ and } b = 1.18349$.
+ 
+
+\end{document}
