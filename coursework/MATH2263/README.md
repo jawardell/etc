@@ -1,2 +1,2 @@
-# Problem Sets for Multivariable Calculus
-I've written my p-sets in Latex.
+# Multivariable Calculus P-Sets
+I've written my homework in Latex.
