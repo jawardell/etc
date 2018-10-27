@@ -1,5 +1,6 @@
 #include <iostream>
 #include "sha256.h"
+#include "timer.h"
 #include <map>
 #include <string>
 #include <fstream>
@@ -14,6 +15,8 @@ struct Element{
 
 int main()
 {
+	Timer timer;
+	unsigned long start = timer.get_time();
 	float phi, epsilon;
 	cout << "Enter phi: ";
 	cin >> phi;
@@ -44,36 +47,21 @@ int main()
 	while(!ifs.eof()) {
 		m++;
 		
-		//map.insert(sha256(n), 0);
-		bool found = false;
-		for(int i = 0; i < len; i++){
-			if(items[i].ID.compare(n) == 0){
-				items[i].count++;
-				found = true;
-				break;
-			}
-		}
-
-		bool full = true;
-		int index;
-		if(!found){
-			for(int i = 0; i < len; i++){
-				if(items[i].count == 0){
-					full = false;
-					index = i;
-				}
+		//if map is full, perform decriment
+		if(addresses.size() == len) {
+			map<string, int>::iterator it;
+			for(it = symbolTable.begin(); it != symbolTable.end(); it++) {
+				it -> second--;
 			}
 
-			if(!full){
-				items[index].ID = n;
-				items[index].count = 1;
-			}
-			else{
-				for(int i = 0; i < len; i++)
-					if(items[i].count >= 0)
-						items[i].count--;
-			}
 		}
+
+		//insert hash data and insert into map with initial count 0
+		//		if the item is not found in the list and the map has room
+		if(addresses.size() < len) {
+			addresses.insert(sha256(n), 0);
+		}
+
 
 		ifs >> n;
 	}
@@ -81,12 +69,21 @@ int main()
 	int low = (phi - epsilon) * m;
 	cout << "low: " << low << endl;
 	puts("\nheavy hitters\n");
+
+	map<string, int>::iterator it;
+	for(it = symbolTable.begin(); it != symbolTable.end(); it++) {
+		it -> second--;
+	}
+
 	for(int i = 0; i < len; i++)
 		if(items[i].count >= low)
 			cout << items[i].ID << "\t\t" << items[i].count << endl;
 
 	cout << "\nArray:\n";
 	ifs.close();
+	unsigned long end = timer.get_time();
+	unsigned long total = end - start;
+	printf("\n%s%lu%s\n", "total time: ", total, "ms");
 	return 0;
 }
 

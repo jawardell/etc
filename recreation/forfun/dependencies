@@ -1,0 +1,2 @@
+./obj_files/algo.o: src_files/timer.cpp inc_files/timer.h
+./obj_files/timer.o: inc_files/timer.h
