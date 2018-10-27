@@ -1,5 +1,5 @@
 #include <iostream>
-//#include "sha256.h"
+#include "sha256.h"
 #include <map>
 #include <string>
 #include <fstream>
@@ -35,7 +35,7 @@ int main()
 
 	string n;
 	int m = 0;
-	string path = "/Users/joannewardell/Desktop/joanne/code/misc/etc/recreation/forfun/synthetic.txt";
+	string path = "/Users/joannewardell/Desktop/joanne/code/misc/etc/recreation/forfun/ips.txt";
 
 	ifstream ifs;
 	ifs.open(path);
@@ -43,7 +43,8 @@ int main()
 	cout << n << endl;
 	while(!ifs.eof()) {
 		m++;
-		//map.insert()
+		
+		//map.insert(sha256(n), 0);
 		bool found = false;
 		for(int i = 0; i < len; i++){
 			if(items[i].ID.compare(n) == 0){
@@ -77,19 +78,14 @@ int main()
 		ifs >> n;
 	}
 
-	cout << "\nNumbers:\n";
 	int low = (phi - epsilon) * m;
 	cout << "low: " << low << endl;
-	puts("heavy hitters\n");
+	puts("\nheavy hitters\n");
 	for(int i = 0; i < len; i++)
 		if(items[i].count >= low)
 			cout << items[i].ID << "\t\t" << items[i].count << endl;
-		//	cout << items[i].ID << endl;
 
 	cout << "\nArray:\n";
-	//for(int i = 0; i < len; i++) 
-	//	cout << items[i].ID << "   " << items[i].count << endl;
-
 	ifs.close();
 	return 0;
 }
