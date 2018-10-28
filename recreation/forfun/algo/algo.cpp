@@ -1,7 +1,5 @@
 #include <iostream>
-#include <iterator>
-#include "sha256.h"
-//#include "timer.h"
+//#include "sha256.h"
 #include <map>
 #include <string>
 #include <fstream>
@@ -9,65 +7,72 @@
 
 using namespace std;
 
+struct Element{
+	string ID;
+	int count;
+};
+
 int main()
 {
-	//Timer timer;
-	//unsigned long start = timer.get_time();
 	float phi, epsilon;
 	cout << "Enter phi: ";
 	cin >> phi;
 	cout << "Enter epsilon: ";
 	cin >> epsilon;
 
+	Element items[(int)ceil(1/epsilon)];
 	int len = ceil(1/epsilon);
 
-	
-	// hash,count
-	std::map<string, int> my_map;
+	//initialize array to empty key value pairs
+	for(int i = 0; i < len; i++){
+		items[i].ID = "";
+		items[i].count = 0;
+	}
+
+
+	map<int, string> addresses;
 
 
 	string n;
 	int m = 0;
-	string path = "/Users/joannewardell/Desktop/joanne/code/misc/etc/recreation/forfun/algo/ips.txt";
+	string path = "/Users/joannewardell/Desktop/joanne/code/misc/etc/recreation/forfun/algo/synthetic.txt";
 
 	ifstream ifs;
 	ifs.open(path);
 	ifs >> n;
+	cout << n << endl;
 	while(!ifs.eof()) {
 		m++;
-		//if(m>10000)break;
-//		cout << n << "  -  "<<my_map.size()<<endl;
-		if(my_map.find(n) != my_map.end()) {
-			my_map[n]++;
-		} else {
-			//if map is full, perform decriment
-			if(my_map.size() == len) {
-		//		cout<<"map is full"<<endl;
-				std::map<string,int>::iterator it=my_map.begin();
-			       while(	it!=my_map.end()){
-					string key = it -> first;
-					my_map[key]--;
-					if(my_map[key]==0){
-
-						// delete key
-						std::map<string,int>::iterator toDel=it++;
-						my_map.erase(toDel);
-					}
-					else
-						it++;
-				}
-				// delete all that are zero
-			} else {
-				
-				my_map[n] = 1;
+		
+		//map.insert(sha256(n), 0);
+		bool found = false;
+		for(int i = 0; i < len; i++){
+			if(items[i].ID.compare(n) == 0){
+				items[i].count++;
+				found = true;
+				break;
 			}
 		}
 
+		bool full = true;
+		int index;
+		if(!found){
+			for(int i = 0; i < len; i++){
+				if(items[i].count == 0){
+					full = false;
+					index = i;
+				}
+			}
 
-		//insert hash data and insert into map with initial count 0
-		//		if the item is not found in the list and the map has room
-		if(my_map.size() < len) {
-			my_map.insert(std::pair<string,int>(n,0));
+			if(!full){
+				items[index].ID = n;
+				items[index].count = 1;
+			}
+			else{
+				for(int i = 0; i < len; i++)
+					if(items[i].count >= 0)
+						items[i].count--;
+			}
 		}
 
 		ifs >> n;
@@ -76,20 +81,13 @@ int main()
 	int low = (phi - epsilon) * m;
 	cout << "low: " << low << endl;
 	puts("\nheavy hitters\n");
-
-	map<string, int>::iterator it;
-	for (std::map<string,int>::iterator it=my_map.begin(); it!=my_map.end();it++) {
-		if(it -> second >= low)
-			cout << it -> first << "\t\t" << it -> second << endl;
-		
-	}
-
+	for(int i = 0; i < len; i++)
+		if(items[i].count >= low)
+			cout << items[i].ID << "\t\t" << items[i].count << endl;
 
 	cout << "\nArray:\n";
 	ifs.close();
-	//unsigned long end = timer.get_time();
-	//unsigned long total = end - start;
-	//printf("\n%s%lu%s\n", "total time: ", total, "ms");
 	return 0;
 }
+
 
