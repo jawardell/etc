@@ -1,0 +1,127 @@
+Enter phi: Enter epsilon: map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+map is full
+low: 9900
+
+heavy hitters
+
+10.200.7.217		70
+10.200.7.218		7
+10.200.7.4		650
+10.200.7.5		249
+10.200.7.6		625
+10.200.7.7		552
+10.200.7.8		278
+10.200.7.9		558
+104.91.150.142		2
+104.91.156.236		100
+157.56.77.140		1
+172.19.1.46		1
+172.217.29.65		19
+179.1.4.206		1
+179.1.4.210		22
+179.1.4.216		2
+179.1.4.217		69
+179.1.4.224		2
+179.1.4.230		8
+179.1.4.231		9
+179.1.4.237		8
+179.1.4.238		23
+179.1.4.244		26
+179.1.4.245		2
+179.1.4.251		24
+192.168.10.130		41
+192.168.10.133		1
+192.168.10.26		5
+192.168.10.47		40
+192.168.10.76		3
+192.168.131.26		378
+192.168.142.18		2
+192.168.151.8		182
+192.168.151.9		60
+192.168.180.117		1
+192.168.180.14		28
+192.168.180.37		270
+192.168.180.5		1
+192.168.180.51		149
+192.168.220.107		10
+192.168.32.109		20
+192.168.32.129		10
+192.168.32.3		7
+192.168.32.49		170
+192.168.32.62		71
+192.168.32.8		9
+192.168.42.102		3
+192.168.42.68		43
+192.168.90.100		28
+192.168.90.102		37
+192.168.90.65		8
+200.122.238.31		3
+207.244.80.182		105
+212.124.124.94		19
+213.239.207.69		20
+216.58.202.225		23
+23.1.123.49		7
+38.90.226.11		1
+40.114.54.223		1
+52.84.137.208		4
+74.119.118.71		1
+77.234.41.41		1
+
+Array:

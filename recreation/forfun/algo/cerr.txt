@@ -1,0 +1,24 @@
+clang: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+clang: warning: treating 'c-header' input as 'c++-header' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+algo.cpp:50:19: error: no matching function for call to 'prev'
+                                                auto prev = std::prev(it);
+                                                            ^~~~~~~~~
+/Library/Developer/CommandLineTools/usr/include/c++/v1/iterator:616:1: note: candidate template ignored: requirement '__is_bidirectional_iterator<pair<const basic_string<char>, int> >::value' was not satisfied [with _BidirectionalIter = std::__1::pair<const std::__1::basic_string<char>, int>]
+prev(_BidirectionalIter __x,
+^
+algo.cpp:51:14: error: no matching member function for call to 'erase'
+                                                my_map.erase(it);
+                                                ~~~~~~~^~~~~
+/Library/Developer/CommandLineTools/usr/include/c++/v1/map:1192:14: note: candidate function not viable: no known conversion from 'std::__1::pair<const std::__1::basic_string<char>, int>' to 'std::__1::map<std::__1::basic_string<char>, int, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int> > >::const_iterator' (aka '__map_const_iterator<__tree_const_iterator<std::__1::__value_type<std::__1::basic_string<char>, int>, std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, int>, void *> *, long> >') for 1st argument
+    iterator erase(const_iterator __p) {return __tree_.erase(__p.__i_);}
+             ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/map:1194:14: note: candidate function not viable: no known conversion from 'std::__1::pair<const std::__1::basic_string<char>, int>' to 'std::__1::map<std::__1::basic_string<char>, int, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int> > >::iterator' (aka '__map_iterator<__tree_iterator<std::__1::__value_type<std::__1::basic_string<char>, int>, std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, int>, void *> *, long> >') for 1st argument
+    iterator erase(iterator __p)       {return __tree_.erase(__p.__i_);}
+             ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/map:1196:15: note: candidate function not viable: no known conversion from 'std::__1::pair<const std::__1::basic_string<char>, int>' to 'const std::__1::map<std::__1::basic_string<char>, int, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int> > >::key_type' (aka 'const std::__1::basic_string<char>') for 1st argument
+    size_type erase(const key_type& __k)
+              ^
+/Library/Developer/CommandLineTools/usr/include/c++/v1/map:1199:15: note: candidate function not viable: requires 2 arguments, but 1 was provided
+    iterator  erase(const_iterator __f, const_iterator __l)
+              ^
+2 errors generated.
