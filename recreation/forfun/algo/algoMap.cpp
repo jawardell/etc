@@ -1,7 +1,5 @@
 #include <iostream>
 #include <iterator>
-#include "sha256.h"
-//#include "timer.h"
 #include <map>
 #include <string>
 #include <fstream>
@@ -11,8 +9,6 @@ using namespace std;
 
 int main()
 {
-	//Timer timer;
-	//unsigned long start = timer.get_time();
 	float phi, epsilon;
 	cout << "Enter phi: ";
 	cin >> phi;
@@ -52,21 +48,16 @@ int main()
 						cout << "key is " << key << endl;
 
 						// delete key
-				cout<<"RIGHT HERE CREATE INCREMENT ELEMENT"<<endl;
 						std::map<string,int>::iterator toDel=it++;
 						cout << "prepare to delete :" << toDel->first << endl;
 						cout << "regular iterator: " << it->first << endl;
-				cout<<"~~~~~~~~~~~~~~~segmentation fault??"<<endl;
 						my_map.erase(toDel);
 					}
 					else
-				cout<<"RIGHT HERE CREATE INCREMENT ELEMENT"<<endl;
 						it++;
 				}
 				// delete all that are zero
 			} else {
-				cout<<"RIGHT HERE CREATE NEW ELEMENT"<<endl;
-				
 				my_map[n] = 1;
 			}
 		}
@@ -91,12 +82,6 @@ int main()
 			cout << it -> first << "\t\t" << it -> second << endl;
 		
 	}
-
-
-	cout << "\nArray:\n";
 	ifs.close();
-	//unsigned long end = timer.get_time();
-	//unsigned long total = end - start;
-	//printf("\n%s%lu%s\n", "total time: ", total, "ms");
 	return 0;
 }
