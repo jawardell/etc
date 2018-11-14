@@ -15,8 +15,16 @@ public class Table {
 		for(int i = 0; i < array.length; i++) {
 			for(int j = 0; j < array[0].length; j++) {
 				if(j == array[0].length - 1) {
+					if(array[i][j] == 0) {
+						System.out.print("\u001b[1;34m%5d\u001b[0m\n", array[i][j]);
+						continue;
+					}
 					System.out.printf("%5d\n", array[i][j]);
 				} else {
+					if(array[i][j] == 0) {
+						System.out.print("\u001b[1;34m%5d\u001b[0m", array[i][j]);
+						continue;
+					}
 					System.out.printf("%5d", array[i][j]);
 				}
 			}
@@ -43,7 +51,28 @@ public class Table {
 			case "-" :
 			for(int i = 0; i < n; i++) {
 				for(int j = 0; j < n; j++) {
-					array[i][j] = (i*j) % n;
+					array[i][j] = (i-j) % n;
+				}
+			}
+			break;
+			case "^" :
+			for(int i = 0; i < n; i++) {
+				for(int j = 0; j < n; j++) {
+					array[i][j] = (i^j) % n;
+				}
+			}
+			break;
+			case "|" :
+			for(int i = 0; i < n; i++) {
+				for(int j = 0; j < n; j++) {
+					array[i][j] = (i|j) % n;
+				}
+			}
+			break;
+			case "&" :
+			for(int i = 0; i < n; i++) {
+				for(int j = 0; j < n; j++) {
+					array[i][j] = (i&j) % n;
 				}
 			}
 			break;
