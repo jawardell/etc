@@ -16,13 +16,13 @@ public class Table {
 			for(int j = 0; j < array[0].length; j++) {
 				if(j == array[0].length - 1) {
 					if(array[i][j] == 0) {
-						System.out.print("\u001b[1;34m%5d\u001b[0m\n", array[i][j]);
+						System.out.printf("\u001b[1;34m%5d\u001b[0m\n", array[i][j]);
 						continue;
 					}
 					System.out.printf("%5d\n", array[i][j]);
 				} else {
 					if(array[i][j] == 0) {
-						System.out.print("\u001b[1;34m%5d\u001b[0m", array[i][j]);
+						System.out.printf("\u001b[1;34m%5d\u001b[0m", array[i][j]);
 						continue;
 					}
 					System.out.printf("%5d", array[i][j]);
