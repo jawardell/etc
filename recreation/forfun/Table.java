@@ -1,3 +1,35 @@
+/*
+This program computes and displays the Cayley Table for 
+various operators. The operators accepted by the program are
+
++ addition
+- subtraction
+\ division
+* muliplication
+| logical OR
+^ logical XOR
+& logical AND
+
+The modulo base determines the demensions of the Cayley table.
+For example, the Cayley Table for logical AND modulo 12 
+is a 12 by 12 matrix.
+
+Run this program in a bash terminal because it uses ANSI
+escape sequences. 
+
+To run, first build the program using the java compiler: 
+
+javac Table.java
+
+then execute using java: 
+
+java Table
+
+
+Enjoy your tables! :)
+
+*/
+
 import java.util.*;
 
 public class Table {
