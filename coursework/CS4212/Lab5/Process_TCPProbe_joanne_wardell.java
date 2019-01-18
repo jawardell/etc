@@ -2,6 +2,13 @@
 This program is built and executed in the unix terminal, accepting one 
 file as an argument. The file argument contains the IP addresses of three different 
 clients utilizing the TCP method of communication.
+
+Example build/execution: 
+
+javac Process_TCPProbe_joanne_wardell.java
+
+java Process_TCPProbe_joanne_wardell tcpprobe.dat
+
 */
 
 import java.util.regex.*;
