@@ -1,3 +1,9 @@
+/*
+This program is built and executed in the unix terminal, accepting one 
+file as an argument. The file argument contains the IP addresses of three different 
+clients utilizing the TCP method of communication.
+*/
+
 import java.util.regex.*;
 import java.util.*;
 import java.io.*;
