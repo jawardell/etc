@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+\usepackage{pgfplots}
+\usepackage{harpoon}% <---
+\usepackage{setspace}
+\usepackage{extsizes}
+\usepackage{pgfplots}
+\usepackage{float}
+
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\usetikzlibrary{quotes,angles,positioning}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[margin=.5in]{geometry}
+\usepackage{xfrac}
+\usetikzlibrary{calc}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=1.11}
+
+\title{\vspace{-2.0cm}Optics Problem Set 1}
+\author{Joanne Wardell}
+\date{Tuesday, February 12, 2019}
+\begin{document}
+\maketitle
+
+\subsection*{Chapter 2}
+
+\noindent  2.40) Given the traveling wave $\Psi(x,t) = 5.0$exp$(-ax^{2}-bt^{2}-
+2\sqrt{ab}xt)$, determine its direction of propagation. Calculate a few 
+values of $\Psi$ and make a sketch of the wave at $t = 0$, taking $a = 25m^{-2}$ and 
+b = $b = 9.0s^{-2}$. What is the speed of the wave?\\\\
+\noindent After factoring notice that 
+$\Psi = 5.0$exp$([-(x+\sqrt{\frac{b}{a}}t^{2})^{2}])$. Thus, the direction 
+of propagation is in the \textbf{negative x direction}.\\\\
+The following is $\Psi$ as $x$ varies.\\
+\begin{tabular}{c|c}
+  $\mathbf{x}$ & $\mathbf{\Psi}$ \\ \hline
+  0.6 & 0.0006\\
+  0.4 & 0.09\\
+  0.2 & 1.8\\
+  0.0 & 5.0\\
+  -0.2 & 1.8\\
+  -0.4 & 0.09\\
+  -0.6 & 0.0006\\
+\end{tabular} \\\\
+
+\noindent Let $t = 0$, $a = 25m^{-2}$, and $b = 3s^{2}$. Then 
+$\Psi = -5.0$exp$25x^{2}$.\\\\
+\noindent Below is a graph of $\Psi$ at time $t = 0$.\\\\
+
+
+\noindent $\Psi$ is a function of $(x + vt)$, where $x + vt = (x + \sqrt{\frac{a}{b}}t)$. 
+Thus, the speed of the wave is $v = \sqrt{\frac{a}{b}} = \sqrt{\frac{9m^{2}}{25s^{2}}} 
+= \frac{3m}{5s} = 0.6ms^{-1}$.\\\\
+
+\noindent  2.44) Working with exponentials directly, show that the magnitude of 
+$\Psi = Ae^{i\omega t}$ is $A$. Then, rederive the same result using Euler's formula. 
+Prove that $e^{i\alpha}e^{i\beta} = e^{(\alpha + \beta)}$\\\\
+
+\noindent Let $\tilde{z} = A^{i\omega t}$
+\noindent and its congugate $\tilde{z}^{*} = Ae^{-i\omega t}$.
+\noindent Let the modulus, or magnitude, of $\tilde{z}$ 
+be $\| \tilde{z}\| = (\tilde{z}\tilde{z}^{*})^{\frac{1}{2}}$.
+
+\noindent Thus, the magnitude of $\Psi$ is 
+$\| \tilde{z}\| =  (\tilde{z}\tilde{z}^{*})^{\frac{1}{2}} 
+= [(Ae^{i\omega t})(Ae^{-i\omega t})]^{\frac{1}{2}}
+= [A^{2}e^{i\omega t-i\omega t}]^{\frac{1}{2}}
+=\sqrt{A^{2}} = A$.\\\\
+
+\noindent Euler's formula states that $e^{i\omega t} = \cos{\omega t} + i\sin{\omega t}$.
+Notice that $\omega = 2\pi\nu = \frac{2\pi}{t}$. Plugging this in yeilds $Ae^{i\frac{2\pi}{\tau}t} = A[\cos{\frac{2\pi}{\tau}t} + i\sin{\frac{2\pi}{\tau}t}]$.\\
+If $t = \tau$, then $Ae^{i\frac{2\pi}{t}t} = A[\cos{\frac{2\pi}{t}t} + i\sin{\frac{2\pi}{t}t}]
+=Ae^{2\pi} = A[\cos{2\pi} + i\sin{2\pi}] = A[1 + 0] = A$.\\
+
+\noindent By law of exponents, $e^{x} + e^{y} = e^{x+y}$.\\
+Thus, $e^{i\alpha}e^{i\beta} = e^{i\alpha + i\beta} = e^{i(\alpha + \beta)}$.\\\\
+
+
+\noindent  2.49) Show that $\Psi(x,y,z,t) = f(\alpha x + \beta y + \gamma z - vt)$
+and $\Psi(x,y,z,t) = g(\alpha x + \beta y + \gamma z - vt)$ which are plane waves of arbitrary form 
+satisfy the three-dimensional wave equation.\\\\
+
+\noindent Since $f$ and $g$ are functions which are twice differentiable, compute the partial 
+derivatives of $\Psi$\\
+
+\noindent $\frac{\partial^{2}\Psi}{\partial x^{2}} = -\alpha^{2}k^{2}\Psi$\hspace{50pt}
+$\frac{\partial^{2}\Psi}{\partial y^{2}} = -\beta^{2}k^{2}\Psi$\hspace{50pt}
+$\frac{\partial^{2}\Psi}{\partial z^{2}} = -\gamma^{2}k^{2}\Psi$\hspace{50pt}
+$\frac{\partial^{2}\Psi}{\partial t^{2}} = -k^{2}v^{2}\Psi$\hspace{50pt}\\\\
+
+\noindent Add the three spatial derivatives
+$\frac{\partial^{2} \Psi}{\partial x^{2}} + \frac{\partial^{2}\Psi}{\partial y^{2} }
++\frac{\partial ^{2} \Psi}{\partial z^{2}} = -k^{2}(\alpha + \beta + \gamma)\Psi$
+and recall that $\alpha + \beta + \gamma = 1$. Thus
+$-k^{2}(\alpha + \beta + \gamma)\Psi = -k^{2}\Psi$.\\\\
+
+\noindent Plugging the second partial of $\Psi$ with respect to $t$ 
+into the 3-d wave function yeilds 
+$\frac{1}{v^{2}}\frac{\partial ^{2} \Psi}{\partial t^{2}} = -k^{2}\Psi$.\\\\
+
+
+\noindent  2.46) Take the complex quantities $\tilde{z}_{1} = (x_{1}+iy_{1})$
+$\tilde{z}_{2} = (x_{2}+iy_{2})$ and show that \\ 
+\[\mathbf{Re}(\tilde{z}_{1} + \tilde{z}_{2}) 
+= \mathbf{Re}(\tilde{z}_{1}) + \mathbf{Re}(\tilde{z}_{2})\]
+
+\noindent If $\mathbf{Re}$ means to extract the real components of a complex number, then 
+since the argument $\tilde{z}_{1} + \tilde{z}_{2}$ resolves to 
+$x_{1} + iy_{1} + x_{2} + iy_{2}$, another complex number, simply extract the real component. Thus, the real component from $x_{1} + x_{2} + (y_{1} + y_{2})i$ is 
+$x_{1} + x_{2}$.\\\\
+
+
+
+\noindent  2.47) Take the complex quantities $\vec{z}_{1} = (x_{1} + iy_{1})$
+and $\tilde{z}_{2} = (x_{2}+iy_{2})$ and show that 
+$\mathbf{Re}(\tilde{z}_{1}) \times \mathbf{Re}(\tilde{z}_{2})
+\neq \mathbf{Re}(\tilde{z}_{1}) \times \mathbf{Re}(\tilde{z}_{2})$.\\\\
+
+
+\noindent  2.56) Show explicitly that the function 
+$\Psi(\vec{r}, t) = A$exp$[i(\vec{k}\cdot\vec{r} + \omega t + \epsilon)]$
+describes a wave provided that $\nu = \frac{\omega}{k}$.\\\\
+
+\pagebreak
+
+\subsection*{Chapter 3}
+\noindent  3.19) A 1.0 mW laser produces a nearly parallel beam $1.0cm^{2}$ 
+in cross-sectional area at a wavelength of 650nm. Determine the amplitude 
+of the electric field in the beam, assuming the wavefronts are homogeneous and 
+the light travels in a vacuum. \\\\
+\noindent  3.21) The following is the expression for the $\vec{E}$-feild of an 
+electromagnetic wave traveling in a homogeneous dielectric: 
+$\vec{E} = (-100Vm^{-1})\hat{i}e^{i(kz-\omega t)}$. Here 
+$\omega = 1.80 \times 10^{15}\frac{rad}{s}$ and $k = 1.20 \times 10^{7}\frac{rad}{m}$.\\
+\noindent (a)Determine the associated $\vec{B}$-field.\\
+\noindent (b)Find the index of refraction\\
+\noindent (c)Compute the permiativity\\
+\noindent (d)Find the irradiance\\
+\noindent (e)Draw a diagram showing $\vec{E}_{0}$, $\vec{B}_{0}$, and $\vec{k}$, the 
+propagation vector.\\\\
+\noindent  3.23) Consider a linearly polarized plane electromagnetic 
+wave traveling in the positive x direction in free space having as its plane 
+of vibration the xy-plane. Given that its frequency is 10MHz and its amplitude 
+is $E_{0} = 0.08Vm^{-1}$, \\
+(a) find the period of the wave\\
+(b) write an expression for $E(t)$ and $B(t)$\\
+(c) find the flux density, $\langle S \rangle$, of the wave.\\\\
+
+\noindent (a) The period of an electromagnetic wave can be calculated as 
+$\tau = \frac{1}{\nu} =\frac{1}{10^{7}s^{-1}} = 10^{-7}s.\\\\
+\noindent (b) \lambda = \frac{v}{\nu} = \frac{c}{\nu} 
+= \frac{3\times10^{8}ms^{-1}}{10^{-7}s^{-1}} = 30m.$\\\\
+Since $E(x,t) = \hat{y}E_{0}\cos(k_{x}x-\omega t) 
+= \hat{y}E_{0}\cos2\pi(\frac{x}{\lambda}-\nu t)
+= \hat{y}(0.08Vm^{-1})\cos(2\pi(\frac{x}{30}-10^{7}t))$.\\\\
+
+\noindent Recall that $\vec{B} = \frac{1}{c}\hat{k} \times \vec{E} 
+=\frac{1}{c}\hat{x}\times\hat{y}\| \vec{E} \|$. Since the wave is 
+propagating in the x direction, $\hat{k} = \hat{x}$. \\\\Thus
+$\vec{B} = \hat{z}\frac{0.08Vm^{-1}}{2.998\times 10^{8}ms^{-1}}
+\cos[2\pi(\frac{x}{30}-10^{7}t)] 
+\\\\= \hat{z}(2.67\times10^{-10}Vsm^{-2})\cos[2\pi(\frac{x}{30}-10^{7}t)]
+\\\\=\hat{z}(2.67\times10^{-10}T)\cos[2\pi(\frac{x}{30}-10^{7}t)]$.\\\\
+
+\noindent (c) The flux density is given by $u = \epsilon_{0}E_{0}^{2}
+=(8.825\times10^{-12}\frac{C^{2}}{Nm^{2}})(0.08Vm^{-1})^{2} = 5.648\times10^{-14}Jm^{-3}$.\\\\
+\noindent The average magnitude of the Poynting vector is $\langle S \rangle = \frac{c\epsilon_{0}}{2}E_{0}^{2} = \frac{(3\times10^{8}ms^{1})(5.648\times10^{-14}Jm^{-3})}{2} = 8.472\times10^{-6}Wm^{-2}$.
+
+
+\end{document}
