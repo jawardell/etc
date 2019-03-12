@@ -1,4 +1,4 @@
-package assignment1;
+//package assignment1;
 
 import java.util.*;
 import java.io.*;
@@ -20,8 +20,8 @@ class Threading {
 		try {
 			n = m = 0;
 			//if this is placed in an eclipse package
-			String path = "src/assignment1/" + args[0];  
-			//String path = args[0];
+			//String path = "src/assignment1/" + args[0];  
+			String path = args[0];
 			detectMatrixDemensions(path);
 			matrix = new float[n][m];
 			parseMatrix(path);
@@ -57,23 +57,18 @@ class Threading {
 		 * ["sum", "r/c", "index"]   ==> ROW (n+m) - 1
 		 * ]
 		 */
-//		for(int i = 0; i < n+m; i++) {
-//			solnMatrix[i] = new String[3];
-//		}
 		solnMatrix = new String[n+m][3];
 	}
 
-	static void sumRowCol(float[][] array) throws FileNotFoundException {
+	static void sumRowCol(float[][] array) throws FileNotFoundException, InterruptedException {
 		Matrix matrix = new Matrix(array);
 		// create and submit threads to sum rows and cols
 		ExecutorService executor = Executors.newFixedThreadPool(array[0].length + array.length);
 		int ix = 0;
-		ArrayList<Task> tasks = new ArrayList<>();
 		for (int i = 0; i < array.length; i++) {
 			Task task = new Task(String.format("row %d", i), matrix.getRow(i));
-			//executor.submit(task);
-			tasks.add(task);
-			System.out.print(String.format("\n**thread %s submitted at %s", 
+			executor.execute(task);
+			System.out.print(String.format("\n\n**thread %s submitted at %s\n\n", 
 					task.id, LocalDateTime.now().toString()));
 			solnMatrix[ix][0] = Float.toString(task.sum);
 			solnMatrix[ix][1] = task.id.contains("row") ? "r" : "c";
@@ -82,16 +77,14 @@ class Threading {
 		}
 		for (int i = 0; i < array[0].length; i++) {
 			Task task = new Task(String.format("col %d", i), matrix.getCol(i));
-			//executor.submit(task);
-			tasks.add(task);
-			System.out.print(String.format("\n** thread %s submitted at %s", 
+			executor.execute(task);
+			System.out.print(String.format("\n\n** thread %s submitted at %s\n\n", 
 					task.id, LocalDateTime.now().toString()));
 			solnMatrix[ix][0] = Float.toString(task.sum);
 			solnMatrix[ix][1] = task.id.contains("row") ? "r" : "c";
 			solnMatrix[ix][2] = Integer.toString(i);
 			ix++;
 		}
-		executor.invokeAll(tasks);
 		executor.shutdown();
 		while (!executor.isTerminated()) {}
 	}
@@ -113,7 +106,7 @@ class Threading {
 				sum += sequence[i];
 			}
 			long time = System.nanoTime() - start;
-			System.out.printf("\n\n\ttask %s finished in %dns with sum %f \n\n", id, (int)time, sum);
+			System.out.printf("\n\n\ttask %s finished in %dns with sum %.3f \n\n", id, (int)time, sum);
 		}
 
 	}
