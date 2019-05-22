@@ -3,6 +3,7 @@
 #reset environment
 echo cleaning build folder
 cd build && rm * && ls && cd ..
+rm build.tar
 
 echo 'Hello Human!'
 
