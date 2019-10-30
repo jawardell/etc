@@ -20,14 +20,10 @@ public class IP {
     System.out.print("\n\n\tenter the netmask value 0-32\n");
     int netmask = scanner.nextInt();
     int host = 32 - netmask;
-    //System.out.println("host=" + host);
-    //System.out.println("netmask=" + netmask);
-    //System.out.println("netmask+host=" + (netmask+host));
     String prefix = getNetworkPrefix(netmask);
     System.out.printf("\n\n\tthere are %d total ip addresses with a /%d netmask\n", (int)Math.pow(2,host), netmask);
     for(int i = 0; i < Math.pow(2, host); i++) {
       String node = getBinary(i, host);
-      //System.out.print(getBinary(i) + "\n");
       System.out.print(getIpAddress(prefix, node) + "\n");
       pw.printf("%s,\n", getIpAddress(prefix, node));
     }
@@ -38,7 +34,6 @@ public class IP {
 
   public static String getBinary(int i, int host) {
     String s = (host != 0) ? "%" + host + "s" : "%1s";
-    //System.out.println(s);
     String num = String.format(s, Integer.toBinaryString(i));
     String[] array = new String[num.length()];
     for(int j = 0; j < num.length(); j++) {
@@ -56,32 +51,24 @@ public class IP {
   }
 
   public static String getNetworkPrefix(int prefix) {
-    //System.out.println("here is the prefix " + prefix);
     String res = new String();
     for(int i = 0; i < prefix; i++) {
       res += "1";
     }
-    //System.out.println("here is the prefix " + res);
     return res;
   }
 
   public static String getIpAddress(String prefix, String host) {
     String res = new String();
     String sum = prefix + host;
-    //System.out.println("prefix.length()=" + prefix.length());
-    //System.out.println("host.length()=" + host.length());
-    //System.out.println("here is the sum: " + sum + "\t" + sum.length());
     int pos = 0;
     for(int i = 0; i < sum.length() + 3; i++) {
       if(pos >= sum.length()) {
         break;
       }
       if((pos != 0) && (pos % 8 == 0)) {
-        //System.out.println("this is pos and mod 8 is 0\t" + pos);
         res += ".";
       } else {
-        //System.out.println("this is pos " + pos);
-        //System.out.println("this is charat pos " + sum.charAt(pos));
         res += sum.charAt(pos);
       }
       pos++;
