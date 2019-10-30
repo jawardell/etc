@@ -8,7 +8,23 @@ import java.io.*;
 
 public class IP {
   public static void main(String[] args) {
-    File file = new File("netmasks.csv");
+    Scanner scanner = new Scanner(System.in);
+    int netmask = -1;
+    if(args.length != 0) {
+      netmask = Integer.parseInt(args[0]); 
+    } else {
+      System.out.print("\n\n\tenter the netmask value 0-32\n");
+      netmask = scanner.nextInt();
+    }
+    if(netmask < 0) {
+      System.out.println("netmask was never initialized. exiting now.");
+      System.exit(1);
+    }
+    if(netmask > 32) {
+      System.out.println("netmask must be in [0-32]");
+      System.exit(1);
+    }
+    File file = new File("netmasks" + netmask + "_" + System.currentTimeMillis() + ".csv");
     PrintWriter pw = null;
     try {
       pw = new PrintWriter(file);
@@ -16,9 +32,6 @@ public class IP {
       System.out.print("\nan exception was thrown\n");
       System.exit(1);
     }
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("\n\n\tenter the netmask value 0-32\n");
-    int netmask = scanner.nextInt();
     int host = 32 - netmask;
     String prefix = getNetworkPrefix(netmask);
     System.out.printf("\n\n\tthere are %d total ip addresses with a /%d netmask\n", (int)Math.pow(2,host), netmask);
