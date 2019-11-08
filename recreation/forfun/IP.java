@@ -110,14 +110,18 @@ public class IP {
 
 
   public static String getBinIp(String decIp) {
+    System.out.println("here's the dec ip - " + decIp);
     String[] decs = decIp.split("\\.");
     String res = new String();
     int i = 1;
     for(String s : decs) {
+      for(int j = 0; j < (8 - Integer.toBinaryString(Integer.parseInt(s)).length()); j++) {
+        res += "0";
+      }
+      res += Integer.toBinaryString(Integer.parseInt(s));
       if(i != 4) {
         res += ".";
       }
-      res += Integer.toBinaryString(Integer.parseInt(s));
       i++;
     }
     return res;
@@ -134,7 +138,10 @@ public class IP {
     String binIp = getIpAddress(prefix, getBinary(0, host));
     System.out.println("here's the ip address- " + binIp);
     String startIp = initIp(binIp.split("\\."));
+    String endIp = getBroadcast(startIp);
+    System.out.println("endIp= " + endIp);
     System.out.println("here's the start IP- " + startIp + " = " + getBinIp(startIp));
+    System.out.println("here's the end IP- " + endIp + " = " + getBinIp(endIp));
     System.exit(0);
   }
 
@@ -150,7 +157,26 @@ public class IP {
       if(i != 4) {
         res += ".";
       }
+      i++;
     }
     return res;
   }
+
+
+  public static String getBroadcast(String startIp) {
+    String[] array = startIp.split("\\.");
+    array[3] = "255";
+    String res = new String();
+    int i = 1;
+    for(String s : array) {
+      res += s;
+      if(i != 4) {
+        res += ".";
+      }
+      i++;
+    }
+    return res;
+  }
+
+
 }
