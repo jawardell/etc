@@ -1,0 +1,213 @@
+bit manipulation
+
+we need to be focused on the low level details when we are programming in c 
+we deal with low level stuff like memory .. and stuff.. 
+
+we will be analysing low level .. stuff
+
+
+the second assignment will deal with bit manipulation and pointers
+
+
+there are operators which will complete bit manipulations in memory for you 
+
+BIT compliment
+		ones's compliment (inverting numbers)
+			it inverses 1s and 0s
+		two's compliment	(negating numbers)
+			when c and other languages represent negative integers
+			in c you cannot assume how many bytes an integer needs..
+
+				int could be four or eight
+				but we know that most of the digits at the beginning will 
+				be zeros
+				Step 1:   does bitwize compilment on upper zeros
+				Step 2:   1 is added to the very end
+		negative numbers in binary[?] how (highest number is a one, that makes it negative somehow)
+
+		bytes in memory 
+			[0][0][0][0][0][1111111110][1111110]
+				something like that..
+		
+
+		bitwise binary logical operators
+			bitwise AND, OR, NOR, XOR
+		Left and Right shift
+			
+
+what are signed and unsigned types?? 
+
+
+
+what is a gist
+
+
+vim set paste 
+then you can copy and paste and vim knows 
+	how to indent
+you can also do shift ZZ to quit
+
+
+
+
+
+there can be multiple functions in a file
+
+	java, there were classes, attriubutes, methods, etc.. didn't 
+		have to worry about the order in which they were listed 
+	... but in c... 
+		the order matters! because C is procedural
+		there is the main method
+		but what if there are two or more functions
+	
+
+		THE FUNCTION MUST BE DECLARED BEFORE ITS CALLED
+		every funciton other than the main function must have a declaration before it is called
+		tells the c compiler that there is such a function that is available to be used 
+		don't even have to tell the compiler what the name of the argument is
+			the compiler doesn't care
+		we declare the functions [other than main] at the top of the file after the include statements
+		after that we can put the actual bodies, or declarations, of the functions later
+		variables delcarations and definition (what's the difference, we will discuss later)
+		
+		method delcaration and definition
+		
+		
+		int a();
+		int b();
+
+		-- then order doesn't matter
+		inb b() {}
+		int a() { b(); }
+
+		
+
+SIGNED -- can hold zero, positive, and negative values
+UNSIGNED -- can hold only positive values
+
+
+
+format print for unsigned and signed values****
+
+
+what happens when you try to make an unsigned variable signed? 
+
+		it will do that for you but it follows the rules of
+		an unsiged value.. 
+		so what is the point of having an 
+
+
+
+[11111111][11111111][11111111][11111110]
+[] are bytes
+1 and 0 are bits
+
+
+
+so the conventions are followed, the bits before the value are made negative (this is how c knows what is negative)
+	but unsigned doesn't know that ! so the number is improperly caluclated 
+
+right bitshifting on negative numbers   --- one of the ones becomes a zero!
+
+
+
+
+conclusion    --- if you want to do bitshifting, you should stick to using unsigned values 
+
+
+	because of the way that c represents signed values using 1s to represent nengatives
+
+
+
+
+bit masks
+	toggle extract and set 
+		acticing on specific bits in a numeric number 
+	but what is a bit mask???
+
+talk about bits in groups of eight, bytes [11111111][11111111][11111111][111111111]
+
+
+
+bit flags and bit masks
+	what are they... ? 
+
+	put a one at the end
+	all zeros other than that one 
+		shft that one to the desired location matching the bit that you want to change
+		eg you wna to get to index 12 from 0, so shift 11 times
+
+
+
+		extracting
+	
+		when you get there , then do a bitwise AND 
+			this will give you the value that is there 
+			if it used to be a zero, then zero stays
+			if it used to be a one, the one stays
+		a bit that you want to see what value is and take it out
+		make bit mask
+		shift to left until arrives at what you want	
+		then apply bitwise and 
+		this will leave the value that you want
+		assign the value to the bit mask
+		then shift back to index 0 and you have the value 
+ 
+
+
+we can do masking with a range of spots 
+	you will do the same thing as you do with the one value
+	but you will do it in groups of how many values that you have in the group
+
+
+
+bit mask is group of bits you are trying to mess with 
+bit flag is one single bit that you are trying to mess with 
+
+
+
+
+
+
+
+PS -- he says the assignment is hard... 
+
+
+
+plotting a quadrtic funciton
+
+
+he cares about efficieny 
+	so no nested loop
+
+he is going to chnage the function and the range of the ind. variable 
+
+also , he will chang the low and high when he does the testing
+want you to plot out the fucntion that is so cool 
+
+he wants us to plot it sideways
+
+
+
+
+
+
+
+HINTS -- 
+
+
+you come up with an array of chars which is a sting
+then you put an astercik at the index whoese palce is this on teh graph 
+
+then don't forget about the \0 
+
+then then the Stirng is completed 
+
+you are reusing the array of chars which is  string to print out that string/fuction
+
+
+stirng with white space only has * at the index of the output of the funciton 
+
+
+
+o

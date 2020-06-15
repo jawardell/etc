@@ -1,0 +1,164 @@
+the understanding of memory and poniters is hidden in other languages
+
+
+
+but in c we care about it
+
+there is no other way for us to do it
+other than getting our hands dirty and learning it
+
+
+
+we are now done with chapter zero 
+
+
+
+UNTAR CH1!!!!!!!
+
+
+
+
+
+example code related to pointers
+
+
+
+what is a pointer 
+
+it is one of the types that c has 
+
+we have seen int  signed and unsigned
+we have seen char  signed and unsigned 
+
+
+pointer is a type
+
+waht is the job of a pointer 
+
+it stored teh address of another thing... 
+a pointer is pretty versitile 
+
+that thing cn be used to store the address of another thing
+
+it can store the address of osmething, 
+
+	an int
+	a char 
+	a structure (not object, collection of stuff)
+
+
+a pointer can point to a function 
+this will allow a function to be passed as a paramter into an other funtion .. ! wowo 
+
+
+
+let's pass in a function as an argumnet into another function
+
+	pointers allow us to do this
+
+x   --->    n()
+
+f(x)   is   f(n())
+
+
+javascript is very good at that 
+js is a functional language
+fucntions are first level citizens
+functions can be used in the same way that you deal with other types
+
+
+
+
+
+
+what is the purpose of using pointers to begin with 
+
+if you have teh ability of allowing x to point ot a pice of data, 
+
+	then when you have to share teh data with someone else, 
+	you don't have to make a copy of the data, 
+	you just give the poerson x, the ointer to the data
+	and you don't have to make a copy of the data or fuction or struture etc..
+
+
+
+to avoid copies 
+to share data
+
+
+
+
+
+
+
+
+undertand the terms 
+you can then talk technically to other poeople about what you are doing 
+so get an understanding of the terms 
+
+
+
+don't assume that your initialized values are sequntially next to eachother ... 
+
+
+chaces are that they are next to eachother.. 
+
+
+but do not assume that!!! 
+
+
+
+
+that is declaring a variable. 
+
+
+
+the first time you see a pointer vairable in c, say hi to it 
+
+
+%p
+
+format print for pointers! addresses of memory things stored in memory. 
+
+
+
+
+	1. name 
+	2. type 
+	3. value
+	4. address
+	5. size
+
+
+
+you have to compolte the sentence! its a pointer..... TO WHAT??!?!
+
+
+
+its a pointer to double.
+
+
+any time you have a poinoter don't just say its a pointer 
+
+know what kind of pointer it is
+
+
+what is the size of it? 
+
+the size of teh pointer is system dependent 
+(waht is the foot print of p itself)
+	how many letters are in the name of the pointer 
+
+every poniter needs 4 bytes 
+pointers have 8 bytes, too 
+system dependent
+
+
+as of now, it doesn't have naythng, just garbage. 
+
+	when you do double *p;
+ 
+
+
+
+
